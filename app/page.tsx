@@ -8,6 +8,7 @@ import { homeID, HOMEPAGE_QUERY } from "@/sanity/data/queries";
 import { draftMode } from "next/headers";
 import Module from "@/components/modules/module";
 import { cx } from "class-variance-authority";
+import MegaMenu from "@/components/modules/mega-menu";
 
 type Props = {
   params: { slug: string[] | string };
@@ -62,6 +63,7 @@ export default async function Home({ params }: any) {
 
   return (
     <main className="w-full h-full">
+      <MegaMenu />
       {content.map((module: any, i: number) => {
         return <Module module={module} key={i} />;
       })}

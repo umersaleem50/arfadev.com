@@ -10,37 +10,37 @@ export const portableSimple: any = {
       </strong>
     ),
     normal: ({ children }: any) => (
-      <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-sans leading-normal lg:my-8">
+      <p className="text-sm md:text-base lg:text-lg text-muted dark:text-secondary font-sans leading-normal lg:my-8">
         {children}
       </p>
     ),
     h1: ({ children }: any) => (
-      <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl font-semibold text-primary my-2 md:my-4 lg:my-8 ">
+      <h1 className="font-serif text-3xl md:text-4xl lg:text-6xl font-semibold text-muted dark:text-primary my-2 md:my-4 lg:my-8 ">
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="font-serif text-3xl lg:text-5xl font-semibold text-primary md:my-4 lg:my-8 ">
+      <h2 className="font-serif text-3xl lg:text-5xl font-semibold text-muted dark:text-primary md:my-4 lg:my-8 ">
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="font-serif text-2xl lg:text-4xl font-semibold text-primary md:my-4 lg:my-8 ">
+      <h3 className="font-serif text-2xl lg:text-4xl font-semibold text-muted dark:text-primary md:my-4 lg:my-8 ">
         {children}
       </h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="font-serif text-xl lg:text-3xl font-semibold text-primary md:my-4 lg:my-8 ">
+      <h4 className="font-serif text-xl lg:text-3xl font-semibold text-muted dark:text-primary md:my-4 lg:my-8 ">
         {children}
       </h4>
     ),
     h5: ({ children }: any) => (
-      <h5 className="font-serif text-lg lg:text-2xl font-semibold text-primary md:my-4 lg:my-8">
+      <h5 className="font-serif text-lg lg:text-2xl font-semibold text-muted dark:text-primary md:my-4 lg:my-8">
         {children}
       </h5>
     ),
     h6: ({ children }: any) => (
-      <h6 className="font-serif text-base lg:text-xl font-semibold text-primary md:my-4 lg:my-8 ">
+      <h6 className="font-serif text-base lg:text-xl font-semibold text-muted dark:text-primary md:my-4 lg:my-8 ">
         {children}
       </h6>
     ),
