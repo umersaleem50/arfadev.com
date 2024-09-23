@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
+  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -17,6 +18,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ScrollArea } from "../ui/scroll-area";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -134,6 +136,7 @@ function DesktopNav() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+        <NavigationMenuIndicator />
       </NavigationMenuList>
     </NavigationMenu>
   );
@@ -149,45 +152,47 @@ function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="bg-primary">
-        <p className="text-secondary pb-4 border-b text-lg border-secondary mb-4">
-          Explore
-        </p>
-        <nav className="flex flex-col space-y-6">
-          <Link href="/docs" className="text-lg font-serif font-medium ">
-            Introduction
-          </Link>
-          <Link
-            href="/docs/installation"
-            className="text-lg font-serif font-medium "
-          >
-            Installation
-          </Link>
-          <Link
-            href="/docs/primitives/typography"
-            className="text-lg font-serif font-medium "
-          >
-            Typography
-          </Link>
-          <details className="group">
-            <summary className="text-lg font-serif font-medium cursor-pointer">
-              Components
-            </summary>
-            <div className="mt-2 space-y-2 pl-4">
-              {components.map((component) => (
-                <Link
-                  key={component.title}
-                  href={component.href}
-                  className="block text-md font-sans"
-                >
-                  {component.title}
-                </Link>
-              ))}
-            </div>
-          </details>
-          <Link href="/docs" className="text-lg font-serif font-medium ">
-            Documentation
-          </Link>
-        </nav>
+        <ScrollArea className="h-full">
+          <p className="text-secondary pb-4 border-b text-lg border-secondary mb-4">
+            Explore
+          </p>
+
+          {/* <nav className="flex flex-col space-y-6"> */}
+          <NavigationMenu className="flex flex-col items-start space-y-6 list-none">
+            <ListItem href="/docs" title="Introduction">
+              Re-usable components built using Radix UI and Tailwind CSS.
+            </ListItem>
+            <ListItem href="/docs" title="Installation">
+              Re-usable components built using Radix UI and Tailwind CSS.
+            </ListItem>
+            <ListItem href="/docs" title="Typography">
+              Re-usable components built using Radix UI and Tailwind CSS.
+            </ListItem>
+            <details className="group justify-start">
+              <summary className="text-lg font-serif font-bold cursor-pointer text-left w-full">
+                <span>Components</span>
+                <p className="text-sm text-accent-foreground/70 font-sans font-light pl-3">
+                  Explore more services
+                </p>
+              </summary>
+
+              <div className="mt-2 space-y-2 pl-4">
+                {components.map((component) => (
+                  <ListItem
+                    href="/docs"
+                    title="Typography"
+                    key={component.title}
+                  >
+                    Re-usable components built using Radix UI and Tailwind CSS.
+                  </ListItem>
+                ))}
+              </div>
+            </details>
+            <Link href="/docs" className="text-lg font-serif font-medium ">
+              Documentation
+            </Link>
+          </NavigationMenu>
+        </ScrollArea>
       </SheetContent>
     </Sheet>
   );
@@ -208,7 +213,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-lg font-medium leading-none font-serif">
+          <div className="text-lg font-bold leading-none font-serif">
             {title}
           </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-sans">
