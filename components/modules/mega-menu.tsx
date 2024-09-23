@@ -88,10 +88,10 @@ function DesktopNav() {
                     href="/"
                   >
                     {/* <Icons.logo className="h-6 w-6" /> */}
-                    <div className="mb-2 mt-4 text-lg font-medium">
+                    <div className="mb-2 mt-4 text-lg font-medium font-serif">
                       shadcn/ui
                     </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
+                    <p className="text-sm leading-tight text-muted-foreground font-sans">
                       Beautifully designed components that you can copy and
                       paste into your apps. Accessible. Customizable. Open
                       Source.
@@ -144,26 +144,32 @@ function MobileNav() {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon">
-          <Menu className="h-6 w-6" />
+          <Menu className="h-6 w-6 text-primary hover:text-primary-foreground" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right">
-        <nav className="flex flex-col space-y-4">
-          <Link href="/docs" className="text-sm font-medium">
+      <SheetContent side="right" className="bg-primary">
+        <p className="text-secondary pb-4 border-b text-lg border-secondary mb-4">
+          Explore
+        </p>
+        <nav className="flex flex-col space-y-6">
+          <Link href="/docs" className="text-lg font-serif font-medium ">
             Introduction
           </Link>
-          <Link href="/docs/installation" className="text-sm font-medium">
+          <Link
+            href="/docs/installation"
+            className="text-lg font-serif font-medium "
+          >
             Installation
           </Link>
           <Link
             href="/docs/primitives/typography"
-            className="text-sm font-medium"
+            className="text-lg font-serif font-medium "
           >
             Typography
           </Link>
           <details className="group">
-            <summary className="text-sm font-medium cursor-pointer">
+            <summary className="text-lg font-serif font-medium cursor-pointer">
               Components
             </summary>
             <div className="mt-2 space-y-2 pl-4">
@@ -171,14 +177,14 @@ function MobileNav() {
                 <Link
                   key={component.title}
                   href={component.href}
-                  className="block text-sm"
+                  className="block text-md font-sans"
                 >
                   {component.title}
                 </Link>
               ))}
             </div>
           </details>
-          <Link href="/docs" className="text-sm font-medium">
+          <Link href="/docs" className="text-lg font-serif font-medium ">
             Documentation
           </Link>
         </nav>
@@ -202,8 +208,10 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-lg font-medium leading-none font-serif">
+            {title}
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-sans">
             {children}
           </p>
         </a>
