@@ -4,13 +4,15 @@
 
 :root {
   --background: #f1ece0;
-  --foreground: 32 27% 74%;
+  --foreground: #031625;
+  --brand-black: #031625;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #031625;
-    --foreground: 206 85% 8%;
+    --foreground: #d9b59f;
+    --brand-black: #031625;
   }
 }
 

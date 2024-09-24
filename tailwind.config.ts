@@ -9,9 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        card: "max-w-[30rem]",
+        container: "max-w-[85rem]",
+      },
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        // background: "hsl(var(--background))",
+        // foreground: "hsl(var(--foreground))",
+        "brand-black": "var(--brand-black)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

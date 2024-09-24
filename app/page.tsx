@@ -9,6 +9,9 @@ import { draftMode } from "next/headers";
 import Module from "@/components/modules/module";
 import { cx } from "class-variance-authority";
 import { MegaMenu } from "@/components/modules/mega-menu";
+import WhyChooseUs from "@/components/modules/why-choose-us";
+import PortfolioModuel from "@/components/modules/portfolio-module";
+import Testimonials from "@/components/modules/testimonial";
 
 type Props = {
   params: { slug: string[] | string };
@@ -67,7 +70,9 @@ export default async function Home({ params }: any) {
       {content.map((module: any, i: number) => {
         return <Module module={module} key={i} />;
       })}
-      <div className={cx(["bg-primary", "text-center"])}>This is test</div>
+      <WhyChooseUs />
+      <PortfolioModuel />
+      <Testimonials />
     </main>
   );
 }

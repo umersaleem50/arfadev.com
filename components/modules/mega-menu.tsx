@@ -60,21 +60,23 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function MegaMenu() {
   return (
-    <div className="flex items-center justify-between p-4 bg-primary fixed top-0 w-full">
-      <Link href="/" className="flex items-center space-x-2">
-        {/* <Icons.logo className="h-6 w-6" /> */}
-        <span className="font-bold">shadcn/ui</span>
-      </Link>
-      <div className="hidden md:block">
-        <DesktopNav />
+    <header className="bg-primary fixed top-0 w-full z-20">
+      <div className="flex items-center justify-between py-4 max-w-[85rem] mx-auto">
+        <Link href="/" className="flex items-center space-x-2">
+          {/* <Icons.logo className="h-6 w-6" /> */}
+          <span className="font-bold">shadcn/ui</span>
+        </Link>
+        <div className="hidden md:block">
+          <DesktopNav />
+        </div>
+        <div className="md:hidden">
+          <MobileNav />
+        </div>
+        <div className="sm:block hidden">
+          <Button variant={"secondary"}>Let's Talk</Button>
+        </div>
       </div>
-      <div className="md:hidden">
-        <MobileNav />
-      </div>
-      <div className="sm:block hidden">
-        <Button>Let's Talk</Button>
-      </div>
-    </div>
+    </header>
   );
 }
 

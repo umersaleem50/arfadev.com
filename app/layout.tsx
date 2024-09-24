@@ -5,6 +5,7 @@ import { poppinFonts } from "./fonts/custom-fonts";
 import { EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers/theme-provider";
+import SmoothScrollProvider from "./providers/smooth-scroll";
 
 const VisualEditing = dynamic(() =>
   import("next-sanity").then((mob) => mob.VisualEditing)
@@ -34,22 +35,25 @@ export default function RootLayout({
       <body
         className={`${poppinFonts.variable} ${EbFont.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
-        >
-          {draftMode().isEnabled && (
-            <a
-              className="fixed right-0 bottom-0 bg-blue-500 text-white p-4 m-4"
-              href="/api/draft-mode/disable"
-            >
-              Disable preview mode
-            </a>
-          )}
-          {children}
-          {draftMode().isEnabled && <VisualEditing />}
-        </ThemeProvider>
+        <SmoothScrollProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            disableTransitionOnChange
+            enableSystem
+          >
+            {draftMode().isEnabled && (
+              <a
+                className="fixed right-0 bottom-0 bg-blue-500 text-white p-4 m-4"
+                href="/api/draft-mode/disable"
+              >
+                Disable preview mode
+              </a>
+            )}
+            {children}
+            {draftMode().isEnabled && <VisualEditing />}
+          </ThemeProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

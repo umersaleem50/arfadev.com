@@ -1,6 +1,6 @@
 import React from "react";
 import HorizontalSlider from "../horizontal-slider";
-import SectionHeading from "../section-heading";
+import SectionHeading from "../section-options";
 
 function AwardModules({ module }: any) {
   const { metaData, content } = module;
