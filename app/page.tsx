@@ -12,6 +12,7 @@ import WhyChooseUs from "@/components/modules/why-choose-us";
 import PortfolioModuel from "@/components/modules/portfolio-module";
 import Testimonials from "@/components/modules/testimonial";
 import Services from "@/components/modules/services.module";
+import ContactModule from "@/components/modules/contact.module";
 
 type Props = {
   params: { slug: string[] | string };
@@ -74,6 +75,7 @@ export default async function Home({ params }: any) {
       <PortfolioModuel />
       <Testimonials />
       <Services />
+      <ContactModule />
     </main>
   );
 }

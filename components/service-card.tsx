@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { ReactNode } from "react";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
-import ToolsSVG from "./svgs/service-card-svgs";
 
 export interface IServiceCard {
   index: number;
   className?: string;
+  SVGComponent?: any;
 }
 
-function ServiceCard({ index = 0, className }: IServiceCard) {
+function ServiceCard({ index = 0, className, SVGComponent }: IServiceCard) {
   return (
     <figure
       className={cn(
@@ -19,7 +19,9 @@ function ServiceCard({ index = 0, className }: IServiceCard) {
         className
       )}
     >
-      <ToolsSVG className="mt-32 mb-4" />
+      {SVGComponent && (
+        <SVGComponent className="mt-32 mb-4 h-[10rem] overflow-hidden" />
+      )}
       <h3 className="text-2xl font-serif text-brand-black">1. Web Designing</h3>
       <p className="text-sm font-sans text-brand-black">
         We Provide elegant web design service to law firm to increase your user
