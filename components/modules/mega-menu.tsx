@@ -19,7 +19,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "../ui/scroll-area";
-import { ModeToggle } from "../ui/mode-toggle";
 
 const components: { title: string; href: string; description: string }[] = [
   {

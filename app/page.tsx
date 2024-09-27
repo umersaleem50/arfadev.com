@@ -13,6 +13,8 @@ import PortfolioModuel from "@/components/modules/portfolio-module";
 import Testimonials from "@/components/modules/testimonial";
 import Services from "@/components/modules/services.module";
 import ContactModule from "@/components/modules/contact.module";
+import BlogsModule from "@/components/modules/blogs-module";
+import FooterModule from "@/components/modules/footer.module";
 
 type Props = {
   params: { slug: string[] | string };
@@ -76,6 +78,8 @@ export default async function Home({ params }: any) {
       <Testimonials />
       <Services />
       <ContactModule />
+      <BlogsModule />
+      <FooterModule />
     </main>
   );
 }
