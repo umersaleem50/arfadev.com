@@ -14,17 +14,26 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
-const newsLetterSchema = z.object({ email: z.string().email() });
+const newsLetterSchema = z.object({
+  email: z.string().min(1).email("Please enter a valid email."),
+});
 
-function NewsLetterForm({ className }: { className?: string }) {
+function NewsLetterForm({
+  className,
+  dark,
+}: {
+  className?: string;
+  dark?: boolean;
+}) {
   const form = useForm<z.infer<typeof newsLetterSchema>>({
     resolver: zodResolver(newsLetterSchema),
     defaultValues: { email: "" },
   });
   return (
     <Form {...form}>
-      <form className={className}>
+      <form className={cn(className, "space-y-2")}>
         <h3 className="text-3xl font-serif font-medium text-secondary">
           Subscribe to free newsletter
         </h3>
@@ -33,11 +42,22 @@ function NewsLetterForm({ className }: { className?: string }) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel className={dark ? "text-muted-foreground" : ""}>
+                Email
+              </FormLabel>
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input
+                  placeholder="Enter your email"
+                  {...field}
+                  // className={dark ? "border border-input !bg-none" : ""}
+                  className={
+                    "bg-foreground text-secondary border-secondary border placeholder:text-accent-foreground"
+                  }
+                />
               </FormControl>
-              <FormDescription>You can unsubscribe anytime.</FormDescription>
+              <FormDescription className={dark ? "text-muted-foreground" : ""}>
+                You can unsubscribe anytime.
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

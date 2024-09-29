@@ -8,6 +8,7 @@ function PlayButton() {
       variant={"svg"}
       onClick={() => alert("wokring")}
       className="z-10 cursor-pointer hover:cursor-pointer hover:drop-shadow-md group"
+      aria-label="Play Testimonial"
     >
       <svg
         width="72"
