@@ -6,17 +6,23 @@ export default {
   type: "object",
   fields: [
     {
+      name: "miniTitle",
+      title: "Mini Title",
+      type: "string",
+      description: "Optional! Keep it short.",
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
       validation: (Rule: any) => Rule.required().max(100),
     },
     {
-      name: "paragraph",
-      title: "Paragraph",
+      name: "subtitle",
+      title: "Subtitle",
       rows: 3,
       type: "text",
-      validation: (Rule: any) => Rule.max(200).warning("Keep paragraph short."),
+      validation: (Rule: any) => Rule.max(200).warning("Keep subtitle short."),
     },
     {
       name: "mainLink",

@@ -1,21 +1,27 @@
 import Link from "next/link";
-import React, { ReactNode } from "react";
+
 import { buttonVariants } from "./ui/button";
+import CustomImage from "./custom-image";
+
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 export interface IServiceCard {
   index: number;
   className?: string;
-  SVGComponent?: any;
-  src: any;
+  icon: any;
+  title: string;
+  subtitle: string;
+  page: { slug: any };
 }
 
 function ServiceCard({
   index = 0,
   className,
-  SVGComponent,
-  src,
+  icon,
+  title,
+  subtitle,
+  page,
 }: IServiceCard) {
   return (
     <figure
@@ -28,15 +34,23 @@ function ServiceCard({
       {/* {SVGComponent && (
         <SVGComponent className="mt-32 mb-4 h-[10rem] overflow-hidden" />
       )} */}
-      <div className="mt-32 mb-4 h-[6rem] w-[6rem] overflow-hidden relative">
-        <Image src={src} fill alt="SVG" className="object-contain" />
-      </div>
-      <h3 className="text-2xl font-serif text-brand-black">1. Web Designing</h3>
-      <p className="text-sm font-sans text-brand-black">
-        We Provide elegant web design service to law firm to increase your user
-        experience.
-      </p>
-      <Link className={buttonVariants({ variant: "link" })} href={"/"}>
+      {icon && (
+        <div className="mt-32 mb-4 h-[6rem] w-[6rem] overflow-hidden relative">
+          <CustomImage
+            src={urlFor(icon?.asset).url()}
+            imageOBJ={icon?.asset}
+            fill
+            alt="SVG"
+            className="object-contain"
+          />
+        </div>
+      )}
+      <h3 className="text-2xl font-serif text-brand-black">{title}</h3>
+      <p className="text-sm font-sans text-brand-black">{subtitle}</p>
+      <Link
+        className={buttonVariants({ variant: "link" })}
+        href={page?.slug?.current || "/"}
+      >
         Learn More
       </Link>
     </figure>

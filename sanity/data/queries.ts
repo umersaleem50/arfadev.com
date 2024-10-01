@@ -49,7 +49,7 @@ export const modules = `
       _type == "mission" => @->,
       _type == "gallery" => @->,
       _type == "team" => {...,team[]->,${metaData}},
-      _type ==  "services" => {...,content[]->,${metaData}},
+      _type ==  "services" => {...,content[]{...,defined(page) => {page ->{slug}}},${metaData}},
       _type == "testimonial" => @->,
       _type == "featured-posts" => {...,${metaData},posts[]->{...,author->{name,photo}}},
       _type == "footer" => {...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}}},

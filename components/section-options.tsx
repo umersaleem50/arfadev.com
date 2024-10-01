@@ -7,16 +7,16 @@ export interface IOptions {
   className?: string;
 }
 
-export interface ISectionOptions extends IOptions {
-  section?: string;
+export interface ISectionHeader extends IOptions {
+  miniTitle?: string;
 }
 
-function SectionOptions({
+function SectionHeader({
   title,
   subtitle,
   className,
-  section,
-}: ISectionOptions) {
+  miniTitle,
+}: ISectionHeader) {
   return (
     <div
       className={cn(
@@ -24,9 +24,9 @@ function SectionOptions({
         className
       )}
     >
-      {section && (
+      {miniTitle && (
         <p className="text-sm font-sans border-b inline-block self-start border-current pb-3 max-w-lg">
-          {section}
+          {miniTitle}
         </p>
       )}
       <h2 className="text-4xl font-bold leading-loose font-serif  max-w-lg">
@@ -51,4 +51,4 @@ export function PortfolioOptions({ title, subtitle, className }: IOptions) {
   );
 }
 
-export default SectionOptions;
+export default SectionHeader;

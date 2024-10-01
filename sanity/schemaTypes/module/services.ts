@@ -7,7 +7,7 @@ export default defineField({
   name: "services",
   icon: SealCheck,
   fields: [
-    { type: "sectionID", name: "id" },
+    // { type: "sectionID", name: "id" },
     { type: "metaData", name: "metaData" },
     {
       type: "array",
@@ -15,17 +15,44 @@ export default defineField({
       title: "Services",
       of: [
         {
-          type: "reference",
-          name: "page",
-          to: [{ type: "page" }],
-          options: {
-            filter: "category == $type",
-            filterParams: { type: "service" },
-          },
+          type: "object",
+          name: "service",
+          title: "Service",
+          fields: [
+            { type: "string", name: "title", title: "Title Of Service" },
+            {
+              type: "string",
+              name: "subtitle",
+              title: "Description Of Service",
+            },
+            {
+              type: "reference",
+              name: "page",
+              to: [{ type: "page" }],
+              options: {
+                filter: "category == $type",
+                filterParams: { type: "service" },
+              },
+            },
+            {
+              type: "customImage",
+              name: "icon",
+              title: "Icon",
+              description:
+                "Try to use a lineart with svg for better results. Recommend size 96x96 pixels.",
+            },
+          ],
         },
       ],
+
       validation: (Rule: any) =>
-        Rule.max(6).error("You can add only 6 services here."),
+        Rule.max(4).error("You can add only 4 services here."),
+    },
+    {
+      type: "customImage",
+      name: "lineArt",
+      title: "Line Art",
+      description: "Try to use a lineart with svg for better results. ",
     },
   ],
   preview: {

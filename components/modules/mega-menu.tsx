@@ -61,7 +61,13 @@ function DesktopNav({ module }: any) {
                 />
               );
             case "navLink":
-              return <NaviationMenuLink title={item.title} url={item.url} />;
+              return (
+                <NaviationMenuLink
+                  title={item.title}
+                  url={item.url}
+                  key={key}
+                />
+              );
             default:
               null;
           }
@@ -93,7 +99,7 @@ function MobileNav({ module }: any) {
               switch (item._type) {
                 case "navDropdown":
                   return (
-                    <details className="group justify-start" open>
+                    <details className="group justify-start" open key={key}>
                       <summary className="text-lg text-secondary font-serif font-bold cursor-pointer text-left w-full">
                         <span>{item.title}</span>
                       </summary>
@@ -123,6 +129,7 @@ function MobileNav({ module }: any) {
                     <Link
                       href={item?.url}
                       className="text-secondary text-lg font-serif font-medium "
+                      key={key}
                     >
                       {item?.title}
                     </Link>

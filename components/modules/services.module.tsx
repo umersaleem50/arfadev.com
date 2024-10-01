@@ -8,46 +8,62 @@ import {
   MonitorSVG,
   ToolsSVG,
 } from "../svgs/service-card-svgs";
+import CustomImage from "../custom-image";
+import { urlFor } from "@/sanity/lib/image";
+interface IService {
+  title: string;
+  subtitle: string;
+  icon: any;
+  page: any;
+  _type: string;
+}
 
-function Services() {
+interface ICustomImage {
+  asset: any;
+  width: number | string;
+  height: string | number;
+  _type: string;
+}
+
+function Services({ module }: any) {
+  const metaData = module?.metaData || {};
+  const content = module?.content || [];
+
+  const lineArt = module?.lineArt;
+
+  console.log(metaData);
+
   return (
-    <Section
-      fullWidth
-      options={{
-        section: "3. Our Services",
-        title: "Who we help?",
-        subtitle:
-          "Our goal is to maximize your revenue by having more clients, irrespective of services you provide.",
-      }}
-    >
+    <Section fullWidth sectionHeader={metaData}>
       <div className="w-full grid-cols-5 grid">
-        <ServiceCard
-          index={1}
-          className="col-span-1 col-start-1"
-          SVGComponent={ToolsSVG}
-          src={"/tools.svg"}
-        />
-        <ServiceCard
-          index={2}
-          className="col-span-1 col-start-2"
-          SVGComponent={MonitorSVG}
-          src={"/monitor.svg"}
-        />
-        <ServiceCard
-          index={3}
-          className="col-span-1 col-start-3"
-          SVGComponent={CompassSVG}
-          src={"/compass.svg"}
-        />
-        <ServiceCard
-          index={4}
-          className="col-span-1 col-start-4"
-          SVGComponent={EyeSVG}
-          src={"/eye.svg"}
-        />
-        <div className="col-span-1 col-start-5 h-full relative overflow-hidden">
-          <StatueOfJustice className="h-full -translate-x-1/3 bottom-0 absolute" />
-        </div>
+        {content.map((service: any, key: any) => {
+          switch (service._type) {
+            case "service":
+              return (
+                <ServiceCard
+                  key={key}
+                  index={key + 1}
+                  // className="col-span-1 col-start-1"
+                  {...service}
+                />
+              );
+
+            default:
+              null;
+          }
+        })}
+
+        {lineArt && (
+          <div className="col-span-1 col-start-5 h-full relative overflow-hidden">
+            <CustomImage
+              src={urlFor(lineArt?.asset).url()}
+              alt={lineArt.alt}
+              width={lineArt.width}
+              height={lineArt.height}
+              imageOBJ={lineArt.asset}
+            />
+          </div>
+        )}
       </div>
     </Section>
   );

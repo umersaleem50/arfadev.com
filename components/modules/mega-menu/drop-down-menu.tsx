@@ -45,7 +45,7 @@ function NavigationDropDown({
                     alt={"Featured Image"}
                     src={urlFor(featured?.page?.seo?.shareGraphic).url()}
                     fill
-                    className="-z-1 !opacity-10"
+                    className="-z-1 !opacity-20"
                   />
                 </Link>
               </NavigationMenuLink>

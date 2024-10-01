@@ -18,8 +18,8 @@ export const MobileNav = ({
     </SheetTrigger>
     <SheetContent side="left">
       <nav className="flex flex-col space-y-4">
-        {menuItems.map((item: any) => (
-          <div key={item.title}>
+        {menuItems.map((item: any, key: number) => (
+          <div key={key}>
             {item.items ? (
               <>
                 <h2 className="text-lg font-semibold">{item.title}</h2>
@@ -40,6 +40,7 @@ export const MobileNav = ({
               <Link
                 href={item.href}
                 className="text-lg font-semibold hover:underline"
+                key={key}
               >
                 {item.title}
               </Link>
