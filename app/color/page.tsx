@@ -60,6 +60,12 @@ function page() {
         <div className="bg-secondary-foreground w-40 border border-white h-40 block">
           --secondary-foreground
         </div>
+        <div className="bg-muted w-40 border border-white h-40 block">
+          --muted
+        </div>
+        <div className="bg-muted-foreground w-40 border border-white h-40 block">
+          --muted-foreground
+        </div>
         <div className="bg-accent w-40 border border-white h-40 block">
           --accent
         </div>
