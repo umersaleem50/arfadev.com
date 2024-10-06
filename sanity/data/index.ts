@@ -77,7 +77,7 @@ export async function getPost(slug: string, isDraftMode?: boolean) {
             seo,
             tags,
             author->{name,photo},
-            relatedPosts[]->{cover,author->{name,photo},title,publishedAt,slug}
+            relatedPosts[]->{cover,author->{name,photo},title,publishedAt,slug,description}
           },
           "footer":${footerQuery},
           "menu":${menuQuery},

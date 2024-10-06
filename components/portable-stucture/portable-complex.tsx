@@ -90,6 +90,9 @@ export const portableComplex: any = {
         imageOptions["width"] = value.width;
         imageOptions["height"] = value.height;
       }
+
+      console.log(imageOptions);
+
       return (
         <figure>
           <CustomImage

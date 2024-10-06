@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Twitter, Facebook, Linkedin, Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 export default function ShareButtons({ className }: { className?: string }) {
   const [currentUrl, setCurrentUrl] = useState("");
@@ -22,10 +23,10 @@ export default function ShareButtons({ className }: { className?: string }) {
     navigator.clipboard
       .writeText(currentUrl)
       .then(() => {
-        alert("Link copied to clipboard!");
+        toast("Link copied to clipboard!");
       })
       .catch((err) => {
-        console.error("Failed to copy: ", err);
+        toast("Failed to copy link." );
       });
   };
 

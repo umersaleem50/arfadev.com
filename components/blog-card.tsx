@@ -4,29 +4,35 @@ import Link from "next/link";
 import React from "react";
 import CustomImage from "./custom-image";
 
-function BlogCard({ title, _updatedAt, author, slug, content = [] }: any) {
-  const hero = content.filter((module: any) => module?._type === "hero");
-  console.log("this is content", content, hero);
-
-  const coverImage = hero.length && hero[0]?.coverImage;
+function BlogCard({
+  seo,
+  title,
+  cover,
+  _updatedAt,
+  author,
+  slug,
+  content = [],
+  description,
+}: any) {
   return (
     <Link
       className="group sm:flex focus:outline-none"
       href={slug?.current || "/"}
     >
       <div className="shrink-0 relative overflow-hidden h-[300px] sm:w-[300px] sm:h-[450px] w-full group">
-        {coverImage && (
+        {cover && (
           <CustomImage
             className="size-full absolute top-0 start-0 object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
-            src={urlFor(coverImage?.asset).url()}
-            alt={coverImage?.alt}
+            src={urlFor(cover?.asset).url()}
+            alt={cover?.alt}
             fill
-            imageOBJ={coverImage?.asset}
+            objectFit={cover.objectFit}
+            imageOBJ={cover?.asset}
           />
         )}
       </div>
 
-      <div className="grow">
+      <div className="sm:w-[400px]">
         <div className="p-4 flex flex-col h-full sm:p-6">
           <div className="mb-3">
             <p className="inline-flex items-center gap-1.5 py-1.5 px-3 text-xs bg-secondary text-secondary-foreground font-sans">
@@ -36,7 +42,7 @@ function BlogCard({ title, _updatedAt, author, slug, content = [] }: any) {
           <h3 className="text-lg sm:text-2xl font-bold font-serif hover:text-primary">
             {title || "Preline becomes an official Instagram Marketing Partner"}
           </h3>
-          <p className="mt-2 font-sans">Great news we're eager to share.</p>
+          <p className="mt-2 font-sans">{description}</p>
 
           <div className="mt-5 sm:mt-auto">
             {/* <!-- Avatar --> */}

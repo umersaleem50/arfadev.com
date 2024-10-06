@@ -6,6 +6,7 @@ import { ThemeProvider } from "./providers/theme-provider";
 import SmoothScrollProvider from "./providers/smooth-scroll";
 
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const VisualEditing = dynamic(() =>
   import("next-sanity").then((mob) => mob.VisualEditing)
@@ -47,6 +48,7 @@ export default function RootLayout({
             {children}
             {draftMode().isEnabled && <VisualEditing />}
           </ThemeProvider>
+          <Toaster />
         </SmoothScrollProvider>
       </body>
     </html>
