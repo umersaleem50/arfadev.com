@@ -28,13 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppinFonts.variable} ${ebGaramond.variable} antialiased`}
+        className={`${poppinFonts.variable} ${ebGaramond.variable} antialiased  bg-background text-foreground`}
       >
         <SmoothScrollProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
-            disableTransitionOnChange
+            // disableTransitionOnChange
             enableSystem
           >
             {draftMode().isEnabled && (

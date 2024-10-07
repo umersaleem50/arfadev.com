@@ -5,6 +5,7 @@ import CustomImage from "../custom-image";
 import { cn } from "@/lib/utils";
 import { portableComplexLightText } from "../portable-stucture/portable-complex-light";
 import { portableComplexDarkText } from "../portable-stucture/portable-complex-dark";
+import { portableComplex } from "../portable-stucture/portable-complex";
 
 function Hero({ module }: any) {
   const { coverImage, isFullImage, content, darkText = false } = module;
@@ -29,13 +30,8 @@ function Hero({ module }: any) {
           />
         )}
       </div>
-      <div className="absolute bottom-[50%] left-[50%] -translate-x-[50%] translate-y-[50%] z-10 w-full px-4 sm:px-0 sm:w-3/4 md:max-w-[50rem]">
-        <PortableText
-          value={content}
-          components={
-            darkText ? portableComplexDarkText : portableComplexLightText
-          }
-        />
+      <div className="absolute bottom-[50%] left-[50%] -translate-x-[50%] translate-y-[50%] z-10 w-full px-4 sm:px-0 sm:w-3/4 md:max-w-[50rem] prose prose-xl dark:text-foreground">
+        <PortableText value={content} components={portableComplex} />
       </div>
       <div
         className={cn(

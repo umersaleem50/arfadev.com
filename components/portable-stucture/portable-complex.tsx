@@ -100,13 +100,13 @@ export const portableComplex: any = {
             imageOBJ={value}
             {...imageOptions}
           />
-          <figcaption className="flex justify-between p-2 bg-accent-foreground/40">
+          <figcaption className="flex justify-between p-2 bg-accent dark:bg-accent text-accent-foreground">
             {value?.description}{" "}
             {value?.refLink && (
               <Link
                 href={value?.refLink?.url}
                 target="_blank"
-                className="flex items-center gap-1"
+                className="flex items-center gap-1 dark:text-primary"
               >
                 {value?.refLink?.title} <LinkSimple />
               </Link>

@@ -27,7 +27,7 @@ import { cn } from "@/lib/utils";
 //         <CardHeading
 //           title="1. Chishti Law Firm"
 //           subtitle="Call anytime for immediate and personal attention at no charge."
-//           className="text-secondary"
+//           className="text-foreground"
 //         />
 //         <div className="w-full h-[24rem] relative">
 //           <Image src={"/flask.jpg"} fill alt="card" className="object-cover" />
@@ -37,10 +37,10 @@ import { cn } from "@/lib/utils";
 //         className={cn("col-span-2", reverse ? "col-start-1" : "col-start-11")}
 //       >
 //         <div className="mb-6 -rotate-90 -translate-y-full">
-//           <h3 className="text-6xl font-serif font-medium text-secondary">
+//           <h3 className="text-6xl font-serif font-medium text-foreground">
 //             400%
 //           </h3>
-//           <p className="text-sm font-sans text-secondary">
+//           <p className="text-sm font-sans text-foreground">
 //             Growth in first month
 //           </p>
 //         </div>
@@ -70,7 +70,7 @@ export function PortfolioCard({
   return (
     <div
       className={cn(
-        "max-w-[85rem] mx-auto grid grid-cols-12 gap-x-6 items-end pb-24 border-b border-secondary/40 mb-24"
+        "max-w-[85rem] mx-auto grid grid-cols-12 gap-x-6 items-end pb-24 border-b border-muted-foreground mb-24"
       )}
     >
       <div
@@ -85,7 +85,7 @@ export function PortfolioCard({
         <PortfolioOptions
           title={title}
           subtitle={subtitle}
-          className="text-secondary"
+          className="text-foreground"
         />
         <div className="w-full h-[24rem] relative">
           <Image src={"/flask.jpg"} fill alt="card" className="object-cover" />
@@ -93,13 +93,13 @@ export function PortfolioCard({
       </div>
       <div className={cn("col-span-2", options.reverse && "order-first")}>
         <div className="mb-10 -rotate-90 -translate-y-full">
-          <h3 className="text-5xl font-serif font-medium text-secondary">
+          <h3 className="text-5xl font-serif font-medium text-foreground">
             {stats.title}
           </h3>
-          <p className="text-sm font-sans text-secondary">{stats.subtitle}</p>
+          <p className="text-sm font-sans text-foreground">{stats.subtitle}</p>
         </div>
         <Button
-          variant={index % 2 !== 0 ? "secondary" : "outline"}
+          variant={index % 2 === 0 ? "outline" : "default"}
           className="w-full"
           asChild
         >
@@ -113,11 +113,11 @@ export function PortfolioCard({
 function PortfolioModuel() {
   return (
     <Section
-      className="bg-brand-black"
-      options={{
+      className="bg-card"
+      sectionHeader={{
         title: "Anyone can makes promise; We will give you proof",
-        className: "text-secondary ",
-        section: "1. Case Studies",
+        className: "text-foreground ",
+        miniTitle: "1. Case Studies",
       }}
     >
       <PortfolioCard
@@ -134,8 +134,8 @@ function PortfolioModuel() {
         stats={{ title: "3x More", subtitle: "Clients in first month" }}
       />
 
-      <div className="flex justify-between items-center">
-        <p className="text-sm leading-normal text-secondary font-sans max-w-md">
+      <div className="flex justify-between items-center pt-8">
+        <p className="text-sm leading-normal text-foreground font-sans max-w-md">
           Everything we do is focused on generating more qualified cases for
           your law firm.
         </p>

@@ -5,10 +5,10 @@ import { Button } from "../ui/button";
 function PlayButton() {
   return (
     <Button
-      variant={"svg"}
       onClick={() => alert("wokring")}
-      className="z-10 cursor-pointer hover:cursor-pointer hover:drop-shadow-md group"
+      className="z-10 cursor-pointer hover:cursor-pointer group bg-none group "
       aria-label="Play Testimonial"
+      variant={"ghost"}
     >
       <svg
         width="72"
@@ -22,12 +22,12 @@ function PlayButton() {
           height="72"
           rx="36"
           fill="#D9B59F"
-          className="fill-primary hover:fill-accent transition-all duration-200"
+          className="dark:fill-white group-hover:!fill-primary  transition-all duration-200 fill-black"
         />
         <path
           d="M53 35.5L26.75 50.6554L26.75 20.3446L53 35.5Z"
           fill="#031625"
-          className="fill-secondary"
+          className="fill-primary group-hover:fill-white transition-all duration-200 dark:fill-primary"
         />
       </svg>
     </Button>

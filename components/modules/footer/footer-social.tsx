@@ -25,22 +25,22 @@ const getSocialIcons = (value: string) => {
   switch (value) {
     case "facebook":
       return (
-        <FacebookLogo className="fill-secondary hover:fill-muted-foreground transition-all duration-300 h-8 w-8" />
+        <FacebookLogo className="fill-secondary hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     case "linkedin":
       return (
-        <LinkedInLogo className="fill-secondary hover:fill-muted-foreground transition-all duration-300 h-8 w-8" />
+        <LinkedInLogo className="fill-secondary hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     case "slack":
       return (
-        <SlackLogo className="fill-secondary hover:fill-muted-foreground transition-all duration-300 h-8 w-8" />
+        <SlackLogo className="fill-secondary hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     case "twitter":
       return (
-        <XLogo className="fill-secondary hover:fill-muted-foreground transition-all duration-300 h-8 w-8" />
+        <XLogo className="fill-secondary hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     default:

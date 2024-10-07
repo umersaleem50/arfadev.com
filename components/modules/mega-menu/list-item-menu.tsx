@@ -19,7 +19,7 @@ const ListItem = React.forwardRef<
           href={href as string}
           {...props}
         >
-          <div className="text-lg text-secondary font-bold leading-none font-serif">
+          <div className="text-lg text-foreground hover:text-primary font-bold leading-none font-serif transition-colors duration-200">
             {title}
           </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground font-sans">

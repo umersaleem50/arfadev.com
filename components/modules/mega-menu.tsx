@@ -16,6 +16,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "../ui/mode-toggle";
 
 const NaviationMenuLink = dynamic(
   () => import("./mega-menu/navigation-menu-link")
@@ -58,10 +59,10 @@ export function MegaMenu({ module }: { module: any }) {
       variants={{ visible: { y: 0 }, hidden: { y: "-95%" } }}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       animate={hidden ? "hidden" : "visible"}
-      className={cn("bg-primary w-full z-20 sticky top-0")}
+      className={cn("w-full z-20 fixed top-0 backdrop-blur-sm !bg-primary")}
       whileHover={{ y: 0 }}
     >
-      <div className="flex items-center justify-between py-4 max-w-[85rem] mx-auto">
+      <div className="flex  items-center justify-between py-4 max-w-[85rem] mx-auto">
         <Link href="/" className="flex items-center space-x-2">
           {/* <Icons.logo className="h-6 w-6" /> */}
           <span className="font-bold">shadcn/ui</span>
@@ -72,13 +73,16 @@ export function MegaMenu({ module }: { module: any }) {
         <div className="md:hidden">
           <MobileNav module={module} />
         </div>
-        <div className="sm:block hidden">
-          <Button variant={"secondary"}>Let's Talk</Button>
+        <div className="sm:flex sm:items-center sm:gap-x-2 hidden items-center sm:justify-start">
+          <ModeToggle />
+          <Button variant={"outline"} className="border-foreground">
+            Let's Talk
+          </Button>
           {/* <ModeToggle/> */}
         </div>
       </div>
       <motion.div
-        className="h-1 bg-secondary w-full"
+        className="h-1 bg-secondary dark:bg-primary w-full"
         style={{
           scaleX: scrollYProgress,
           display: hidden ? "block" : "none",
@@ -136,7 +140,7 @@ function MobileNav({ module }: any) {
       </SheetTrigger>
       <SheetContent side="right" className="bg-accent">
         <ScrollArea className="h-full">
-          <p className="text-secondary pb-4 border-b text-lg border-secondary mb-4">
+          <p className="text-accent-foreground pb-4 border-b text-lg border-secondary mb-4">
             {module?.title}
           </p>
 
@@ -146,7 +150,7 @@ function MobileNav({ module }: any) {
                 case "navDropdown":
                   return (
                     <details className="group justify-start" open key={key}>
-                      <summary className="text-lg text-secondary font-serif font-bold cursor-pointer text-left w-full">
+                      <summary className="text-lg text-primary font-serif font-bold cursor-pointer text-left w-full">
                         <span>{item.title}</span>
                       </summary>
 

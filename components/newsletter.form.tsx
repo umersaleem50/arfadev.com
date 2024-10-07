@@ -20,13 +20,7 @@ const newsLetterSchema = z.object({
   email: z.string().min(1).email("Please enter a valid email."),
 });
 
-function NewsLetterForm({
-  className,
-  dark,
-}: {
-  className?: string;
-  dark?: boolean;
-}) {
+function NewsLetterForm({ className }: { className?: string }) {
   const form = useForm<z.infer<typeof newsLetterSchema>>({
     resolver: zodResolver(newsLetterSchema),
     defaultValues: { email: "" },
@@ -42,7 +36,7 @@ function NewsLetterForm({
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className={dark ? "text-muted-foreground" : ""}>
+              <FormLabel className={"text-muted dark:text-muted"}>
                 Email
               </FormLabel>
               <FormControl>
@@ -51,11 +45,11 @@ function NewsLetterForm({
                   {...field}
                   // className={dark ? "border border-input !bg-none" : ""}
                   className={
-                    "bg-foreground text-secondary border-secondary border placeholder:text-accent-foreground"
+                    "bg-foreground text-secondary border-secondary border placeholder:text-accent"
                   }
                 />
               </FormControl>
-              <FormDescription className={dark ? "text-muted-foreground" : ""}>
+              <FormDescription className={"text-muted dark:text-muted"}>
                 You can unsubscribe anytime.
               </FormDescription>
               <FormMessage />

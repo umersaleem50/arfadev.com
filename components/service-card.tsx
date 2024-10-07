@@ -26,7 +26,7 @@ function ServiceCard({
   return (
     <figure
       className={cn(
-        index % 2 === 0 ? "bg-secondary" : "bg-muted-foreground",
+        index % 2 === 0 ? "bg-secondary" : "bg-card",
         "h-auto flex flex-col p-6 items-start space-y-4",
         className
       )}

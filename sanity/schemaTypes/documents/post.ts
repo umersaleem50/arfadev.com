@@ -120,6 +120,10 @@ export default defineType({
           to: [{ type: "post" }],
         },
       ],
+      options: {
+        filter: "slug != $slug",
+        filterParams: { slug: "slug" },
+      },
       group: "settings",
     },
 

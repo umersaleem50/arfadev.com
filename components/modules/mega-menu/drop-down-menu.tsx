@@ -7,9 +7,10 @@ import {
 import Link from "next/link";
 import React from "react";
 import ListItem from "./list-item-menu";
-import Image from "next/image";
+
 import CustomImage from "@/components/custom-image";
 import { urlFor } from "@/sanity/lib/image";
+import { NavigationMenuIndicator } from "@radix-ui/react-navigation-menu";
 
 function NavigationDropDown({
   title,
@@ -22,6 +23,7 @@ function NavigationDropDown({
 }) {
   return (
     <NavigationMenuItem>
+      <NavigationMenuIndicator />
       <NavigationMenuTrigger>{title || "Untitled"}</NavigationMenuTrigger>
       <NavigationMenuContent>
         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-2">
@@ -29,7 +31,7 @@ function NavigationDropDown({
             <li className="row-span-3 col-span-1">
               <NavigationMenuLink asChild>
                 <Link
-                  className="flex h-full min-h-[12rem] w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative "
+                  className="flex h-full min-h-[12rem] w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative hover:bg-primary transition-colors duration-150"
                   href={featured?.page?.slug?.current || "/invalid-slug"}
                 >
                   {/* <Icons.logo className="h-6 w-6" /> */}

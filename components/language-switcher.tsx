@@ -12,7 +12,10 @@ function LanguageSwitcher({
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button
+          variant="outline"
+          className="flex items-center gap-2 text-white dark:text-slate-900"
+        >
           <Translate className="h-5 w-5" />
           <span>{defaultLang}</span>
           <CaretDown className="h-4 w-4" />

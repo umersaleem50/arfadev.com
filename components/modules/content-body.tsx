@@ -14,7 +14,7 @@ function ContentBody({ module }: { module: any; lightMode?: boolean }) {
     <section>
       <article
         className={cn(
-          "w-full prose prose-headings:font-serif lg:prose-md md:prose-lg prose-p:font-sans"
+          "w-full prose prose-headings:font-serif lg:prose-md md:prose-lg prose-p:font-sans dark:text-foreground prose-headings:dark:text-primary"
           // wide ? "max-w-article-wide" : "max-w-article "
         )}
       >

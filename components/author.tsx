@@ -18,6 +18,9 @@ function Author({ author }: any) {
         <p className="text-lg font-light font-sans ">
           {author && author?.name}
         </p>
+        <p className="text-sm font-light font-sans col-start-1 col-span-8 text-primary">
+          Posted on August 24, 2023
+        </p>
       </div>
     </div>
   );
