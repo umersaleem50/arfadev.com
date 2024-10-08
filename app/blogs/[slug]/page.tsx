@@ -19,6 +19,7 @@ import BlogCard from "@/components/blog-card";
 import ArticleCover from "@/components/modules/article-cover";
 import CaseStudyCard from "@/components/case-study-card";
 import Module from "@/components/modules/module";
+import SchemaMarkup from "@/components/schema-markup";
 
 export default async function Component({
   params: { slug },
@@ -44,12 +45,14 @@ export default async function Component({
     author,
     body,
     relatedPosts = [],
+    schemaMarkup,
   } = page;
 
   console.log(relatedPosts);
 
   return (
     <main className="flex flex-col">
+      {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
       {menu && <MegaMenu module={menu} />}
       <ArticleCover cover={cover} title={title} />
       <div className="flex max-w-[85rem] mx-auto gap-x-8 items-start">
@@ -64,7 +67,7 @@ export default async function Component({
             <ShareButtons />
           </div>
 
-          <article className="dark:text-foreground prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8">
+          <article className="dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8">
             <p className="py-10">{purifyString(description)}</p>
             <PortableText value={body} components={portableComplex} />
           </article>

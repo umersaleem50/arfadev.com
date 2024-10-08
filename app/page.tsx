@@ -1,40 +1,43 @@
 import type { Metadata } from "next";
+import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import { getStaticPage } from "@/sanity/data";
 
-import { homeID, HOMEPAGE_QUERY } from "@/sanity/data/queries";
-
-import { draftMode } from "next/headers";
 import Module from "@/components/modules/module";
-import { MegaMenu } from "@/components/modules/mega-menu";
 import WhyChooseUs from "@/components/modules/why-choose-us";
 import PortfolioModuel from "@/components/modules/portfolio-module";
 import Testimonials from "@/components/modules/testimonial";
 import Services from "@/components/modules/services.module";
 import ContactModule from "@/components/modules/contact.module";
-import BlogsModule from "@/components/modules/blogs-module";
-import FooterModule from "@/components/modules/footer.module";
 import SchemaMarkup from "@/components/schema-markup";
-import VideoModule from "@/components/modules/video-module";
+import { MegaMenu } from "@/components/modules/mega-menu";
+
+import { homeID, HOMEPAGE_QUERY } from "@/sanity/data/queries";
+import { cache } from "react";
 
 type Props = {
   params: { slug: string[] | string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+const getPageData = cache(async (isDraftMode = false) => {
+  const pageData = await getStaticPage(HOMEPAGE_QUERY, isDraftMode);
+  return pageData;
+});
+
 export async function generateMetadata(): Promise<Metadata> {
-  const pageData =
-    await await getStaticPage(`*[_type == "page" && _id == ${homeID}] | order(_updatedAt desc)[0]{
-    "id": _id,
-    hasTransparentHeader,
-    content[]{
-    defined(_ref)=>@->,
-    !defined(_ref)=>@
-    },
-    title,
-    seo}
-  `);
+  const pageData = await getPageData(false);
+  //   await await getStaticPage(`*[_type == "page" && _id == ${homeID}] | order(_updatedAt desc)[0]{
+  //   "id": _id,
+  //   hasTransparentHeader,
+  //   content[]{
+  //   defined(_ref)=>@->,
+  //   !defined(_ref)=>@
+  //   },
+  //   title,
+  //   seo}
+  // `);
 
   const { page } = pageData;
   const { seo } = page;
@@ -59,9 +62,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Home({ params }: any) {
+export default async function Home() {
   const { isEnabled: isDraftMode } = draftMode();
-  const pageData = await getStaticPage(HOMEPAGE_QUERY, isDraftMode);
+  // const pageData = await getStaticPage(HOMEPAGE_QUERY, isDraftMode);
+  const pageData = await getPageData(isDraftMode);
 
   if (!pageData || !pageData?.page) notFound();
 

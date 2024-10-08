@@ -69,6 +69,7 @@ export const portableComplex: any = {
           <Link
             href={href}
             target="_blank"
+            className="text-primary"
             // className={cn("text-primary", buttonVariants({ variant: "link" }))}
           >
             {children}
