@@ -30,12 +30,12 @@ function Hero({ module }: any) {
           />
         )}
       </div>
-      <div className="absolute bottom-[50%] left-[50%] -translate-x-[50%] translate-y-[50%] z-10 w-full px-4 sm:px-0 sm:w-3/4 md:max-w-[50rem] prose prose-xl !text-foreground font-sans prose-headings:font-serif prose-headings:text-white">
+      <div className="absolute bottom-[50%] left-[50%] -translate-x-[50%] translate-y-[50%] z-10 w-full px-4 sm:px-0 sm:w-3/4 md:max-w-[50rem] prose prose-xl !text-white font-sans prose-headings:font-serif prose-headings:text-white">
         <PortableText value={content} components={portableComplex} />
       </div>
       <div
         className={cn(
-          "w-full absolute top-0 bg-primary/80 pointer-events-none",
+          "w-full absolute top-0 bg-black/80 pointer-events-none",
           isFullImage ? "h-[50vh] md:h-screen" : "h-[50vh]"
         )}
       ></div>
