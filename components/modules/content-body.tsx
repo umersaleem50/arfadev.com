@@ -12,7 +12,7 @@ function ContentBody({ module }: { module: any; lightMode?: boolean }) {
     <section className="py-24">
       <article
         className={cn(
-          "dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8 mx-auto",
+          "dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8 mx-auto",
           wide ? "!max-w-[50rem]" : "max-w-prose"
         )}
       >

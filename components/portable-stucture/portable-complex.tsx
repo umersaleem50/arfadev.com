@@ -7,6 +7,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
 import DataTable from "../data-table";
+import { TestimonialsPortable } from "../modules/testimonial";
 
 export const portableComplex: any = {
   block: {
@@ -59,7 +60,7 @@ export const portableComplex: any = {
             className={buttonVariants({
               variant: value?.styles?.style || "default",
               size: value?.styles?.isLarge ? "lg" : "default",
-              className: cn(value?.styles?.isBlock && "w-full", "py-2"),
+              className: cn(value?.styles?.isBlock && "w-full", "py-4 my-3"),
             })}
           >
             {children}
@@ -127,6 +128,9 @@ export const portableComplex: any = {
       const [firstRow, ...dataRows] = rows;
 
       return <DataTable firstRow={firstRow} dataRow={dataRows} />;
+    },
+    testimonial: ({ value }: any) => {
+      return <TestimonialsPortable module={value} />;
     },
   },
 };

@@ -225,6 +225,7 @@ export default {
     }),
     { type: "code" },
     { type: "table" },
+    { type: "testimonial" },
 
     // customImage(),
     // {
