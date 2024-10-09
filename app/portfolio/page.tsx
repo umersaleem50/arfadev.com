@@ -1,18 +1,20 @@
-import { getPostsPage } from "@/sanity/data";
-import { MegaMenu } from "@/components/modules/mega-menu";
+import LawFirmCaseStudies from "@/components/law-firm-case-studies-with-images";
 import FooterModule from "@/components/modules/footer.module";
-import BlogsPage from "@/components/blogs-page";
+import { MegaMenu } from "@/components/modules/mega-menu";
+import { getPostsPage } from "@/sanity/data";
+import React from "react";
 
-export default async function BlogListing() {
+async function page() {
   const pageData = await getPostsPage(false);
   const menu = pageData?.menu;
   const footer = pageData?.footer;
-
   return (
     <>
       {menu && <MegaMenu module={menu} />}
-      <BlogsPage />
+      <LawFirmCaseStudies />
       {footer && <FooterModule module={footer} />}
     </>
   );
 }
+
+export default page;

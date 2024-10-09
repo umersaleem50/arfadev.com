@@ -85,8 +85,16 @@ export async function generateStaticParams() {
   }));
 }
 
-async function Page({ params: { slug } }: any) {
+async function Page({
+  params: { slug },
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: any;
+}) {
   const { isEnabled: isDraftMode } = draftMode();
+
+  console.log("these are searchParams");
 
   const planSlug = joinSlugs(slug);
 

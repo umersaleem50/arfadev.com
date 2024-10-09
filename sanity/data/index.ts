@@ -51,6 +51,30 @@ export async function getPage(
   return data;
 }
 
+export async function getPostsPage(isDraftMode?: boolean) {
+  const queryOptions: QueryOptions = isDraftMode
+    ? { perspective: "previewDrafts", token, stega: true, useCdn: false }
+    : {
+        perspective: "published",
+        useCdn: true,
+        cache: "force-cache",
+        stega: false,
+      };
+
+  const query = `{
+          
+          "footer":${footerQuery},
+          "menu":${menuQuery},
+          
+           ${site}
+
+        }`;
+
+  const data = await client.fetch(query, {}, queryOptions);
+
+  return data;
+}
+
 export async function getPost(slug: string, isDraftMode?: boolean) {
   const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
 
@@ -74,6 +98,7 @@ export async function getPost(slug: string, isDraftMode?: boolean) {
             body,
             description,
             title,
+            cover,
             seo,
             tags,
             author->{name,photo},

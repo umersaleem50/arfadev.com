@@ -42,7 +42,7 @@ function BlogCard({
           <h3 className="text-lg sm:text-2xl font-bold font-serif hover:text-primary">
             {title || "Preline becomes an official Instagram Marketing Partner"}
           </h3>
-          <p className="mt-2 font-sans">{description}</p>
+          <p className="mt-2 font-sans text-muted-foreground">{description}</p>
 
           <div className="mt-5 sm:mt-auto">
             {/* <!-- Avatar --> */}

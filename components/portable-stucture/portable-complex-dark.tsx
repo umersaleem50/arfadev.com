@@ -84,8 +84,6 @@ export const portableComplexDarkText: any = {
 
     // Ex. 2: rendering a custom `link` annotation
     link: ({ value, children }: any) => {
-      console.log(value, children);
-
       // const target = (value?.href || "").startsWith("http")
       //   ? "_blank"
       //   : undefined;
