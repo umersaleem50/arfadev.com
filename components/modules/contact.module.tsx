@@ -1,8 +1,6 @@
 import React from "react";
 import { FormComponent } from "../form";
 import Section from "../section";
-import Link from "next/link";
-import { Button, buttonVariants } from "../ui/button";
 import Image from "next/image";
 
 function ContactModule() {
@@ -10,8 +8,8 @@ function ContactModule() {
     <Section
       fullWidth
       // className="bg-brand-black dark:bg-secondary text-muted-foreground"
-      options={{
-        section: "Contact Us",
+      sectionHeader={{
+        miniTitle: "Contact Us",
         title: "Only one appointment you need see if we're right fit for you.",
         subtitle:
           "Don't hestiate to reach us, we offer free consultation services.",

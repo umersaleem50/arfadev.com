@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from "./ui/breadcrumb";
+import { cn } from "@/lib/utils";
 
 function ArticleBreadCrumbs({
   slug,
@@ -16,7 +17,7 @@ function ArticleBreadCrumbs({
   className?: string;
 }) {
   return (
-    <Breadcrumb className="py-4 font-sans" className={className}>
+    <Breadcrumb className={cn("py-4 font-sans", className)}>
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">Home</BreadcrumbLink>
