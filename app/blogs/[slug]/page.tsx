@@ -8,13 +8,10 @@ import { getPost } from "@/sanity/data";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 
+import { portableComplex } from "@/components/portable-stucture/portable-complex";
+
 const FooterModule = dynamic(
   () => import("@/components/modules/footer.module")
-);
-const portableComplex = dynamic(() =>
-  import("@/components/portable-stucture/portable-complex").then(
-    (el) => el.portableComplex
-  )
 );
 
 const MegaMenu = dynamic(() =>
@@ -120,7 +117,7 @@ export default async function Component({
 
           <article className="dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8">
             <p className="py-10">{description}</p>
-            <PortableText value={body} components={portableComplex as any} />
+            <PortableText value={body} components={portableComplex} />
           </article>
 
           <div className="col-start-1 col-span-8 flex gap-4 py-8">

@@ -1,13 +1,21 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
-import CustomImage from "../custom-image";
 import { urlFor } from "@/sanity/lib/image";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
 import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
-import DataTable from "../data-table";
-import { TestimonialsPortable } from "../modules/testimonial";
+import { cn } from "@/lib/utils";
+
+import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { buttonVariants } from "../ui/button";
+
+const CustomImage = dynamic(() => import("../custom-image"));
+const TestimonialsPortable = dynamic(() =>
+  import("../modules/testimonial").then((el) => el.TestimonialsPortable)
+);
+const DataTable = dynamic(() => import("../data-table"));
+const PortableCTA = dynamic(() => import("../portable-cta"));
 
 export const portableComplex: any = {
   block: {
@@ -131,6 +139,9 @@ export const portableComplex: any = {
     },
     testimonial: ({ value }: any) => {
       return <TestimonialsPortable module={value} />;
+    },
+    cta: ({ value }: any) => {
+      return value?.cta && <PortableCTA module={value.cta} />;
     },
   },
 };

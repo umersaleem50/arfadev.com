@@ -27,7 +27,7 @@ export default [
   navDropdown,
   customImage,
   sectionMetadata,
-  cta,
+  // cta,
   btnScrollTo,
   sectionId,
   routes,

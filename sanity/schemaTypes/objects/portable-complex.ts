@@ -9,7 +9,7 @@ import {
   Header6,
   Hightlight,
 } from "../components/renders";
-import { Highlighter, Minus } from "@phosphor-icons/react/dist/ssr";
+import { GridFour, Highlighter, Minus } from "@phosphor-icons/react/dist/ssr";
 
 export default {
   title: "Rich Text",
@@ -226,7 +226,13 @@ export default {
     { type: "code" },
     { type: "table" },
     { type: "testimonial" },
-
+    {
+      type: "reference",
+      name: "cta",
+      title: "CTA",
+      to: [{ type: "cta" }],
+      icon: GridFour,
+    },
     // customImage(),
     // {
     //   type: "horizontalRule",

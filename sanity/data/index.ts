@@ -37,7 +37,7 @@ export async function getPage(
             defined(_ref)=>{...@->content[0]{${modules}}},
             !defined(_ref)=>{${modules}}
             },
-            body,
+            body{...,cta->},
             title,
             seo,
             schemaMarkup,
@@ -95,7 +95,7 @@ export async function getPost(slug: string, isDraftMode?: boolean) {
             defined(_ref)=>{...@->content[0]{${modules}}},
             !defined(_ref)=>{${modules}}
             },
-            body,
+            body[]{...,_type == "cta" => @->},
             description,
             title,
             cover,
