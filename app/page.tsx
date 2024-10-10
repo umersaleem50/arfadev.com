@@ -5,16 +5,17 @@ import { urlFor } from "@/sanity/lib/image";
 import { getStaticPage } from "@/sanity/data";
 
 import Module from "@/components/modules/module";
-import WhyChooseUs from "@/components/modules/why-choose-us";
-import PortfolioModuel from "@/components/modules/portfolio-module";
-import Testimonials from "@/components/modules/testimonial";
-import Services from "@/components/modules/services.module";
-import ContactModule from "@/components/modules/contact.module";
-import SchemaMarkup from "@/components/schema-markup";
-import { MegaMenu } from "@/components/modules/mega-menu";
+// import WhyChooseUs from "@/components/modules/why-choose-us";
+// import PortfolioModuel from "@/components/modules/portfolio-module";
+// import Testimonials from "@/components/modules/testimonial";
+// import Services from "@/components/modules/services.module";
+// import ContactModule from "@/components/modules/contact.module";
+// import { MegaMenu } from "@/components/modules/mega-menu";
 
-import { homeID, HOMEPAGE_QUERY } from "@/sanity/data/queries";
+const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
+import { HOMEPAGE_QUERY } from "@/sanity/data/queries";
 import { cache } from "react";
+import dynamic from "next/dynamic";
 
 type Props = {
   params: { slug: string[] | string };
@@ -28,16 +29,6 @@ const getPageData = cache(async (isDraftMode = false) => {
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getPageData(false);
-  //   await await getStaticPage(`*[_type == "page" && _id == ${homeID}] | order(_updatedAt desc)[0]{
-  //   "id": _id,
-  //   hasTransparentHeader,
-  //   content[]{
-  //   defined(_ref)=>@->,
-  //   !defined(_ref)=>@
-  //   },
-  //   title,
-  //   seo}
-  // `);
 
   const { page } = pageData;
   const { seo } = page;
@@ -64,12 +55,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const { isEnabled: isDraftMode } = draftMode();
-  // const pageData = await getStaticPage(HOMEPAGE_QUERY, isDraftMode);
+
   const pageData = await getPageData(isDraftMode);
 
   if (!pageData || !pageData?.page) notFound();
 
-  const { page, site } = pageData;
+  const { page } = pageData;
 
   const { content } = page;
 
@@ -79,11 +70,11 @@ export default async function Home() {
       {content.map((module: any, i: number) => {
         return <Module module={module} key={i} />;
       })}
-      <PortfolioModuel />
+      {/* <PortfolioModuel />
       <Testimonials />
       <WhyChooseUs />
       <Services />
-      <ContactModule />
+      <ContactModule /> */}
     </main>
   );
 }

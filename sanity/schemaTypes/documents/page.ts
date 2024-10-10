@@ -15,6 +15,8 @@ export default defineType({
       name: "category",
       type: "string",
       title: "Category",
+      description:
+        "Please choose where this page belongs. Each category has it's own collection on dashboard.",
       options: {
         list: [
           { title: "Post", value: "post" },
@@ -24,6 +26,9 @@ export default defineType({
           { title: "Other Page", value: "other" },
           { title: "Error Page", value: "error" },
         ],
+      },
+      validation(rule) {
+        return rule.required();
       },
       group: "content",
     },
@@ -86,6 +91,7 @@ export default defineType({
         { type: "gallery", name: "gallery" },
         { type: "grid", name: "grid" },
         { type: "awards", name: "awards" },
+        { type: "portfolio", name: "portfolio" },
         {
           type: "reference",
           title: "Reusable Section",

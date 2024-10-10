@@ -17,6 +17,7 @@ import input from "./input";
 import gridSize from "./grid-size";
 import gridColume from "./grid-colume";
 import breaks from "./breaks";
+import tags from "./tags";
 // import bodyComplexText from "./body-complex-text";
 
 export default [
@@ -30,6 +31,7 @@ export default [
   btnScrollTo,
   sectionId,
   routes,
+  tags,
   // body,
   category,
   heroBody,

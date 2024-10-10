@@ -1,4 +1,4 @@
-import LawFirmCaseStudies from "@/components/law-firm-case-studies-with-images";
+import LawFirmCaseStudies from "@/components/modules/law-firm-case-studies-with-images";
 import FooterModule from "@/components/modules/footer.module";
 import { MegaMenu } from "@/components/modules/mega-menu";
 import { getPostsPage } from "@/sanity/data";

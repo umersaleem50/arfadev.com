@@ -1,11 +1,15 @@
 import dynamic from "next/dynamic";
-import { MegaMenu } from "./mega-menu";
-import Services from "./services.module";
-import FooterModule from "./footer.module";
-import Testimonials from "./testimonial";
-import Hero from "./hero";
-import BlogsModule from "./blogs-module";
-import ContentBody from "./content-body";
+
+const MegaMenu = dynamic(() => import("./mega-menu").then((el) => el.MegaMenu));
+const Services = dynamic(() => import("./services.module"));
+const FooterModule = dynamic(() => import("./footer.module"));
+const Testimonials = dynamic(() => import("./testimonial"));
+const Hero = dynamic(() => import("./hero"));
+const BlogsModule = dynamic(() => import("./blogs-module"));
+const ContentBody = dynamic(() => import("./content-body"));
+const LawFirmCaseStudies = dynamic(
+  () => import("./law-firm-case-studies-with-images")
+);
 
 const GridModule = dynamic(() => import("./grid-module"));
 
@@ -28,6 +32,8 @@ function Module({ module }: any) {
       return <BlogsModule module={module} />;
     case "body":
       return <ContentBody module={module} />;
+    case "portfolio":
+      return <LawFirmCaseStudies module={module} />;
     default:
       return null;
   }

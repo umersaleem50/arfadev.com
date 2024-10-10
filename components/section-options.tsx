@@ -20,7 +20,7 @@ function SectionHeader({
   return (
     <div
       className={cn(
-        "flex flex-col space-y-4 max-w-[85rem] mx-auto pb-24",
+        "flex flex-col space-y-3 max-w-[85rem] mx-auto pb-20",
         className
       )}
     >
@@ -29,10 +29,12 @@ function SectionHeader({
           {miniTitle}
         </p>
       )}
-      <h2 className="text-4xl font-bold leading-loose font-serif  max-w-lg">
+      <h2 className="text-4xl font-semibold leading-normal font-serif max-w-lg">
         {title}
       </h2>
-      <p className="text-md font-sans max-w-lg">{subtitle}</p>
+      <p className="text-md font-sans max-w-lg text-muted-foreground">
+        {subtitle}
+      </p>
     </div>
   );
 }

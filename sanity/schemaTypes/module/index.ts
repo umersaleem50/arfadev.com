@@ -16,6 +16,7 @@ import oneMember from "./one-member";
 import gallery from "./gallery";
 import grid from "./grid";
 import awards from "./awards";
+import portfolio from "./portfolio";
 
 export default [
   mission,
@@ -36,4 +37,5 @@ export default [
   gallery,
   grid,
   awards,
+  portfolio,
 ];

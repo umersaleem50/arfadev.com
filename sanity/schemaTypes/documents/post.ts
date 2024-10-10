@@ -53,10 +53,7 @@ export default defineType({
     {
       title: "Tags",
       name: "tags",
-      type: "array",
-      of: [{ type: "category", name: "tag", title: "Tag" }],
-      validation: (Rule: any) => Rule.max(6),
-      group: "settings",
+      type: "tags",
     },
 
     {

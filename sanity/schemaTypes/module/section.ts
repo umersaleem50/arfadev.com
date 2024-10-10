@@ -41,6 +41,7 @@ export default {
         { type: "contact" },
         { type: "gallery" },
         { type: "awards" },
+        { type: "portfolio" },
       ],
       validation: (Rule: any) =>
         Rule.length(1).error("You can only have one piece of content"),

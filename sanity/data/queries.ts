@@ -54,11 +54,12 @@ export const modules = `
       _type == "team" => {...,team[]->,${metaData}},
       _type ==  "services" => {...,content[]{...,defined(page) => {page ->{slug}}},${metaData}},
       _type == "testimonial" => @->,
-      _type == "featured-posts" => {...,${metaData},posts[]->{...,author->{name,photo}}},
+      _type == "featured-posts" => {...,${metaData},posts[]->{...,cover,title,description,author->{name,photo}}},
       _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport}},
       _type == "one-member" => {...,member->},
       _type == "awards" => {...,${metaData},content[]->},
       _type == "grid" => {...},
+      _type == "portfolio" => {...,projects[]{...,project->{slug}}},
       _type == 'hero' => {
           content[]{...,
             markDefs[]{
