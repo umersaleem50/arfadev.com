@@ -8,7 +8,7 @@ function Services({ module }: any) {
   const content = module?.content || [];
 
   return (
-    <Section fullWidth sectionHeader={metaData} className="overflow-y-auto">
+    <Section fullWidth sectionData={metaData} className="overflow-y-auto">
       <div className="w-full grid-cols-5 grid">
         {content.map((service: any, key: any) => {
           switch (service._type) {

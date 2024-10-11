@@ -78,7 +78,7 @@ export default defineType({
         { type: "menu", name: "menu" },
         { type: "bodyContent", name: "body" },
         { type: "hero", name: "hero" },
-        { type: "featured-posts", name: "featured-posts" },
+        { type: "blogs", name: "blogs" },
         { type: "services", name: "services" },
         { type: "all-blogs", name: "all-blogs" },
         { type: "testimonial", name: "testimonial" },
@@ -92,6 +92,7 @@ export default defineType({
         { type: "grid", name: "grid" },
         { type: "awards", name: "awards" },
         { type: "portfolio", name: "portfolio" },
+        { type: "whyChooseUs", name: "WhyChooseUs" },
         {
           type: "reference",
           title: "Reusable Section",

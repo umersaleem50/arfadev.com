@@ -87,7 +87,7 @@ export function MegaMenu({ module }: { module: any }) {
         </div>
       </div>
       <motion.div
-        className="h-1 bg-primary dark:bg-primary w-full"
+        className="h-1 bg-primary dark:bg-primary w-full origin-left"
         style={{
           scaleX: scrollYProgress,
           display: hidden ? "block" : "none",

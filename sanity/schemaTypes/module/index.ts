@@ -4,7 +4,7 @@ import hero from "./hero";
 import landingHero from "./landing-hero";
 import mission from "./misson";
 import section from "./section";
-import featuredBlogs from "./featured-blogs";
+import blogs from "./blogs";
 import services from "./services";
 import team from "./team";
 import testimonial from "./testimonial";
@@ -17,6 +17,7 @@ import gallery from "./gallery";
 import grid from "./grid";
 import awards from "./awards";
 import portfolio from "./portfolio";
+import whyChooseUs from "./why-choose-us";
 
 export default [
   mission,
@@ -25,7 +26,7 @@ export default [
   bodyContent,
   hero,
   allBlogs,
-  featuredBlogs,
+  blogs,
   services,
   team,
   testimonial,
@@ -38,4 +39,5 @@ export default [
   grid,
   awards,
   portfolio,
+  whyChooseUs,
 ];

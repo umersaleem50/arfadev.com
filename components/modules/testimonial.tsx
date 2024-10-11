@@ -29,7 +29,7 @@ function Testimonials({ module }: any) {
   };
 
   return (
-    <Section sectionHeader={metaData}>
+    <Section sectionData={metaData}>
       <figure className="max-w-container container grid grid-cols-3 py-12 px-24 gap-x-24 h-[25rem] bg-secondary">
         <div className="col-span-1 h-[26rem] -translate-y-1/4 relative">
           {client?.photo && (
@@ -46,6 +46,7 @@ function Testimonials({ module }: any) {
           <p className="italic">{feedback}</p>
           <Signatures className="absolute top-0 left-0 -translate-x-1/4 translate-y-1/3 z-10 pointer-events-none" />
           <div className="flex gap-x-6 items-center">
+            :
             <div className="flex items-end flex-col gap-y-2">
               <p className="text-xl font-medium font-sans text-primary">
                 {client?.name}

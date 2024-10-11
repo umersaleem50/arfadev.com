@@ -103,7 +103,8 @@ export async function getPost(slug: string, isDraftMode?: boolean) {
             tags,
             author->{name,photo},
             relatedPosts[]->{cover,author->{name,photo},title,publishedAt,slug,description},
-            schemaMarkup
+            schemaMarkup,
+            _createdAt
           },
           "footer":${footerQuery},
           "menu":${menuQuery},

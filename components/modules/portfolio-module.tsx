@@ -150,10 +150,8 @@ function PortfolioModule({ module }: any) {
     projects = [],
   } = module;
 
-  console.log(projects[0]);
-
   return (
-    <Section className="bg-card" sectionHeader={metaData}>
+    <Section className="bg-card" sectionData={metaData}>
       {projects.map((project: any, index: number) => {
         return (
           <PortfolioCard

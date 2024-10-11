@@ -25,10 +25,11 @@ export default {
       validation: (Rule: any) => Rule.max(200).warning("Keep subtitle short."),
     },
     {
-      name: "mainLink",
-      title: "Main Link",
-      type: "navPage",
-      description: "Select the page that have all the data of specific block.",
+      name: "sectionFooter",
+      type: "sectionFooter",
+      title: "Section Footer",
+      description:
+        "This is used to provide extra detail & main page of the the module.",
     },
   ],
   preview: {

@@ -9,6 +9,7 @@ export interface IOptions {
 
 export interface ISectionHeader extends IOptions {
   miniTitle?: string;
+  sectionFooter?: any;
 }
 
 function SectionHeader({

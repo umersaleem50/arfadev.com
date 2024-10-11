@@ -1,24 +1,49 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
+import Link from "next/link";
 
 function SectionFooter({
-  subtitle,
-  url,
-  options,
+  description,
+  btnText,
+  urlType,
+  navPage,
+  navLink,
+  slugPage,
 }: {
-  subtitle: string;
-  url?: string;
-  options?: { color?: string };
+  description: string;
+  btnText?: string;
+  urlType?: string;
+  navPage?: { slug: { current: string } };
+  navLink?: string;
+  slugPage?: string;
 }) {
+  let href;
+  switch (urlType) {
+    case "internal":
+      href = navPage?.slug?.current;
+      break;
+    case "external":
+      href = navLink;
+      break;
+    case "slug":
+      href = slugPage;
+      break;
+  }
+
+  console.log("sectionfooter.tsx", urlType);
+
   return (
-    <div className="flex justify-between items-center container mx-auto py-24 border-t">
-      <p className="text-sm leading-normal font-sans max-w-md text-primary">
-        Everything we do is focused on generating more qualified cases for your
-        law firm.
+    <div className="flex justify-between items-center container mx-auto py-12 border-t max-w-[85rem] mt-24">
+      <p className="text-sm leading-normal font-sans max-w-md text-muted-foreground">
+        {description}
       </p>
-      <Button variant={"outline"} size={"lg"}>
-        Explore More
-      </Button>
+
+      <Link
+        className={buttonVariants({ variant: "outline", size: "lg" })}
+        href={href || "/not-found"}
+      >
+        {btnText}
+      </Link>
     </div>
   );
 }

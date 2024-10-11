@@ -2,26 +2,30 @@ import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 import SectionHeader, { ISectionHeader } from "./section-options";
+import SectionFooter from "./section-footer";
 
 interface ISection {
   className?: string;
   children: ReactNode;
-  sectionHeader?: ISectionHeader;
+  sectionData?: ISectionHeader;
   fullWidth?: boolean;
 }
 
 function Section({
   children,
   className,
-  sectionHeader,
+  sectionData,
   fullWidth = false,
 }: ISection) {
   return (
     <section className={cn("w-full py-24 h-full", className)}>
-      {sectionHeader && <SectionHeader {...sectionHeader} />}
+      {sectionData && <SectionHeader {...sectionData} />}
       <div className={cn(fullWidth ? "w-full" : "max-w-[85rem]", "mx-auto")}>
         {children}
       </div>
+      {sectionData?.sectionFooter && (
+        <SectionFooter {...sectionData.sectionFooter} />
+      )}
     </section>
   );
 }

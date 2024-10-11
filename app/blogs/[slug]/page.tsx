@@ -96,6 +96,7 @@ export default async function Component({
     body,
     relatedPosts = [],
     schemaMarkup,
+    _createdAt,
   } = page;
 
   return (
@@ -111,7 +112,7 @@ export default async function Component({
           />
 
           <div className="flex justify-between items-start">
-            <Author author={author} />
+            <Author author={author} postedAt={_createdAt} />
             <ShareButtons />
           </div>
 

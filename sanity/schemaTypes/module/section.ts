@@ -27,7 +27,7 @@ export default {
         },
         { type: "mission" },
         { type: "hero" },
-        { type: "featured-posts" },
+        { type: "blogs" },
         { type: "services" },
         { type: "team" },
         { type: "testimonial" },
@@ -42,6 +42,7 @@ export default {
         { type: "gallery" },
         { type: "awards" },
         { type: "portfolio" },
+        { type: "whyChooseUs" },
       ],
       validation: (Rule: any) =>
         Rule.length(1).error("You can only have one piece of content"),

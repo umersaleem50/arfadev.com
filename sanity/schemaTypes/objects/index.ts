@@ -4,7 +4,6 @@ import seo from "./seo";
 import navDropdown from "./nav-dropdown";
 import customImage from "./custom-image";
 import sectionMetadata from "./sectionMetadata";
-import cta from "./cta";
 import btnScrollTo from "./btn-scroll-to";
 import sectionId from "./section-id";
 // import body from "./body";
@@ -18,6 +17,7 @@ import gridSize from "./grid-size";
 import gridColume from "./grid-colume";
 import breaks from "./breaks";
 import tags from "./tags";
+import sectionFooter from "./section-footer";
 // import bodyComplexText from "./body-complex-text";
 
 export default [
@@ -39,6 +39,7 @@ export default [
   portableSimple,
   input,
   breaks,
+  sectionFooter,
 
   gridSize,
   gridColume,

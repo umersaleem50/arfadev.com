@@ -4,7 +4,7 @@ export const ALL_POSTS_QUERY = groq`*[_type == "page"  && category == "post"][0.
 export const ALL_SERVICES_QUERY = groq`*[_type == "service"  && defined(slug)]`;
 export const ALL_TEAM_QUERY = groq`*[_type == "page" && category == "team"]{slug,content[_type == "one-member"]{member->}[0]}`;
 
-export const metaData = `metaData{...,mainLink{...,page->{slug}}}`;
+export const metaData = `metaData{...,sectionFooter{...,defined(navPage)=>{navPage->{slug}}}}`;
 
 export const navPage = `_type == "navPage" =>{...,title,page->}`;
 
@@ -54,13 +54,14 @@ export const modules = `
       _type == "team" => {...,team[]->,${metaData}},
       _type ==  "services" => {...,content[]{...,defined(page) => {page ->{slug}}},${metaData}},
       _type == "testimonial" => @->,
-      _type == "featured-posts" => {...,${metaData},posts[]->{...,cover,title,description,author->{name,photo}}},
+      _type == "blogs" => {...,${metaData},posts[]->{...,cover,title,description,author->{name,photo}}},
       _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport}},
       _type == "one-member" => {...,member->},
       _type == "awards" => {...,${metaData},content[]->},
       _type == "grid" => {...},
       _type == "body" => {...,body[]{...,_type == "cta" => @->}},
       _type == "portfolio" => {...,projects[]{...,page->{slug}}},
+      _type == "whyChooseUs" => {...},
       _type == 'hero' => {
           content[]{...,
             markDefs[]{
