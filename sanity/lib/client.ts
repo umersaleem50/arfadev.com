@@ -18,7 +18,7 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: (!process.env.NEXT_PUBLIC_NOCDN as boolean) || false,
   stega: {
     enabled: true || process.env.NEXT_PUBLIC_VERCEL_ENV === "preview",
     studioUrl: "/studio",
@@ -44,7 +44,7 @@ export async function sanityFetch<QueryResponse>({
 
   const queryOptions: QueryOptions = {
     perspective: "published",
-    useCdn: true,
+    useCdn: (!process.env.NOCDN as boolean) || false,
   };
   let maybeRevalidate = revalidate;
 

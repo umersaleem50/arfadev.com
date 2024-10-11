@@ -17,6 +17,7 @@ import { Search } from "lucide-react";
 
 import PaginationSearchParams from "@/components/pagination-search-params";
 import BlogsTags from "./blogs-tag";
+import BlogCard from "./blog-card";
 
 // Mock data for blog posts
 const blogPosts = [
@@ -217,41 +218,47 @@ function BlogsPage() {
 
         {/* Main Blog Posts Grid */}
         <h2 className="text-2xl font-serif">Recommended Posts</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-4">
           {blogPosts.map((post, index) => (
-            <Card
-              key={post.id}
-              className={`
-                ${index % 3 === 0 ? "md:col-span-2 lg:col-span-1" : ""}
-              `}
-            >
-              <CardHeader className="p-0 h-[300px] w-full relative">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  objectFit="cover"
-                  // layout="responsive"
-                  // className="rounded-t-lg"
-                />
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="mb-2 font-serif">{post.title}</CardTitle>
-                <p className="text-sm mb-4 line-clamp-1">{post.excerpt}</p>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full">
-                  Read More
-                </Button>
-              </CardFooter>
-            </Card>
+            <BlogCard
+              cover={post.image}
+              title={post.title}
+              key={index}
+              index={index}
+            />
+            // <Card
+            //   key={post.id}
+            //   className={`
+            //     ${index % 3 === 0 ? "md:col-span-2 lg:col-span-1" : ""}
+            //   `}
+            // >
+            //   <CardHeader className="p-0 h-[300px] w-full relative">
+            //     <Image
+            //       src={post.image}
+            //       alt={post.title}
+            //       fill
+            //       objectFit="cover"
+            //       // layout="responsive"
+            //       // className="rounded-t-lg"
+            //     />
+            //   </CardHeader>
+            //   <CardContent className="p-6">
+            //     <CardTitle className="mb-2 font-serif">{post.title}</CardTitle>
+            //     <p className="text-sm mb-4 line-clamp-1">{post.excerpt}</p>
+            //     <div className="flex flex-wrap gap-2">
+            //       {post.tags.map((tag) => (
+            //         <Badge key={tag} variant="secondary">
+            //           {tag}
+            //         </Badge>
+            //       ))}
+            //     </div>
+            //   </CardContent>
+            //   <CardFooter>
+            //     <Button variant="outline" className="w-full">
+            //       Read More
+            //     </Button>
+            //   </CardFooter>
+            // </Card>
           ))}
         </div>
         <PaginationSearchParams />

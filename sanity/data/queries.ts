@@ -59,7 +59,8 @@ export const modules = `
       _type == "one-member" => {...,member->},
       _type == "awards" => {...,${metaData},content[]->},
       _type == "grid" => {...},
-      _type == "portfolio" => {...,projects[]{...,project->{slug}}},
+      _type == "body" => {...,body[]{...,_type == "cta" => @->}},
+      _type == "portfolio" => {...,projects[]{...,page->{slug}}},
       _type == 'hero' => {
           content[]{...,
             markDefs[]{
@@ -81,6 +82,15 @@ export const HOMEPAGE_QUERY = `*[_type == "page" && _id == ${homeID}] | order(_u
     title,
     seo}
   `;
+
+export const POST_SEARCH_QUERY = `*[_type == "post" && (title match $query || slug.current match $query || tags match $query || description match $query)] {
+    _id,
+    title,
+    tags,
+    slug,
+    cover,
+    description
+  }`;
 
 // export const POST_QUERY = `
 //         {

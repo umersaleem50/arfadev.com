@@ -100,13 +100,13 @@ export default defineType({
       ],
       group: "content",
     },
-    {
-      title: "Page Cover",
-      name: "pageCover",
-      type: "customImage",
-      description: "Use cover on pages like blogs or case study.",
-      group: "settings",
-    },
+    // {
+    //   title: "Page Cover",
+    //   name: "pageCover",
+    //   type: "customImage",
+    //   description: "Use cover on pages like blogs or case study.",
+    //   group: "settings",
+    // },
     {
       title: "Schema Markup",
       name: "schemaMarkup",

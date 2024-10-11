@@ -21,6 +21,8 @@ import { table } from "@sanity/table";
 
 import { schemaMarkup } from "@operationnation/sanity-plugin-schema-markup";
 
+import { embeddingsIndexDashboard } from "@sanity/embeddings-index-ui";
+
 export default defineConfig({
   basePath: "/studio",
   projectId,
@@ -48,5 +50,9 @@ export default defineConfig({
         },
       },
     }),
+
+    process.env.NODE_ENV === "development"
+      ? embeddingsIndexDashboard()
+      : { name: "embeddings-index-dashboard-disabled" },
   ],
 });

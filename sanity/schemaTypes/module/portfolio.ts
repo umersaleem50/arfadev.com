@@ -18,11 +18,21 @@ export default defineField({
           title: "Project",
           fields: [
             {
-              type: "customImage",
+              type: "array",
               name: "cover",
-              title: "Cover Picture",
+              title: "Cover Images",
+              of: [
+                {
+                  type: "customImage",
+                  name: "cover",
+                  title: "Cover Picture",
+                  validation(rule) {
+                    return rule.required();
+                  },
+                },
+              ],
               validation(rule) {
-                return rule.required();
+                return rule.length(2).required();
               },
             },
             {
@@ -35,10 +45,14 @@ export default defineField({
             },
             {
               type: "string",
-              name: "firmName",
-              title: "Firm Name",
+              name: "description",
+              title: "Description",
+
               validation(rule) {
-                return rule.required();
+                return rule
+                  .max(300)
+                  .warning("Keep description short. Under 300 Characters.")
+                  .required();
               },
             },
             {
@@ -57,18 +71,20 @@ export default defineField({
               },
             },
             {
-              type: "string",
+              type: "array",
               name: "results",
               title: "Results",
               description:
-                "Speak benefits. ie. 3x growth in traffic in just 3 months.",
+                "Speak benefits i.e 3x Growth in first month. The first value will be bold & large.",
+              of: [{ type: "string" }],
               validation(rule) {
-                return rule.required();
+                return rule.length(2).required();
               },
             },
             {
-              name: "project",
-              title: "Project",
+              name: "page",
+              title: "Page URL",
+              description: "Select the page associated with this projects.",
               type: "reference",
               to: [{ type: "page" }],
             },

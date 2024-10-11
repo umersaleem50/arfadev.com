@@ -41,14 +41,9 @@ function SectionHeader({
 
 export function PortfolioOptions({ title, subtitle, className }: IOptions) {
   return (
-    <div
-      className={cn(
-        "flex flex-col space-y-4 max-w-md mb-8 text-foreground",
-        className
-      )}
-    >
+    <div className={cn("flex flex-col space-y-4 max-w-md mb-8", className)}>
       <h3 className="text-3xl font-bold leading-loose font-serif">{title}</h3>
-      <p className="text-md font-sans">{subtitle}</p>
+      <p className="text-md font-sans text-muted-foreground">{subtitle}</p>
     </div>
   );
 }
