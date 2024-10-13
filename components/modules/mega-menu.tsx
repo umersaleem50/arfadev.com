@@ -17,6 +17,8 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "../ui/mode-toggle";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 const NaviationMenuLink = dynamic(
   () => import("./mega-menu/navigation-menu-link")
@@ -28,6 +30,8 @@ export function MegaMenu({ module }: { module: any }) {
   const [hidden, setHidden] = useState(false);
 
   const { scrollY, scrollYProgress } = useScroll();
+
+  const { logo = null } = module;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() as number;
@@ -63,14 +67,23 @@ export function MegaMenu({ module }: { module: any }) {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       animate={hidden ? "hidden" : "visible"}
       className={cn(
-        "w-full z-20 fixed top-0 backdrop-blur-sm bg-white dark:bg-secondary border-b-2 shadow-sm border-secondary dark:border-primary"
+        "w-full z-30 fixed top-0 backdrop-blur-sm bg-white dark:bg-secondary border-b-2 shadow-sm border-secondary dark:border-primary"
       )}
       whileHover={{ y: 0 }}
     >
-      <div className="flex  items-center justify-between py-4 max-w-[85rem] mx-auto">
+      <div className="flex  items-center justify-between py-4 max-w-[85rem] lg:mx-auto md:mx-6 sm:mx-4 mx-2">
         <Link href="/" className="flex items-center space-x-2">
           {/* <Icons.logo className="h-6 w-6" /> */}
-          <span className="font-bold">shadcn/ui</span>
+          {/* <span className="font-bold">shadcn/ui</span>
+           */}
+          {logo && (
+            <Image
+              src={urlFor(logo).url()}
+              width={140}
+              height={60}
+              alt="Arfa Developers Logo"
+            />
+          )}
         </Link>
         <div className="hidden md:block">
           <DesktopNav module={module} />
@@ -78,7 +91,7 @@ export function MegaMenu({ module }: { module: any }) {
         <div className="md:hidden">
           <MobileNav module={module} />
         </div>
-        <div className="sm:flex sm:items-center sm:gap-x-2 hidden items-center sm:justify-start">
+        <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
           <ModeToggle />
           <Button variant={"outline"} className="border-foreground">
             Let's Talk
@@ -139,16 +152,21 @@ function MobileNav({ module }: any) {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon">
-          <Menu className="h-6 w-6 text-secondary hover:text-secondary-foreground" />
+          <Menu className="h-6 w-6 text-primary hover:text-secondary-foreground" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="bg-accent">
+        <p className="text-accent-foreground pb-4 border-b text-lg border-secondary mb-4">
+          {module?.title}
+        </p>
+        <div className="flex gap-2 self-start mb-4">
+          <ModeToggle />
+          <Button variant={"outline"} className="border-foreground">
+            Let's Talk
+          </Button>
+        </div>
         <ScrollArea className="h-full">
-          <p className="text-accent-foreground pb-4 border-b text-lg border-secondary mb-4">
-            {module?.title}
-          </p>
-
           <NavigationMenu className="flex flex-col items-start space-y-6 list-none">
             {items.map((item: any, key: number) => {
               switch (item._type) {

@@ -31,7 +31,7 @@ function SectionFooter({
   }
 
   return (
-    <div className="flex justify-between items-center container mx-auto py-12 border-t max-w-[85rem] mt-24">
+    <div className="flex justify-between items-center container mx-auto lg:py-12 md:py-8 border-t max-w-[85rem] lg:mt-24 md:mt-16">
       <p className="text-sm leading-normal font-sans max-w-md text-muted-foreground">
         {description}
       </p>

@@ -16,7 +16,7 @@ function DataTable({
   dataRow: { cells: string[] }[];
 }) {
   return (
-    <Table className="min-w-full">
+    <Table className="w-full">
       <TableHeader>
         <TableRow>
           {firstRow.cells?.map((cell, key: number) => {

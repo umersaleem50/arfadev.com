@@ -13,7 +13,7 @@ const GridBlock = ({ block }: any) => {
     case "customImage":
       if (!block?.asset) return;
       return (
-        <div className={`w-full h-[350px] relative`}>
+        <div className={`w-full h-auto relative`}>
           <CustomImage
             alt={block?.assets?.alt || "Please enter alt"}
             src={urlFor(block?.asset).url()}
@@ -21,13 +21,12 @@ const GridBlock = ({ block }: any) => {
             height={block?.height}
             width={block?.width}
             objectFit={block?.objectFit}
-            className="object-cover"
           />
         </div>
       );
     case "bodyContent":
       return (
-        <div className="prose-lg dark:text-muted-foreground px-12 py-6 prose-a:text-white dark:prose-a:text-white">
+        <div className="max-w-[400px] sm:max-w-0 lg:prose-lg prose-base dark:text-muted-foreground lg:px-12 md:px-8 sm:px-6 px-4 py-6 prose-a:text-white dark:prose-a:text-white">
           <PortableText value={block?.body} components={portableComplex} />
         </div>
       );

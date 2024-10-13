@@ -104,19 +104,19 @@ export default async function Component({
       {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
       {menu && <MegaMenu module={menu} />}
       <ArticleCover cover={cover} title={title} />
-      <section className="flex max-w-[85rem] mx-auto gap-x-8 items-start">
-        <div className="flex-initial max-w-[calc(85rem-30rem)] mx-auto auto-rows-auto">
+      <section className="flex max-w-[85rem] lg:mx-auto md:mx-6 mx-4 gap-x-8 items-start flex-col lg:flex-row">
+        <div className="flex-initial max-w-[calc(85rem-30rem)] lg:mx-auto  auto-rows-auto">
           <ArticleBreadCrumbs
             className="col-start-1 col-span-8 pt-8 font-sans pb-8"
             slug={slug}
           />
 
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start flex-col md:flex-row gap-y-2 md:gap-y-0">
             <Author author={author} postedAt={_createdAt} />
             <ShareButtons />
           </div>
 
-          <article className="dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8">
+          <article className="dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 lg:col-span-8 md:col-span-6 col-span-4">
             <p className="py-10">{description}</p>
             <PortableText value={body} components={portableComplex} />
           </article>
@@ -143,9 +143,9 @@ export default async function Component({
         </aside>
       </section>
       {relatedPosts?.length && (
-        <section className="max-w-[85rem] mx-auto  py-6 space-y-4">
-          <h3 className="text-3xl font-serif py-6">Related Posts</h3>
-          <div className="grid grid-cols-2 gap-4">
+        <section className="max-w-[85rem] lg:mx-auto md:mx-6 mx-4 py-6 space-y-4">
+          <h3 className="text-3xl font-serif md:py-6 py-3">Related Posts</h3>
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             {relatedPosts.map((blog: any, key: number) => {
               return <BlogCard {...blog} key={key} />;
             })}

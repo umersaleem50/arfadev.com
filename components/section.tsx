@@ -18,9 +18,14 @@ function Section({
   fullWidth = false,
 }: ISection) {
   return (
-    <section className={cn("w-full py-24 h-full", className)}>
+    <section
+      className={cn(
+        "w-full lg:py-24 md:py-16 h-full px-4 md:px-6 lg:px-0",
+        className
+      )}
+    >
       {sectionData && <SectionHeader {...sectionData} />}
-      <div className={cn(fullWidth ? "w-full" : "max-w-[85rem]", "mx-auto")}>
+      <div className={cn(fullWidth ? "w-full" : "max-w-[85rem]", "mx-auto ")}>
         {children}
       </div>
       {sectionData?.sectionFooter && (

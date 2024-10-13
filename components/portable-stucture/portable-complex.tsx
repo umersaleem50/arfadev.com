@@ -109,13 +109,13 @@ export const portableComplex: any = {
             imageOBJ={value}
             {...imageOptions}
           />
-          <figcaption className="flex justify-between p-2 bg-accent dark:bg-accent text-accent-foreground">
+          <figcaption className="flex justify-between p-2 bg-accent dark:bg-accent text-accent-foreground sm:text-base text-sm">
             {value?.description}{" "}
             {value?.refLink && (
               <Link
                 href={value?.refLink?.url}
                 target="_blank"
-                className="flex items-center gap-1 dark:text-primary"
+                className="flex items-center gap-1 dark:text-primary "
               >
                 {value?.refLink?.title} <LinkSimple />
               </Link>
@@ -137,11 +137,11 @@ export const portableComplex: any = {
 
       return <DataTable firstRow={firstRow} dataRow={dataRows} />;
     },
-    testimonial: ({ value }: any) => {
-      return <TestimonialsPortable module={value} />;
-    },
-    cta: ({ value }: any) => {
-      return value?.cta && <PortableCTA module={value.cta} />;
-    },
+    // testimonial: ({ value }: any) => {
+    //   return <TestimonialsPortable module={value} />;
+    // },
+    // cta: ({ value }: any) => {
+    //   return value?.cta && <PortableCTA module={value.cta} />;
+    // },
   },
 };

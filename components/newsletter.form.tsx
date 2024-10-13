@@ -28,7 +28,7 @@ function NewsLetterForm({ className }: { className?: string }) {
   return (
     <Form {...form}>
       <form className={cn(className, "space-y-2")}>
-        <h3 className="text-3xl font-serif font-medium text-secondary">
+        <h3 className="lg:text-3xl md:text-2xl font-serif font-medium text-secondary">
           Subscribe to free newsletter
         </h3>
         <FormField

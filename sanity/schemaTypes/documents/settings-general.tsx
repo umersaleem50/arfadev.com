@@ -106,6 +106,31 @@ export default {
       type: "string",
       // group: "advanced",
     },
+    {
+      type: "object",
+      name: "logo",
+      title: "Logo's",
+      options: {
+        collapsable: true,
+      },
+      fields: [
+        {
+          type: "image",
+          name: "fullLogo",
+          title: "Full Logo",
+          description: "Provide full logo with text.",
+          validation: (rule: any) => rule.required(),
+        },
+        {
+          type: "image",
+          name: "logoMark",
+          title: "Logo",
+          description:
+            "Provide the logo with just logomark only. ie. without text.",
+          validation: (rule: any) => rule.required(),
+        },
+      ],
+    },
   ],
   preview: {
     prepare() {

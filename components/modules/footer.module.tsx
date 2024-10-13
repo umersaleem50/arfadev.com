@@ -16,33 +16,34 @@ function FooterModule({ module }: any) {
     newsletter: false,
   };
 
+  const { logo = null } = module;
   const footerRoutes = module?.footerRoutes || [];
 
   const socialLinks = module?.socialLinks || [];
 
   return (
-    <footer className="pt-24 w-full dark:bg-white bg-black">
-      <div className="max-w-[85rem] mx-auto grid grid-cols-6 border-b border-secondary/40 pb-12">
-        <div className="col-span-2 col-start-1 space-y-3">
-          {metaData.logo && (
-            <CustomImage
-              src={urlFor(metaData?.logo?.asset).url()}
-              width={metaData?.logo?.width}
-              height={metaData?.logo?.height}
-              imageOBJ={metaData.logo.asset}
-              alt={metaData?.logo?.alt}
+    <footer className="lg:pt-24 md:pt-16 sm:pt-14 pt-12 w-full dark:bg-white bg-black">
+      <div className="max-w-[85rem] lg:mx-auto md:mx-6 mx-4 gap-y-8 md:gap-y-0 grid md:grid-cols-6 grid-cols-1 border-b border-secondary/40 lg:pb-12 md:pb-8">
+        <div className="lg:col-span-2 md:col-span-3 col-span-1 col-start-1 space-y-3">
+          {logo && (
+            <Image
+              src={urlFor(logo).url()}
+              width={80}
+              height={40}
+              alt={"Arfa Developers Logo"}
+              className="mb-4"
             />
           )}
-          <h3 className="text-3xl text-secondary font-serif">
+          <h3 className="lg:text-3xl text-2xl text-secondary font-serif">
             {metaData.title}
           </h3>
           <p className="text-sm text-primary font-sans">{metaData.subtitle}</p>
         </div>
         {module?.newsletter && (
-          <NewsLetterForm className="col-start-5 col-span-2" />
+          <NewsLetterForm className="lg:col-start-5 col-start-1 lg:col-span-2 md:col-span-3 col-span-1" />
         )}
       </div>
-      <div className="max-w-[85rem] mx-auto grid grid-cols-4 border-b border-secondary/40 gap-x-6 py-12">
+      <div className="mt-6 sm:mt-0 max-w-[85rem] lg:mx-auto md:mx-6 mx-4 grid grid-cols-4 border-b border-secondary/40 gap-x-6 lg:py-12 md:pb-8 ">
         {footerRoutes.map(
           (
             {
@@ -55,7 +56,7 @@ function FooterModule({ module }: any) {
           }
         )}
       </div>
-      <div className="max-w-[85rem] mx-auto flex justify-between py-12">
+      <div className="max-w-[85rem] lg:mx-auto md:mx-6 mx-4 flex justify-between lg:py-12 md:py-8 py-4 md:mx-">
         {module?.langSupport && (
           <LanguageSwitcher langSupport={module.langSupport} />
         )}

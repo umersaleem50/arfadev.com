@@ -8,6 +8,9 @@ export const metaData = `metaData{...,sectionFooter{...,defined(navPage)=>{navPa
 
 export const navPage = `_type == "navPage" =>{...,title,page->}`;
 
+export const fullLogo = `*[_type=="generalSettings"][0].logo.fullLogo`;
+export const logoMark = `*[_type=="generalSettings"][0].logo.logoMark`;
+
 export const moduleQueries = `{
     ...,
       _type == 'menu' => @->,
@@ -26,8 +29,8 @@ export const homeID = `*[_type=="generalSettings"][0].home->_id`;
 export const errorID = `*[_type=="generalSettings"][0].error->_id`;
 export const servicesBaseURL = `*[_type=="generalSettings"][0].servicesBaseURL`;
 export const languageSupport = `*[_type=="generalSettings"][0].langSupport`;
-export const footerQuery = `*[_type=="footer"][0]{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport}}`;
-export const menuQuery = `*[_type=="menu"][0]{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${navPage}}},featured{...,page->}}}`;
+export const footerQuery = `*[_type=="footer"][0]{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}}`;
+export const menuQuery = `*[_type=="menu"][0]{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${navPage}}},featured{...,page->}},"logo":${fullLogo}}`;
 
 const page = `
   "type": _type,
@@ -47,7 +50,7 @@ export const ptContent = `
 export const modules = `
       ...,
       // _type == "menu" =>  {...,items[]{...,"navPage":{page->}},...},  
-      _type == "menu" => @->{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${navPage}}},featured{...,page->}}},
+      _type == "menu" => @->{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${navPage}}},featured{...,page->}},"logo":${fullLogo}},
       _type == "section" => @->,
       _type == "mission" => @->,
       _type == "gallery" => @->,
@@ -55,7 +58,7 @@ export const modules = `
       _type ==  "services" => {...,content[]{...,defined(page) => {page ->{slug}}},${metaData}},
       _type == "testimonial" => @->,
       _type == "blogs" => {...,${metaData},posts[]->{...,cover,title,description,author->{name,photo}}},
-      _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport}},
+      _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}},
       _type == "one-member" => {...,member->},
       _type == "awards" => {...,${metaData},content[]->},
       _type == "grid" => {...,defined(_ref) => {form->}},

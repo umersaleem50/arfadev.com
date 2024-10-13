@@ -30,19 +30,19 @@ function Testimonials({ module }: any) {
 
   return (
     <Section sectionData={metaData}>
-      <figure className="max-w-container container grid grid-cols-3 py-12 px-24 gap-x-24 h-[25rem] bg-secondary">
-        <div className="col-span-1 h-[26rem] -translate-y-1/4 relative">
+      <figure className="max-w-[85rem] grid grid-cols-3 md:py-12 lg:px-24 md:px-6 lg:gap-x-24 md:gap-x-16 bg-secondary">
+        <div className="col-span-1 lg:-translate-y-1/4 md:-translate-y-0 relative">
           {client?.photo && (
             <CustomImage
               src={urlFor(client?.photo?.asset).url()}
               imageOBJ={client?.photo?.asset}
-              width={client?.photo?.width}
-              height={client?.photo.height}
+              width={400}
+              height={600}
               alt={client?.photo?.alt}
             />
           )}
         </div>
-        <figcaption className="font-serif  text-2xl leading-loose text-background col-span-2 relative flex items-end flex-col gap-y-8">
+        <figcaption className="font-serif text-2xl lg:leading-loose md:leading-normal text-background col-span-2 relative flex items-end flex-col gap-y-8">
           <p className="italic">{feedback}</p>
           <Signatures className="absolute top-0 left-0 -translate-x-1/4 translate-y-1/3 z-10 pointer-events-none" />
           <div className="flex gap-x-6 items-center">
@@ -86,7 +86,7 @@ export const TestimonialsPortable = ({ module }: any) => {
           />
         )}
       </div>
-      <figcaption className="font-serif  text-2xl leading-loose text-background col-span-2 relative flex items-start flex-col ">
+      <figcaption className="font-serif md:text-2xl text-xl leading-loose text-background col-span-2 relative flex items-start flex-col ">
         <p className="italic text-2xl font-semibold">{feedback}</p>
         {/* <Signatures className="absolute top-0 left-0 -translate-x-1/4 translate-y-1/3 z-10 pointer-events-none" /> */}
         <div className="flex flex-col items-start">

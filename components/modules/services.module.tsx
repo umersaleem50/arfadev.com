@@ -9,7 +9,7 @@ function Services({ module }: any) {
 
   return (
     <Section fullWidth sectionData={metaData} className="overflow-y-auto">
-      <div className="w-full grid-cols-5 grid">
+      <div className="w-full lg:grid-cols-5 md:grid-cols-3 grid-cols-1 grid">
         {content.map((service: any, key: any) => {
           switch (service._type) {
             case "service":
@@ -20,8 +20,8 @@ function Services({ module }: any) {
           }
         })}
 
-        <div className="col-span-1 col-start-5 h-full relative overflow-hidden">
-          <StatueOfJustice className="absolute bottom-0 left-0 stroke-primary/50" />
+        <div className="col-span-1 lg:col-start-5 md:col-start-3 col-start-1 h-[30rem] md:h-full relative overflow-hidden">
+          <StatueOfJustice className="absolute bottom-0 w-full md:w-auto md:left-0 right-0 stroke-primary/50" />
         </div>
       </div>
     </Section>

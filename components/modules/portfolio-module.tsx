@@ -78,12 +78,12 @@ export function PortfolioCard({
   return (
     <div
       className={cn(
-        "max-w-[85rem] mx-auto grid grid-cols-12 gap-x-6 items-end pb-24 border-b border-muted-foreground mb-24"
+        "max-w-[85rem] mx-auto grid grid-cols-12 lg:gap-x-6 md:gap-x-4 items-end lg:pb-24 md:pb-16 border-b border-muted-foreground mb-24"
       )}
     >
       <div
         className={cn(
-          "col-span-6 relative h-[42rem]",
+          "lg:col-span-6 md:col-span-5 relative lg:h-[42rem] md:h-[30rem]",
           options.reverse && "order-last"
         )}
       >
@@ -100,7 +100,12 @@ export function PortfolioCard({
           />
         )}
       </div>
-      <div className={cn("col-span-4", options.reverse && "order-2")}>
+      <div
+        className={cn(
+          "lg:col-span-4 md:col-span-5",
+          options.reverse && "order-2"
+        )}
+      >
         <PortfolioOptions
           title={`${index}. ${title}`}
           subtitle={description}
