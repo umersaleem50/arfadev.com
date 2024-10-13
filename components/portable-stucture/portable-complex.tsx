@@ -137,11 +137,11 @@ export const portableComplex: any = {
 
       return <DataTable firstRow={firstRow} dataRow={dataRows} />;
     },
-    // testimonial: ({ value }: any) => {
-    //   return <TestimonialsPortable module={value} />;
-    // },
-    // cta: ({ value }: any) => {
-    //   return value?.cta && <PortableCTA module={value.cta} />;
-    // },
+    testimonial: ({ value }: any) => {
+      return <TestimonialsPortable module={value} />;
+    },
+    cta: ({ value }: any) => {
+      return value?.cta && <PortableCTA module={value.cta} />;
+    },
   },
 };

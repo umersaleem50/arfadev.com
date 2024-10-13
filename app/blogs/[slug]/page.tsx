@@ -144,7 +144,9 @@ export default async function Component({
       </section>
       {relatedPosts?.length && (
         <section className="max-w-[85rem] lg:mx-auto md:mx-6 mx-4 py-6 space-y-4">
-          <h3 className="text-3xl font-serif md:py-6 py-3">Related Posts</h3>
+          <h3 className="text-3xl font-semibold font-serif md:py-6 py-3">
+            Related Posts
+          </h3>
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
             {relatedPosts.map((blog: any, key: number) => {
               return <BlogCard {...blog} key={key} />;

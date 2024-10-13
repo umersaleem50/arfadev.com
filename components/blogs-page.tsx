@@ -220,12 +220,7 @@ function BlogsPage() {
         <h2 className="text-2xl font-serif">Recommended Posts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-4">
           {blogPosts.map((post, index) => (
-            <BlogCard
-              cover={post.image}
-              title={post.title}
-              key={index}
-              index={index}
-            />
+            <BlogCard cover={post.image} title={post.title} key={index} />
             // <Card
             //   key={post.id}
             //   className={`

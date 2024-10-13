@@ -25,7 +25,7 @@ function RelatedBlogCard({ slug, cover, author, publishedAt, title }: any) {
       </figure>
       <div className="">
         <h3>{title}</h3>
-        <Author author={author} />
+        <Author postedAt={publishedAt} author={author} />
         <time>{new Date(publishedAt).toDateString()}</time>
       </div>
     </Link>

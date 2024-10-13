@@ -8,7 +8,7 @@ function ContactModule() {
     <Section
       fullWidth
       // className="bg-brand-black dark:bg-secondary text-muted-foreground"
-      sectionHeader={{
+      sectionData={{
         miniTitle: "Contact Us",
         title: "Only one appointment you need see if we're right fit for you.",
         subtitle:

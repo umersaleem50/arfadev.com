@@ -49,7 +49,7 @@ import useFormSchema from "@/hooks/use-form-schema";
 
 export interface IFormComponent {
   className?: string;
-  module: any;
+  module?: any;
 }
 
 const countries = [

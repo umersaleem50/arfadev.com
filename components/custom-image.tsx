@@ -34,6 +34,10 @@ function CustomImage({
       src={urlFor(imageOBJ).url()}
       blurDataURL={blurDataURL}
       placeholder={placeholder || "blur"}
+      quality={90}
+      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 60vw"
+      loading="lazy"
+      // layout="responsive"
     />
   );
 }
