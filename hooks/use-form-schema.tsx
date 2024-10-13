@@ -1,5 +1,3 @@
-import React from "react";
-
 import { z } from "zod";
 
 export const createFormSchema = (inputs: any) => {
@@ -12,25 +10,34 @@ export const createFormSchema = (inputs: any) => {
       label,
       type,
       placeholder,
+      required = false,
     }: {
       label: string;
       type: string;
       placeholder: string;
+      required: boolean;
     }) => {
       switch (type) {
-        case "email":
-          return (schemaObj[label] = z
-            .string()
-            .min(1, { message: `Please ${placeholder.toLowerCase()}` })
-            .email());
-
         case "submit":
           break;
 
+        case "email":
+          schemaObj[label] = z.string().email();
+
+          return required
+            ? schemaObj[label].min(1, {
+                message: `Please ${placeholder.toLowerCase()}`,
+              })
+            : null;
+
         default:
-          return (schemaObj[label] = z
-            .string()
-            .min(1, { message: `Please ${placeholder.toLowerCase()}` }));
+          schemaObj[label] = z.string();
+
+          return required
+            ? schemaObj[label].min(1, {
+                message: `Please ${placeholder.toLowerCase()}`,
+              })
+            : null;
       }
     }
   );

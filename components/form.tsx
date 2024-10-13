@@ -27,6 +27,7 @@ import {
 import { Checkbox } from "./ui/checkbox";
 import { Textarea } from "./ui/textarea";
 import { createFormSchema } from "@/lib/form-helpers";
+import useFormSchema from "@/hooks/use-form-schema";
 
 // const formSchema = z.object({
 //   email: z
@@ -84,21 +85,42 @@ const items = [
   },
 ] as const;
 
-export function FormComponent({ module, className }: IFormComponent) {
-  const { title = "", form: inputs = [] } = module;
+const getInputComponent = ({
+  type,
+  field,
+  placeholder,
+}: {
+  type: string;
+  field: any;
+  placeholder: string;
+}) => {
+  switch (type) {
+    case "submit":
+      return null;
 
-  const formSchema = createFormSchema(inputs);
+    case "textarea":
+      return (
+        <Textarea
+          placeholder={placeholder}
+          className="resize-none placeholder:text-muted-foreground"
+          {...field}
+        />
+      );
+
+    default:
+      return <Input placeholder={placeholder} {...field} />;
+  }
+};
+
+export function FormComponent({ module, className }: IFormComponent) {
+  const { title = "", form: inputs = [], info = "" } = module;
+
+  const { defaultValues, formSchema } = useFormSchema(inputs);
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      name: "",
-      city: "",
-      country: "",
-      services: ["branding", "web-design"],
-      description: "",
-    },
+    defaultValues,
   });
 
   // 2. Define a submit handler.
@@ -116,23 +138,37 @@ export function FormComponent({ module, className }: IFormComponent) {
       >
         {/* <p className="font-sans font-normal text-sm">Recommended Solution</p> */}
         <h3 className="font-serif font-medium text-3xl">{title}</h3>
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Buisness Email</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                Only provide you business email.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
+        {inputs.map(
+          (
+            {
+              label,
+              placeholder,
+              type,
+            }: { label: string; placeholder: string; type: string },
+            key: number
+          ) => {
+            return (
+              <FormField
+                key={key}
+                control={form.control}
+                name={label}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{label}</FormLabel>
+                    <FormControl>
+                      {getInputComponent({ type, placeholder, field })}
+                    </FormControl>
+                    <FormDescription>
+                      Only provide you business email.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            );
+          }
+        )}
+        {/* <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
@@ -250,7 +286,7 @@ export function FormComponent({ module, className }: IFormComponent) {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
         <Button className="w-full" type="submit">
           Make Appointment
         </Button>

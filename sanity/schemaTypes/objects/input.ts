@@ -23,7 +23,12 @@ export default defineField({
       },
     },
     { type: "string", title: "Placeholder", name: "placeholder" },
-    { name: "wide", title: "Wide", type: "boolean" },
+    { name: "required", title: "Required", type: "boolean" },
+    {
+      name: "description",
+      title: "Description",
+      type: "string",
+    },
     {
       name: "defaultText",
       title: "Default Value",
