@@ -36,6 +36,13 @@ export async function generateMetadata(
   // fetch data
   const pageData = await getPageData(planSlug, isDraftMode);
 
+  if (!pageData || !pageData?.page)
+    return {
+      title: "Homepage - Branding solutions for law firms.",
+      description:
+        "You will have an elegant & beautifully designed websites, including logo & graphic assets. Contact now to get started.",
+    };
+
   const { page } = pageData;
   if (!page || !page?.content) notFound();
   const { seo } = page;

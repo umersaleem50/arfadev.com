@@ -24,6 +24,13 @@ const getPageData = cache(async (isDraftMode = false) => {
 export async function generateMetadata(): Promise<Metadata> {
   const pageData = await getPageData(false);
 
+  if (!pageData || !pageData?.page)
+    return {
+      title: "Homepage - Branding solutions for law firms.",
+      description:
+        "You will have an elegant & beautifully designed websites, including logo & graphic assets. Contact now to get started.",
+    };
+
   const { page } = pageData;
   const { seo } = page;
 

@@ -47,6 +47,13 @@ export async function generateMetadata({
   const { isEnabled: isDraftMode } = draftMode();
   const pageData = await getPostData(slug, isDraftMode);
 
+  if (!pageData || !pageData?.page)
+    return {
+      title: "Our latest blogs on seo, web designing & web development.",
+      description:
+        "Learn about the tips & tricks to design & rank your law firm website.",
+    };
+
   const { page } = pageData;
   const { seo } = page;
 
