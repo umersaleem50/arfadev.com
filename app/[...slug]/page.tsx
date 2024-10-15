@@ -126,4 +126,4 @@ async function Page({
 
 export default Page;
 
-export const revalidate = 60 * 10;
+export const revalidate = 60;

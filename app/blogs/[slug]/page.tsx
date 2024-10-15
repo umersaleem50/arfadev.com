@@ -187,4 +187,4 @@ export default async function Component({
   );
 }
 
-export const revalidate = 60 * 10;
+export const revalidate = 60;
