@@ -10,17 +10,23 @@ const GridBlock = ({ block }: any) => {
 
   switch (type) {
     case "customImage":
+      const loading =
+        purifyString(block?.loading) === "eager" ? "eager" : "lazy";
+
       if (!block?.asset) return;
+
       return (
         <div className={`w-full relative`}>
           <CustomImage
-            alt="Please enter alt"
+            alt={block?.alt}
             src={urlFor(block).url()}
             imageOBJ={block}
             height={block?.height}
             width={block?.width}
             objectFit={block?.objectFit}
             className="object-cover"
+            priority={(block?.priority && loading === "eager") || false}
+            loading={loading}
           />
         </div>
       );

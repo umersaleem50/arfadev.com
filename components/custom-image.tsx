@@ -22,8 +22,6 @@ function CustomImage({
   const imageOptions: any = {
     alt: imageOBJ?.alt || "Please enter alt.",
     style: { objectFit: objectFit || "fill" },
-    priority: imageOBJ?.priority || false,
-    loading: imageOBJ?.loading || "lazy",
   };
   if (width && height) {
     imageOptions["width"] = width;
@@ -41,8 +39,7 @@ function CustomImage({
       placeholder={placeholder || "blur"}
       quality={90}
       sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 60vw"
-      priority={(imageOBJ?.priority && imageOBJ?.loading === "eager") || false}
-      loading={imageOBJ?.loading === "eager" ? "eager" : "lazy"}
+
       // layout="responsive"
     />
   );
