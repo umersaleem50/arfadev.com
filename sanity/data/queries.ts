@@ -52,14 +52,31 @@ export const ptContent = `
         ${page}
       }
     }
-  },
+  }
   
   
 `;
 
+// markDefs[]{
+//   ...,
+//   _type == "link" => {
+//     "url": @.url,
+//     "isButton": @.isButton,
+//     "styles": @.styles{style, isLarge, isBlock},
+//     "page":@.page->{
+//      slug
+//     }
+//   }
+// }
+
+const gridModule = `{...,columns[]{sizes,blocks[]{...,body[]{
+...,
+  ${ptContent}
+    
+  }}}}`;
+
 export const modules = `
-      ...,
-      // _type == "menu" =>  {...,items[]{...,"navPage":{page->}},...},  
+      
       _type == "menu" => @->{...,items[]{...,${menuLink},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}},
       _type == "section" => @->,
       _type == "mission" => @->,
@@ -71,17 +88,11 @@ export const modules = `
       _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}},
       _type == "one-member" => {...,member->},
       _type == "awards" => {...,${metaData},content[]->},
-      _type == "grid" => {...,defined(_ref) => {form->}},
-      _type == "body" => {...,body[]{...,_type == "cta" => @->}},
+      _type == "grid" => ${gridModule},
+      _type == "body" => {...,body[]{...,${ptContent},_type == "cta" => @->}},
       _type == "portfolio" => {...,projects[]{...,page->{slug}}},
       _type == "whyChooseUs" => {...},
-      _type == 'hero' => {
-          content[]{...,
-            markDefs[]{
-              ...,page->{slug,title}
-              }
-           }  
-        }
+      _type == 'hero' => {...,content[]{${ptContent}}}
 
 `;
 
