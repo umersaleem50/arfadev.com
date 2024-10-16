@@ -48,6 +48,7 @@ const getGridSize = (
   start = "auto"
 ) => {
   const hasBreakpoint = breakpoint && breakpoint.trim();
+
   const colSpan = hasBreakpoint
     ? `${breakpoint}:col-span-${size}`
     : `col-span-${size}`;
@@ -74,7 +75,9 @@ function GridModule({ module }: any) {
   return (
     <section className={cn("w-full", deviceScreen ? "h-screen" : "h-auto")}>
       {/* <div className="w-full"> */}
-      <div className={`grid grid-cols-${size} gap-x-16`}>
+      <div
+        className={`grid grid-cols-${size} lg:gap-x-16 md:gap-x-10 sm:gap-6 xs:gap-4`}
+      >
         {columns.map((col: any, key: number) => {
           const { sizes, blocks } = col;
 
