@@ -106,6 +106,13 @@ export default defineField({
       },
       fieldset: "sizes",
     },
+    {
+      title: "Block Hidden?",
+      name: "hidden",
+      type: "boolean",
+      description: "Useful to hide elements on mobile devices.",
+      initialValue: false,
+    },
   ],
   preview: {
     select: {

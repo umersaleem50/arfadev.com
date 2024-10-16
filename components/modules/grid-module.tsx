@@ -45,7 +45,8 @@ const getGridSize = (
   size: any,
   justify = "auto",
   align = "auto",
-  start = "auto"
+  start = "auto",
+  hidden = false
 ) => {
   const hasBreakpoint = breakpoint && purifyString(breakpoint.trim());
 
@@ -58,12 +59,12 @@ const getGridSize = (
 
   const colJustify = hasBreakpoint ? `${breakpoint}:${justify}` : justify;
   const colAlign = hasBreakpoint ? `${breakpoint}:${align}` : align;
-
   const classes = [
     colSpan,
     start && colStart,
     justify && colJustify,
     align && colAlign,
+    hidden ? "hidden" : "inline-block",
   ].map((el) => purifyString(el));
 
   return cx(classes);
@@ -81,7 +82,7 @@ function GridModule({ module }: any) {
     >
       {/* <div className="w-full"> */}
       <div
-        className={`grid grid-cols-${size} lg:gap-x-16 md:gap-x-8 sm:gap-x-4 gap-x-0`}
+        className={`grid grid-cols-${size} lg:gap-x-16 md:gap-x-8 sm:gap-x-4 gap-x-0 h-full`}
       >
         {columns.map((col: any, key: number) => {
           const { sizes, blocks } = col;
@@ -93,7 +94,8 @@ function GridModule({ module }: any) {
                 size.width,
                 size.justify,
                 size.align,
-                size.start
+                size.start,
+                size.hidden
               );
             })
           ).toLocaleLowerCase();
