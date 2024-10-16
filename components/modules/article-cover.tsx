@@ -1,6 +1,5 @@
 import React from "react";
 import CustomImage from "../custom-image";
-import { urlFor } from "@/sanity/lib/image";
 
 function ArticleCover({ cover, title }: { cover: any; title: string }) {
   return (
@@ -11,7 +10,6 @@ function ArticleCover({ cover, title }: { cover: any; title: string }) {
           className="object-cover"
           height={cover?.height}
           width={cover?.width}
-          src={urlFor(cover?.asset).url()}
           imageOBJ={cover}
           objectFit={cover?.objectFit}
         />

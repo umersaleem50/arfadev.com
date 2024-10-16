@@ -46,7 +46,6 @@ function NavigationDropDown({
                     <CustomImage
                       imageOBJ={featured?.cover}
                       alt={featured?.cover?.alt}
-                      src={urlFor(featured?.cover?.asset).url()}
                       fill
                       className="-z-1 !opacity-20"
                     />

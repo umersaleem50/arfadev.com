@@ -157,6 +157,9 @@ function MobileNav({ module }: any) {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
+      <p className="text-accent-foreground pb-4 border-b text-lg border-secondary mb-4">
+        {module?.title}
+      </p>
       <SheetContent side="right" className="bg-accent w-full md:w-auto">
         {logo && (
           <Image

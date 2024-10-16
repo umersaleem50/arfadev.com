@@ -11,10 +11,11 @@ function FooterLinks({ title, links = [] }: IFooterLinks) {
     <div className="lg:py-4 md:py-3">
       <h3 className="text-2xl font-serif text-primary mb-4">{title}</h3>
       <div className="flex flex-col items-start space-y-2">
-        {links.map(({ url = "/", title, page }: any, i: number) => {
+        {links.map(({ url = "/", title, page }: any, key: number) => {
           const href = page ? page?.slug?.current : url;
           return (
             <Link
+              key={key}
               href={href}
               className={buttonVariants({
                 variant: "link",

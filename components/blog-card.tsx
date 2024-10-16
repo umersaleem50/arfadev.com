@@ -36,7 +36,6 @@ function BlogCard({
         {cover && (
           <CustomImage
             className="size-full absolute top-0 start-0 object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
-            src={urlFor(cover?.asset).url()}
             alt={cover?.alt}
             fill
             objectFit={cover.objectFit}

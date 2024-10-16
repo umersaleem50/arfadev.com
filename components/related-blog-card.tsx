@@ -15,7 +15,6 @@ function RelatedBlogCard({ slug, cover, author, publishedAt, title }: any) {
       <figure className="relative w-full h-[400px] max-w-[500px] flex">
         {cover && (
           <CustomImage
-            src={urlFor(cover?.asset).url()}
             height={400}
             width={500}
             alt={cover?.alt}

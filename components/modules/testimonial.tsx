@@ -34,7 +34,6 @@ function Testimonials({ module }: any) {
         <div className="col-span-1 lg:-translate-y-1/4 md:-translate-y-0 relative">
           {client?.photo && (
             <CustomImage
-              src={urlFor(client?.photo?.asset).url()}
               imageOBJ={client?.photo}
               width={250}
               height={400}
@@ -78,7 +77,6 @@ export const TestimonialsPortable = ({ module }: any) => {
         <p className="text-sans text-sm">Client's Review</p>
         {client?.photo && (
           <CustomImage
-            src={urlFor(client?.photo?.asset).url()}
             imageOBJ={client?.photo}
             width={200}
             height={400}

@@ -90,10 +90,6 @@ export function PortfolioCard({
         {firstCover?.asset && (
           <CustomImage
             imageOBJ={firstCover}
-            src={urlFor(firstCover?.asset)
-              .width(secondCover.width || 1000)
-              .height(secondCover.height || 1000)
-              .url()}
             fill
             alt={firstCover?.alt}
             objectFit={firstCover?.objectFit}
@@ -115,10 +111,6 @@ export function PortfolioCard({
           {secondCover?.asset && (
             <CustomImage
               imageOBJ={secondCover}
-              src={urlFor(secondCover?.asset)
-                .width(secondCover.width || 400)
-                .height(secondCover.height || 400)
-                .url()}
               fill
               alt={secondCover?.alt}
               objectFit={secondCover?.objectFit}

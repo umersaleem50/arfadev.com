@@ -23,13 +23,12 @@ function Hero({ module }: any) {
             fill
             objectFit={coverImage.objectFit}
             className="w-full bg-fixed fixed top-0 blur-[2px] scale-105"
-            src={urlFor(coverImage.asset).url()}
             priority
             alt={coverImage?.alt}
           />
         )}
       </div>
-      <div className="absolute bottom-[50%] left-[50%] -translate-x-[50%] translate-y-[50%] z-10 w-full px-4 sm:px-0 sm:w-3/4 md:max-w-[50rem] prose prose-base md:prose-xl !text-white font-sans prose-headings:font-serif prose-headings:text-white">
+      <div className="absolute bottom-[50%] left-[50%] -translate-x-[50%] translate-y-[50%] z-10 w-full px-4 sm:px-0 sm:w-3/4 md:max-w-[50rem] lg:prose-lg prose-sm md:prose-base !text-white font-sans prose-headings:font-serif prose-headings:text-white">
         <PortableText value={content} components={portableComplex} />
       </div>
       <div

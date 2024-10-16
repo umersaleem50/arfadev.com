@@ -19,13 +19,12 @@ const GridBlock = ({ block }: any) => {
         <div className={`w-full relative`}>
           <CustomImage
             alt={block?.alt}
-            src={urlFor(block).url()}
             imageOBJ={block}
             height={block?.height}
             width={block?.width}
             objectFit={block?.objectFit}
             className="object-cover"
-            priority={(block?.priority && loading === "eager") || false}
+            priority={block?.priority}
             loading={loading}
           />
         </div>

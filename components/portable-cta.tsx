@@ -16,7 +16,6 @@ const GridBlock = ({ block }: any) => {
         <div className={`w-full h-auto relative`}>
           <CustomImage
             alt={block?.assets?.alt || "Please enter alt"}
-            src={urlFor(block?.asset).url()}
             imageOBJ={block}
             height={block?.height}
             width={block?.width}
