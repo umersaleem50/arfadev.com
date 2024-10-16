@@ -63,7 +63,7 @@ const getGridSize = (
     start && colStart,
     justify && colJustify,
     align && colAlign,
-    hidden && hasBreakpoint ? `${breakpoint}:${isHidden}` : isHidden,
+    hasBreakpoint ? `${breakpoint}:${isHidden}` : isHidden,
   ].map((el) => purifyString(el));
 
   return cx(classes);
