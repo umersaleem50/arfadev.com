@@ -20,7 +20,7 @@ export default defineField({
       description: "Control what screen width this is for",
       options: {
         list: [
-          { title: "Default", value: "" },
+          { title: "Default", value: " " },
           { title: "XS (480px and up)", value: "xs" },
           { title: "SM (768px and up)", value: "sm" },
           { title: "MD (940px and up)", value: "md" },

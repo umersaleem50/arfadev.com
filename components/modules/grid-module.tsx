@@ -76,7 +76,7 @@ function GridModule({ module }: any) {
     <section className={cn("w-full", deviceScreen ? "h-screen" : "h-auto")}>
       {/* <div className="w-full"> */}
       <div
-        className={`grid grid-cols-${size} lg:gap-x-16 md:gap-x-10 sm:gap-6 xs:gap-4`}
+        className={`grid grid-cols-${size} lg:gap-x-16 md:gap-x-8 sm:gap-x-4 gap-x-0`}
       >
         {columns.map((col: any, key: number) => {
           const { sizes, blocks } = col;
