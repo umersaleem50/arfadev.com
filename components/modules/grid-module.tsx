@@ -47,7 +47,7 @@ const getGridSize = (
   align = "auto",
   start = "auto"
 ) => {
-  const hasBreakpoint = breakpoint && breakpoint.trim();
+  const hasBreakpoint = breakpoint && purifyString(breakpoint.trim());
 
   const colSpan = hasBreakpoint
     ? `${breakpoint}:col-span-${size}`
