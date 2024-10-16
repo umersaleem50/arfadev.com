@@ -69,10 +69,10 @@ const getGridSize = (
 };
 
 function GridModule({ module }: any) {
-  const { size, columns } = module;
+  const { size, columns, deviceScreen = false } = module;
 
   return (
-    <section className="w-full">
+    <section className={cn("w-full", deviceScreen ? "h-screen" : "h-auto")}>
       {/* <div className="w-full"> */}
       <div className={`grid grid-cols-${size} gap-x-16`}>
         {columns.map((col: any, key: number) => {

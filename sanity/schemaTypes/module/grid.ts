@@ -17,6 +17,12 @@ export default {
     // },
     { title: "Grid", name: "border", type: "boolean", initialValue: true },
     {
+      title: "Device Screen",
+      name: "deviceScreen",
+      type: "boolean",
+      initialValue: false,
+    },
+    {
       title: "Grid Size",
       name: "size",
       type: "number",
