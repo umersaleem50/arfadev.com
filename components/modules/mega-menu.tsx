@@ -124,15 +124,23 @@ function DesktopNav({ module }: any) {
                 <NavigationDropDown
                   key={key}
                   dropdownItems={item?.dropdownItems || []}
-                  title={item.title}
+                  title={item?.title}
                   featured={item.featured}
                 />
               );
             case "navLink":
               return (
                 <NaviationMenuLink
-                  title={item.title}
-                  url={item.url}
+                  title={item?.title}
+                  url={item?.url}
+                  key={key}
+                />
+              );
+            case "navPage":
+              return (
+                <NaviationMenuLink
+                  title={item?.title}
+                  url={item?.page?.slug?.current || "/invalid-url"}
                   key={key}
                 />
               );
@@ -218,6 +226,14 @@ function MobileNav({ module }: any) {
                     >
                       {item?.title}
                     </Link>
+                  );
+                case "navPage":
+                  return (
+                    <NaviationMenuLink
+                      title={item?.title}
+                      url={item?.page?.slug?.current || "/invalid-url"}
+                      key={key}
+                    />
                   );
                 default:
                   null;
