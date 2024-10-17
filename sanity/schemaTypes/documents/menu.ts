@@ -26,7 +26,7 @@ export default defineType({
       title: "Nav Items",
       name: "items",
       type: "array",
-      of: [{ type: "menuLink" }, { type: "navLink" }, { type: "navDropdown" }],
+      of: [{ type: "navPage" }, { type: "navLink" }, { type: "navDropdown" }],
       // { type: "navLink" }, { type: "navDropdown" }
     },
   ],

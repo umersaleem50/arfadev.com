@@ -77,7 +77,7 @@ const gridModule = `{...,columns[]{sizes,blocks[]{...,body[]{
 
 export const modules = `
       ...,
-      _type == "menu" => @->{...,items[]{...,${menuLink},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}},
+      _type == "menu" => @->{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}},
       _type == "section" => @->,
       _type == "mission" => @->,
       _type == "gallery" => @->,
