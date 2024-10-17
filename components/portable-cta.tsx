@@ -25,7 +25,7 @@ const GridBlock = ({ block }: any) => {
       );
     case "bodyContent":
       return (
-        <div className="max-w-[400px] sm:max-w-0 lg:prose-lg prose-base dark:text-muted-foreground lg:px-12 md:px-8 sm:px-6 px-4 py-6 prose-a:text-white dark:prose-a:text-white">
+        <div className="lg:prose-lg prose-base dark:text-muted-foreground lg:px-12 md:px-8 sm:px-6 px-4 py-6 prose-a:text-white dark:prose-a:text-white">
           <PortableText value={block?.body} components={portableComplex} />
         </div>
       );
