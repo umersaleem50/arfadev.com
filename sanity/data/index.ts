@@ -13,10 +13,11 @@ export async function getAllPageSlug() {
 
 export async function getPage(
   slug: string,
-  isDraftMode?: boolean,
-  preview?: any
+  lang = "en",
+  isDraftMode?: boolean
 ) {
-  const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
+  // const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
+  const slugs = [slug, `/${slug}`, `/${slug}/`];
 
   const queryOptions: QueryOptions = isDraftMode
     ? { perspective: "previewDrafts", token, stega: true, useCdn: false }
@@ -29,7 +30,7 @@ export async function getPage(
 
   const query = `
         {
-          "page": *[_type == "page" && slug.current in ${slugs}] | order(_updatedAt desc)[0]{
+          "page": *[_type == "page" && language == $lang && slug.current in $slugs ] | order(_updatedAt desc)[0]{
             "id": _id,
             hasTransparentHeader,
             author->{name,photo},
@@ -46,7 +47,7 @@ export async function getPage(
         }
         `;
 
-  const data = await client.fetch(query, {}, queryOptions);
+  const data = await client.fetch(query, { slugs, lang }, queryOptions);
 
   return data;
 }
@@ -118,7 +119,11 @@ export async function getPost(slug: string, isDraftMode?: boolean) {
   return data;
 }
 
-export async function getStaticPage(pageData: any, isDraftMode?: boolean) {
+export async function getStaticPage(
+  pageData: any,
+  lang = "en",
+  isDraftMode?: boolean
+) {
   const queryOptions: QueryOptions = isDraftMode
     ? { perspective: "previewDrafts", token, stega: true, useCdn: false }
     : { perspective: "published", useCdn: true, stega: false };
@@ -130,7 +135,7 @@ export async function getStaticPage(pageData: any, isDraftMode?: boolean) {
     }
     `;
 
-  const data = await client.fetch(query, {}, queryOptions);
+  const data = await client.fetch(query, { lang }, queryOptions);
 
   return data;
 }

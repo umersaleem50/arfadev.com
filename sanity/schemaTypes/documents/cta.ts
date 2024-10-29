@@ -9,6 +9,13 @@ export default defineField({
   fields: [
     { title: "Title", name: "title", type: "string" },
     { type: "grid", name: "cta", title: "CTA" },
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
   ],
   preview: {
     select: {

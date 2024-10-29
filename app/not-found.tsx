@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import { cache } from "react";
 
 const getPageData = cache(async (isDraftMode = false) => {
-  const pageData = await await client.fetch(NOT_FOUND);
+  const pageData = await await client.fetch(NOT_FOUND, { lang: "en" });
   return pageData;
 });
 
@@ -31,35 +31,18 @@ export async function generateMetadata(): Promise<Metadata> {
     description: seo.metaDesc,
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
 
-    authors: seo.authors,
-    keywords: seo.keywords,
-    creator: seo.creator,
-    publisher: seo.publisher,
     openGraph: {
       images: [urlFor(seo?.shareGraphic).url()],
       publishedTime: page._createdOn,
-      title: seo?.shareTitle,
-      description: seo?.shareDesc,
-    },
-
-    robots: {
-      index: seo.noindex,
-      follow: seo.nofollow,
-      nocache: seo.cache,
-      googleBot: {
-        index: seo.index,
-        follow: seo.follow,
-        noimageindex: seo.imageindex,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
+      title: "Page not found",
+      description:
+        "Page not found or moved permanently. Please go back to homepage.",
     },
   };
 }
 
 async function NotFound() {
-  const data = await client.fetch(NOT_FOUND);
+  const data = await client.fetch(NOT_FOUND, { lang: "en" });
 
   if (!data || !data?.content?.length) return <NotFoundDefault />;
 

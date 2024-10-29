@@ -12,17 +12,19 @@ import { cache } from "react";
 import dynamic from "next/dynamic";
 
 type Props = {
-  params: { slug: string[] | string };
+  params: { slug: string[] | string; lang: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const getPageData = cache(async (isDraftMode = false) => {
-  const pageData = await getStaticPage(HOMEPAGE_QUERY, isDraftMode);
+const getPageData = cache(async (lang = "en", isDraftMode = false) => {
+  const pageData = await getStaticPage(HOMEPAGE_QUERY, lang, isDraftMode);
   return pageData;
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const pageData = await getPageData(false);
+export async function generateMetadata({
+  params: { lang },
+}: Props): Promise<Metadata> {
+  const pageData = await getPageData(lang, false);
 
   if (!pageData || !pageData?.page)
     return {
@@ -69,10 +71,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Home() {
+export default async function Home({ params: { lang } }: Props) {
   const { isEnabled: isDraftMode } = draftMode();
 
-  const pageData = await getPageData(isDraftMode);
+  const pageData = await getPageData(lang, isDraftMode);
 
   if (!pageData || !pageData?.page) notFound();
 
@@ -90,4 +92,4 @@ export default async function Home() {
   );
 }
 
-export const revalidate = 60;
+export const revalidate = process.env.NODE_ENV === "development" ? 60 : 10 * 60;

@@ -1,17 +1,25 @@
 import { isUniqueOtherThanLanguage } from "@/sanity/lib/is-unique-slug-language";
 import { Browser } from "@phosphor-icons/react";
-import { defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 export default defineType({
   title: "Page",
   name: "page",
   type: "document",
   icon: Browser,
+
   groups: [
     { title: "Content", name: "content", default: true },
     { title: "Settings", name: "settings" },
     { title: "SEO", name: "seo" },
   ],
   fields: [
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
     {
       name: "category",
       type: "string",
@@ -57,7 +65,7 @@ export default defineType({
       options: {
         source: "title",
         maxLength: 96,
-        isUnique:isUniqueOtherThanLanguage,
+        isUnique: isUniqueOtherThanLanguage,
       },
       validation: (Rule: any) => Rule.required(),
       group: "settings",
@@ -99,6 +107,15 @@ export default defineType({
           type: "reference",
           title: "Reusable Section",
           to: [{ type: "section" }],
+          options: {
+            // Filter sections by the same language as the current document
+            filter: ({ document }) => {
+              return {
+                filter: "language == $language",
+                params: { language: document.language },
+              };
+            },
+          },
         },
       ],
       group: "content",

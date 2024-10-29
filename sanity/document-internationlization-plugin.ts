@@ -4,7 +4,7 @@ import {documentInternationalization} from '@sanity/document-internationalizatio
 import { defineField } from "sanity";
 
 
-const translatedSchemaTypes = ['footer','menu','page','post','service','cta'];
+const translatedSchemaTypes = ['footer','menu','page','post','cta',"generalSettings","section"];
 
 const supportedLanguages =  [
         {id: 'de', title: 'Deutsch (German)'},

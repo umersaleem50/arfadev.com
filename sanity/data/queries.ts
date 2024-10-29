@@ -27,8 +27,8 @@ export const site = `
              "rootDomain": *[_type == "generalSettings"][0].siteURL
            },`;
 
-export const homeID = `*[_type=="generalSettings"][0].home->_id`;
-export const errorID = `*[_type=="generalSettings"][0].error->_id`;
+export const homeID = `*[_type=="generalSettings" && language == $lang][0].home->_id`;
+export const errorID = `*[_type=="generalSettings" && language == 'en'][0].error->_id`;
 export const servicesBaseURL = `*[_type=="generalSettings"][0].servicesBaseURL`;
 export const languageSupport = `*[_type=="generalSettings"][0].langSupport`;
 export const footerQuery = `*[_type=="footer"][0]{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}}`;

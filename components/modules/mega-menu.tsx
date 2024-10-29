@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { ModeToggle } from "../ui/mode-toggle";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import LanguageSwitcher from "../language-switcher";
 
 const NaviationMenuLink = dynamic(
   () => import("./mega-menu/navigation-menu-link")
@@ -92,6 +93,7 @@ export function MegaMenu({ module }: { module: any }) {
           <MobileNav module={module} />
         </div>
         <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
+          <LanguageSwitcher />
           <ModeToggle />
           <Button variant={"outline"} className="border-foreground">
             Let's Talk
@@ -180,6 +182,7 @@ function MobileNav({ module }: any) {
         )}
 
         <div className="flex gap-2 self-start my-4">
+          <LanguageSwitcher />
           <ModeToggle />
           <Button variant={"outline"} className="border-foreground">
             Let's Talk

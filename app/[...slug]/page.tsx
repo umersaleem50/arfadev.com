@@ -14,14 +14,14 @@ const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 const Module = dynamic(() => import("@/components/modules/module"));
 
 type Props = {
-  params: { slug: string[] | string; lang: string };
+  params: { slug: string[] | string };
 
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 const getPageData = cache(
-  async (slug: string, language: string, isDraftMode = false) => {
-    const pageData = await getPage(slug, language, isDraftMode);
+  async (slug: string, lang: string, isDraftMode = false) => {
+    const pageData = await getPage(slug, lang, isDraftMode);
     return pageData;
   }
 );
@@ -31,17 +31,19 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const language = params?.lang || "en";
+  // Seperate Lang & Slug
+  const [language = "en", ...pureSlug] = params?.slug;
+
   const { isEnabled: isDraftMode } = draftMode();
 
-  const planSlug = joinSlugs(params.slug);
+  const planSlug = joinSlugs(pureSlug);
 
   // fetch data
   const pageData = await getPageData(planSlug, language, isDraftMode);
 
   if (!pageData || !pageData?.page)
     return {
-      title: "Homepage - Branding solutions for law firms.",
+      title: "Branding solutions for law firms.",
       description:
         "You will have an elegant & beautifully designed websites, including logo & graphic assets. Contact now to get started.",
     };
@@ -97,17 +99,18 @@ export async function generateStaticParams() {
 }
 
 async function Page({
-  params: { slug, lang },
+  params: { slug },
   searchParams,
 }: {
   params: { slug: string; lang: string };
   searchParams: any;
 }) {
+  const [language = "en", ...pureSlug] = slug;
   const { isEnabled: isDraftMode } = draftMode();
 
-  const planSlug = joinSlugs(slug);
+  const planSlug = joinSlugs(pureSlug);
 
-  const pageData = await getPageData(planSlug, lang, isDraftMode);
+  const pageData = await getPageData(planSlug, language, isDraftMode);
 
   if (!pageData) notFound();
 
@@ -129,4 +132,4 @@ async function Page({
 
 export default Page;
 
-export const revalidate = 60;
+export const revalidate = process.env.NODE_ENV === "development" ? 60 : 10 * 60;

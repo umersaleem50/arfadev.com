@@ -1,4 +1,5 @@
 import { List } from "@phosphor-icons/react/dist/ssr";
+import { defineField } from "sanity";
 import { defineType } from "sanity";
 
 export default defineType({
@@ -12,6 +13,13 @@ export default defineType({
       name: "title",
       type: "string",
     },
+    defineField({
+  // should match 'languageField' plugin configuration setting, if customized
+  name: 'language',
+  type: 'string',
+  readOnly: true,
+  hidden: true,
+}),
     // {
     //   title: "Slug",
     //   name: "slug",

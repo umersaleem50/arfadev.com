@@ -1,4 +1,5 @@
 import { ArrowClockwise } from "@phosphor-icons/react/dist/ssr";
+import { defineField } from "sanity";
 
 export default {
   title: "Resuable Section",
@@ -14,6 +15,13 @@ export default {
         "Provide a name to reference this section. For internal use only.",
       validation: (Rule: any) => Rule.required(),
     },
+     defineField({
+  // should match 'languageField' plugin configuration setting, if customized
+  name: 'language',
+  type: 'string',
+  readOnly: true,
+  hidden: true,
+}),
     {
       title: "Content",
       name: "content",
