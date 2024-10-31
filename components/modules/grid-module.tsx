@@ -70,12 +70,13 @@ const getGridSize = (
 };
 
 function GridModule({ module }: any) {
-  const { size, columns, deviceScreen = false } = module;
+  const { size, columns, deviceScreen = false, padding = true } = module;
 
   return (
     <section
       className={cn(
-        "w-full lg:py-24 md:py-20 sm:py-16 py-14",
+        padding ? "w-full lg:py-24 md:py-20 sm:py-16 py-14" : "w-full",
+
         deviceScreen ? "h-[90vh]" : "h-auto"
       )}
     >

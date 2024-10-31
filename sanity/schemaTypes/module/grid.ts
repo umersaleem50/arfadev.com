@@ -23,6 +23,12 @@ export default {
       initialValue: false,
     },
     {
+      title: "Grid Padding",
+      name: "padding",
+      type: "boolean",
+      initialValue: true,
+    },
+    {
       title: "Grid Size",
       name: "size",
       type: "number",
