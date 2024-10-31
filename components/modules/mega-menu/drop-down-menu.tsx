@@ -61,7 +61,7 @@ function NavigationDropDown({
                 return (
                   <ListItem
                     href={item?.page?.slug?.current || "/invalid-slug"}
-                    title={title}
+                    title={item?.title}
                     key={key}
                     className="col-span-1 col-start-2"
                   >
