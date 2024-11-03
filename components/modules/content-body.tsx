@@ -2,7 +2,7 @@ import React from "react";
 import { PortableText } from "@portabletext/react";
 // import Section from "../section";
 
-import { cn } from "@/lib/utils";
+import { cn, purifyString } from "@/lib/utils";
 import { portableComplex } from "../portable-stucture/portable-complex";
 
 const WrapperElement = ({
@@ -14,7 +14,7 @@ const WrapperElement = ({
   wide: boolean;
   children: any;
 }) => {
-  switch (element) {
+  switch (purifyString(element)) {
     case "section":
       return (
         <section className="lg:py-24 md:py-20 sm:py-16 py-14 px-4 md:px-6 lg:px-0">
