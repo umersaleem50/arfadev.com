@@ -8,11 +8,11 @@ import { portableComplex } from "../portable-stucture/portable-complex";
 const WrapperElement = ({
   element,
   wide,
-  children,
+  body,
 }: {
   element: string;
   wide: boolean;
-  children: any;
+  body: any;
 }) => {
   switch (purifyString(element)) {
     case "section":
@@ -24,7 +24,7 @@ const WrapperElement = ({
               wide ? "!max-w-[50rem]" : "max-w-prose"
             )}
           >
-            {children}
+            <PortableText value={body} components={portableComplex} />
           </article>
         </section>
       );
@@ -37,7 +37,7 @@ const WrapperElement = ({
             wide ? "!max-w-[50rem]" : "max-w-prose"
           )}
         >
-          {children}
+          <PortableText value={body} components={portableComplex} />
         </div>
       );
 
@@ -60,9 +60,7 @@ function ContentBody({ module }: { module: any; lightMode?: boolean }) {
     //     <PortableText value={body} components={portableComplex} />
     //   </article>
     // </section>
-    <WrapperElement element={wrapper} wide={wide}>
-      <PortableText value={body} components={portableComplex} />
-    </WrapperElement>
+    <WrapperElement element={wrapper} wide={wide} body={body} />
   );
 }
 
