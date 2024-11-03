@@ -8,7 +8,7 @@ import {
   NavigationMenuIndicator,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "../ui/scroll-area";
 import ListItem from "./mega-menu/list-item-menu";
@@ -95,9 +95,17 @@ export function MegaMenu({ module }: { module: any }) {
         <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
           <LanguageSwitcher />
           <ModeToggle />
-          <Button variant={"outline"} className="border-foreground">
+          <Link
+            className={cn(
+              buttonVariants({
+                variant: "outline",
+                className: "border-foreground",
+              })
+            )}
+            href={"/contact"}
+          >
             Let's Talk
-          </Button>
+          </Link>
           {/* <ModeToggle/> */}
         </div>
       </div>
@@ -142,7 +150,7 @@ function DesktopNav({ module }: any) {
               return (
                 <NaviationMenuLink
                   title={item?.title}
-                  url={item?.page?.slug?.current || "/invalid-url"}
+                  url={"/" + (item?.page?.slug?.current || "invalid-url")}
                   key={key}
                 />
               );
@@ -184,12 +192,20 @@ function MobileNav({ module }: any) {
         <LanguageSwitcher />
         <div className="flex gap-2 self-start my-4">
           <ModeToggle />
-          <Button variant={"outline"} className="border-foreground">
+          <Link
+            className={cn(
+              buttonVariants({
+                variant: "outline",
+                className: "border-foreground",
+              })
+            )}
+            href={"/contact"}
+          >
             Let's Talk
-          </Button>
+          </Link>
         </div>
 
-        <ScrollArea className="h-full">
+        <ScrollArea className="h-[70vh]">
           <NavigationMenu className="flex flex-col items-start space-y-6 list-none">
             {items.map((item: any, key: number) => {
               switch (item._type) {
@@ -206,7 +222,7 @@ function MobileNav({ module }: any) {
                             (component: any, key: number) => (
                               <ListItem
                                 href={
-                                  component?.url ||
+                                  `/${component?.url}` ||
                                   `/${component?.page?.slug?.current}`
                                 }
                                 title={component.title}
@@ -223,7 +239,7 @@ function MobileNav({ module }: any) {
                   return (
                     <Link
                       href={item?.url}
-                      className="text-secondary text-lg font-serif font-medium "
+                      className="text-lg text-primary font-serif font-bold "
                       key={key}
                     >
                       {item?.title}
@@ -233,7 +249,8 @@ function MobileNav({ module }: any) {
                   return (
                     <NaviationMenuLink
                       title={item?.title}
-                      url={"/" + item?.page?.slug?.current || "invalid-url"}
+                      className="text-lg text-primary font-serif font-bold"
+                      url={"/" + (item?.page?.slug?.current || "invalid-url")}
                       key={key}
                     />
                   );

@@ -60,7 +60,7 @@ function NavigationDropDown({
               case "menuLink":
                 return (
                   <ListItem
-                    href={item?.page?.slug?.current || "/invalid-slug"}
+                    href={"/" + (item?.page?.slug?.current || "invalid-slug")}
                     title={item?.title}
                     key={key}
                     className="col-span-1 col-start-2"

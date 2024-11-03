@@ -59,7 +59,7 @@ function FooterModule({ module }: any) {
         {/* {module?.langSupport && (
           // <LanguageSwitcher langSupport={module.langSupport} />
         )} */}
-        <LanguageSwitcher />
+        <LanguageSwitcher light={false} />
         {socialLinks && <FooterSocials socialLinks={module?.socialLinks} />}
       </div>
       <Banner title="All rights reserved. Arfa Developers 2024." />

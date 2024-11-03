@@ -1,3 +1,4 @@
+import { purifyString } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import Image, { ImageProps } from "next/image";
 import React from "react";
@@ -35,7 +36,7 @@ function CustomImage({
     placeholder: placeholder,
     loading: priority ? "eager" : loading, // eager loading if priority is true
     priority: priority,
-    style: { objectFit },
+    style: { objectFit: purifyString(objectFit) },
     quality: 90,
     sizes: "(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 40vw",
     ...rest,
