@@ -32,7 +32,7 @@ function NavigationDropDown({
               <NavigationMenuLink asChild>
                 <Link
                   className="flex h-full min-h-[12rem] w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative hover:bg-primary transition-colors duration-150"
-                  href={featured?.page?.slug?.current || "/invalid-slug"}
+                  href={"/" + (featured?.page?.slug?.current || "invalid-slug")}
                 >
                   {/* <Icons.logo className="h-6 w-6" /> */}
 
