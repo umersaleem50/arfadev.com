@@ -222,7 +222,7 @@ function MobileNav({ module }: any) {
                             (component: any, key: number) => (
                               <ListItem
                                 href={
-                                  `/${component?.url}` ||
+                                  component?.url ||
                                   `/${component?.page?.slug?.current}`
                                 }
                                 title={component.title}
@@ -250,7 +250,7 @@ function MobileNav({ module }: any) {
                     <NaviationMenuLink
                       title={item?.title}
                       className="text-lg text-primary font-serif font-bold"
-                      url={"/" + (item?.page?.slug?.current || "invalid-url")}
+                      url={`/${item?.page?.slug?.current}` || "/invalid-url"}
                       key={key}
                     />
                   );
