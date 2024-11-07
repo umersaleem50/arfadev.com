@@ -41,7 +41,7 @@ export async function generateMetadata({
     description: seo?.metaDesc,
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
     alternates: {
-      canonical: page?.slug ? `/${page.slug.current}` : `/`,
+      canonical: page?.slug ? `/${lang}/${page.slug.current}` : `/${lang}`,
     },
 
     authors: seo?.authors,
