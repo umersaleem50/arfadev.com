@@ -60,7 +60,7 @@ export async function generateMetadata(
     description: seo?.metaDesc,
     metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}` as string),
     alternates: {
-      canonical: planSlug,
+      canonical: `/${language}/${planSlug}`,
     },
     authors: seo?.authors,
     keywords: seo?.keywords,
