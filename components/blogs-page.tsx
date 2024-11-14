@@ -12,7 +12,7 @@ import {
 
 import PaginationSearchParams from "@/components/pagination-search-params";
 import BlogsTags from "./blogs-tag";
-import BlogCard, { LargeBlogCard } from "./blog-card";
+import BlogCard, { ILargeBlogCard, LargeBlogCard } from "./blog-card";
 import { SearchInput } from "./search-input";
 import { client } from "@/sanity/lib/client";
 import { ALL_POSTS_QUERY, POST_SEARCH_QUERY } from "@/sanity/data/queries";
@@ -89,18 +89,22 @@ const blogPosts = [
 
 // All unique tags
 
-const fetchPosts = async (lang: string, page: string) => {
-  const data = await client.fetch(ALL_POSTS_QUERY, { lang, page: 10 }, {});
+const fetchPosts = async ({
+  lang,
+  skips,
+  limit,
+}: {
+  lang: string;
+  skips: number;
+  limit: number;
+}) => {
+  console.log(lang, limit, skips);
+
+  const data = await client.fetch(ALL_POSTS_QUERY, { lang, limit, skips }, {});
   return data;
 };
 
-async function BlogsPage(props: {
-  searchParams?: Promise<{
-    query?: string;
-    page?: string;
-  }>;
-  lang: string;
-}) {
+async function BlogsPage(props: { searchParams: any; lang: string }) {
   // const [searchTerm, setSearchTerm] = useState("");
   // const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
@@ -112,18 +116,18 @@ async function BlogsPage(props: {
   // );
 
   const searchParams = await props.searchParams;
-  const posts = await fetchPosts(
-    props.lang || "en",
-    searchParams?.page || "10"
-  );
-  console.log(posts);
 
   const query = searchParams?.query || "";
-  const currentPage = Number(searchParams?.page) || 1;
+  const currentPage = Number(searchParams?.page || 1);
+  const limit = Number(searchParams?.limit || 10);
 
-  const filteredPosts = blogPosts;
+  console.log(currentPage);
 
-  const firstPost = posts[0];
+  const posts = await fetchPosts({
+    lang: props.lang || "en",
+    skips: (currentPage - 1) * 10,
+    limit,
+  });
 
   return (
     <div className="w-full">
@@ -207,20 +211,27 @@ async function BlogsPage(props: {
             </CardFooter>
           </Card> */}
           <div className="col-start-1 lg:col-span-2">
-            <LargeBlogCard
-              _createdAt={firstPost._updatedAt}
-              author={firstPost.author}
-              cover={firstPost.cover}
-              description={firstPost.description}
-              slug={firstPost.slug}
-              title={firstPost.title}
-            />
+            {posts.map((post: ILargeBlogCard, key: number) => {
+              return (
+                <LargeBlogCard
+                  key={key}
+                  _updatedAt={post?._updatedAt}
+                  author={post?.author}
+                  cover={post?.cover}
+                  description={post?.description}
+                  slug={post?.slug}
+                  title={post?.title}
+                  tags={post.tags}
+                />
+              );
+            })}
+            {!posts.length && <p>No blogs found.</p>}
           </div>
 
           {/* Smaller Featured Posts */}
           <div className="space-y-6 sticky top-0 self-start">
             <h2 className="text-2xl mb-4 font-serif">Featured Blogs</h2>
-            {filteredPosts.slice(1, 4).map((post) => (
+            {/* {filteredPosts.slice(1, 4).map((post) => (
               <Card key={post.id} className="flex flex-row h-auto">
                 <Image
                   src={post.image}
@@ -246,12 +257,12 @@ async function BlogsPage(props: {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+            ))} */}
           </div>
         </div>
 
         {/* Main Blog Posts Grid */}
-        <h2 className="text-2xl font-serif">Recommended Posts</h2>
+        {/* <h2 className="text-2xl font-serif">Recommended Posts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-4">
           {blogPosts.map((post, index) => (
             <BlogCard title={post.title} key={index} />
@@ -289,7 +300,7 @@ async function BlogsPage(props: {
             //   </CardFooter>
             // </Card>
           ))}
-        </div>
+        </div> */}
         <PaginationSearchParams />
       </div>
     </div>

@@ -5,19 +5,23 @@ import BlogsPage from "@/components/blogs-page";
 
 export default async function BlogListing({
   params,
+  searchParams,
 }: {
   params: { lang: string };
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+    limit?: string;
+  }>;
 }) {
   const pageData = await getPostsPage(false);
   const menu = pageData?.menu;
   const footer = pageData?.footer;
 
-  console.log(params.lang);
-
   return (
     <>
       {menu && <MegaMenu module={menu} />}
-      <BlogsPage lang={params.lang} />
+      <BlogsPage lang={params.lang} searchParams={searchParams} />
       {footer && <FooterModule module={footer} />}
     </>
   );

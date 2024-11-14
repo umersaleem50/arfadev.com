@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const ALL_POSTS_QUERY = groq`*[_type == "post" && language==$lang][0...$page]{...,author->{name,photo}}`;
+export const ALL_POSTS_QUERY = groq`*[_type == "post" && language==$lang][$skips...$limit]{...,author->{name,photo}}`;
 export const ALL_SERVICES_QUERY = groq`*[_type == "service"  && defined(slug)]`;
 export const ALL_TEAM_QUERY = groq`*[_type == "page" && category == "team"]{slug,content[_type == "one-member"]{member->}[0]}`;
 
