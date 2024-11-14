@@ -49,10 +49,13 @@ export default {
       // group: "displays",
     },
     {
-      title: "Featured Case Studies",
-      name: "caseStudies",
+      title: "Featured Blogs",
+      name: "featuredBlogs",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "page" }] }],
+      of: [{ type: "reference", to: [{ type: "post" }] }],
+      validation: (rule: any) => {
+        return rule.length < 4;
+      },
     },
     {
       title: "Site Title",

@@ -27,7 +27,7 @@ function PaginationSearchParams() {
   };
 
   return (
-    <Pagination>
+    <Pagination className="lg:py-4">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious href={createPageURL(page - 1)} />

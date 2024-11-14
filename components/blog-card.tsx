@@ -5,6 +5,7 @@ import CustomImage from "./custom-image";
 import { cn } from "@/lib/utils";
 import Author from "./author";
 import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
 
 function BlogCard({
   title,
@@ -125,19 +126,20 @@ export function LargeBlogCard({
       </div>
 
       <Link href={`/blogs/${slug.current}`}>
-        <div className="my-6">
+        <div className="my-3 sm:my-4 md:my-5 lg:md-6">
           <time className="text-sm sm:text-base font-sans text-white/70">
             {new Date(_updatedAt).toDateString()}
           </time>
           <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold underline text-foreground hover:underline group-hover:text-primary transition-colors">
             {title}
           </h3>
-          <p className="mt-5 text-muted-foreground line-clamp-3">
+          <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-muted-foreground line-clamp-3">
             {description}
           </p>
         </div>
+
         {tags && (
-          <div className="flex flex-wrap gap-2 lg:pb-6">
+          <div className="flex flex-wrap gap-2 pb-3 sm:pb-4 md:pb-5 lg:pb-6">
             {tags.map((tag: string, key: number) => {
               return (
                 <Badge key={tag} variant="secondary">

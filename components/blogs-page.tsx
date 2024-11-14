@@ -1,91 +1,12 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 import PaginationSearchParams from "@/components/pagination-search-params";
-import BlogsTags from "./blogs-tag";
-import BlogCard, { ILargeBlogCard, LargeBlogCard } from "./blog-card";
+import { ILargeBlogCard, LargeBlogCard } from "./blog-card";
 import { SearchInput } from "./search-input";
 import { client } from "@/sanity/lib/client";
-import { ALL_POSTS_QUERY, POST_SEARCH_QUERY } from "@/sanity/data/queries";
-
-// Mock data for blog posts
-const blogPosts = [
-  {
-    id: 1,
-    title: "Getting Started with React",
-    excerpt: "Learn the basics of React and start building your first app.",
-    tags: ["React", "JavaScript"],
-    image:
-      "https://images.pexels.com/photos/793166/pexels-photo-793166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    id: 2,
-    title: "Advanced TypeScript Techniques",
-    excerpt: "Dive deep into TypeScript and learn advanced concepts.",
-    tags: ["TypeScript", "JavaScript"],
-    image:
-      "https://images.pexels.com/photos/358312/pexels-photo-358312.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    id: 3,
-    title: "CSS Grid Layout Mastery",
-    excerpt: "Master CSS Grid and create complex layouts with ease.",
-    tags: ["CSS", "Web Design"],
-    image:
-      "https://images.pexels.com/photos/19295214/pexels-photo-19295214/free-photo-of-town-on-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    id: 4,
-    title: "Node.js Best Practices",
-    excerpt:
-      "Discover the best practices for building scalable Node.js applications.",
-    tags: ["Node.js", "Backend"],
-    image:
-      "https://images.pexels.com/photos/13871553/pexels-photo-13871553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    id: 5,
-    title: "Introduction to GraphQL",
-    excerpt: "Learn how to use GraphQL to build efficient APIs.",
-    tags: ["GraphQL", "API"],
-    image:
-      "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    id: 6,
-    title: "Responsive Web Design Techniques",
-    excerpt: "Create websites that look great on any device.",
-    tags: ["CSS", "Web Design"],
-    image:
-      "https://images.pexels.com/photos/840666/pexels-photo-840666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    id: 7,
-    title: "State Management with Redux",
-    excerpt:
-      "Learn how to manage complex state in your React applications using Redux.",
-    tags: ["React", "Redux"],
-    image:
-      "https://images.pexels.com/photos/849835/pexels-photo-849835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    id: 8,
-    title: "Building RESTful APIs with Express",
-    excerpt: "Create robust and scalable APIs using Express.js and Node.js.",
-    tags: ["Node.js", "API"],
-    image:
-      "https://images.pexels.com/photos/163194/old-retro-antique-vintage-163194.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-];
+import { ALL_POSTS_QUERY, BLOG_SEARCH_QUERY } from "@/sanity/data/queries";
+import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
+import { Badge } from "./ui/badge";
+import CustomImage from "./custom-image";
+import Link from "next/link";
 
 // All unique tags
 
@@ -93,149 +14,85 @@ const fetchPosts = async ({
   lang,
   skips,
   limit,
+  queryStr,
+  // tags,
 }: {
   lang: string;
   skips: number;
   limit: number;
+  queryStr?: string;
+  // tags?: string;
 }) => {
-  console.log(lang, limit, skips);
+  if (queryStr) {
+    return await client.fetch(
+      BLOG_SEARCH_QUERY,
+      { queryStr: queryStr, limit, skips },
+      {}
+    );
+  } else return await client.fetch(ALL_POSTS_QUERY, { lang, limit, skips }, {});
+};
 
-  const data = await client.fetch(ALL_POSTS_QUERY, { lang, limit, skips }, {});
-  return data;
+const NoBlogFallback = () => {
+  return (
+    <>
+      <p className="text-xl font-serif text-primary mb-3">No Blog Found.</p>
+      <p className="text-base font-sans text-muted-foreground">
+        Try searching something else.
+      </p>
+    </>
+  );
 };
 
 async function BlogsPage(props: { searchParams: any; lang: string }) {
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const [selectedTags, setSelectedTags] = useState<string[]>([]);
-
-  // const filteredPosts = blogPosts.filter(
-  //   (post) =>
-  //     post.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-  //     (selectedTags.length === 0 ||
-  //       selectedTags.some((tag) => post.tags.includes(tag)))
-  // );
-
   const searchParams = await props.searchParams;
 
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page || 1);
   const limit = Number(searchParams?.limit || 10);
+  // const tags = searchParams?.tags;
 
-  console.log(currentPage);
-
-  const posts = await fetchPosts({
+  const { posts, featured } = await fetchPosts({
     lang: props.lang || "en",
     skips: (currentPage - 1) * 10,
     limit,
+    queryStr: query,
+    // tags,
   });
 
   return (
     <div className="w-full">
-      {/* Cover Image */}
-      {/* <div className="relative h-[50vh]">
-        <Image
-          src="https://images.pexels.com/photos/4427813/pexels-photo-4427813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Blog Cover"
-          layout="fill"
-          objectFit="cover"
-          className="brightness-[20%]"
-        />
-        <div className="absolute inset-0 flex items-center justify-center gap-y-8 flex-col">
-          <h1 className="text-2xl md:text-xl font-serif font-bold text-center text-primary">
-            Stay up-to-date with legal world.
-          </h1>
-        </div>
-      </div> */}
-
-      <div className="px-4 py-8 max-w-[85rem] mx-auto">
-        {/* Search Bar */}
-        <div className="mb-8 flex w-full self-center justify-between gap-y-4 items-start">
-          {/* <div className="relative w-full"> */}
-          {/* <Input
-              type="text"
-              placeholder="Search blogs..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 "
-            />
-            <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2"
-              size={20}
-            /> */}
-          {/* </div> */}
-          {/* <Button variant={"default"} className="px-8">
-            Search
-          </Button> */}
-          <BlogsTags posts={blogPosts} />
-          <SearchInput />
-        </div>
-
-        {/* Tags */}
-
-        {/* Featured Blog Posts */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Large Featured Post */}
-          {/* <Card className="lg:col-span-2 col-start-1 group">
-            <CardHeader className="p-0 overflow-hidden">
-              <Image
-                src={
-                  "https://images.pexels.com/photos/5990047/pexels-photo-5990047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                }
-                alt={"card"}
-                width={600}
-                height={300}
-                layout="responsive"
-                className="rounded-t-lg group-hover:scale-105 transition-transform"
+      <div className=" px-4 py-8 max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <SearchInput className="grid md:hidden" />
+        <div className="col-start-1 lg:col-span-2">
+          {posts.map((post: ILargeBlogCard, key: number) => {
+            return (
+              <LargeBlogCard
+                key={key}
+                _updatedAt={post?._updatedAt}
+                author={post?.author}
+                cover={post?.cover}
+                description={post?.description}
+                slug={post?.slug}
+                title={post?.title}
+                tags={post.tags}
               />
-            </CardHeader>
-            <CardContent className="p-6">
-              <time className="font-sans mb-4 text-primary">
-                {new Date().toDateString()}
-              </time>
-              <CardTitle className="mb-2 text-2xl font-serif">
-                {filteredPosts[0]?.title}
-              </CardTitle>
-              <p className=" mb-4">{filteredPosts[0]?.excerpt}</p>
-              <div className="flex flex-wrap gap-2">
-                {filteredPosts[0]?.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button variant="default" size={"lg"}>
-                Read more about blog
-              </Button>
-            </CardFooter>
-          </Card> */}
-          <div className="col-start-1 lg:col-span-2">
-            {posts.map((post: ILargeBlogCard, key: number) => {
-              return (
-                <LargeBlogCard
-                  key={key}
-                  _updatedAt={post?._updatedAt}
-                  author={post?.author}
-                  cover={post?.cover}
-                  description={post?.description}
-                  slug={post?.slug}
-                  title={post?.title}
-                  tags={post.tags}
-                />
-              );
-            })}
-            {!posts.length && <p>No blogs found.</p>}
-          </div>
+            );
+          })}
+          {!posts.length && <NoBlogFallback />}
+        </div>
 
-          {/* Smaller Featured Posts */}
-          <div className="space-y-6 sticky top-0 self-start">
-            <h2 className="text-2xl mb-4 font-serif">Featured Blogs</h2>
-            {/* {filteredPosts.slice(1, 4).map((post) => (
-              <Card key={post.id} className="flex flex-row h-auto">
-                <Image
-                  src={post.image}
-                  alt={post.title}
+        {/* Smaller Featured Posts */}
+        <div className="space-y-6 sticky top-4 self-start">
+          <SearchInput className="hidden md:grid" />
+          <h2 className="text-2xl mb-4 font-serif">Featured Blogs</h2>
+          {featured.map((post: ILargeBlogCard, key: number) => (
+            <Card key={key} className="group transition-colors">
+              <Link
+                href={`/blogs/${post.slug.current}`}
+                className="flex flex-row h-auto group-hover:border-primary border-muted border"
+              >
+                <CustomImage
+                  imageOBJ={post.cover}
                   width={120}
                   height={120}
                   className="rounded-l-lg object-cover"
@@ -248,62 +105,29 @@ async function BlogsPage(props: { searchParams: any; lang: string }) {
                     Learn how I helped chishti law firm for 3x traffic, in just
                     one week.
                   </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.slice(0, 2).map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                  {post?.tags && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag: string) => (
+                        <Badge
+                          key={tag}
+                          variant="secondary"
+                          className="text-xs"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
                 </CardContent>
-              </Card>
-            ))} */}
-          </div>
-        </div>
-
-        {/* Main Blog Posts Grid */}
-        {/* <h2 className="text-2xl font-serif">Recommended Posts</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-4">
-          {blogPosts.map((post, index) => (
-            <BlogCard title={post.title} key={index} />
-            // <Card
-            //   key={post.id}
-            //   className={`
-            //     ${index % 3 === 0 ? "md:col-span-2 lg:col-span-1" : ""}
-            //   `}
-            // >
-            //   <CardHeader className="p-0 h-[300px] w-full relative">
-            //     <Image
-            //       src={post.image}
-            //       alt={post.title}
-            //       fill
-            //       objectFit="cover"
-            //       // layout="responsive"
-            //       // className="rounded-t-lg"
-            //     />
-            //   </CardHeader>
-            //   <CardContent className="p-6">
-            //     <CardTitle className="mb-2 font-serif">{post.title}</CardTitle>
-            //     <p className="text-sm mb-4 line-clamp-1">{post.excerpt}</p>
-            //     <div className="flex flex-wrap gap-2">
-            //       {post.tags.map((tag) => (
-            //         <Badge key={tag} variant="secondary">
-            //           {tag}
-            //         </Badge>
-            //       ))}
-            //     </div>
-            //   </CardContent>
-            //   <CardFooter>
-            //     <Button variant="outline" className="w-full">
-            //       Read More
-            //     </Button>
-            //   </CardFooter>
-            // </Card>
+              </Link>
+            </Card>
           ))}
-        </div> */}
-        <PaginationSearchParams />
+        </div>
       </div>
+
+      <PaginationSearchParams />
     </div>
+    // </div>
   );
 }
 

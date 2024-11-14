@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const ALL_POSTS_QUERY = groq`*[_type == "post" && language==$lang][$skips...$limit]{...,author->{name,photo}}`;
+export const FEATURED_BLOGS = `*[_type=="generalSettings" && language == $lang][0].featuredBlogs[]->{cover,title,tags,slug{current},description}`;
 export const ALL_SERVICES_QUERY = groq`*[_type == "service"  && defined(slug)]`;
 export const ALL_TEAM_QUERY = groq`*[_type == "page" && category == "team"]{slug,content[_type == "one-member"]{member->}[0]}`;
 
@@ -121,14 +121,23 @@ export const HOMEPAGE_QUERY = `*[_type == "page" && _id == ${homeID}] | order(_u
     seo}
   `;
 
-export const POST_SEARCH_QUERY = `*[_type == "post" && (title match $query || slug.current match $query || tags match $query || description match $query)] {
+// BLOGS QUERY
+
+export const ALL_POSTS_QUERY = groq`{"posts":*[_type == "post" && language==$lang][$skips...$limit]{...,author->{name,photo}},"featured":${FEATURED_BLOGS}}`;
+
+export const BLOG_SEARCH_QUERY = `{"posts":*[_type == "post" && (title match $queryStr || slug.current match $queryStr || tags match $queryStr || description match $queryStr)][$skips...$limit] {
     _id,
     title,
     tags,
     slug,
     cover,
-    description
-  }`;
+    description,
+    _updatedAt,
+    author->{name,photo}
+  
+  },
+  "featured":${FEATURED_BLOGS}
+    }`;
 
 // export const POST_QUERY = `
 //         {
