@@ -11,10 +11,26 @@ const fetchPosts = async () => {
   });
 };
 
+const uniqueEntries = (data: any) =>
+  Object.values(
+    data.reduce((acc: any, entry: any) => {
+      const key = entry.slug.current;
+      if (
+        !acc[key] ||
+        new Date(acc[key]._updatedAt) < new Date(entry._updatedAt)
+      ) {
+        acc[key] = entry;
+      }
+      return acc;
+    }, {})
+  );
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const docs: any = await fetchPosts();
 
-  const postEntries = docs.map(
+  const uniqueDoc = uniqueEntries(docs);
+
+  const postEntries = uniqueDoc.map(
     ({
       slug,
       _updatedAt,
@@ -32,8 +48,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           languages: {},
         },
       };
-
-      console.log(translations);
 
       if (
         translations?.map(

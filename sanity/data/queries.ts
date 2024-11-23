@@ -235,7 +235,7 @@ export const NOT_FOUND = `
   `;
 
 export const SITEMAP_QUERY = `*[_type in $docs ] {
-_updatedAt, priority, changeFrequency,
+_updatedAt, "priority":seo.priority,"changeFrequency":seo.changeFrequency,
     slug,
       language,
     "translations": *[_type == "translation.metadata" && references(^._id)]
