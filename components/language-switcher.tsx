@@ -3,8 +3,7 @@ import Link from "next/link";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { CaretDown, Translate } from "@phosphor-icons/react/dist/ssr";
 import { Button, buttonVariants } from "./ui/button";
-import { useParams } from "next/navigation";
-import { cn, joinSlugs, purifyString } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { useSlugAndLang } from "@/hooks/use-lang-slug";
 
 function LanguageSwitcher({
@@ -28,7 +27,7 @@ function LanguageSwitcher({
         <Button
           variant="outline"
           className={cn(
-            "flex items-center gap-2 dark:hover:text-white",
+            "flex items-center gap-2 dark:hover:text-white font-serif",
             light
               ? "dark:text-white text-slate-900"
               : "text-white dark:text-slate-900"
@@ -45,7 +44,10 @@ function LanguageSwitcher({
             ({ title, code }: { title: string; code: string }, key: number) => {
               return (
                 <Link
-                  className={buttonVariants({ variant: "ghost" })}
+                  className={buttonVariants({
+                    variant: "ghost",
+                    className: "font-serif",
+                  })}
                   href={`/${code}/${slug}`}
                   key={key}
                 >

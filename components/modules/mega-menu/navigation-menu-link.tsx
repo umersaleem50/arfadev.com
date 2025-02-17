@@ -3,6 +3,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
@@ -16,7 +17,7 @@ function NaviationMenuLink({
   className?: string;
 }) {
   return (
-    <NavigationMenuItem className={className}>
+    <NavigationMenuItem className={cn(className, "font-serif")}>
       <Link href={url} legacyBehavior passHref>
         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
           {title || "Untitle"}

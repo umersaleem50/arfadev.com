@@ -144,6 +144,7 @@ function DesktopNav({ module }: any) {
                   title={item?.title}
                   url={item?.url}
                   key={key}
+                  className="font-serif"
                 />
               );
             case "navPage":
@@ -152,6 +153,7 @@ function DesktopNav({ module }: any) {
                   title={item?.title}
                   url={"/" + (item?.page?.slug?.current || "invalid-url")}
                   key={key}
+                  className="font-serif"
                 />
               );
             default:
@@ -196,7 +198,7 @@ function MobileNav({ module }: any) {
             className={cn(
               buttonVariants({
                 variant: "outline",
-                className: "border-foreground",
+                className: "border-foreground !font-serif",
               })
             )}
             href={"/contact"}
