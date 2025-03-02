@@ -73,7 +73,7 @@ export const portableComplex: any = {
               size: value?.styles?.isLarge ? "lg" : "default",
               className: cn(
                 value?.styles?.isBlock && "w-full",
-                "py-4 my-3 md:ml-4 sm:ml-3 ml-2"
+                "py-4 my-3 md:mr-4 sm:mr-3 mr-2"
               ),
             })}
           >
