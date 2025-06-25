@@ -132,4 +132,4 @@ async function Page({
 
 export default Page;
 
-export const revalidate = process.env.NODE_ENV === "development" ? 60 : 10 * 60;
+export const revalidate = process.env.NODE_ENV === "development" ? 60 : 60 * 60;
