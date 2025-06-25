@@ -95,7 +95,7 @@ export default defineType({
         { type: "all-team", name: "all-team" },
         { type: "all-services", name: "all-services" },
         { type: "process", name: "process" },
-        { type: "contact", name: "contant" },
+        // { type: "contact", name: "contant" },
         { type: "gallery", name: "gallery" },
         { type: "grid", name: "grid" },
         { type: "awards", name: "awards" },

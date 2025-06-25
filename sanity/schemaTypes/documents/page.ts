@@ -97,7 +97,7 @@ export default defineType({
         { type: "landing-hero", name: "landing-hero" },
         { type: "process", name: "process" },
         { type: "footer", name: "footer" },
-        { type: "contact", name: "contant" },
+
         { type: "one-member", name: "one-member" },
         { type: "gallery", name: "gallery" },
         { type: "grid", name: "grid" },

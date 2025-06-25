@@ -41,8 +41,6 @@ const itemVariants = {
 const getRandomSize = () => +(Math.random() * (6 - 2) + 2).toFixed(2); // 2–6 radius
 
 function HeroIllustration() {
-  const { theme, systemTheme } = useTheme();
-
   const strokeColor = "#2B2D42";
 
   const fill = "#F7EDF0";
@@ -152,7 +150,7 @@ function HeroIllustration() {
 
   return (
     <svg
-      className="max-w-[50rem]"
+      className=" md:!relative absolute bottom-0 w-[50rem] sm:w-[60rem] md:right-auto right-1/2 translate-x-1/2 md:translate-x-0"
       viewBox="0 0 1212 488"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

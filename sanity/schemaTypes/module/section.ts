@@ -15,13 +15,13 @@ export default {
         "Provide a name to reference this section. For internal use only.",
       validation: (Rule: any) => Rule.required(),
     },
-     defineField({
-  // should match 'languageField' plugin configuration setting, if customized
-  name: 'language',
-  type: 'string',
-  readOnly: true,
-  hidden: true,
-}),
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
     {
       title: "Content",
       name: "content",
@@ -46,7 +46,7 @@ export default {
           name: "footer",
           title: "Footer",
         },
-        { type: "contact" },
+        // { type: "contact" },
         { type: "gallery" },
         { type: "awards" },
         { type: "portfolio" },

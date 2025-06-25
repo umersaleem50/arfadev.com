@@ -17,7 +17,6 @@ const MegaMenu = dynamic(() => import("./mega-menu").then((el) => el.MegaMenu));
 
 function Module({ module }: any) {
   const type = module._type;
-  console.log(type);
 
   switch (type) {
     case "grid":
