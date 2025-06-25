@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { cache } from "react";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
+
 import { urlFor } from "@/sanity/lib/image";
 import { getStaticPage } from "@/sanity/data";
 
 import Module from "@/components/modules/module";
 
-const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 import { HOMEPAGE_QUERY } from "@/sanity/data/queries";
-import { cache } from "react";
-import dynamic from "next/dynamic";
-import HubspotContactForm from "@/components/hubspot-contact-form";
+const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 
 type Props = {
   params: { slug: string[] | string; lang: string };
