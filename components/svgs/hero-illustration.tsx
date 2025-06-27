@@ -150,7 +150,7 @@ function HeroIllustration() {
 
   return (
     <svg
-      className=" md:!relative absolute bottom-0 w-[50rem] sm:w-[60rem] md:right-auto right-1/2 translate-x-1/2 md:translate-x-0"
+      className=" md:!relative absolute bottom-0 w-[50rem] sm:w-[60rem] md:right-auto right-1/2 translate-x-1/2 md:translate-x-0 overflow-x-hidden"
       viewBox="0 0 1212 488"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

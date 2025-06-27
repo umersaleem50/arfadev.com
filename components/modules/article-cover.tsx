@@ -3,7 +3,7 @@ import CustomImage from "../custom-image";
 
 function ArticleCover({ cover, title }: { cover: any; title: string }) {
   return (
-    <div className="relative h-[70vh] min-h-[400px] w-full px-2">
+    <div className="relative h-[70vh] min-h-[400px] w-full px-2 overflow-hidden">
       {cover && (
         <CustomImage
           alt={cover?.alt}
