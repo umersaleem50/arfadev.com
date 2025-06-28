@@ -17,7 +17,7 @@ function LandingHero({ module }: any) {
       </div>
       <HeroIllustration
         className={
-          "md:!relative absolute bottom-5 w-[50rem] sm:w-[60rem] md:right-auto right-1/2 translate-x-1/2 md:translate-x-0 overflow-x-hidden"
+          "md:!relative absolute bottom-1/3 sm:bottom-5 w-[50rem] sm:w-[60rem] md:right-auto right-1/2 translate-x-1/2 md:translate-x-0 translate-y-1/2 sm:translate-y-0 overflow-x-hidden"
         }
       />
     </div>
