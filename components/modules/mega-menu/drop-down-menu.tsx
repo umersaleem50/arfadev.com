@@ -9,53 +9,20 @@ import React from "react";
 import ListItem from "./list-item-menu";
 
 import CustomImage from "@/components/custom-image";
-import { urlFor } from "@/sanity/lib/image";
 import { NavigationMenuIndicator } from "@radix-ui/react-navigation-menu";
+import { INavDropdown } from "@/sanity/schemaTypes/objects/nav-dropdown";
+import FeaturedItem from "./featured-item";
 
-function NavigationDropDown({
-  title,
-  featured,
-  dropdownItems,
-}: {
-  title: string;
-  featured?: any;
-  dropdownItems: any;
-}) {
+function NavigationDropDown({ title, featured, dropdownItems }: INavDropdown) {
   return (
     <NavigationMenuItem>
       <NavigationMenuIndicator />
       <NavigationMenuTrigger>{title || "Untitled"}</NavigationMenuTrigger>
       <NavigationMenuContent>
         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-2">
-          {featured && (
-            <li className="row-span-3 col-span-1">
-              <NavigationMenuLink asChild>
-                <Link
-                  className="flex h-full min-h-[12rem] w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md relative transition-colors duration-150"
-                  href={"/" + (featured?.page?.slug?.current || "invalid-slug")}
-                >
-                  {/* <Icons.logo className="h-6 w-6" /> */}
+          <FeaturedItem featured={featured} />
 
-                  <div className="mb-2 mt-4 text-lg font-medium font-serif z-10">
-                    {featured?.page?.title || "Invalid page title"}
-                  </div>
-                  <p className="text-sm leading-tight text-muted-foreground font-sans z-10">
-                    {featured?.title}
-                  </p>
-                  {featured?.cover?.asset && (
-                    <CustomImage
-                      imageOBJ={featured?.cover}
-                      alt={featured?.cover?.alt}
-                      fill
-                      className="-z-1 !opacity-20"
-                    />
-                  )}
-                </Link>
-              </NavigationMenuLink>
-            </li>
-          )}
-
-          {dropdownItems.map((item: any, key: number) => {
+          {dropdownItems.map((item, key: number) => {
             switch (item._type) {
               case "menuLink":
                 return (

@@ -36,6 +36,64 @@
   animation: float 8s ease-in-out infinite;
 }
 
+/* ONLY ORANGE */
+/* @layer base {
+  :root {
+    --background: 24 60% 98%;
+    --foreground: 24 52% 3%;
+    --muted: 24 13% 85%;
+    --muted-foreground: 24 5% 32%;
+    --popover: 24 60% 98%;
+    --popover-foreground: 24 52% 3%;
+    --card: 24 60% 98%;
+    --card-foreground: 24 52% 3%;
+    --border: 24 14% 92%;
+    --input: 24 14% 92%;
+    --primary: 24 100% 54%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 24 3% 86%;
+    --secondary-foreground: 24 3% 26%;
+    --accent: 24 3% 86%;
+    --accent-foreground: 24 3% 26%;
+    --destructive: 20 96% 28%;
+    --destructive-foreground: 20 96% 88%;
+    --ring: 24 100% 54%;
+    --chart-1: 24 100% 54%;
+    --chart-2: 24 3% 86%;
+    --chart-3: 24 3% 86%;
+    --chart-4: 24 3% 89%;
+    --chart-5: 24 103% 54%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 24 39% 4%;
+    --foreground: 24 36% 99%;
+    --muted: 24 13% 15%;
+    --muted-foreground: 24 5% 68%;
+    --popover: 24 39% 4%;
+    --popover-foreground: 24 36% 99%;
+    --card: 24 39% 4%;
+    --card-foreground: 24 36% 99%;
+    --border: 24 14% 13%;
+    --input: 24 14% 13%;
+    --primary: 24 100% 54%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 24 1% 15%;
+    --secondary-foreground: 24 1% 75%;
+    --accent: 24 1% 15%;
+    --accent-foreground: 24 1% 75%;
+    --destructive: 20 96% 59%;
+    --destructive-foreground: 0 0% 0%;
+    --ring: 24 100% 54%;
+    --chart-1: 24 100% 54%;
+    --chart-2: 24 1% 15%;
+    --chart-3: 24 1% 15%;
+    --chart-4: 24 1% 18%;
+    --chart-5: 24 103% 54%;
+  }
+} */
+
 @layer base {
   :root {
     --background: 24 61% 98%;

@@ -6,4 +6,5 @@ export interface IReference {
 
 export interface IPage {
   slug: { current: string };
+  title?: string;
 }

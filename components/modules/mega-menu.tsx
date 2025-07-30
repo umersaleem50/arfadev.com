@@ -24,6 +24,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { IMenu } from "@/sanity/schemaTypes/documents/menu";
 import { INavLink } from "@/sanity/schemaTypes/objects/navlink";
 import { IMenuLink } from "@/sanity/schemaTypes/objects/menuLink";
+import FeaturedItem from "./mega-menu/featured-item";
 
 interface IModule extends IMenu {
   logo: SanityImageSource;
@@ -51,22 +52,6 @@ export function MegaMenu({ module }: { module: IModule }) {
     }
   });
 
-  // scroll(
-  //   (progress: any) => {
-  //     if (progress * 100 > 20) {
-  //       console.log("sticky", progress);
-
-  //       setIsSticky(true);
-  //     } else {
-  //       console.warn("not sticky", progress);
-  //       setIsSticky(false);
-  //     }
-  //   },
-  //   {
-  //     axis: "y",
-  //   }
-  // );
-
   return (
     <motion.header
       variants={{
@@ -76,15 +61,12 @@ export function MegaMenu({ module }: { module: IModule }) {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       animate={hidden ? "hidden" : "visible"}
       className={cn(
-        "w-full z-30 sticky top-0 backdrop-blur-sm bg-background border-b-2 shadow-sm"
+        "w-full z-30 sticky top-0 backdrop-blur-sm bg-background border-b-2 shadow-sm font-serif"
       )}
       whileHover={{ y: 0 }}
     >
       <div className="flex  items-center justify-between py-4 max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 sm:mx-4 mx-2">
         <Link href="/" className="flex items-center space-x-2">
-          {/* <Icons.logo className="h-6 w-6" /> */}
-          {/* <span className="font-bold">shadcn/ui</span>
-           */}
           {logo && (
             <Image
               src={urlFor(logo).url()}
@@ -102,18 +84,10 @@ export function MegaMenu({ module }: { module: IModule }) {
         </div>
         <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
           <LanguageSwitcher />
-          {/* <ModeToggle /> */}
-          <Link
-            className={cn(
-              buttonVariants({
-                variant: "outline",
-                className: "border-foreground",
-              })
-            )}
-            href={"/contact"}
-          >
-            Book Appointment
-          </Link>
+          <ModeToggle />
+          <Button asChild variant={"default"} className="ml-8">
+            <Link href={"/contact"}>Book Appointment</Link>
+          </Button>
           {/* <ModeToggle/> */}
         </div>
       </div>
@@ -183,14 +157,12 @@ function MobileNav({
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon">
-          <Menu className="h-6 w-6 text-primary hover:text-secondary-foreground" />
+          <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      {/* <p className="text-accent-foreground pb-4 border-b text-lg border-secondary mb-4">
-        {module?.title}
-      </p> */}
-      <SheetContent side="right" className="bg-accent w-full md:w-auto">
+
+      <SheetContent side="right" className="w-full md:w-auto">
         {logo && (
           <Image
             src={urlFor(logo).url()}
@@ -201,34 +173,27 @@ function MobileNav({
           />
         )}
 
-        <LanguageSwitcher />
         <div className="flex gap-2 self-start my-4">
+          <LanguageSwitcher />
           <ModeToggle />
-          <Link
-            className={cn(
-              buttonVariants({
-                variant: "outline",
-                className: "border-foreground !font-serif",
-              })
-            )}
-            href={"/contact"}
-          >
-            Let&apos;s Talk
-          </Link>
+          <Button asChild variant={"default"}>
+            <Link href={"/contact"}>Let&apos;s Talk</Link>
+          </Button>
         </div>
 
-        <ScrollArea className="h-[70vh]">
-          <NavigationMenu className="flex flex-col items-start space-y-6 list-none">
+        <ScrollArea className="h-full">
+          <NavigationMenu className="flex flex-col items-start space-y-6 list-none mb-12">
             {items.map((item, key: number) => {
               switch (item._type) {
                 case "navDropdown":
                   return (
                     <details className="group justify-start" open key={key}>
-                      <summary className="text-lg text-primary font-serif font-bold cursor-pointer text-left w-full">
+                      <summary className="text-lg font-serif font-bold cursor-pointer text-left w-full">
                         <span>{item.title}</span>
                       </summary>
 
                       <div className="mt-2 space-y-2 pl-4">
+                        <FeaturedItem featured={item?.featured} />
                         {item?.dropdownItems?.map((component, key) => {
                           const href =
                             component._type === "navLink"
@@ -254,7 +219,7 @@ function MobileNav({
                   return (
                     <Link
                       href={item?.url}
-                      className="text-lg text-primary font-serif font-bold "
+                      className="text-lg underline font-serif font-bold "
                       key={key}
                     >
                       {item?.title}
@@ -263,8 +228,8 @@ function MobileNav({
                 case "navPage":
                   return (
                     <NaviationMenuLink
-                      title={item?.title}
-                      className="text-lg text-primary font-serif font-bold"
+                      title={item?.title as string}
+                      className="text-lg underline font-serif font-bold"
                       url={`/${item?.page?.slug?.current}` || "/invalid-url"}
                       key={key}
                     />

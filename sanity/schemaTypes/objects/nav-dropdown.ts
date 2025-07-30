@@ -4,15 +4,16 @@ import { ArrowBendRightDown } from "@phosphor-icons/react";
 import { INavLink } from "./navlink";
 import { IMenuLink } from "./menuLink";
 import { ICustomImage } from "./custom-image";
+import { IPage } from "@/sanity/types/globals";
 
 export interface INavDropdown {
-  _type: "navDropdown";
+  _type?: "navDropdown";
   title: string;
   dropdownItems: (IMenuLink | INavLink)[];
   featured?: {
     title: string;
     cover?: ICustomImage;
-    page: Reference;
+    page: IPage;
   };
 }
 
