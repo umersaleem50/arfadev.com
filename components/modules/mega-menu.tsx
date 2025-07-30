@@ -20,6 +20,14 @@ import { ModeToggle } from "../ui/mode-toggle";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import LanguageSwitcher from "../language-switcher";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { IMenu } from "@/sanity/schemaTypes/documents/menu";
+import { INavLink } from "@/sanity/schemaTypes/objects/navlink";
+import { IMenuLink } from "@/sanity/schemaTypes/objects/menuLink";
+
+interface IModule extends IMenu {
+  logo: SanityImageSource;
+}
 
 const NaviationMenuLink = dynamic(
   () => import("./mega-menu/navigation-menu-link")
@@ -27,12 +35,12 @@ const NaviationMenuLink = dynamic(
 
 const NavigationDropDown = dynamic(() => import("./mega-menu/drop-down-menu"));
 
-export function MegaMenu({ module }: { module: any }) {
+export function MegaMenu({ module }: { module: IModule }) {
   const [hidden, setHidden] = useState(false);
 
   const { scrollY, scrollYProgress } = useScroll();
 
-  const { logo = null } = module;
+  const { logo, items } = module;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() as number;
@@ -87,10 +95,10 @@ export function MegaMenu({ module }: { module: any }) {
           )}
         </Link>
         <div className="hidden md:block">
-          <DesktopNav module={module} />
+          <DesktopNav items={items} />
         </div>
         <div className="md:hidden">
-          <MobileNav module={module} />
+          <MobileNav items={items} logo={logo} />
         </div>
         <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
           <LanguageSwitcher />
@@ -121,13 +129,11 @@ export function MegaMenu({ module }: { module: any }) {
   );
 }
 
-function DesktopNav({ module }: any) {
-  const items: any = module?.items || [];
-
+function DesktopNav({ items = [] }: Pick<IMenu, "items">) {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {items.map((item: any, key: number) => {
+        {items.map((item, key: number) => {
           switch (item._type) {
             case "navDropdown":
               return (
@@ -150,7 +156,7 @@ function DesktopNav({ module }: any) {
             case "navPage":
               return (
                 <NaviationMenuLink
-                  title={item?.title}
+                  title={item.title as string}
                   url={"/" + (item?.page?.slug?.current || "invalid-url")}
                   key={key}
                   className="font-serif"
@@ -166,9 +172,13 @@ function DesktopNav({ module }: any) {
   );
 }
 
-function MobileNav({ module }: any) {
-  const items = module?.items || [];
-  const { logo = null } = module;
+function MobileNav({
+  items = [],
+  logo,
+}: {
+  items?: IMenu["items"];
+  logo?: SanityImageSource;
+}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -203,13 +213,13 @@ function MobileNav({ module }: any) {
             )}
             href={"/contact"}
           >
-            Let's Talk
+            Let&apos;s Talk
           </Link>
         </div>
 
         <ScrollArea className="h-[70vh]">
           <NavigationMenu className="flex flex-col items-start space-y-6 list-none">
-            {items.map((item: any, key: number) => {
+            {items.map((item, key: number) => {
               switch (item._type) {
                 case "navDropdown":
                   return (
@@ -219,21 +229,24 @@ function MobileNav({ module }: any) {
                       </summary>
 
                       <div className="mt-2 space-y-2 pl-4">
-                        {item?.dropdownItems &&
-                          item?.dropdownItems?.map(
-                            (component: any, key: number) => (
-                              <ListItem
-                                href={
-                                  component?.url ||
-                                  `/${component?.page?.slug?.current}`
-                                }
-                                title={component.title}
-                                key={key}
-                              >
-                                {component.subtitle}
-                              </ListItem>
-                            )
-                          )}
+                        {item?.dropdownItems?.map((component, key) => {
+                          const href =
+                            component._type === "navLink"
+                              ? component.url
+                              : `/${component.page?.slug?.current}`;
+
+                          return (
+                            <ListItem
+                              href={href}
+                              title={component.title}
+                              key={key}
+                            >
+                              {"subtitle" in component
+                                ? component.subtitle
+                                : null}
+                            </ListItem>
+                          );
+                        })}
                       </div>
                     </details>
                   );

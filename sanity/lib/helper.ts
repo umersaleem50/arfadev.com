@@ -1,11 +1,11 @@
-export const getStaticRoute = (name: any) => {
+export const getStaticRoute = (name: string) => {
   switch (name) {
     default:
       return false;
   }
 };
 
-export const getDynamicRoute = (name: any) => {
+export const getDynamicRoute = (name: string) => {
   switch (name) {
     case "posts":
       return "posts";
@@ -14,7 +14,7 @@ export const getDynamicRoute = (name: any) => {
   }
 };
 
-export const getModuleName = (type: any) => {
+export const getModuleName = (type: string) => {
   switch (type) {
     case "menu":
       return "Menu";
@@ -26,8 +26,8 @@ export const getModuleName = (type: any) => {
   }
 };
 
-export const getTypeTitles = (types: any) => {
-  const typeNames = types.map((type: any) => {
+export const getTypeTitles = (types: string[]) => {
+  const typeNames = types.map((type: string) => {
     switch (type) {
       case "customImage":
         return "Image";

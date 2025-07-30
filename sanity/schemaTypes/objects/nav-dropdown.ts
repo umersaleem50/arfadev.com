@@ -1,6 +1,27 @@
-import { ArrowBendRightDown, WarningCircle } from "@phosphor-icons/react";
+import type { Rule } from "sanity";
+import { ArrowBendRightDown } from "@phosphor-icons/react";
 
-export default {
+import { INavLink } from "./navlink";
+import { IMenuLink } from "./menuLink";
+import { ICustomImage } from "./custom-image";
+
+export interface INavDropdown {
+  _type: "navDropdown";
+  title: string;
+  dropdownItems: (IMenuLink | INavLink)[];
+  featured?: {
+    title: string;
+    cover?: ICustomImage;
+    page: Reference;
+  };
+}
+
+export interface Reference {
+  _type: "reference";
+  _ref: string;
+}
+
+const NavDropdown = {
   title: "Dropdown",
   name: "navDropdown",
   type: "object",
@@ -30,7 +51,7 @@ export default {
           name: "title",
           type: "string",
           title: "Title",
-          validation: (Rule: any) => Rule.required(),
+          validation: (Rule: Rule) => Rule.required(),
         },
         {
           name: "cover",
@@ -42,9 +63,11 @@ export default {
           name: "page",
           type: "reference",
           to: [{ type: "page" }],
-          validation: (Rule: any) => Rule.required(),
+          validation: (Rule: Rule) => Rule.required(),
         },
       ],
     },
   ],
 };
+
+export default NavDropdown;

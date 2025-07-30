@@ -1,6 +1,17 @@
 import { List } from "@phosphor-icons/react/dist/ssr";
 import { defineField } from "sanity";
 import { defineType } from "sanity";
+import { INavLink } from "../objects/navlink";
+import { INavDropdown } from "../objects/nav-dropdown";
+import { INavPage } from "../objects/navpage";
+
+export interface IMenu {
+  _id: string;
+  _type: "menu";
+  title: string;
+  language?: string;
+  items?: Array<INavPage | INavLink | INavDropdown>;
+}
 
 export default defineType({
   title: "Menu",
@@ -43,7 +54,10 @@ export default defineType({
       title: "title",
       items: "items",
     },
-    prepare({ title = "Untitled", items = [] }: any) {
+    prepare({
+      title = "Untitled",
+      items = [],
+    }: Pick<IMenu, "title" | "items">) {
       return {
         title,
         subtitle: `${items.length} link(s)`,

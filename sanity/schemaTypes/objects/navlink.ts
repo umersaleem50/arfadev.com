@@ -1,6 +1,13 @@
 import { ArrowSquareOut } from "@phosphor-icons/react";
+import type { Rule } from "sanity";
 
-export default {
+export interface INavLink {
+  _type: "navLink";
+  title: string;
+  url: string;
+}
+
+const NavLink = {
   title: "Link",
   name: "navLink",
   type: "object",
@@ -17,7 +24,7 @@ export default {
       name: "url",
       type: "string",
       description: "Enter an external URL",
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.uri({
           scheme: ["http", "https", "mailto", "tel"],
         }),
@@ -28,7 +35,7 @@ export default {
       title: "title",
       url: "url",
     },
-    prepare({ title, url }: { title: string; url: any }) {
+    prepare({ title, url }: { title: string; url: string }) {
       return {
         title: title ?? url,
         subtitle: title && url,
@@ -36,3 +43,5 @@ export default {
     },
   },
 };
+
+export default NavLink;

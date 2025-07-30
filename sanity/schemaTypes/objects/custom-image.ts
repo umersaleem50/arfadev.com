@@ -1,4 +1,19 @@
-export default {
+export interface ICustomImage {
+  _type: "customImage";
+  _key?: string;
+  asset: {
+    _type: "reference";
+    _ref: string;
+  };
+  alt?: string;
+  objectFit?: "cover" | "contain" | "fill";
+  width?: number;
+  height?: number;
+  loading?: "lazy" | "eager";
+  priority?: boolean;
+}
+
+const CustomImage = {
   name: "customImage",
   title: "Image",
   type: "image",
@@ -51,3 +66,5 @@ export default {
     },
   ],
 };
+
+export default CustomImage;

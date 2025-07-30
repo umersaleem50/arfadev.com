@@ -19,31 +19,31 @@ function Module({ module }: any) {
   const type = module._type;
 
   switch (type) {
-    case "grid":
-      return <GridModule module={module} />;
     case "menu":
       return <MegaMenu module={module} />;
-    case "hero":
-      return <Hero module={module} />;
-    case "services":
-      return <Services module={module} />;
-    case "footer":
-      return <FooterModule module={module} />;
-    case "testimonial":
-      return <Testimonials module={module} />;
-    case "blogs":
-      return <BlogsModule module={module} />;
-    case "body":
-      return <ContentBody module={module} />;
-    case "portfolio":
-      return <PortfolioModule module={module} />;
-    case "whyChooseUs":
-      return <WhyChooseUs module={module} />;
-    case "gallery":
-      return <Gallery module={module} />;
+    // case "grid":
+    //   return <GridModule module={module} />;
+    // case "hero":
+    //   return <Hero module={module} />;
+    // case "services":
+    //   return <Services module={module} />;
+    // case "footer":
+    //   return <FooterModule module={module} />;
+    // case "testimonial":
+    //   return <Testimonials module={module} />;
+    // case "blogs":
+    //   return <BlogsModule module={module} />;
+    // case "body":
+    //   return <ContentBody module={module} />;
+    // case "portfolio":
+    //   return <PortfolioModule module={module} />;
+    // case "whyChooseUs":
+    //   return <WhyChooseUs module={module} />;
+    // case "gallery":
+    //   return <Gallery module={module} />;
 
-    case "landing-hero":
-      return <LandingHero module={module} />;
+    // case "landing-hero":
+    //   return <LandingHero module={module} />;
     // return <LawFirmCaseStudies module={module} />;
     default:
       return null;
