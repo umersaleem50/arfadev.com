@@ -1,7 +1,7 @@
 import { getTypeTitles } from "@/sanity/lib/helper";
 import { TextAlignLeft } from "@phosphor-icons/react/dist/ssr";
 import { Avatar } from "@sanity/ui";
-export default {
+const column = {
   title: "Column",
   name: "gridColumn",
   type: "object",
@@ -49,3 +49,5 @@ export default {
     },
   },
 };
+
+export default column;

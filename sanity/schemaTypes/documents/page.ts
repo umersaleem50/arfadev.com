@@ -101,6 +101,7 @@ export default defineType({
         { type: "one-member", name: "one-member" },
         { type: "gallery", name: "gallery" },
         { type: "grid", name: "grid" },
+        { type: "guarantee", name: "guarantee" },
         { type: "awards", name: "awards" },
         { type: "portfolio", name: "portfolio" },
         { type: "whyChooseUs", name: "whyChooseUs" },

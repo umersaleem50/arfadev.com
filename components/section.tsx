@@ -25,7 +25,12 @@ function Section({
         className
       )}
     >
-      {sectionData && <SectionHeader {...sectionData} />}
+      {sectionData && (
+        <SectionHeader
+          className={fullWidth ? "px-4 md:px-0" : ""}
+          {...sectionData}
+        />
+      )}
       <div className={cn(fullWidth ? "w-full" : "max-w-[85rem]", "mx-auto ")}>
         {children}
       </div>

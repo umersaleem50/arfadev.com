@@ -17,8 +17,9 @@ import grid from "./grid";
 import awards from "./awards";
 import portfolio from "./portfolio";
 import whyChooseUs from "./why-choose-us";
+import guarantee from "./guarantee";
 
-export default [
+const modules = [
   mission,
   section,
   landingHero,
@@ -38,4 +39,7 @@ export default [
   awards,
   portfolio,
   whyChooseUs,
+  guarantee,
 ];
+
+export default modules;

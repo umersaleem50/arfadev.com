@@ -120,7 +120,7 @@
     --chart-3: 264 100% 54%;
     --chart-4: 144 100% 57%;
     --chart-5: 24 103% 54%;
-    --radius: 0.5rem;
+    --radius: 0;
   }
 
   .dark {
@@ -231,19 +231,19 @@ body {
 
 @theme inline {
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }

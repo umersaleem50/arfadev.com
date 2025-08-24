@@ -72,8 +72,8 @@ export const portableComplex: any = {
               variant: value?.styles?.style || "default",
               size: value?.styles?.isLarge ? "lg" : "default",
               className: cn(
-                value?.styles?.isBlock && "w-full",
-                "py-4 my-3 md:mr-4 sm:mr-3 mr-2"
+                value?.styles?.isBlock && "w-full"
+                // "py-4 my-3 md:mr-4 sm:mr-3 mr-2"
               ),
             })}
           >

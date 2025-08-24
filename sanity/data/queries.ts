@@ -94,8 +94,9 @@ export const modules = `
       _type == "menu" => @->{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}},
       _type == "section" => @->{...,${metaData}},
       _type == "mission" => @->,
+      _type == "guarantee" => @->{...},
       _type == "gallery" => @->,
-      _type == "team" => {...,team[]->,${metaData}},
+      _type == "team" => {...,team[]->{...},${metaData}},
       _type ==  "services" => {...,content[]{...,defined(page) => {page ->{slug}}},${metaData}},
       _type == "testimonial" => @->,
       _type == "blogs" => {...,${metaData},posts[]->{...,cover,title,description,author->{name,photo}}},
@@ -115,12 +116,14 @@ export const HOMEPAGE_QUERY = `*[_type == "page" && _id == ${homeID}] | order(_u
     hasTransparentHeader,
     author->{name,photo},
     content[]{
-    defined(_ref)=>{...@->content[0]{${modules}}},
+    defined(_ref)=>{...@->content[0]{${modules}}}, 
     !defined(_ref)=>{${modules}}
     },
     title,
     seo}
   `;
+
+// 119
 
 // BLOGS QUERY
 
@@ -185,15 +188,15 @@ export const PAGE_QUERY = `
             defined(_ref)=>{...@->content[0]{${modules}}},
             !defined(_ref)=>{${modules}}
             },
-            !defined(_ref)=>{
-            ${modules}
-            },
+            
             title,
             seo
           },
            ${site}
         }
         `;
+
+//189
 
 // export const POST_QUERY = `
 //         {

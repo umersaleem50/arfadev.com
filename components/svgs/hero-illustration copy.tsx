@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 
 const positions = [
   [523.031, 132.175],
@@ -41,11 +41,9 @@ const itemVariants = {
 const getRandomSize = () => +(Math.random() * (6 - 2) + 2).toFixed(2); // 2–6 radius
 
 function HeroIllustration({ className }: { className: string }) {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-  const strokeColor = isDark ? "#fdf9f76f" : "#070504";
+  const strokeColor = "#2B2D42";
 
-  const fill = !isDark ? "#FDF9F7" : "#070504";
+  const fill = "#F7EDF0";
 
   const rects = useMemo(
     () => [
@@ -190,222 +188,222 @@ function HeroIllustration({ className }: { className: string }) {
         <path
           d="M613.005 169.831C613.005 169.831 607.863 170.498 605.768 178.068C603.673 185.638 601.102 186.543 604.292 195.637C607.482 204.731 610.482 206.826 613.577 207.587"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M606.768 178.925C606.768 178.925 607.72 178.068 609.053 177.258C610.386 176.401 612.005 175.592 613.338 175.592"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M613.338 180.449C613.338 180.449 609.815 180.306 608.91 177.259"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M611.148 184.829C611.148 184.829 612.815 182.781 613.576 180.401"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M613.338 191.828C613.338 191.828 610.815 201.874 606.578 201.064"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M574.154 202.16C574.154 202.16 573.535 185.21 586.533 179.496"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M587.818 137.169C587.818 137.169 582.914 140.645 584.247 144.454C585.58 148.263 588.532 159.213 593.532 163.403C598.531 167.593 608.434 171.926 608.434 171.926C608.434 171.926 594.008 170.878 586.866 179.211C579.677 187.543 583.152 193.875 583.152 193.875"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M609.958 162.165C609.958 162.165 608.053 160.832 607.577 163.356C607.101 165.879 606.435 168.307 609.958 171.259"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M613.338 261.77C605.911 259.151 600.769 248.439 600.769 248.439C609.244 240.106 608.91 226.87 608.91 226.87C612.862 220.205 611.577 206.826 611.577 206.826"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M602.816 188.447C602.816 188.447 563.727 218.3 570.678 270.483"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M534.588 266.96C534.588 266.96 534.588 266.96 535.683 274.958C536.778 282.957 544.396 284.862 548.491 281.339C552.585 277.815 558.775 277.339 558.775 277.339C558.108 259.818 563.25 243.344 569.488 230.108C578.391 211.206 589.58 198.779 589.58 198.779C589.58 198.779 564.488 209.73 560.298 221.776C556.109 233.822 568.393 230.441 568.393 230.441"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M549.348 229.013C549.348 229.013 545.539 238.583 552.062 241.44C558.584 244.296 565.726 236.916 565.726 236.916"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M562.06 247.391C562.06 247.391 547.158 246.106 541.397 261.77C535.635 277.434 542.73 276.672 542.73 276.672C542.73 276.672 549.633 278.434 553.776 262.389C557.918 246.344 548.205 254.39 548.205 254.39C548.205 254.39 539.778 265.198 546.205 268.531"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M606.578 213.206C606.578 213.206 589.961 249.296 557.537 241.82"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M573.535 269.055C573.535 269.055 570.821 275.863 558.632 267.864"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M600.816 191.161C600.816 191.161 584.676 205.302 592.437 251.867C592.437 251.867 582.819 268.388 570.107 264.722"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M604.625 196.494C604.625 196.494 595.912 201.16 596.484 207.587C597.055 214.015 596.436 221.585 598.483 222.347C600.531 223.109 602.53 220.3 602.53 220.3"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M610.815 227.632L613.576 228.441"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M608.53 231.679L611.91 232.917"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M607.625 236.107L612.577 238.63"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M605.816 241.202C605.816 241.202 608.72 244.868 613.338 244.82"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M602.816 247.248C602.816 247.248 606.339 251.724 613.338 251.533"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M614.148 169.831C614.148 169.831 619.29 170.498 621.385 178.068C623.48 185.638 626.051 186.543 622.861 195.637C619.671 204.731 616.671 206.826 613.577 207.587"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M620.385 178.925C620.385 178.925 619.433 178.068 618.1 177.258C616.767 176.401 615.148 175.592 613.815 175.592"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M613.767 180.449C613.767 180.449 617.29 180.306 618.195 177.259"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M616.005 184.829C616.005 184.829 614.338 182.781 613.577 180.401"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M613.767 191.828C613.767 191.828 616.29 201.874 620.528 201.065"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M652.952 202.16C652.952 202.16 653.571 185.21 640.573 179.496"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M639.335 137.169C639.335 137.169 644.239 140.645 642.906 144.454C641.572 148.263 638.621 159.213 633.621 163.403C628.622 167.593 618.719 171.926 618.719 171.926C618.719 171.926 633.145 170.878 640.287 179.211C647.429 187.543 644.001 193.875 644.001 193.875"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M617.147 162.165C617.147 162.165 619.052 160.832 619.528 163.356C620.004 165.879 620.671 168.307 617.147 171.259"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M615.529 206.826C615.529 206.826 614.243 220.205 618.195 226.87C618.195 226.87 617.862 240.106 626.337 248.439C626.337 248.439 621.194 259.151 613.767 261.77"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M624.337 188.447C624.337 188.447 663.426 218.3 656.475 270.483"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M692.565 266.96C692.565 266.96 692.565 266.96 691.47 274.958C690.375 282.957 682.757 284.862 678.662 281.339C674.568 277.815 668.378 277.339 668.378 277.339C669.045 259.818 663.902 243.344 657.665 230.108C648.762 211.206 637.573 198.779 637.573 198.779C637.573 198.779 662.665 209.73 666.854 221.776C671.044 233.822 658.76 230.441 658.76 230.441"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M677.805 229.013C677.805 229.013 681.614 238.583 675.091 241.44C668.569 244.296 661.427 236.916 661.427 236.916"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M665.093 247.391C665.093 247.391 679.995 246.106 685.756 261.77C691.565 277.387 684.423 276.672 684.423 276.672C684.423 276.672 677.52 278.434 673.377 262.389C669.235 246.344 678.948 254.39 678.948 254.39C678.948 254.39 687.375 265.198 680.948 268.531"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M620.528 213.206C620.528 213.206 637.145 249.296 669.568 241.82"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M653.618 269.055C653.618 269.055 656.332 275.863 668.521 267.864"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M626.337 191.161C626.337 191.161 642.477 205.302 634.716 251.867C634.716 251.867 644.334 268.388 657.046 264.722"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M622.528 196.494C622.528 196.494 631.241 201.16 630.669 207.587C630.098 214.015 630.717 221.585 628.67 222.347C626.622 223.109 624.623 220.3 624.623 220.3"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M616.338 227.632L613.577 228.441"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M618.576 231.679L615.195 232.917"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M619.481 236.107L614.576 238.63"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M621.337 241.202C621.337 241.202 618.433 244.868 613.815 244.82"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
         <path
           d="M624.337 247.248C624.337 247.248 620.814 251.724 613.815 251.533"
           stroke={strokeColor}
-          strokeMiterlimit="10"
+          stroke-miterlimit="10"
         />
       </g>
       <path
@@ -427,7 +425,7 @@ function HeroIllustration({ className }: { className: string }) {
       />
       <path
         d="M610.455 41.4538C645.244 41.4538 676.723 45.1183 699.489 51.0339C710.875 53.9927 720.055 57.5075 726.375 61.3903C732.724 65.2905 736.045 69.4703 736.045 73.7175C736.045 77.9647 732.724 82.1444 726.375 86.0446C720.055 89.9275 710.875 93.4423 699.489 96.4011C676.723 102.317 645.244 105.981 610.455 105.981C575.666 105.981 544.187 102.317 521.421 96.4011C510.035 93.4423 500.856 89.9274 494.535 86.0446C488.187 82.1444 484.865 77.9647 484.865 73.7175C484.865 69.4702 488.187 65.2905 494.535 61.3903C500.856 57.5075 510.035 53.9926 521.421 51.0339C544.187 45.1183 575.666 41.4538 610.455 41.4538Z"
-        fill={isDark ? "#a88b78" : "#F2CCB2"}
+        fill="#F2CCB2"
         stroke={strokeColor}
       />
       <path
@@ -578,37 +576,37 @@ function HeroIllustration({ className }: { className: string }) {
       <path
         d="M200.717 440.26C215.295 436.923 250.142 420.869 272.905 383.352C295.668 345.836 328.758 349.805 342.458 356.479"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <path
         d="M287.146 100.49C294.585 100.49 301.314 101.277 306.176 102.547C308.608 103.183 310.562 103.936 311.903 104.764C313.256 105.599 313.93 106.474 313.93 107.337C313.929 108.2 313.255 109.075 311.903 109.91C310.562 110.738 308.608 111.491 306.176 112.126C301.314 113.396 294.585 114.184 287.146 114.184C279.706 114.184 272.978 113.396 268.116 112.126C265.684 111.491 263.729 110.738 262.388 109.91C261.036 109.075 260.363 108.2 260.362 107.337C260.362 106.474 261.035 105.599 262.388 104.764C263.729 103.936 265.684 103.183 268.116 102.547C272.978 101.277 279.706 100.49 287.146 100.49Z"
         fill="url(#paint18_linear_344_556)"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <path
         d="M287.146 110.756C294.585 110.756 301.314 111.544 306.176 112.814C308.608 113.449 310.562 114.203 311.903 115.031C313.256 115.866 313.93 116.741 313.93 117.604C313.929 118.467 313.255 119.341 311.903 120.176C310.562 121.005 308.608 121.758 306.176 122.393C301.314 123.663 294.585 124.451 287.146 124.451C279.706 124.451 272.978 123.663 268.116 122.393C265.684 121.758 263.729 121.005 262.388 120.176C261.036 119.341 260.363 118.467 260.362 117.604C260.362 116.741 261.035 115.866 262.388 115.031C263.729 114.203 265.684 113.449 268.116 112.814C272.978 111.544 279.706 110.756 287.146 110.756Z"
         fill="url(#paint19_linear_344_556)"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <path
         d="M287.146 121.799C294.585 121.799 301.314 122.587 306.176 123.857C308.608 124.492 310.562 125.246 311.903 126.074C313.256 126.909 313.93 127.784 313.93 128.647C313.929 129.51 313.255 130.384 311.903 131.219C310.562 132.048 308.608 132.801 306.176 133.436C301.314 134.706 294.585 135.494 287.146 135.494C279.706 135.494 272.978 134.706 268.116 133.436C265.684 132.801 263.729 132.048 262.388 131.219C261.036 130.384 260.363 129.51 260.362 128.647C260.362 127.784 261.035 126.909 262.388 126.074C263.729 125.246 265.684 124.492 268.116 123.857C272.978 122.587 279.706 121.799 287.146 121.799Z"
         fill="url(#paint20_linear_344_556)"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <path
         d="M287.146 131.29C294.585 131.29 301.314 132.078 306.176 133.348C308.608 133.983 310.562 134.736 311.903 135.565C313.256 136.4 313.93 137.275 313.93 138.138C313.929 139.001 313.255 139.875 311.903 140.71C310.562 141.538 308.608 142.292 306.176 142.927C301.314 144.197 294.585 144.984 287.146 144.984C279.706 144.984 272.978 144.197 268.116 142.927C265.684 142.292 263.729 141.538 262.388 140.71C261.036 139.875 260.363 139.001 260.362 138.138C260.362 137.275 261.035 136.4 262.388 135.565C263.729 134.736 265.684 133.983 268.116 133.348C272.978 132.078 279.706 131.29 287.146 131.29Z"
         fill="url(#paint21_linear_344_556)"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <path
         d="M287.146 141.557C294.585 141.557 301.314 142.345 306.176 143.615C308.608 144.25 310.562 145.004 311.903 145.832C313.256 146.667 313.93 147.542 313.93 148.405C313.929 149.268 313.255 150.142 311.903 150.977C310.562 151.805 308.608 152.559 306.176 153.194C301.314 154.464 294.585 155.252 287.146 155.252C279.706 155.252 272.978 154.464 268.116 153.194C265.684 152.559 263.729 151.806 262.388 150.977C261.036 150.142 260.363 149.268 260.362 148.405C260.362 147.542 261.035 146.667 262.388 145.832C263.729 145.004 265.684 144.25 268.116 143.615C272.978 142.345 279.706 141.557 287.146 141.557Z"
         fill="url(#paint22_linear_344_556)"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <line
         x1="313.929"
@@ -616,7 +614,7 @@ function HeroIllustration({ className }: { className: string }) {
         x2="313.929"
         y2="107.337"
         stroke={strokeColor}
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <line
         x1="259.962"
@@ -624,7 +622,7 @@ function HeroIllustration({ className }: { className: string }) {
         x2="259.962"
         y2="107.337"
         stroke="white"
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <rect
         x="1.25073"
@@ -639,19 +637,19 @@ function HeroIllustration({ className }: { className: string }) {
           d="M77.1125 232.607C87.2521 232.607 96.4238 233.882 103.054 235.939C106.37 236.968 109.04 238.188 110.875 239.535C112.715 240.884 113.683 242.333 113.683 243.814C113.683 245.295 112.715 246.743 110.875 248.092C109.04 249.439 106.37 250.659 103.054 251.688C96.4238 253.745 87.2521 255.02 77.1125 255.02C66.973 255.02 57.8013 253.745 51.1711 251.688C47.8549 250.659 45.1856 249.439 43.3499 248.092C41.5102 246.743 40.5424 245.295 40.5422 243.814C40.5422 242.333 41.51 240.884 43.3499 239.535C45.1856 238.188 47.8549 236.968 51.1711 235.939C57.8013 233.882 66.973 232.607 77.1125 232.607Z"
           fill="url(#paint24_linear_344_556)"
           stroke={strokeColor}
-          strokeWidth="0.4"
+          stroke-width="0.4"
         />
         <path
           d="M86.8178 238.21C91.8876 246.991 95.3691 255.572 96.9029 262.342C97.6701 265.728 97.9477 268.65 97.6996 270.913C97.4509 273.181 96.68 274.744 95.3974 275.484C94.1148 276.225 92.3768 276.111 90.2885 275.192C88.2046 274.275 85.8129 272.574 83.2639 270.216C78.1675 265.503 72.4773 258.198 67.4075 249.417C62.3378 240.635 58.8563 232.055 57.3225 225.285C56.5553 221.898 56.2776 218.976 56.5258 216.713C56.7745 214.446 57.5447 212.883 58.8271 212.143C60.1097 211.402 61.8483 211.516 63.9369 212.435C66.0208 213.351 68.4124 215.053 70.9615 217.41C76.0578 222.124 81.7481 229.429 86.8178 238.21Z"
           fill="url(#paint25_linear_344_556)"
           stroke={strokeColor}
-          strokeWidth="0.4"
+          stroke-width="0.4"
         />
         <path
           d="M86.8178 249.417C81.7481 258.198 76.0578 265.503 70.9615 270.217C68.4124 272.575 66.0208 274.276 63.9369 275.193C61.8483 276.111 60.1097 276.225 58.8271 275.484C57.5447 274.744 56.7745 273.182 56.5258 270.914C56.2776 268.651 56.5553 265.729 57.3225 262.342C58.8563 255.572 62.3378 246.992 67.4075 238.211C72.4773 229.429 78.1675 222.124 83.2639 217.411C85.8129 215.053 88.2046 213.352 90.2885 212.435C92.3768 211.517 94.1148 211.402 95.3974 212.143C96.68 212.883 97.4509 214.446 97.6996 216.714C97.9477 218.977 97.6701 221.899 96.9029 225.285C95.3691 232.055 91.8876 240.636 86.8178 249.417Z"
           fill="url(#paint26_linear_344_556)"
           stroke={strokeColor}
-          strokeWidth="0.4"
+          stroke-width="0.4"
         />
       </motion.g>
       <path
@@ -665,7 +663,7 @@ function HeroIllustration({ className }: { className: string }) {
         r="6.41906"
         fill={fill}
         stroke="black"
-        strokeWidth="0.4"
+        stroke-width="0.4"
       />
       <rect
         x="1059.03"
@@ -723,8 +721,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="384.053"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#D9D9D9" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#D9D9D9" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_344_556"
@@ -734,7 +732,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="341.184"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F1F1F1" stopOpacity="0" />
+          <stop stop-color="#F1F1F1" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -745,8 +743,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="292.403"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="0.6355" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.6355" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_344_556"
@@ -756,8 +754,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="169.267"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="0.6355" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.6355" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_344_556"
@@ -767,8 +765,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="169.267"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="0.6355" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.6355" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_344_556"
@@ -778,8 +776,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="177.138"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="0.6355" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.6355" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_344_556"
@@ -789,8 +787,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="177.138"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="0.6355" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="0.6355" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_344_556"
@@ -800,8 +798,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="353.649"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#C0C0C0" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#C0C0C0" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_344_556"
@@ -811,8 +809,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="321.746"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_344_556"
@@ -822,8 +820,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="-18.0212"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF7316" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stop-color="#FF7316" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_344_556"
@@ -833,7 +831,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="307.439"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#929292" stopOpacity="0" />
+          <stop stop-color="#929292" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -844,7 +842,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="260.57"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#929292" stopOpacity="0" />
+          <stop stop-color="#929292" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -855,7 +853,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="141.18"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F0F0F0" stopOpacity="0" />
+          <stop stop-color="#F0F0F0" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -866,7 +864,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="260.333"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#929292" stopOpacity="0" />
+          <stop stop-color="#929292" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -877,7 +875,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="300.792"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#EDEDED" stopOpacity="0" />
+          <stop stop-color="#EDEDED" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -888,7 +886,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="332.523"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#EDEDED" stopOpacity="0" />
+          <stop stop-color="#EDEDED" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -899,7 +897,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="210.043"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#EDEDED" stopOpacity="0" />
+          <stop stop-color="#EDEDED" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -910,8 +908,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="437.098"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF7316" />
-          <stop offset="1" stopColor="#D9D9D9" stopOpacity="0" />
+          <stop stop-color="#FF7316" />
+          <stop offset="1" stop-color="#D9D9D9" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_344_556"
@@ -921,8 +919,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="107.337"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#D9D9D9" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#D9D9D9" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_344_556"
@@ -932,8 +930,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="117.604"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#D9D9D9" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#D9D9D9" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_344_556"
@@ -943,8 +941,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="128.647"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#D9D9D9" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#D9D9D9" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_344_556"
@@ -954,8 +952,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="138.137"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#D9D9D9" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#D9D9D9" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_344_556"
@@ -965,8 +963,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="148.405"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#D9D9D9" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="#D9D9D9" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_344_556"
@@ -976,7 +974,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="258.689"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F0F0F0" stopOpacity="0" />
+          <stop stop-color="#F0F0F0" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -987,8 +985,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="255.22"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint25_linear_344_556"
@@ -998,8 +996,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="249.517"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint26_linear_344_556"
@@ -1009,8 +1007,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="238.11"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" stopOpacity="0" />
-          <stop offset="1" stopColor="#FF7316" />
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="#FF7316" />
         </linearGradient>
         <linearGradient
           id="paint27_linear_344_556"
@@ -1020,7 +1018,7 @@ function HeroIllustration({ className }: { className: string }) {
           y2="254.024"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#F0F0F0" stopOpacity="0" />
+          <stop stop-color="#F0F0F0" stop-opacity="0" />
           <stop offset="1" />
         </linearGradient>
         <linearGradient
@@ -1031,8 +1029,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="28.2858"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF7316" stopOpacity="0" />
-          <stop offset="1" stopColor="#AB4807" />
+          <stop stop-color="#FF7316" stop-opacity="0" />
+          <stop offset="1" stop-color="#AB4807" />
         </linearGradient>
         <linearGradient
           id="paint29_linear_344_556"
@@ -1042,8 +1040,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="262.643"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF7316" stopOpacity="0" />
-          <stop offset="1" stopColor="#AB4807" />
+          <stop stop-color="#FF7316" stop-opacity="0" />
+          <stop offset="1" stop-color="#AB4807" />
         </linearGradient>
         <linearGradient
           id="paint30_linear_344_556"
@@ -1053,8 +1051,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="229.264"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#FF7316" stopOpacity="0.5" />
-          <stop offset="1" stopColor="#E3742A" />
+          <stop stop-color="#FF7316" stop-opacity="0.5" />
+          <stop offset="1" stop-color="#E3742A" />
         </linearGradient>
         <linearGradient
           id="paint31_linear_344_556"
@@ -1064,8 +1062,8 @@ function HeroIllustration({ className }: { className: string }) {
           y2="254.002"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopOpacity="0" />
-          <stop offset="1" stopColor="#030303" />
+          <stop stop-opacity="0" />
+          <stop offset="1" stop-color="#030303" />
         </linearGradient>
         <image
           id="image0_344_556"

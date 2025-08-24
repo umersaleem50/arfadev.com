@@ -9,18 +9,18 @@ export interface IFooterLinks {
 function FooterLinks({ title, links = [] }: IFooterLinks) {
   return (
     <div className="lg:py-4 md:py-3">
-      <h3 className="text-2xl font-serif text-accent mb-4">{title}</h3>
+      <h3 className="text-2xl font-serif text-primary mb-4">{title}</h3>
       <div className="flex flex-col items-start space-y-2">
-        {links.map(({ url = "/", title, page }: any, key: number) => {
+        {links.map(({ url = "/", title, page }: any) => {
           const href = page ? `/${page?.slug?.current}` : url;
           return (
             <Link
-              key={key}
+              key={title}
               href={href}
               className={buttonVariants({
                 variant: "link",
                 className:
-                  "!text-background !px-0 !md:text-base !text-sm font-sans",
+                  "!text-muted-foreground !px-0 !md:text-base !text-sm font-sans",
               })}
             >
               {title}

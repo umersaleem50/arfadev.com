@@ -30,7 +30,7 @@ function ServiceCard({
   return (
     <figure
       className={cn(
-        evenIndex ? "bg-background" : "bg-muted",
+        evenIndex ? "bg-muted" : "bg-background",
         "h-auto flex flex-col p-6 items-start space-y-4 border border-border",
         className
       )}

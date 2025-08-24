@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
+import { KeyObject } from "crypto";
 
 const LinkedInLogo = dynamic(() =>
   import("@phosphor-icons/react/dist/ssr").then((icons) => icons.LinkedinLogo)
@@ -51,8 +52,12 @@ const getSocialIcons = (value: string) => {
 function FooterSocials({ socialLinks = [] }: any) {
   return (
     <div className="flex space-x-6">
-      {socialLinks?.map(({ icon, url }: any, key: number) => {
-        return <Link href={url || "/"}>{getSocialIcons(icon)}</Link>;
+      {socialLinks?.map(({ icon, url }: any) => {
+        return (
+          <Link key={url} href={url || "/"}>
+            {getSocialIcons(icon)}
+          </Link>
+        );
       })}
     </div>
   );

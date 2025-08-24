@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { cache } from "react";
@@ -9,6 +9,7 @@ import { getAllPageSlug, getPage } from "@/sanity/data";
 
 import { urlFor } from "@/sanity/lib/image";
 import { joinSlugs } from "@/lib/utils";
+import GuaranteeModule from "@/components/modules/guarantee-module";
 
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 const Module = dynamic(() => import("@/components/modules/module"));

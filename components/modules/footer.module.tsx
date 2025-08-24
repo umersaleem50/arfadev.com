@@ -21,8 +21,8 @@ function FooterModule({ module }: any) {
   const socialLinks = module?.socialLinks || [];
 
   return (
-    <footer className="lg:pt-24 md:pt-16 sm:pt-14 pt-12 w-full dark:bg-background bg-foreground">
-      <div className="max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 mx-4 gap-y-8 md:gap-y-0 grid md:grid-cols-6 grid-cols-1 border-b border-secondary/40 lg:pb-12 md:pb-8 sm:pb-6 pb-4">
+    <footer className="lg:pt-24 md:pt-16 sm:pt-14 pt-12 w-full bg-muted">
+      <div className="max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 mx-4 gap-y-8 md:gap-y-0 grid md:grid-cols-6 grid-cols-1 border-b border-border lg:pb-12 md:pb-8 sm:pb-6 pb-4">
         <div className="lg:col-span-2 md:col-span-3 col-span-1 col-start-1 space-y-3">
           {logo && (
             <Image
@@ -33,25 +33,25 @@ function FooterModule({ module }: any) {
               className="mb-4"
             />
           )}
-          <h3 className="lg:text-3xl text-2xl text-background font-serif">
+          <h3 className="lg:text-3xl text-2xl text-muted-foreground font-serif">
             {metaData.title}
           </h3>
-          <p className="text-sm text-accent font-sans">{metaData.subtitle}</p>
+          <p className="text-sm text-primary font-sans">{metaData.subtitle}</p>
         </div>
         {module?.newsletter && (
-          <NewsLetterForm className="lg:col-start-5 col-start-1 lg:col-span-2 md:col-span-3 col-span-1" />
+          <NewsLetterForm className="lg:col-start-5 col-start-1 lg:col-span-2 md:col-span-3 m-span-1" />
         )}
       </div>
-      <div className="mt-6 sm:mt-0 max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 mx-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 border-b border-secondary/40 gap-x-6 lg:py-12 md:pb-8 sm:pb-6 pb-4 gap-y-4">
+      <div className="mt-6 sm:mt-0 max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 mx-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 border-b border-border gap-x-6 lg:py-12 md:pb-8 sm:pb-6 pb-4 gap-y-4">
         {footerRoutes?.map(
-          (
-            {
-              title,
-              routes,
-            }: { title: string; routes: { url: string; title: string }[] },
-            key: number
-          ) => {
-            return <FooterLinks title={title} links={routes} key={key} />;
+          ({
+            title,
+            routes,
+          }: {
+            title: string;
+            routes: { url: string; title: string }[];
+          }) => {
+            return <FooterLinks title={title} links={routes} key={title} />;
           }
         )}
       </div>

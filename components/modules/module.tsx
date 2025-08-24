@@ -2,6 +2,8 @@ import dynamic from "next/dynamic";
 import Gallery from "./gallery-module";
 import LandingHero from "./landing-hero";
 import HubspotContactForm from "../hubspot-contact-form";
+import GuaranteeModule from "./guarantee-module";
+import Team from "./team";
 
 const PortfolioModule = dynamic(() => import("./portfolio-module"));
 const WhyChooseUs = dynamic(() => import("./why-choose-us"));
@@ -31,14 +33,21 @@ function Module({ module }: any) {
       return <PortfolioModule module={module} />;
     case "services":
       return <Services module={module} />;
-    // case "grid":
-    //   return <GridModule module={module} />;
-    // case "footer":
-    //   return <FooterModule module={module} />;
-    // case "testimonial":
-    //   return <Testimonials module={module} />;
-    // case "blogs":
-    //   return <BlogsModule module={module} />;
+
+    case "guarantee":
+      return <GuaranteeModule module={module} />;
+
+    // case "team":
+    //   return <Team module={module} />;
+
+    case "grid":
+      return <GridModule module={module} />;
+    case "footer":
+      return <FooterModule module={module} />;
+    case "testimonial":
+      return <Testimonials module={module} />;
+    case "blogs":
+      return <BlogsModule module={module} />;
     // case "body":
     //   return <ContentBody module={module} />;
     // case "gallery":

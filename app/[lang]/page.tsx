@@ -10,6 +10,8 @@ import { getStaticPage } from "@/sanity/data";
 import Module from "@/components/modules/module";
 
 import { HOMEPAGE_QUERY } from "@/sanity/data/queries";
+import GuaranteeModule from "@/components/modules/guarantee-module";
+import Team from "@/components/modules/team";
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 
 type Props = {
