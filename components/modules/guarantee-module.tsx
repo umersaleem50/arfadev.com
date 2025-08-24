@@ -5,7 +5,7 @@ import { PortableText } from "@portabletext/react";
 
 import { portableSimple } from "../portable-stucture/portable-simple";
 
-function GuaranteeModule({ module }) {
+function GuaranteeModule({ module }: any) {
   const { description } = module;
   return (
     <Section fullWidth={false}>
