@@ -22,7 +22,7 @@ function Services({ module }: any) {
 
         <div className="col-span-1 sm:col-span-1 md:col-span-2 sm:col-start-1 md:col-start-2  col-start-1 h-[20rem] md:h-full relative -z-10 overflow-hidden">
           {/* <StatueOfJustice className="absolute bottom-0 w-full md:w-auto md:left-0 right-0 stroke-primary" /> */}
-          <HeroIllustration className="md:p-6 p-4 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 w-full sm:w-2/3 md:w-full  h-full left-1/2" />
+          <HeroIllustration className="md:p-6 p-4 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 w-[170%] md:scale-100 sm:w-2/3 md:w-full  h-full left-1/2" />
         </div>
       </div>
     </Section>

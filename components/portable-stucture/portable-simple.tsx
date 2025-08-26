@@ -65,20 +65,20 @@ export const portableSimple: any = {
 
   marks: {
     // Ex. 1: custom renderer for the em / italics decorator
-    em: ({ children }: any) => (
-      <em className="text-gray-600 font-semibold">{children}</em>
-    ),
-    code: (value: any) => {
-      return <p>{value.value}</p>;
-    },
-    underline: ({ children }: any) => (
-      <u className="underline underline-offset-2 text-primary/70">{children}</u>
-    ),
-    mark: ({ children }: any) => (
-      <mark className="bg-primary-foreground text-secondary-foreground/70">
-        {children}
-      </mark>
-    ),
+    // em: ({ children }: any) => (
+    //   <em className="text-gray-600 font-semibold">{children}</em>
+    // ),
+    // code: (value: any) => {
+    //   return <p>{value.value}</p>;
+    // },
+    // underline: ({ children }: any) => (
+    //   <u className="underline underline-offset-2 text-primary/70">{children}</u>
+    // ),
+    // mark: ({ children }: any) => (
+    //   <mark className="bg-primary-foreground text-secondary-foreground/70">
+    //     {children}
+    //   </mark>
+    // ),
 
     // Ex. 2: rendering a custom `link` annotation
     link: ({ value, children }: any) => {

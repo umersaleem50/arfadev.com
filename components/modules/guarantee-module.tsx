@@ -3,8 +3,6 @@ import Section from "../section";
 import BrokenGlass from "../svgs/broken-tank";
 import { PortableText } from "@portabletext/react";
 
-import { portableSimple } from "../portable-stucture/portable-simple";
-
 function GuaranteeModule({ module }: any) {
   const { description } = module;
   return (
@@ -17,8 +15,8 @@ function GuaranteeModule({ module }: any) {
             }
           />
         </div>
-        <div className="flex justify-center md:items-start items-center flex-col md:w-2/3 gap-y-3 text-muted-foreground">
-          <PortableText value={description} components={portableSimple} />
+        <div className="flex justify-center md:items-start items-center flex-col md:w-2/3 text-muted-foreground prose-base prose-p:font-sans text-center md:text-left">
+          <PortableText value={description} />
         </div>
       </div>
     </Section>

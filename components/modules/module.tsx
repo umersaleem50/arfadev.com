@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import LandingHero from "./landing-hero";
 import GuaranteeModule from "./guarantee-module";
+import Team from "./team";
 
 const PortfolioModule = dynamic(() => import("./portfolio-module"));
 const WhyChooseUs = dynamic(() => import("./why-choose-us"));
@@ -34,8 +35,8 @@ function Module({ module }: any) {
     case "guarantee":
       return <GuaranteeModule module={module} />;
 
-    // case "team":
-    //   return <Team module={module} />;
+    case "team":
+      return <Team module={module} />;
 
     case "grid":
       return <GridModule module={module} />;
@@ -45,8 +46,8 @@ function Module({ module }: any) {
       return <Testimonials module={module} />;
     case "blogs":
       return <BlogsModule module={module} />;
-    // case "body":
-    //   return <ContentBody module={module} />;
+    case "body":
+      return <ContentBody module={module} />;
     // case "gallery":
     //   return <Gallery module={module} />;
 
