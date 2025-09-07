@@ -4,9 +4,10 @@ import { draftMode } from "next/headers";
 import { poppinFonts, ebGaramond } from "./fonts/custom-fonts";
 import { ThemeProvider } from "./providers/theme-provider";
 import SmoothScrollProvider from "./providers/smooth-scroll";
+import { Analytics } from "@vercel/analytics/next";
 
-import "./globals.css";
 import { Toaster } from "sonner";
+import "./globals.css";
 
 const VisualEditing = dynamic(() =>
   import("next-sanity").then((mob) => mob.VisualEditing)
@@ -50,6 +51,7 @@ export default function RootLayout({
             {draftMode().isEnabled && <VisualEditing />}
           </ThemeProvider>
           <Toaster />
+          <Analytics />
         </SmoothScrollProvider>
       </body>
     </html>
