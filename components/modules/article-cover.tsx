@@ -8,7 +8,7 @@ function ArticleCover({ cover, title }: { cover: any; title: string }) {
         {cover && (
           <CustomImage
             alt={cover?.alt}
-            className="object-cover"
+            className="!object-cover"
             imageOBJ={cover}
           />
         )}
