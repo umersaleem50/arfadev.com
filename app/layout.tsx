@@ -5,6 +5,7 @@ import { poppinFonts, ebGaramond } from "./fonts/custom-fonts";
 import { ThemeProvider } from "./providers/theme-provider";
 import SmoothScrollProvider from "./providers/smooth-scroll";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -52,6 +53,7 @@ export default function RootLayout({
           </ThemeProvider>
           <Toaster />
           <Analytics />
+          <SpeedInsights />
         </SmoothScrollProvider>
       </body>
     </html>
