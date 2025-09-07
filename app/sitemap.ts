@@ -40,13 +40,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         translations?.map(
           ({ language, slug }: { language: string; slug: any }) => {
             documentObj["alternates"]["languages"][language] =
-              `${process.env.NEXT_PUBLIC_BASE_URL}/${language}/${slug.current}`;
+              `${process.env.NEXT_PUBLIC_BASE_URL}/${language || "en"}/${slug.current}`;
           }
         )
       )
-        console.log(documentObj.alternates);
-
-      return documentObj;
+        return documentObj;
     }
   );
 

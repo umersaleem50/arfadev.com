@@ -121,7 +121,7 @@ export const portableComplex: any = {
               <Link
                 href={value?.refLink?.url}
                 target="_blank"
-                className="flex items-center gap-1 dark:text-primary "
+                className="flex items-center gap-1 text-accent-foreground "
               >
                 {value?.refLink?.title} <LinkSimple />
               </Link>

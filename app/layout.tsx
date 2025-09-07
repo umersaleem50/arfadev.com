@@ -15,10 +15,10 @@ const VisualEditing = dynamic(() =>
 export const metadata: Metadata = {
   title: {
     template: "%s - Arfa Developers",
-    default:
-      "Arfa Developers | Branding solutions for law firms based in USA & Europe.",
+    default: "Keep your vision alive and online - Arfa Developers",
   },
-  description: "Empowering Law Firms Through Smart Branding.",
+  description:
+    "We develop full-stack and frontends for web applications that stay online when you need the most.",
 };
 
 export default function RootLayout({
