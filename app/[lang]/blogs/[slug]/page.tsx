@@ -129,7 +129,7 @@ export default async function Component({
 
   return (
     <main className="flex flex-col">
-      {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
+      <SchemaMarkup schema={schemaMarkup} />
       {menu && <MegaMenu module={menu} />}
       <ArticleCover cover={cover} title={title} />
       <section className="flex max-w-[85rem] lg:mx-auto md:mx-6 mx-4 gap-x-8 items-start flex-col lg:flex-row">

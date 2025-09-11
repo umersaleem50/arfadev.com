@@ -44,7 +44,7 @@ function DashboardSvg({ className }: { className?: string }) {
             rx="9"
             fill="url(#paint2_linear_468_734)"
             className={"stroke-background"}
-            stroke-width="2"
+            strokeWidth="2"
           />
           <circle
             id="avatar"
@@ -356,7 +356,7 @@ function DashboardSvg({ className }: { className?: string }) {
               rx="9"
               fill="url(#paint9_linear_468_734)"
               className={"stroke-foreground dark:stroke-background"}
-              stroke-width="2"
+              strokeWidth="2"
             />
             <g id="Group 43" opacity="0.7">
               <rect
@@ -427,7 +427,7 @@ function DashboardSvg({ className }: { className?: string }) {
           x2="1615"
           y2="124"
           className={"stroke-foreground dark:stroke-background"}
-          stroke-width="2"
+          strokeWidth="2"
         />
         <motion.g
           id="search"
@@ -448,7 +448,7 @@ function DashboardSvg({ className }: { className?: string }) {
             height="40.8798"
             fill="url(#paint11_linear_468_734)"
             className={"stroke-foreground dark:stroke-background"}
-            stroke-width="2"
+            strokeWidth="2"
           />
           <g id="MagnifyingGlass">
             <path
@@ -465,7 +465,7 @@ function DashboardSvg({ className }: { className?: string }) {
           x2="1413"
           y2="103"
           className={"stroke-foreground dark:stroke-background"}
-          stroke-width="2"
+          strokeWidth="2"
         />
         <motion.g id="user" initial="hidden" animate="animate">
           <motion.circle
@@ -502,7 +502,7 @@ function DashboardSvg({ className }: { className?: string }) {
           x2="520.999"
           y2="1101"
           className={"stroke-foreground dark:stroke-background"}
-          stroke-width="2"
+          strokeWidth="2"
         />
         <g id="pie-chart">
           <g id="pie-bg" opacity="0.7">
@@ -548,7 +548,7 @@ function DashboardSvg({ className }: { className?: string }) {
             rx="9"
             fill="url(#paint18_linear_468_734)"
             className={"stroke-foreground dark:stroke-background"}
-            stroke-width="2"
+            strokeWidth="2"
             variants={{
               hidden: { opacity: 0, x: 70 },
               animate: { opacity: 1, x: 0 },
@@ -602,7 +602,7 @@ function DashboardSvg({ className }: { className?: string }) {
                 <path
                   d="M1261 456.908C1261 450.281 1266.37 444.908 1273 444.908H1534.92C1541.55 444.908 1546.92 450.281 1546.92 456.908H1542.92C1542.92 452.49 1539.34 448.908 1534.92 448.908H1271C1265.48 448.908 1261 452.49 1261 456.908ZM1544.92 510.578H1261H1544.92ZM1261 510.578V446.908V510.578ZM1534.92 444.908C1541.55 444.908 1546.92 450.281 1546.92 456.908V498.578C1546.92 505.206 1541.55 510.578 1534.92 510.578C1539.34 510.578 1542.92 506.101 1542.92 500.578V456.908C1542.92 452.49 1539.34 448.908 1534.92 448.908V444.908Z"
                   fill="black"
-                  fill-opacity="0.5"
+                  fillOpacity="0.5"
                   mask="url(#path-53-inside-11_468_734)"
                 />
               </g>
@@ -655,7 +655,7 @@ function DashboardSvg({ className }: { className?: string }) {
                   rx="9"
                   stroke="black"
                   stroke-opacity="0.5"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
@@ -701,7 +701,7 @@ function DashboardSvg({ className }: { className?: string }) {
                 <path
                   d="M1259 615.434C1259 608.806 1264.37 603.434 1271 603.434H1532.92C1539.55 603.434 1544.92 608.806 1544.92 615.434C1544.92 611.015 1540.44 607.434 1534.92 607.434H1271C1266.58 607.434 1263 611.015 1263 615.434H1259ZM1544.92 669.104H1261H1544.92ZM1271 669.104C1264.37 669.104 1259 663.731 1259 657.104V615.434C1259 608.806 1264.37 603.434 1271 603.434V607.434C1266.58 607.434 1263 611.015 1263 615.434V659.104C1263 664.627 1266.58 669.104 1271 669.104ZM1544.92 605.434V669.104V605.434Z"
                   fill="black"
-                  fill-opacity="0.5"
+                  fillOpacity="0.5"
                   mask="url(#path-63-inside-12_468_734)"
                 />
               </g>
@@ -754,7 +754,7 @@ function DashboardSvg({ className }: { className?: string }) {
                   rx="9"
                   stroke="black"
                   stroke-opacity="0.5"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
@@ -768,7 +768,7 @@ function DashboardSvg({ className }: { className?: string }) {
           x2="1615"
           y2="356"
           stroke="black"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <g id="table">
           <rect
@@ -781,7 +781,7 @@ function DashboardSvg({ className }: { className?: string }) {
             rx="9"
             fill="url(#paint23_linear_468_734)"
             className={"stroke-foreground dark:stroke-background"}
-            stroke-width="2"
+            strokeWidth="2"
           />
           <motion.g
             id="table-header"
@@ -922,7 +922,7 @@ function DashboardSvg({ className }: { className?: string }) {
                   rx="9"
                   stroke="black"
                   stroke-opacity="0.5"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
@@ -991,7 +991,7 @@ function DashboardSvg({ className }: { className?: string }) {
                   rx="9"
                   stroke="black"
                   stroke-opacity="0.5"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
@@ -1060,7 +1060,7 @@ function DashboardSvg({ className }: { className?: string }) {
                   rx="9"
                   stroke="black"
                   stroke-opacity="0.5"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
@@ -1075,7 +1075,7 @@ function DashboardSvg({ className }: { className?: string }) {
             <path
               d="M168.998 10C168.998 3.37258 174.371 -2 180.998 -2H1605C1611.63 -2 1617 3.37258 1617 10H1613C1613 5.58172 1609.42 2 1605 2H180.998C176.58 2 172.998 5.58172 172.998 10H168.998ZM1615 64H170.998H1615ZM168.998 64V10C168.998 3.37258 174.371 -2 180.998 -2V2C176.58 2 172.998 5.58172 172.998 10V64H168.998ZM1605 -2C1611.63 -2 1617 3.37258 1617 10V64H1613V10C1613 5.58172 1609.42 2 1605 2V-2Z"
               className="fill-foreground"
-              fill-opacity="0.7"
+              fillOpacity="0.7"
               mask="url(#path-102-inside-13_468_734)"
             />
           </g>

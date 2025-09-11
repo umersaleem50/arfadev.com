@@ -1,6 +1,5 @@
 import React from "react";
 import { PortableText } from "@portabletext/react";
-import HeroIllustration from "../svgs/hero-illustration";
 
 import { portableComplex } from "../portable-stucture/portable-complex";
 import DashboardSvg from "../svgs/dashboard-svg";
@@ -16,6 +15,7 @@ function LandingHero({ module }: any) {
       >
         <PortableText value={content} components={portableComplex} />
       </div>
+
       <DashboardSvg
         className={
           "h-3/4 w-full max-w-[1980px] absolute bottom-0 origin-bottom md:translate-y-1/4 -z-10"

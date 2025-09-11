@@ -120,7 +120,7 @@ export const HOMEPAGE_QUERY = `*[_type == "page" && _id == ${homeID}] | order(_u
     !defined(_ref)=>{${modules}}
     },
     title,
-    seo}
+    seo,schemaMarkup}
   `;
 
 // 119

@@ -1,4 +1,4 @@
-export default {
+const seo = {
   title: "SEO / Share Settings",
   name: "seo",
   type: "object",
@@ -10,6 +10,12 @@ export default {
     collapsible: true,
   },
   fields: [
+    {
+      title: "Schema Markup",
+      name: "schemaMarkup",
+      type: "schemaMarkup",
+      group: "on-page",
+    },
     {
       title: "Index this page?",
       name: "noindex",
@@ -141,3 +147,5 @@ export default {
     },
   ],
 };
+
+export default seo;

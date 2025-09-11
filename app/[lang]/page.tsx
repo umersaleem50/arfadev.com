@@ -81,11 +81,11 @@ export default async function Home({ params: { lang } }: Props) {
 
   const { page } = pageData;
 
-  const { content } = page;
+  const { content, schemaMarkup } = page;
 
   return (
     <main className="w-full h-full">
-      {page?.schemaMarkup && <SchemaMarkup schema={page.schemaMarkup} />}
+      {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
       {content.map((module: any, i: number) => {
         return <Module module={module} key={i} />;
       })}
