@@ -72,17 +72,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: seo?.shareDesc,
     },
 
+    // robots: {
+    //   index: seo?.noindex,
+    //   follow: seo?.nofollow,
+    //   nocache: seo?.cache,
+    //   googleBot: {
+    //     index: seo?.index,
+    //     follow: seo?.follow,
+    //     noimageindex: seo?.imageindex,
+    //     "max-video-preview": -1,
+    //     "max-image-preview": "large",
+    //     "max-snippet": -1,
+    //   },
+    // },
     robots: {
-      index: seo?.noindex,
-      follow: seo?.nofollow,
-      nocache: seo?.cache,
+      index: true, // allow indexing
+      follow: true, // allow link following
+      nocache: false, // allow caching
       googleBot: {
-        index: seo?.index,
-        follow: seo?.follow,
-        noimageindex: seo?.imageindex,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
+        index: true,
+        follow: true,
+        noimageindex: false, // allow images to be indexed
+        "max-video-preview": -1, // no limit
+        "max-image-preview": "large", // allow large preview
+        "max-snippet": -1, // no limit on text snippet
       },
     },
   };
