@@ -1,5 +1,5 @@
-import { interpolate, MotionValue, useTransform } from "motion/react";
-// import { interpolate } from "flubber";
+import { MotionValue, useTransform } from "motion/react";
+import { interpolate } from "flubber";
 
 const getIndex = (_: string, index: number) => index;
 

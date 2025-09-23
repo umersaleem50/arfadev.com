@@ -69,19 +69,19 @@ export async function generateMetadata({
     //     "max-snippet": -1,
     //   },
     // },
-    robots: {
-      index: true, // allow indexing
-      follow: true, // allow link following
-      nocache: false, // allow caching
-      googleBot: {
-        index: true,
-        follow: true,
-        noimageindex: false, // allow images to be indexed
-        "max-video-preview": -1, // no limit
-        "max-image-preview": "large", // allow large preview
-        "max-snippet": -1, // no limit on text snippet
-      },
-    },
+    // robots: {
+    //   index: true, // allow indexing
+    //   follow: true, // allow link following
+    //   nocache: false, // allow caching
+    //   googleBot: {
+    //     index: true,
+    //     follow: true,
+    //     noimageindex: false, // allow images to be indexed
+    //     "max-video-preview": -1, // no limit
+    //     "max-image-preview": "large", // allow large preview
+    //     "max-snippet": -1, // no limit on text snippet
+    //   },
+    // },
   };
 }
 
