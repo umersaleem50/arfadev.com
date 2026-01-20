@@ -1,7 +1,6 @@
-import { isUniqueOtherThanLanguage } from "@/sanity/lib/is-unique-slug-language";
 import { ArticleNyTimes } from "@phosphor-icons/react/dist/ssr";
 
-import { defineField, defineType } from "sanity";
+import { defineField, defineType, Rule } from "sanity";
 export default defineType({
   title: "Post",
   name: "post",
@@ -27,25 +26,24 @@ export default defineType({
       type: "slug",
       description: "(required)",
       options: {
-        isUnique: isUniqueOtherThanLanguage,
         source: "title",
         maxLength: 96,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
       name: "description",
       title: "Description",
       type: "text",
-      validation: (Rule: any) => Rule.required().max(400),
+      validation: (Rule: Rule) => Rule.required().max(400),
       group: "settings",
     },
     {
@@ -57,7 +55,7 @@ export default defineType({
         collapsible: true,
       },
 
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
@@ -159,7 +157,7 @@ export default defineType({
       cover,
     }: {
       title: string;
-      slug: any;
+      slug: { current?: string };
       cover: any;
     }) {
       const path = `/${slug?.current}`;

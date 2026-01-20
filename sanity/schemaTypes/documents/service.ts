@@ -1,6 +1,5 @@
-import { isUniqueOtherThanLanguage } from "@/sanity/lib/is-unique-slug-language";
 import { Gavel } from "@phosphor-icons/react";
-import { defineType } from "sanity";
+import { defineType, Rule } from "sanity";
 export default defineType({
   title: "Service",
   name: "service",
@@ -15,7 +14,7 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
@@ -24,11 +23,10 @@ export default defineType({
       type: "slug",
       description: "(required)",
       options: {
-        isUnique:isUniqueOtherThanLanguage,
         source: "title",
         maxLength: 96,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
@@ -68,7 +66,13 @@ export default defineType({
       title: "title",
       slug: "slug",
     },
-    prepare({ title = "Untitled", slug = {} }: { title: string; slug: any }) {
+    prepare({
+      title = "Untitled",
+      slug = {},
+    }: {
+      title: string;
+      slug: { current?: string };
+    }) {
       const path = `/${slug?.current}`;
       return {
         title,

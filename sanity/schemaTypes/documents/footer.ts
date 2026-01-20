@@ -1,5 +1,5 @@
 import { SquareHalfBottom } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
+import { defineField, Rule } from "sanity";
 
 export default defineField({
   type: "document",
@@ -99,7 +99,7 @@ export default defineField({
               type: "string",
               name: "url",
               description: "Enter an external URL",
-              validation: (Rule: any) =>
+              validation: (Rule: Rule) =>
                 Rule.uri({
                   scheme: ["http", "https", "mailto", "tel"],
                 }),
@@ -117,7 +117,7 @@ export default defineField({
       metaData: "metaData",
       footerRoutes: "footerRoutes",
     },
-    prepare({ metaData = {}, footerRoutes }: any) {
+    prepare({ metaData = {}, footerRoutes }) {
       return {
         title: metaData.title,
         subtitle: `${footerRoutes?.length || 0} link(s)`,

@@ -1,6 +1,5 @@
-import { isUniqueOtherThanLanguage } from "@/sanity/lib/is-unique-slug-language";
 import { Browser } from "@phosphor-icons/react";
-import { defineField, defineType } from "sanity";
+import { defineField, defineType, Rule } from "sanity";
 export default defineType({
   title: "Page",
   name: "page",
@@ -45,7 +44,7 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
@@ -65,9 +64,8 @@ export default defineType({
       options: {
         source: "title",
         maxLength: 96,
-        isUnique: isUniqueOtherThanLanguage,
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       group: "settings",
     },
     {
@@ -141,7 +139,7 @@ export default defineType({
       name: "seo",
       type: "seo",
       group: "seo",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
 
     // {
@@ -158,7 +156,13 @@ export default defineType({
       title: "title",
       slug: "slug",
     },
-    prepare({ title = "Untitled", slug = {} }: { title: string; slug: any }) {
+    prepare({
+      title = "Untitled",
+      slug = {},
+    }: {
+      title: string;
+      slug: { current?: string };
+    }) {
       const path = `/${slug?.current}`;
       return {
         title,

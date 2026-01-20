@@ -1,7 +1,7 @@
 import { Gear } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
+import { defineField, Rule } from "sanity";
 
-export default {
+const generalSettings = {
   title: "General Settings",
   name: "generalSettings",
   type: "document",
@@ -53,8 +53,8 @@ export default {
       name: "featuredBlogs",
       type: "array",
       of: [{ type: "reference", to: [{ type: "post" }] }],
-      validation: (rule: any) => {
-        return rule.length < 4;
+      validation: (rule: Rule) => {
+        return Number(rule?.length) < 4;
       },
     },
     {
@@ -77,7 +77,7 @@ export default {
               title: "Title",
               name: "title",
               type: "string",
-              validation: (Rule: any) => Rule.required(),
+              validation: (Rule: Rule) => Rule.required(),
             },
             {
               title: "Thumbnail",
@@ -89,13 +89,13 @@ export default {
               name: "description",
               rows: 3,
               type: "text",
-              validation: (Rule: any) => Rule.required().max(300),
+              validation: (Rule: Rule) => Rule.required().max(300),
             },
           ],
         },
       ],
-      validation: (rule: any) => {
-        return rule.length < 4;
+      validation: (rule: Rule) => {
+        return Number(rule.length) < 4;
       },
     },
     {
@@ -114,14 +114,14 @@ export default {
     //   options: {
     //     maxLength: 96,
     //   },
-    //   validation: (Rule: any) => Rule.required(),
+    //   validation: (Rule:Rule) => Rule.required(),
     // },
     {
       title: "Live Site URL",
       description: "The root domain or subdomain of your website",
       name: "siteURL",
       type: "url",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       // group: "details",
     },
     {
@@ -177,7 +177,7 @@ export default {
           name: "fullLogo",
           title: "Full Logo",
           description: "Provide full logo with text.",
-          validation: (rule: any) => rule.required(),
+          validation: (rule: Rule) => rule.required(),
         },
         {
           type: "image",
@@ -185,7 +185,7 @@ export default {
           title: "Logo",
           description:
             "Provide the logo with just logomark only. ie. without text.",
-          validation: (rule: any) => rule.required(),
+          validation: (rule: Rule) => rule.required(),
         },
       ],
     },
@@ -198,3 +198,5 @@ export default {
     },
   },
 };
+
+export default generalSettings;

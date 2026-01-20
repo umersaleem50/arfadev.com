@@ -1,8 +1,7 @@
 import { List } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
-import { defineType } from "sanity";
-import { INavLink } from "../objects/navlink";
+import { defineField, defineType } from "sanity";
 import { INavDropdown } from "../objects/nav-dropdown";
+import { INavLink } from "../objects/navlink";
 import { INavPage } from "../objects/navpage";
 
 export interface IMenu {
