@@ -1,15 +1,13 @@
-import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-// import { joinSlugs } from "@/lib/utils";
 import { getAllPageSlug, getPage } from "@/sanity/data";
 
-import { urlFor } from "@/sanity/lib/image";
 import { joinSlugs } from "@/lib/utils";
-import GuaranteeModule from "@/components/modules/guarantee-module";
+import { urlFor } from "@/sanity/lib/image";
 
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 const Module = dynamic(() => import("@/components/modules/module"));
@@ -24,7 +22,7 @@ const getPageData = cache(
   async (slug: string, lang: string, isDraftMode = false) => {
     const pageData = await getPage(slug, lang, isDraftMode);
     return pageData;
-  }
+  },
 );
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -50,20 +48,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page || !page?.content) notFound();
   const { seo } = page;
 
-  // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || [];
-
   return {
     title: seo?.metaTitle,
     description: seo?.metaDesc,
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}` as string),
-    alternates: {
-      canonical: `/${language}/${planSlug}`,
-    },
-    authors: seo?.authors,
+
     keywords: seo?.keywords,
-    creator: seo?.creator,
-    publisher: seo?.publisher,
 
     openGraph: {
       images: [urlFor(seo?.shareGraphic).url()],
@@ -71,40 +60,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: seo?.shareTitle,
       description: seo?.shareDesc,
     },
-
-    // robots: {
-    //   index: seo?.noindex,
-    //   follow: seo?.nofollow,
-    //   nocache: seo?.cache,
-    //   googleBot: {
-    //     index: seo?.index,
-    //     follow: seo?.follow,
-    //     noimageindex: seo?.imageindex,
-    //     "max-video-preview": -1,
-    //     "max-image-preview": "large",
-    //     "max-snippet": -1,
-    //   },
-    // },
-    // robots: {
-    //   index: true, // allow indexing
-    //   follow: true, // allow link following
-    //   nocache: false, // allow caching
-    //   googleBot: {
-    //     index: true,
-    //     follow: true,
-    //     noimageindex: false, // allow images to be indexed
-    //     "max-video-preview": -1, // no limit
-    //     "max-image-preview": "large", // allow large preview
-    //     "max-snippet": -1, // no limit on text snippet
-    //   },
-    // },
   };
 }
 
 export async function generateStaticParams() {
   const pages = await getAllPageSlug();
 
-  return pages.map((slug: any) => ({
+  return pages.map((slug: { current: string }) => ({
     slug: slug.current,
   }));
 }

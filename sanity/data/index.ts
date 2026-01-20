@@ -1,4 +1,6 @@
+import { QueryOptions } from "next-sanity";
 import { client } from "../lib/client";
+import { token } from "../lib/token";
 import {
   featuredCaseStudies,
   footerQuery,
@@ -6,8 +8,6 @@ import {
   modules,
   site,
 } from "./queries";
-import { token } from "../lib/token";
-import { QueryOptions } from "next-sanity";
 
 export async function getAllPageSlug() {
   const query = `*[_type == "page"]{ slug }`;
@@ -20,7 +20,7 @@ export async function getAllPageSlug() {
 export async function getPage(
   slug: string,
   lang = "en",
-  isDraftMode?: boolean
+  isDraftMode?: boolean,
 ) {
   // const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
   const slugs = [slug, `/${slug}`, `/${slug}/`];
@@ -36,7 +36,7 @@ export async function getPage(
 
   const query = `
         {
-          "page": *[_type == "page" && language == $lang && slug.current in $slugs ] | order(_updatedAt desc)[0]{
+          "page": *[_type == "page" && slug.current in $slugs ] | order(_updatedAt desc)[0]{
             "id": _id,
             hasTransparentHeader,
             author->{name,photo},
@@ -85,7 +85,7 @@ export async function getPostsPage(isDraftMode?: boolean) {
 export async function getPost(
   slug: string,
   lang: string,
-  isDraftMode?: boolean
+  isDraftMode?: boolean,
 ) {
   const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
 
@@ -99,7 +99,7 @@ export async function getPost(
       };
 
   const query = `{
-          "page": *[_type == "post" && language == $lang && slug.current in ${slugs}] | order(_updatedAt desc)[0]{
+          "page": *[_type == "post" && slug.current in ${slugs}] | order(_updatedAt desc)[0]{
             "id": _id,
             hasTransparentHeader,
             content[]{
@@ -131,9 +131,9 @@ export async function getPost(
 }
 
 export async function getStaticPage(
-  pageData: any,
+  pageData: unknown,
   lang = "en",
-  isDraftMode?: boolean
+  isDraftMode?: boolean,
 ) {
   const queryOptions: QueryOptions = isDraftMode
     ? { perspective: "previewDrafts", token, stega: true, useCdn: false }
