@@ -1,12 +1,7 @@
-import {
-  Button,
-  Header1,
-  Header2,
-  Header3,
-  Header4,
-} from "../components/renders";
+import { Rule } from "sanity";
+import { Header1, Header2, Header3, Header4 } from "../components/renders";
 
-export default {
+const portableSimpleSchema = {
   title: "Portable Text",
   name: "simplePortableText",
   type: "array",
@@ -81,7 +76,7 @@ export default {
                   direction: "horizontal",
                 },
                 initialValue: "internal",
-                validation: (Rule: any) => Rule.required(),
+                validation: (Rule: Rule) => Rule.required(),
               },
               {
                 title: "Internal Page",
@@ -94,7 +89,7 @@ export default {
                 title: "External URL",
                 name: "url",
                 type: "url",
-                validation: (Rule: any) =>
+                validation: (Rule: Rule) =>
                   Rule.uri({
                     scheme: ["http", "https", "mailto", "tel"],
                   }),
@@ -117,3 +112,5 @@ export default {
     },
   ],
 };
+
+export default portableSimpleSchema;

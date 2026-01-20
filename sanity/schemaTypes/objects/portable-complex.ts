@@ -1,4 +1,5 @@
-import { defineArrayMember } from "sanity";
+import { GridFour, Highlighter } from "@phosphor-icons/react/dist/ssr";
+import { defineArrayMember, Rule } from "sanity";
 import {
   Header1,
   Header2,
@@ -8,9 +9,8 @@ import {
   Header6,
   Hightlight,
 } from "../components/renders";
-import { GridFour, Highlighter } from "@phosphor-icons/react/dist/ssr";
 
-export default {
+const portableComplexSchema = {
   title: "Rich Text",
   name: "complexPortableText",
   type: "array",
@@ -106,7 +106,7 @@ export default {
                   ],
                 },
                 initialValue: "internal",
-                validation: (Rule: any) => Rule.required(),
+                validation: (Rule: Rule) => Rule.required(),
               },
               {
                 title: "Internal Page",
@@ -119,7 +119,7 @@ export default {
                 title: "External URL",
                 name: "url",
                 type: "url",
-                validation: (Rule: any) =>
+                validation: (Rule: Rule) =>
                   Rule.uri({
                     scheme: ["http", "https", "mailto", "tel"],
                   }),
@@ -238,3 +238,5 @@ export default {
     // },
   ],
 };
+
+export default portableComplexSchema;

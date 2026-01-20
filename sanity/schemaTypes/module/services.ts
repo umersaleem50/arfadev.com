@@ -1,5 +1,5 @@
 import { SealCheck } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
+import { defineField, Rule } from "sanity";
 
 export default defineField({
   type: "object",
@@ -45,7 +45,7 @@ export default defineField({
         },
       ],
 
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.max(4).error("You can add only 4 services here."),
     },
     // {

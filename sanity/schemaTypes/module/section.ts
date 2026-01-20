@@ -1,7 +1,7 @@
 import { ArrowClockwise } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
+import { defineField, Rule } from "sanity";
 
-export default {
+const reusableSection = {
   title: "Resuable Section",
   name: "section",
   type: "document",
@@ -13,7 +13,7 @@ export default {
       type: "string",
       description:
         "Provide a name to reference this section. For internal use only.",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     defineField({
       // should match 'languageField' plugin configuration setting, if customized
@@ -53,7 +53,7 @@ export default {
         { type: "whyChooseUs" },
         { type: "grid" },
       ],
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.length(1).error("You can only have one piece of content"),
     },
   ],
@@ -62,7 +62,7 @@ export default {
       name: "name",
       content: "content.0",
     },
-    prepare({ name, content }: any) {
+    prepare({ name }: any) {
       return {
         title: name,
         subtle: "Resuable Component",
@@ -71,3 +71,5 @@ export default {
     },
   },
 };
+
+export default reusableSection;

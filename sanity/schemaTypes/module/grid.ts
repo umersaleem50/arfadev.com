@@ -1,6 +1,7 @@
-import { Question, TextAlignLeft } from "@phosphor-icons/react/dist/ssr";
+import { TextAlignLeft } from "@phosphor-icons/react/dist/ssr";
+import { Rule } from "sanity";
 
-export default {
+const contentGrid = {
   title: "Content Grid",
   name: "grid",
   type: "object",
@@ -50,7 +51,7 @@ export default {
           { title: "12", value: 12 },
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       initialValue: 12,
     },
     {
@@ -69,7 +70,7 @@ export default {
       //   const name = getTypeTitles(columns.map((col) => col.blocks[0]._type));
 
       const image = (columns[0].blocks[0].content || []).find(
-        (block: any) => block._type === "photo"
+        (block: any) => block._type === "photo",
       );
 
       return {
@@ -80,3 +81,5 @@ export default {
     },
   },
 };
+
+export default contentGrid;

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Star } from "@phosphor-icons/react/dist/ssr";
 
-export default {
+const heroSchema = {
   title: "Hero",
   name: "hero",
   type: "object",
@@ -80,3 +80,5 @@ export default {
     },
   },
 };
+
+export default heroSchema;
