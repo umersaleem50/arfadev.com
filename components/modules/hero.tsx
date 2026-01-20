@@ -1,20 +1,18 @@
-import { urlFor } from "@/sanity/lib/image";
-
+import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
 import CustomImage from "../custom-image";
-import { cn } from "@/lib/utils";
 
 import { portableComplex } from "../portable-stucture/portable-complex";
 
 function Hero({ module }: any) {
-  const { coverImage, isFullImage, content, darkText = false } = module;
+  const { coverImage, isFullImage, content } = module;
 
   return (
     <div className="w-full h-auto relative">
       <div
         className={cn(
           "w-full relative overflow-hidden",
-          isFullImage ? "h-screen" : "h-[60vh] "
+          isFullImage ? "h-screen" : "h-[60vh] ",
         )}
       >
         {coverImage?.asset && (
@@ -34,7 +32,7 @@ function Hero({ module }: any) {
       <div
         className={cn(
           "w-full absolute top-0 bg-black/80 pointer-events-none",
-          isFullImage ? "h-full" : "h-[60vh]"
+          isFullImage ? "h-full" : "h-[60vh]",
         )}
       ></div>
     </div>

@@ -1,27 +1,27 @@
 "use client";
 
-import Link from "next/link";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuIndicator,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ScrollArea } from "../ui/scroll-area";
-import ListItem from "./mega-menu/list-item-menu";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
+import { IMenu } from "@/sanity/schemaTypes/documents/menu";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { ModeToggle } from "../ui/mode-toggle";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+import { useState } from "react";
 import LanguageSwitcher from "../language-switcher";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { IMenu } from "@/sanity/schemaTypes/documents/menu";
+import { ModeToggle } from "../ui/mode-toggle";
+import { ScrollArea } from "../ui/scroll-area";
+import ListItem from "./mega-menu/list-item-menu";
 
 import FeaturedItem from "./mega-menu/featured-item";
 
@@ -30,7 +30,7 @@ interface IModule extends IMenu {
 }
 
 const NaviationMenuLink = dynamic(
-  () => import("./mega-menu/navigation-menu-link")
+  () => import("./mega-menu/navigation-menu-link"),
 );
 
 const NavigationDropDown = dynamic(() => import("./mega-menu/drop-down-menu"));
@@ -60,7 +60,7 @@ export function MegaMenu({ module }: { module: IModule }) {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       animate={hidden ? "hidden" : "visible"}
       className={cn(
-        "w-full z-30 sticky top-0 backdrop-blur-sm bg-background border-border border-b-2 shadow-sm font-serif"
+        "w-full z-30 sticky top-0 backdrop-blur-sm bg-background border-border border-b-2 shadow-sm font-serif",
       )}
       whileHover={{ y: 0 }}
     >
@@ -82,10 +82,9 @@ export function MegaMenu({ module }: { module: IModule }) {
           <MobileNav items={items} logo={logo} />
         </div>
         <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
-          <LanguageSwitcher />
           <ModeToggle />
           <Button asChild variant={"default"} className="ml-8">
-            <Link href={"/contact"}>Book Appointment</Link>
+            <Link href={"/contact"}>Contact Us</Link>
           </Button>
           {/* <ModeToggle/> */}
         </div>

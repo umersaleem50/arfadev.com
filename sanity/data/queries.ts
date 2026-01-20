@@ -26,12 +26,12 @@ export const site = `
              "rootDomain": *[_type == "generalSettings"][0].siteURL
            },`;
 
-export const homeID = `*[_type=="generalSettings" && language == $lang][0].home->_id`;
-export const errorID = `*[_type=="generalSettings" && language == 'en'][0].error->_id`;
+export const homeID = `*[_type=="generalSettings"][0].home->_id`;
+export const errorID = `*[_type=="generalSettings"][0].error->_id`;
 export const servicesBaseURL = `*[_type=="generalSettings"][0].servicesBaseURL`;
 export const languageSupport = `*[_type=="generalSettings"][0].langSupport`;
-export const FEATURED_BLOGS = `*[_type=="generalSettings" && language == $lang][0].featuredBlogs[]->{cover,title,tags,slug{current},description}`;
-export const featuredCaseStudies = `*[_type=="generalSettings" && language == $lang][0].featuredCaseStudies[]{title,ref->{slug{current}},description,image}`;
+export const FEATURED_BLOGS = `*[_type=="generalSettings"][0].featuredBlogs[]->{cover,title,tags,slug{current},description}`;
+export const featuredCaseStudies = `*[_type=="generalSettings"][0].featuredCaseStudies[]{title,ref->{slug{current}},description,image}`;
 export const footerQuery = `*[_type=="footer"][0]{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}}`;
 export const menuQuery = `*[_type=="menu"][0]{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${navPage}}},featured{...,page->}},"logo":${fullLogo}}`;
 
@@ -237,13 +237,4 @@ export const NOT_FOUND = `
     }
   `;
 
-export const SITEMAP_QUERY = `*[_type in $docs ] {
-_updatedAt, "priority":seo.priority,"changeFrequency":seo.changeFrequency,
-    slug,
-      language,
-    "translations": *[_type == "translation.metadata" && references(^._id)]
-    .translations[].value->{
-      title, slug, language
-    }}`;
-
-// "authors":seo.authors,"creator":seo.creator,"keywords":seo.keywords,"publisher":seo.publisher
+export const SITEMAP_QUERY = `*[_type == "page" && category != "error"]{_updatedAt,slug,"priority":seo.priority}`;

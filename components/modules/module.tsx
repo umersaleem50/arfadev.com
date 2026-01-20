@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
-import LandingHero from "./landing-hero";
 import GuaranteeModule from "./guarantee-module";
+import LandingHero from "./landing-hero";
 import Team from "./team";
 
 const PortfolioModule = dynamic(() => import("./portfolio-module"));
@@ -48,10 +48,7 @@ function Module({ module }: any) {
       return <BlogsModule module={module} />;
     case "body":
       return <ContentBody module={module} />;
-    // case "gallery":
-    //   return <Gallery module={module} />;
 
-    // return <LawFirmCaseStudies module={module} />;
     default:
       return null;
   }
