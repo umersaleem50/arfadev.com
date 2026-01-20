@@ -1,5 +1,4 @@
-import { Question } from "@phosphor-icons/react/dist/ssr";
-import { defineField, UserAvatar } from "sanity";
+import { defineField, Rule } from "sanity";
 
 export default defineField({
   title: "Column Size",
@@ -28,7 +27,7 @@ export default defineField({
           { title: "XL (1600px and up)", value: "xl" },
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       fieldset: "sizes",
     },
     {
@@ -52,7 +51,7 @@ export default defineField({
           { title: "12", value: 12 },
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
       fieldset: "sizes",
     },
     {
@@ -120,7 +119,7 @@ export default defineField({
       width: "width",
       start: "start",
     },
-    prepare({ breakpoint, width, start }: any) {
+    prepare({ width, start }: any) {
       return {
         title: `Width: ${width}`,
         subtitle: start ? `Offset: ${start}` : "",

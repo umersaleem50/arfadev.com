@@ -1,3 +1,5 @@
+import { Rule } from "sanity";
+
 const seo = {
   title: "SEO / Share Settings",
   name: "seo",
@@ -64,7 +66,7 @@ const seo = {
       type: "number",
       description:
         "Enter the prority no. 1 means highest priority 0 means lowest priority.",
-      validation: (Rule: any) => Rule.required().max(1).min(0).positive(),
+      validation: (Rule: Rule) => Rule.required().max(1).min(0).positive(),
       initial: 0.5,
       group: "on-page",
     },
@@ -80,7 +82,7 @@ const seo = {
       name: "metaTitle",
       type: "string",
       description: "Title used for search engines and browsers",
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.required()
           .max(50)
           .warning("Longer titles may be truncated by search engines"),
@@ -111,7 +113,7 @@ const seo = {
       type: "text",
       rows: 3,
       description: "Description for search engines",
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.required()
           .max(150)
           .warning("Longer descriptions may be truncated by search engines"),
@@ -122,7 +124,7 @@ const seo = {
       name: "shareTitle",
       type: "string",
       description: "Title used for social sharing cards",
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.max(50).warning("Longer titles may be truncated by social sites"),
       group: "on-page",
     },
@@ -132,9 +134,9 @@ const seo = {
       type: "text",
       rows: 3,
       description: "Description used for social sharing cards",
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.max(150).warning(
-          "Longer descriptions may be truncated by social sites"
+          "Longer descriptions may be truncated by social sites",
         ),
       group: "on-page",
     },

@@ -1,5 +1,5 @@
 import { UserCirclePlus } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
+import { defineField, Rule } from "sanity";
 
 export default defineField({
   title: "Featured Members",
@@ -22,9 +22,9 @@ export default defineField({
           },
         },
       ],
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.max(6).error(
-          "You can only have max of six members on this block."
+          "You can only have max of six members on this block.",
         ),
     },
   ],

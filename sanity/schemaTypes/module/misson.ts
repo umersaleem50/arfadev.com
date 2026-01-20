@@ -1,6 +1,6 @@
 import { Stack } from "@phosphor-icons/react";
 
-export default {
+const missionSchema = {
   title: "Misson Section",
   name: "mission",
   type: "object",
@@ -42,3 +42,5 @@ export default {
     },
   },
 };
+
+export default missionSchema;
