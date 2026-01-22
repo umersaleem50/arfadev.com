@@ -5,7 +5,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
 
 function NaviationMenuLink({
   url,
