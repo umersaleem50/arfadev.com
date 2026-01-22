@@ -1,10 +1,9 @@
-import React from "react";
-import { PortfolioOptions } from "../section-options";
-import Section from "../section";
-import { Button } from "../ui/button";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import CustomImage from "../custom-image";
+import Section from "../section";
+import { PortfolioOptions } from "../section-options";
+import { Button } from "../ui/button";
 
 export interface IPortfolioCard {
   index: number;
@@ -30,13 +29,13 @@ export function PortfolioCard({
   return (
     <div
       className={cn(
-        "max-w-[85rem] mx-auto grid md:grid-cols-12 grid-cols-1 lg:gap-x-6 md:gap-x-4 items-end lg:pb-24 md:pb-16 border-b border-border lg:mb-24 md:mb-20 sm:mb-16 mb-14 last:mb-0 last:pb-0 last:border-0"
+        "max-w-[85rem] mx-auto grid md:grid-cols-12 grid-cols-1 lg:gap-x-6 md:gap-x-4 items-end lg:pb-24 md:pb-16 border-b border-border lg:mb-24 md:mb-20 sm:mb-16 mb-14 last:mb-0 last:pb-0 last:border-0",
       )}
     >
       <div
         className={cn(
           "lg:col-span-6 md:col-span-5 col-span-1 relative lg:h-[42rem] md:h-[30rem] sm:inline-block hidden",
-          options.reverse && "md:order-last"
+          options.reverse && "md:order-last",
         )}
       >
         {firstCover?.asset && (
@@ -51,7 +50,7 @@ export function PortfolioCard({
       <div
         className={cn(
           "lg:col-span-4 md:col-span-5 col-span-1",
-          options.reverse && "md:order-2"
+          options.reverse && "md:order-2",
         )}
       >
         <PortfolioOptions
@@ -73,7 +72,7 @@ export function PortfolioCard({
       <div
         className={cn(
           "md:col-span-2 col-span-1 flex flex-row md:inline-block gap-x-8 md:gap-x-0 justify-between py-8 md:py-0 items-end",
-          options.reverse && "md:order-first"
+          options.reverse && "md:order-first",
         )}
       >
         <div className="md:mb-10 md:-rotate-90 md:-translate-y-full">

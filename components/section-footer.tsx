@@ -1,6 +1,5 @@
-import React from "react";
-import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 function SectionFooter({
   description,
@@ -36,16 +35,9 @@ function SectionFooter({
         {description}
       </p>
 
-      <Link
-        className={buttonVariants({
-          variant: "outline",
-          size: "lg",
-          className: "border-accent !text-accent hover:!text-foreground",
-        })}
-        href={href || "/invalid-url"}
-      >
-        {btnText}
-      </Link>
+      <Button asChild variant={"outline"} size={"lg"}>
+        <Link href={href || "/invalid-url"}>{btnText}</Link>
+      </Button>
     </div>
   );
 }

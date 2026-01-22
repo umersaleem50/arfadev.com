@@ -1,16 +1,12 @@
 import {
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import React from "react";
 import ListItem from "./list-item-menu";
 
-import CustomImage from "@/components/custom-image";
-import { NavigationMenuIndicator } from "@radix-ui/react-navigation-menu";
 import { INavDropdown } from "@/sanity/schemaTypes/objects/nav-dropdown";
+import { NavigationMenuIndicator } from "@radix-ui/react-navigation-menu";
 import FeaturedItem from "./featured-item";
 
 function NavigationDropDown({ title, featured, dropdownItems }: INavDropdown) {
@@ -19,7 +15,7 @@ function NavigationDropDown({ title, featured, dropdownItems }: INavDropdown) {
       <NavigationMenuIndicator />
       <NavigationMenuTrigger>{title || "Untitled"}</NavigationMenuTrigger>
       <NavigationMenuContent>
-        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-2">
+        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-2 font-sans">
           <FeaturedItem featured={featured} />
 
           {dropdownItems.map((item, key: number) => {

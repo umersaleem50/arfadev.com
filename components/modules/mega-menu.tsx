@@ -23,6 +23,7 @@ import { ModeToggle } from "../ui/mode-toggle";
 import { ScrollArea } from "../ui/scroll-area";
 import ListItem from "./mega-menu/list-item-menu";
 
+import { InteractiveHoverButton } from "../InteractiveUIButton";
 import FeaturedItem from "./mega-menu/featured-item";
 
 interface IModule extends IMenu {
@@ -81,11 +82,17 @@ export function MegaMenu({ module }: { module: IModule }) {
         <div className="md:hidden">
           <MobileNav items={items} logo={logo} />
         </div>
-        <div className="md:flex md:items-center md:gap-x-2 hidden items-center md:justify-start">
+        <div className="md:flex md:items-center hidden items-center md:justify-start">
           <ModeToggle />
-          <Button asChild variant={"default"} className="ml-8">
-            <Link href={"/contact"}>Contact Us</Link>
-          </Button>
+          <Link href={"/contact"}>
+            <InteractiveHoverButton
+              asChild
+              variant={"default"}
+              className="ml-8"
+            >
+              Contact Us
+            </InteractiveHoverButton>
+          </Link>
           {/* <ModeToggle/> */}
         </div>
       </div>
