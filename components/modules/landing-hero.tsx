@@ -1,5 +1,7 @@
 import { PortableText } from "@portabletext/react";
 
+import { cn } from "@/lib/utils";
+import { DotPattern } from "../dot-grid";
 import { portableComplex } from "../portable-stucture/portable-complex";
 import { Safari } from "../Safari";
 
@@ -17,7 +19,13 @@ function LandingHero({ module }: any) {
 
       <Safari
         imageSrc="/assets/dashboard.jpg"
-        className="h-[900px] w-[900px] -z-10"
+        className="h-[900px] w-[900px] -z-[10]"
+      />
+
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)] -z-[20]",
+        )}
       />
     </div>
   );

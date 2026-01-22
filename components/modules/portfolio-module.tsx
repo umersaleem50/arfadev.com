@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import CustomImage from "../custom-image";
+import { InteractiveHoverButton } from "../InteractiveUIButton";
 import Section from "../section";
 import { PortfolioOptions } from "../section-options";
-import { Button } from "../ui/button";
 
 export interface IPortfolioCard {
   index: number;
@@ -76,21 +76,16 @@ export function PortfolioCard({
         )}
       >
         <div className="md:mb-10 md:-rotate-90 md:-translate-y-full">
-          <p className="md:text-3xl sm:text-2xl text-xl font-serif text-accent">
+          <p className="md:text-3xl sm:text-2xl text-xl font-serif text-foreground">
             {resultOne}
           </p>
-          <p className="text-sm font-sans text-accent">{resultSecond}</p>
+          <p className="text-sm font-sans text-foreground">{resultSecond}</p>
         </div>
-        <Button
-          variant={"outline"}
-          // variant={index !== 1 ? "outline" : "default"}
-          className="sm:w-full w-1/2 border-accent text-accent"
-          asChild
-        >
-          <Link href={`/${page?.slug?.current}` || "/invalid-url"}>
+        <Link href={`/${page?.slug?.current}` || "/invalid-url"}>
+          <InteractiveHoverButton className="sm:w-full w-1/2">
             Case Study
-          </Link>
-        </Button>
+          </InteractiveHoverButton>
+        </Link>
       </div>
     </div>
   );
