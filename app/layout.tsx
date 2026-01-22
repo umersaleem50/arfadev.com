@@ -1,17 +1,17 @@
-import dynamic from "next/dynamic";
-import type { Metadata } from "next";
-import { draftMode } from "next/headers";
-import { poppinFonts, ebGaramond } from "./fonts/custom-fonts";
-import { ThemeProvider } from "./providers/theme-provider";
-import SmoothScrollProvider from "./providers/smooth-scroll";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { draftMode } from "next/headers";
+import { ebGaramond, poppinFonts } from "./fonts/custom-fonts";
+import SmoothScrollProvider from "./providers/smooth-scroll";
+import { ThemeProvider } from "./providers/theme-provider";
 
 import { Toaster } from "sonner";
 import "./globals.css";
 
 const VisualEditing = dynamic(() =>
-  import("next-sanity").then((mob) => mob.VisualEditing)
+  import("next-sanity").then((mob) => mob.VisualEditing),
 );
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             // disableTransitionOnChange
             enableSystem
           >
