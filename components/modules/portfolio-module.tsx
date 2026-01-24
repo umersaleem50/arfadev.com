@@ -34,7 +34,7 @@ export function PortfolioCard({
     >
       <div
         className={cn(
-          "lg:col-span-6 md:col-span-5 col-span-1 relative lg:h-[42rem] md:h-[30rem] sm:inline-block hidden",
+          "lg:col-span-6 md:col-span-5 col-span-1 w-full lg:h-[42rem] md:h-[30rem] sm:inline-block hidden relative bg-fixed rounded-3xl overflow-hidden",
           options.reverse && "md:order-last",
         )}
       >
@@ -58,7 +58,7 @@ export function PortfolioCard({
           subtitle={description}
           // className="text-foreground"
         />
-        <div className="w-full h-[24rem] relative">
+        <div className="w-full h-[24rem] relative rounded-3xl overflow-hidden">
           {secondCover?.asset && (
             <CustomImage
               imageOBJ={secondCover}
@@ -81,11 +81,14 @@ export function PortfolioCard({
           </p>
           <p className="text-sm font-sans text-foreground">{resultSecond}</p>
         </div>
-        <Link href={`/${page?.slug?.current}` || "/invalid-url"}>
-          <InteractiveHoverButton className="sm:w-full w-1/2">
+        <InteractiveHoverButton className="w-full">
+          <Link
+            href={`/${page?.slug?.current}` || "/invalid-url"}
+            className="w-full"
+          >
             Case Study
-          </InteractiveHoverButton>
-        </Link>
+          </Link>
+        </InteractiveHoverButton>
       </div>
     </div>
   );
