@@ -50,21 +50,23 @@ export function LandingHero({ module }: { module: any }) {
         <section>
           <div className="relative overflow-hidden pt-2 md:pt-4">
             {/* Constrained content for the hero text */}
-            <div className="flex items-center flex-col gap-4">
-              <div className="mx-auto max-w-7xl px-6 text-left mt-8 flex flex-row gap-x-8 items-center">
+            <div className="flex items-center md:flex-col flex-row md:gap-4">
+              <div className="mx-auto max-w-7xl px-6 text-left mt-8 flex flex-col md:flex-row gap-x-8 items-center gap-y-4 md:gap-y-0">
                 <AnimatedText
                   Wrapper={motion.h1}
-                  className={"text-6xl font-serif text-center leading-tight"}
+                  className={
+                    "text-5xl md:text-6xl font-serif text-center leading-tight"
+                  }
                 >
                   We develop{" "}
                   <span className="text-primary line-through">frontends </span>
                   <br />
                   <span>User Experiences!</span>
                 </AnimatedText>
-                <div className="flex flex-col items-start gap-y-4">
+                <div className="flex flex-col items-center md:items-start gap-y-4">
                   <AnimatedText
                     Wrapper={motion.p}
-                    className="w-[30rem] font-sans whitespace-normal leading-normal"
+                    className="w-[20rem] sm:w-[25rem] md:w-[30rem] font-sans whitespace-normal leading-normal text-sm text-center md:text-left"
                   >
                     We help startups and SaaS companies with scalable web apps,
                     landing pages, and mobile apps.
