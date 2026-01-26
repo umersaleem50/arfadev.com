@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import Link from "next/link";
 import AnimatedText from "../animated/AnimatedText";
-import CircularGallery from "../CircularGallery";
+import CircularGallery, { CircularGalleryProps } from "../CircularGallery";
 import { InteractiveHoverButton } from "../InteractiveUIButton";
 
 const defaultItems = [
@@ -43,7 +43,7 @@ const defaultItems = [
   ,
 ];
 
-export function LandingHero({ module }: { module: any }) {
+export function LandingHero() {
   return (
     <>
       <main className="z-10">
@@ -80,8 +80,8 @@ export function LandingHero({ module }: { module: any }) {
 
             <div className="mt-12 w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]">
               <CircularGallery
-                items={defaultItems}
-                bend={9}
+                items={defaultItems as CircularGalleryProps["items"]}
+                bend={5}
                 textColor="#ffffff"
                 borderRadius={0.03}
               />

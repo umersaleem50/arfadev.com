@@ -1,5 +1,5 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
 import { motion } from "motion/react";
 
 function AnimatedText({ children, Wrapper, className }: any) {

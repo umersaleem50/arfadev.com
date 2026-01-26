@@ -431,8 +431,8 @@ class Media {
     if (viewport) {
       this.viewport = viewport;
     }
-    const SIZE_MULTIPLIER = 1.5;
     // Scale the images based on screen size
+    const SIZE_MULTIPLIER = 1.5;
     this.scale = this.screen.height / 1500;
     this.plane.scale.y =
       ((this.viewport.height * (600 * this.scale)) / this.screen.height) *
@@ -722,7 +722,7 @@ class App {
   }
 }
 
-interface CircularGalleryProps {
+export interface CircularGalleryProps {
   items?: { image: string; text: string }[];
   bend?: number;
   textColor?: string;

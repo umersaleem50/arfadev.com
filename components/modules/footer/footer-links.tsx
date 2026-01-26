@@ -1,6 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
 
 export interface IFooterLinks {
   title: string;
@@ -9,7 +8,9 @@ export interface IFooterLinks {
 function FooterLinks({ title, links = [] }: IFooterLinks) {
   return (
     <div className="lg:py-4 md:py-3">
-      <h3 className="text-2xl font-serif text-primary mb-4">{title}</h3>
+      <h3 className="text-2xl font-serif text-accent dark:text-primary mb-4">
+        {title}
+      </h3>
       <div className="flex flex-col items-start space-y-2">
         {links.map(({ url = "/", title, page }: any) => {
           const href = page ? `/${page?.slug?.current}` : url;
@@ -20,7 +21,7 @@ function FooterLinks({ title, links = [] }: IFooterLinks) {
               className={buttonVariants({
                 variant: "link",
                 className:
-                  "!text-muted-foreground !px-0 !md:text-base !text-sm font-sans",
+                  "!text-foreground !px-0 !md:text-base !text-sm font-sans",
               })}
             >
               {title}
