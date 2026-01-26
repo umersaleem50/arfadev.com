@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import GuaranteeModule from "./guarantee-module";
-import LandingHero from "./landing-hero";
+
+import { LandingHero } from "./landing-hero";
 import Team from "./team";
 
 const PortfolioModule = dynamic(() => import("./portfolio-module"));
