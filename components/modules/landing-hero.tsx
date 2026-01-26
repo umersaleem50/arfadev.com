@@ -1,22 +1,82 @@
-import { PortableText } from "@portabletext/react";
+"use client";
 
-import { cn } from "@/lib/utils";
-import { DotPattern } from "../dot-grid";
-import { portableComplex } from "../portable-stucture/portable-complex";
-import { Safari } from "../Safari";
+import { motion } from "motion/react";
+import Link from "next/link";
+import AnimatedText from "../animated/AnimatedText";
+import CircularGallery from "../CircularGallery";
+import { InteractiveHoverButton } from "../InteractiveUIButton";
 
-function LandingHero({ module }: any) {
-  const { content } = module;
+const defaultItems = [
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
+    text: "Doneze",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/8817245/file/original-fe6d08b5e2b3f7fb2fad97cfbe501ac3.png?resize=1024x768&vertical=center",
+    text: "Bolt",
+  },
+  {
+    image: "/assets/coach-pulse.jpg",
+    text: "Coach Pulse",
+  },
+  {
+    image: "/assets/cayus-ai.jpg",
+    text: "Cayus AI",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/46084065/file/cd785c8cc61b8647d7c4a2ef5fb5150d.jpg?resize=1024x768&vertical=center",
+    text: "JD",
+  },
+  {
+    image: "/assets/coach-pulse-dark.jpg",
+    text: "Coach Pulse",
+  },
+  {
+    image:
+      "https://cdn.dribbble.com/userupload/38640245/file/original-15aac0b678e3534477fa01565d81f455.png?resize=1024x768&vertical=center",
+    text: "Toks.",
+  },
+
+  ,
+];
+
+export function LandingHero({ module }: { module: any }) {
   return (
-    <div className="w-full h-screen lg:h-[50vw] xl:h-[40vw] flex flex-col items-center lg:py-16 md:py-14 sm:py-10 py-8 relative ">
-      <div
-        className={
-          "dark:text-foreground prose-headings:text-foreground prose-h1:leading-none prose-strong:text-foreground prose-blockquote:text-foreground prose-sm prose-blockquote:border-l-4 prose-blockquote:border-primary sm:prose-sm md:prose-base prose-headings:font-serif font-sans prose-stone !max-w-[40rem] text-center leading-snug"
-        }
-      >
-        <PortableText value={content} components={portableComplex} />
-      </div>
+    <>
+      <main className="z-10">
+        <section>
+          <div className="relative overflow-hidden pt-2 md:pt-4">
+            {/* Constrained content for the hero text */}
+            <div className="flex items-center flex-col gap-4">
+              <div className="mx-auto max-w-7xl px-6 text-left mt-8 flex flex-row gap-x-8 items-center">
+                <AnimatedText
+                  Wrapper={motion.h1}
+                  className={"text-6xl font-serif text-center leading-tight"}
+                >
+                  We develop{" "}
+                  <span className="text-primary line-through">frontends </span>
+                  <br />
+                  <span>User Experiences!</span>
+                </AnimatedText>
+                <div className="flex flex-col items-start gap-y-4">
+                  <AnimatedText
+                    Wrapper={motion.p}
+                    className="w-[30rem] font-sans whitespace-normal leading-normal"
+                  >
+                    We help startups and SaaS companies with scalable web apps,
+                    landing pages, and mobile apps.
+                  </AnimatedText>
+                  <InteractiveHoverButton>
+                    <Link href={"/contact"}>Get Started!</Link>
+                  </InteractiveHoverButton>
+                </div>
+              </div>
+            </div>
 
+<<<<<<< HEAD
       {/* <Safari
         imageSrc="/assets/dashboard.jpg"
         className="h-[600px] w-[900px] -z-[10]"
@@ -28,7 +88,19 @@ function LandingHero({ module }: any) {
         )}
       />
     </div>
+=======
+            <div className="mt-12 w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]">
+              <CircularGallery
+                items={defaultItems}
+                bend={9}
+                textColor="#ffffff"
+                borderRadius={0.03}
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+>>>>>>> 0c644b3 (*ui updates including hero section)
   );
 }
-
-export default LandingHero;
