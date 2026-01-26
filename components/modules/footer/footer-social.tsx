@@ -1,43 +1,42 @@
 "use client";
-import Link from "next/link";
-import React from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const LinkedInLogo = dynamic(() =>
-  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.LinkedinLogo)
+  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.LinkedinLogo),
 );
 const XLogo = dynamic(() =>
-  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.XLogo)
+  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.XLogo),
 );
 
 const SlackLogo = dynamic(() =>
-  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.SlackLogo)
+  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.SlackLogo),
 );
 
 const FacebookLogo = dynamic(() =>
-  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.FacebookLogo)
+  import("@phosphor-icons/react/dist/ssr").then((icons) => icons.FacebookLogo),
 );
 
 const getSocialIcons = (value: string) => {
   switch (value) {
     case "facebook":
       return (
-        <FacebookLogo className="dark:fill-secondary fill-primary hover:fill-primary transition-all duration-300 h-8 w-8" />
+        <FacebookLogo className="dark:fill-primary fill-accent hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     case "linkedin":
       return (
-        <LinkedInLogo className="dark:fill-secondary fill-primary hover:fill-primary transition-all duration-300 h-8 w-8" />
+        <LinkedInLogo className="dark:fill-primary fill-accent hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     case "slack":
       return (
-        <SlackLogo className="dark:fill-secondary fill-primary hover:fill-primary transition-all duration-300 h-8 w-8" />
+        <SlackLogo className="dark:fill-primary fill-accent hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     case "twitter":
       return (
-        <XLogo className="dark:fill-secondary fill-primary hover:fill-primary transition-all duration-300 h-8 w-8" />
+        <XLogo className="dark:fill-primary fill-accent hover:fill-primary transition-all duration-300 h-8 w-8" />
       );
 
     default:
