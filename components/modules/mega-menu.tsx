@@ -69,7 +69,7 @@ export function MegaMenu({ module }: { module: IModule }) {
         <Link href="/" className="flex items-center space-x-2">
           {logo && (
             <Image
-              src={urlFor(logo).url()}
+              src={"/assets/logo.png"}
               width={140}
               height={60}
               alt="Arfa Developers Logo"
