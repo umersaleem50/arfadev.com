@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
-import SectionHeader, { ISectionHeader } from "./section-options";
 import SectionFooter from "./section-footer";
+import SectionHeader, { ISectionHeader } from "./section-options";
 
 interface ISection {
   className?: string;
@@ -20,9 +20,9 @@ function Section({
   return (
     <section
       className={cn(
-        "w-full lg:py-24 md:py-20 sm:py-16 py-14 h-full",
+        "w-full lg:py-24 md:py-20 sm:py-16 py-14 h-full text-accent-foreground",
         !fullWidth ? "px-4 md:px-6 lg:px-8 xl:px-0" : "",
-        className
+        className,
       )}
     >
       {sectionData && (
