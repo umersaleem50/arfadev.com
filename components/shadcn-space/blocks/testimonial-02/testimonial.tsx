@@ -81,7 +81,7 @@ export default function Testimonial01({
                             {testimonial.quote}
                           </p>
                           <div>
-                            <p className="text-xl font-medium font-serif">
+                            <p className="text-xl font-medium font-serif text-accent dark:text-primary">
                               {testimonial.author}
                             </p>
                             <p className="text-sm text-muted-foreground font-sans">

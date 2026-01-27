@@ -1,8 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React from "react";
-import AnimatedText from "./animated/AnimatedText";
 import { motion } from "motion/react";
+import AnimatedText from "./animated/AnimatedText";
 
 export interface IOptions {
   title?: string;
@@ -24,8 +23,8 @@ function SectionHeader({
   return (
     <div
       className={cn(
-        "flex items-start flex-col space-y-3 max-w-[85rem] mx-auto lg:pb-24 md:pb-20 sm:pb-16 pb-14 z-20 relative",
-        className
+        "flex items-start flex-col space-y-3 max-w-[85rem] mx-auto lg:pb-24 md:pb-20 sm:pb-16 pb-14 z-20 relative text-muted-foreground",
+        className,
       )}
     >
       {miniTitle && (
@@ -64,7 +63,7 @@ export function PortfolioOptions({ title, subtitle, className }: IOptions) {
     <div
       className={cn(
         "flex flex-col lg:space-y-4 md:space-y-2 max-w-md lg:mb-8  md:mb-6 mb-4",
-        className
+        className,
       )}
     >
       <AnimatedText

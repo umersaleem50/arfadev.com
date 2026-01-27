@@ -76,10 +76,12 @@ export function PortfolioCard({
         )}
       >
         <div className="md:mb-10 md:-rotate-90 md:-translate-y-full">
-          <p className="md:text-3xl sm:text-2xl text-xl font-serif text-foreground">
+          <p className="md:text-3xl sm:text-2xl text-xl font-serif text-muted-foreground">
             {resultOne}
           </p>
-          <p className="text-sm font-sans text-foreground">{resultSecond}</p>
+          <p className="text-sm font-sans text-muted-foreground">
+            {resultSecond}
+          </p>
         </div>
         <InteractiveHoverButton className="w-full">
           <Link
