@@ -3,12 +3,13 @@ import GuaranteeModule from "./guarantee-module";
 
 import { LandingHero } from "./landing-hero";
 import Team from "./team";
+import Testimonial01 from "./testimonial.module";
 
 const PortfolioModule = dynamic(() => import("./portfolio-module"));
 const WhyChooseUs = dynamic(() => import("./why-choose-us"));
 const Services = dynamic(() => import("./services.module"));
 const FooterModule = dynamic(() => import("./footer.module"));
-const Testimonials = dynamic(() => import("./testimonial"));
+
 const Hero = dynamic(() => import("./hero"));
 const BlogsModule = dynamic(() => import("./blogs-module"));
 const ContentBody = dynamic(() => import("./content-body"));
@@ -44,7 +45,7 @@ function Module({ module }: any) {
     case "footer":
       return <FooterModule module={module} />;
     case "testimonial":
-      return <Testimonials module={module} />;
+      return <Testimonial01 module={module} />;
     case "blogs":
       return <BlogsModule module={module} />;
     case "body":
