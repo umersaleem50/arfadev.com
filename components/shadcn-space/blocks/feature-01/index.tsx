@@ -26,7 +26,7 @@ const featureData = [
   },
 ];
 
-const Feature01 = ({ module }) => {
+const Feature01 = ({ module }: any) => {
   const metaData = module?.metaData || {};
   const content = module?.content || [];
   return (

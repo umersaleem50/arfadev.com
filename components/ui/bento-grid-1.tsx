@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/bento-grid-template-one";
 import Section from "../section";
 
-export function BentoGridOne({ module }) {
+export function BentoGridOne({ module }: any) {
   const items: BentoItem[] = [
     {
       id: "1",
