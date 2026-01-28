@@ -27,7 +27,7 @@ function Module({ module }: any) {
     case "hero":
       return <Hero module={module} />;
     case "landing-hero":
-      return <LandingHero module={module} />;
+      return <LandingHero />;
     case "whyChooseUs":
       return <WhyChooseUs module={module} />;
     case "portfolio":

@@ -61,7 +61,7 @@ const defaultTestimonials: Testimonial[] = [
   },
 ];
 
-export default function Testimonial01({ module }) {
+export default function Testimonial01({ module }: any) {
   const metaData = module?.metaData || {
     miniTitle: "2. Testimonials",
     title: "What our clients says about us;",
