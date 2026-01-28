@@ -83,7 +83,7 @@ export function PortfolioCard({
             {resultSecond}
           </p>
         </div>
-        <InteractiveHoverButton className="w-full">
+        <InteractiveHoverButton className="w-1/3 md:w-full">
           <Link
             href={`/${page?.slug?.current}` || "/invalid-url"}
             className="w-full"
