@@ -1,11 +1,8 @@
-import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
-import Link from "next/link";
-import CustomImage from "./custom-image";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import Author from "./author";
+import CustomImage from "./custom-image";
 import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 
 function BlogCard({
   title,
@@ -32,12 +29,12 @@ function BlogCard({
     >
       <div
         className={cn(
-          "shrink-0 relative overflow-hidden h-[300px] sm:w-[300px] sm:h-[450px] w-full group"
+          "shrink-0 relative overflow-hidden h-[300px] sm:w-[300px] sm:h-[450px] w-full group rounded-md",
         )}
       >
         {cover && (
           <CustomImage
-            className="size-full absolute top-0 start-0 group-hover:scale-110 transition-all duration-500 ease-in-out object-cover"
+            className="size-full absolute top-0 start-0 group-hover:scale-110 transition-all duration-500 ease-in-out object-cover "
             alt={cover?.alt}
             fill
             objectFit={"cover"}
@@ -60,10 +57,10 @@ function BlogCard({
               );
             })}
           </div>
-          <h3 className="text-lg sm:text-2xl font-bold font-serif hover:text-primary">
+          <h3 className="text-2xl font-medium font-serif text-accent dark:text-primary mb-3">
             {title}
           </h3>
-          <p className="mt-2 font-sans text-muted-foreground line-clamp-3">
+          <p className="mt-2 text-base font-sans text-muted-foreground line-clamp-4">
             {description}
           </p>
 

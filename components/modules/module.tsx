@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 
 import Feature01 from "../shadcn-space/blocks/feature-01";
+import Gallery from "./gallery-module";
 import { LandingHero } from "./landing-hero";
 import ProcessCards from "./process.module";
 import Team from "./team";
@@ -42,7 +43,8 @@ function Module({ module }: any) {
       return <Team module={module} />;
 
     case "grid":
-      return <GridModule module={module} />;
+      return <Gallery module={module} />;
+    // return <GridModule module={module} />;
     case "footer":
       return <FooterModule module={module} />;
     case "testimonial":

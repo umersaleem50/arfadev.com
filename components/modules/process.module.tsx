@@ -137,7 +137,7 @@ const ProcessCard = ({
         className="relative w-full rounded-lg bg-cover p-6 sm:p-8 lg:p-10 h-[500px]"
         style={{ backgroundImage: `url(${slide.bg_image})` }}
       >
-        <div className="space-y-4 rounded-md p-6 backdrop-blur-lg md:max-w-[70%]">
+        <div className="space-y-4 rounded-md p-6 backdrop-blur-lg md:max-w-[40%]">
           <h3 className="text-2xl font-serif text-foreground">{slide.title}</h3>
           <p className="text-sm text-muted-foreground font-sans">
             💡 {slide.tagline}

@@ -30,7 +30,7 @@ function SectionHeader({
       {miniTitle && (
         <AnimatedText
           className={
-            "text-sm font-sans border-b inline-block self-start border-current pb-3 max-w-lg"
+            "text-sm font-sans border-b inline-block self-start border-current pb-2 max-w-lg text-accent dark:text-primary"
           }
           Wrapper={motion.p}
         >
