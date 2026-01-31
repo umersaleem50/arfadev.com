@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 
 import Feature01 from "../shadcn-space/blocks/feature-01";
-import { BentoGridOne } from "../ui/bento-grid-1";
 import { LandingHero } from "./landing-hero";
+import ProcessCards from "./process.module";
 import Team from "./team";
 import Testimonial01 from "./testimonial.module";
 
@@ -36,7 +36,7 @@ function Module({ module }: any) {
       return <Feature01 module={module} />;
 
     case "guarantee":
-      return <BentoGridOne module={module} />;
+      return <ProcessCards />;
 
     case "team":
       return <Team module={module} />;
