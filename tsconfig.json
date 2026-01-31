@@ -30,6 +30,6 @@
     "app/blogs/page",
     "components/modules/law-firm-case-studies-with-images",
     "app/blogs/page.tsxs"
-, "app/apple-icon", "app/icon", "hooks/useFlubber"  ],
+, "app/apple-icon", "app/icon", "hooks/useFlubber", "middleware"  ],
   "exclude": ["node_modules"]
 }

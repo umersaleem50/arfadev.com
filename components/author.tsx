@@ -1,6 +1,5 @@
-import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { urlFor } from "@/sanity/lib/image";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 function Author({
   author,
@@ -21,10 +20,10 @@ function Author({
         <AvatarFallback>AN</AvatarFallback>
       </Avatar>
       <div>
-        <p className="text-lg font-light font-sans ">
+        <p className="text-lg font-light font-sans text-muted-foreground">
           {author && author?.name}
         </p>
-        <p className="text-sm font-light font-sans col-start-1 col-span-8 text-primary">
+        <p className="text-sm font-light font-sans col-start-1 col-span-8 text-muted-foreground">
           Posted on {new Date(postedAt).toDateString()}
         </p>
       </div>
