@@ -66,7 +66,7 @@ export function LandingHero() {
                     landing pages, and mobile apps.
                   </p>
                   <InteractiveHoverButton>
-                    <Link href={"/contact"}>Get Started!</Link>
+                    <Link href={"/contact"}>Send Us Email</Link>
                   </InteractiveHoverButton>
                 </div>
               </div>

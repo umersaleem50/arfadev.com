@@ -7,6 +7,7 @@ import { ButtonProps } from "./ui/button";
 export function InteractiveHoverButton({
   children,
   className,
+  asChild,
   ...props
 }: ButtonProps) {
   return (

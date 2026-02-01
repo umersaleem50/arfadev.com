@@ -85,7 +85,7 @@ export function MegaMenu({ module }: { module: IModule }) {
         <div className="md:flex md:items-center hidden items-center md:justify-start">
           <ModeToggle />
           <InteractiveHoverButton asChild variant={"default"} className="ml-8">
-            <Link href={"/contact"}>Get Started</Link>
+            <Link href={"/contact"}>Send Us Email</Link>
           </InteractiveHoverButton>
           {/* <ModeToggle/> */}
         </div>

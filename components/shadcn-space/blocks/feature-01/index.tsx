@@ -31,7 +31,10 @@ const Feature01 = ({ module }: any) => {
   const content = module?.content || [];
   return (
     <>
-      <Section sectionData={metaData} className="overflow-y-auto">
+      <Section
+        sectionData={metaData}
+        className="overflow-y-auto overflow-x-hidden"
+      >
         <Feature featureData={featureData} />
       </Section>
     </>

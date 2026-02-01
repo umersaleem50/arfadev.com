@@ -31,7 +31,7 @@ export function BentoGridOne({ module }: any) {
   ];
 
   return (
-    <Section fullWidth>
+    <Section>
       <BentoGrid items={items} />
     </Section>
   );

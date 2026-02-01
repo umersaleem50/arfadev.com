@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Section from "../section";
+import { Badge } from "../ui/badge";
 
 interface processType {
   title: string;
@@ -137,24 +138,26 @@ const ProcessCard = ({
         className="relative w-full rounded-lg bg-cover p-6 sm:p-8 lg:p-10 h-[500px]"
         style={{ backgroundImage: `url(${slide.bg_image})` }}
       >
-        <div className="space-y-4 rounded-md p-6 backdrop-blur-lg md:max-w-[40%]">
-          <h3 className="text-2xl font-serif text-foreground">{slide.title}</h3>
-          <p className="text-sm text-muted-foreground font-sans">
+        <div className="space-y-4 rounded-md p-6 backdrop-blur-lg md:max-w-[40%] bg-background/80">
+          <h3 className="text-2xl md:text-3xl font-serif text-foreground">
+            {slide.title}
+          </h3>
+          <p className="text-sm md:text-base text-muted-foreground font-sans">
             💡 {slide.tagline}
           </p>
 
-          <p className="text-sm text-foreground font-sans">
+          <p className="text-sm md:text-base text-foreground font-sans">
             {slide.description}
           </p>
 
           <ul className="flex flex-wrap gap-2 pt-4">
             {slide.deliverables.map((d, i) => (
-              <li
+              <Badge
                 key={i}
                 className="rounded-full px-4 py-1 text-xs backdrop-blur"
               >
                 {d.item}
-              </li>
+              </Badge>
             ))}
           </ul>
         </div>
