@@ -24,7 +24,7 @@ function BlogCard({
 }) {
   return (
     <Link
-      className="group sm:flex focus:outline-none"
+      className="group sm:flex focus:outline-none bg-muted rounded-md"
       href={`/blogs/${slug?.current}` || "/not-found"}
     >
       <div

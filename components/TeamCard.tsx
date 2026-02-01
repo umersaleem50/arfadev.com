@@ -19,14 +19,14 @@ function TeamCard({
     <figure className="justify-around items-center sm:items-start flex relative py-3 sm:flex-row flex-col ">
       <motion.div
         className={cn(
-          "aspect-[4/5] w-full sm:w-[25vw] relative",
+          "aspect-[4/5] w-full sm:w-[25vw] relative ",
           isInverted ? "sm:order-1" : "sm:order-2",
         )}
         style={style}
       >
         <CustomImage
           imageOBJ={photo}
-          className={cn("!object-contain saturate-0 rounded-md")}
+          className={cn("!object-contain saturate-0 rounded-md shadow-lg ")}
         />
       </motion.div>
 

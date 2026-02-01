@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { InteractiveHoverButton } from "../InteractiveUIButton";
 
 // Types for our bento grid items
 export type BentoItem = {
@@ -33,7 +34,7 @@ export function BentoGrid({ items, className }: BentoGridProps) {
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto",
+        "grid grid-cols-1 md:grid-cols-2 gap-8  mx-auto",
         className,
       )}
     >
@@ -68,11 +69,11 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className={cn(
-            "group relative overflow-hidden rounded-xl bg-accent p-8 h-[400px] flex flex-col md:flex-row",
+            "relative overflow-hidden rounded-xl bg-accent p-8 h-[400px] flex flex-col md:flex-row",
             className,
           )}
         >
-          <div className="flex flex-col justify-center z-10 md:w-1/2">
+          <div className="flex flex-col justify-center z-10 md:w-1/2 items-start">
             <span className="text-xs uppercase text-accent-foreground font-sans font-medium mb-2">
               Visualise Info
             </span>
@@ -82,6 +83,9 @@ function BentoGridItem({ item, className }: BentoItemProps) {
             <p className="text-sm max-w-md text-accent-foreground font-sans">
               {description}
             </p>
+            <InteractiveHoverButton className="mt-4">
+              Send Us Email
+            </InteractiveHoverButton>
           </div>
 
           {image && (

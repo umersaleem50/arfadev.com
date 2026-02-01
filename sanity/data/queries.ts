@@ -107,6 +107,7 @@ export const modules = `
       _type == "body" => {...,body[]{...,${ptContent},_type == "cta" => @->${cta} }},
       _type == "portfolio" => {...,projects[]{...,page->{slug}},${metaData}},
       _type == "whyChooseUs" => {...},
+      _type == "cta" => {...},
       _type == 'hero' => {...,content[]{${ptContent}}}
 
 `;

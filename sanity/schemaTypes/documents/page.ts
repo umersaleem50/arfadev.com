@@ -103,6 +103,7 @@ export default defineType({
         { type: "awards", name: "awards" },
         { type: "portfolio", name: "portfolio" },
         { type: "whyChooseUs", name: "whyChooseUs" },
+        { type: "cta.module", name: "cta" },
         {
           type: "reference",
           title: "Reusable Section",

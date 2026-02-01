@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 
 import Feature01 from "../shadcn-space/blocks/feature-01";
+import { BentoGridOne } from "../ui/bento-grid-1";
 import Gallery from "./gallery-module";
 import { LandingHero } from "./landing-hero";
 import ProcessCards from "./process.module";
@@ -44,6 +45,8 @@ function Module({ module }: any) {
 
     case "grid":
       return <Gallery module={module} />;
+
+    // case "guarantee":
     // return <GridModule module={module} />;
     case "footer":
       return <FooterModule module={module} />;
@@ -53,6 +56,9 @@ function Module({ module }: any) {
       return <BlogsModule module={module} />;
     case "body":
       return <ContentBody module={module} />;
+
+    case "cta":
+      return <BentoGridOne module={module} />;
 
     default:
       return null;

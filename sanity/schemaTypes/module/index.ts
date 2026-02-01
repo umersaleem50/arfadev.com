@@ -1,23 +1,24 @@
 import allBlogs from "./all-blogs";
+import allServices from "./all-services";
+import allTeam from "./all-team";
+import awards from "./awards";
+import blogs from "./blogs";
 import bodyContent from "./body-content";
+import CTAModule from "./cta";
+import gallery from "./gallery";
+import grid from "./grid";
+import guarantee from "./guarantee";
 import hero from "./hero";
 import landingHero from "./landing-hero";
 import mission from "./misson";
+import oneMember from "./one-member";
+import ourProcess from "./our-process";
+import portfolio from "./portfolio";
 import section from "./section";
-import blogs from "./blogs";
 import services from "./services";
 import team from "./team";
 import testimonial from "./testimonial";
-import allTeam from "./all-team";
-import allServices from "./all-services";
-import ourProcess from "./our-process";
-import oneMember from "./one-member";
-import gallery from "./gallery";
-import grid from "./grid";
-import awards from "./awards";
-import portfolio from "./portfolio";
 import whyChooseUs from "./why-choose-us";
-import guarantee from "./guarantee";
 
 const modules = [
   mission,
@@ -40,6 +41,7 @@ const modules = [
   portfolio,
   whyChooseUs,
   guarantee,
+  CTAModule,
 ];
 
 export default modules;
