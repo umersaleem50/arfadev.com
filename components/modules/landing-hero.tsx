@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import BtnCTA from "../BtnCTA";
 import CircularGallery, { CircularGalleryProps } from "../CircularGallery";
-import { InteractiveHoverButton } from "../InteractiveUIButton";
 
 const defaultItems = [
   {
@@ -52,22 +51,30 @@ export function LandingHero() {
               <div className="mx-auto max-w-7xl md:px-6 text-left mt-8 flex md:flex-row flex-col gap-x-8 items-center gap-y-4 md:gap-y-0">
                 <h1
                   className={
-                    "text-4xl sm:text-5xl md:text-6xl font-serif text-center leading-tight"
+                    "text-4xl sm:text-5xl md:text-6xl font-serif text-center leading-tight capitalize"
                   }
                 >
-                  We develop{" "}
-                  <span className="text-primary line-through">frontends </span>
+                  We develop <u className="text-primary">lastinggg </u>
                   <br />
                   <span>User Experiences!</span>
                 </h1>
                 <div className="flex flex-col md:items-start gap-y-4 items-center">
-                  <p className="w-[30rem] text-sm sm:text-base font-sans whitespace-normal leading-normal text-center md:text-left">
-                    We help startups and SaaS companies with scalable web apps,
-                    landing pages, and mobile apps.
+                  <p className="w-[30rem] text-sm sm:text-base font-sans whitespace-normal leading-normal text-center md:text-left text-muted-foreground">
+                    We help <u>startups</u> and <u>SaaS companies</u> with{" "}
+                    <span className="text-accent dark:text-primary">
+                      web app
+                    </span>
+                    ,{" "}
+                    <span className="text-accent dark:text-primary">
+                      landing pages
+                    </span>
+                    , and{" "}
+                    <span className="text-accent dark:text-primary">
+                      mobile app
+                    </span>{" "}
+                    development.
                   </p>
-                  <InteractiveHoverButton>
-                    <Link href={"/contact"}>Send Us Email</Link>
-                  </InteractiveHoverButton>
+                  <BtnCTA>Send Us Email</BtnCTA>
                 </div>
               </div>
             </div>
