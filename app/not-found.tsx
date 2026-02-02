@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import { cache } from "react";
 
 const getPageData = cache(async (isDraftMode = false) => {
-  const pageData = await await client.fetch(NOT_FOUND, { lang: "en" });
+  const pageData = await await client.fetch(NOT_FOUND);
   return pageData;
 });
 
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 async function NotFound() {
-  const data = await client.fetch(NOT_FOUND, { lang: "en" });
+  const data = await client.fetch(NOT_FOUND);
 
   if (!data || !data?.content?.length) return <NotFoundDefault />;
 
