@@ -23,7 +23,7 @@ import { ModeToggle } from "../ui/mode-toggle";
 import { ScrollArea } from "../ui/scroll-area";
 import ListItem from "./mega-menu/list-item-menu";
 
-import { InteractiveHoverButton } from "../InteractiveUIButton";
+import BtnCTA from "../BtnCTA";
 import FeaturedItem from "./mega-menu/featured-item";
 
 interface IModule extends IMenu {
@@ -84,9 +84,7 @@ export function MegaMenu({ module }: { module: IModule }) {
         </div>
         <div className="md:flex md:items-center hidden items-center md:justify-start">
           <ModeToggle />
-          <InteractiveHoverButton asChild variant={"default"} className="ml-8">
-            <Link href={"/contact"}>Send Us Email</Link>
-          </InteractiveHoverButton>
+          <BtnCTA className="ml-4">Send Us Email</BtnCTA>
           {/* <ModeToggle/> */}
         </div>
       </div>
@@ -175,9 +173,7 @@ function MobileNav({
         <div className="flex gap-2 self-start my-4">
           <LanguageSwitcher />
           <ModeToggle />
-          <Button asChild variant={"default"}>
-            <Link href={"/contact"}>Let&apos;s Talk</Link>
-          </Button>
+          <BtnCTA>Send Us Email</BtnCTA>
         </div>
 
         <ScrollArea className="h-full">
@@ -228,7 +224,7 @@ function MobileNav({
                   return (
                     <NaviationMenuLink
                       title={item?.title as string}
-                      className="text-lg underline font-serif font-bold"
+                      className="text-2xl font-serif font-bold"
                       url={`/${item?.page?.slug?.current}` || "/invalid-url"}
                       key={key}
                     />

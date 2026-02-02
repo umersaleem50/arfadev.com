@@ -1,3 +1,4 @@
+"use client";
 import {
   NavigationMenuItem,
   NavigationMenuLink,
@@ -5,6 +6,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function NaviationMenuLink({
   url,
@@ -15,10 +17,20 @@ function NaviationMenuLink({
   title: string;
   className?: string;
 }) {
+  const pathname = usePathname();
+  const isActive = pathname === url || (pathname === "/" && url === "/home");
+
   return (
     <NavigationMenuItem className={cn(className, "font-serif")}>
       <Link href={url} legacyBehavior passHref>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        <NavigationMenuLink
+          className={cn(
+            navigationMenuTriggerStyle(),
+            "bg-accent sm:bg-transparent",
+            isActive ? "!bg-accent" : "",
+          )}
+          active={isActive}
+        >
           {title || "Untitle"}
         </NavigationMenuLink>
       </Link>
