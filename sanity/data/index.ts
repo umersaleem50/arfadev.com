@@ -17,11 +17,7 @@ export async function getAllPageSlug() {
   return data;
 }
 
-export async function getPage(
-  slug: string,
-  lang = "en",
-  isDraftMode?: boolean,
-) {
+export async function getPage(slug: string, isDraftMode?: boolean) {
   // const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
   const slugs = [slug, `/${slug}`, `/${slug}/`];
 
@@ -53,7 +49,7 @@ export async function getPage(
         }
         `;
 
-  const data = await client.fetch(query, { slugs, lang }, queryOptions);
+  const data = await client.fetch(query, { slugs }, queryOptions);
 
   return data;
 }

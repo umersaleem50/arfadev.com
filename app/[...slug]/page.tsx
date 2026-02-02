@@ -18,12 +18,10 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const getPageData = cache(
-  async (slug: string, lang: string, isDraftMode = false) => {
-    const pageData = await getPage(slug, lang, isDraftMode);
-    return pageData;
-  },
-);
+const getPageData = cache(async (slug: string, isDraftMode = false) => {
+  const pageData = await getPage(slug, isDraftMode);
+  return pageData;
+});
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
@@ -76,12 +74,11 @@ async function Page({
 }: {
   params: { slug: string; lang: string };
 }) {
-  const [language = "en", ...pureSlug] = slug;
   const { isEnabled: isDraftMode } = draftMode();
 
-  const planSlug = joinSlugs(pureSlug);
+  const planSlug = joinSlugs(slug);
 
-  const pageData = await getPageData(planSlug, language, isDraftMode);
+  const pageData = await getPageData(planSlug, isDraftMode);
 
   if (!pageData) notFound();
 
@@ -103,4 +100,7 @@ async function Page({
 
 export default Page;
 
-export const revalidate = process.env.NODE_ENV === "development" ? 60 : 60 * 60;
+export const revalidate =
+  (process.env.REVALIDATION_DURATION ?? process.env.NODE_ENV === "development")
+    ? 60
+    : 60 * 60;
