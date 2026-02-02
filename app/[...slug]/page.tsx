@@ -26,14 +26,14 @@ const getPageData = cache(async (slug: string, isDraftMode = false) => {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
   // Seperate Lang & Slug
-  const [language = "en", ...pureSlug] = params?.slug;
+  const { slug } = params;
 
   const { isEnabled: isDraftMode } = draftMode();
 
-  const planSlug = joinSlugs(pureSlug);
+  const planSlug = joinSlugs(slug);
 
   // fetch data
-  const pageData = await getPageData(planSlug, language, isDraftMode);
+  const pageData = await getPageData(planSlug, isDraftMode);
 
   if (!pageData || !pageData?.page)
     return {
@@ -69,11 +69,7 @@ export async function generateStaticParams() {
   }));
 }
 
-async function Page({
-  params: { slug },
-}: {
-  params: { slug: string; lang: string };
-}) {
+async function Page({ params: { slug } }: { params: { slug: string } }) {
   const { isEnabled: isDraftMode } = draftMode();
 
   const planSlug = joinSlugs(slug);
