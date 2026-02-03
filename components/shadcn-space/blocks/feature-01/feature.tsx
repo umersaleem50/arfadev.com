@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 type Features = {
   icon: LucideIcon;
@@ -20,30 +21,36 @@ const Feature = ({ featureData }: { featureData: Features }) => {
             duration: 0.8,
             ease: [0.21, 0.47, 0.32, 0.98],
           }}
-          className="p-6 sm:p-16 rounded-2xl bg-[url('https://images.shadcnspace.com/assets/feature/feature-01-img.webp')] object-cover bg-center h-full w-full bg-cover bg-no-repeat"
+          className="p-6 sm:p-16 rounded-2xl bg-[url('/assets/gradient.gif')] object-cover bg-center h-full w-full bg-cover bg-no-repeat"
         >
           <Card className="flex items-start gap-12 py-6 sm:py-10 border-none shadow-none ring-0 rounded-lg">
             <CardContent className="flex flex-col gap-6 px-6 sm:px-8">
               <Avatar className="size-12">
                 <AvatarFallback>
-                  <img
-                    src="https://images.shadcnspace.com/assets/profiles/user-1.jpg"
+                  <Image
+                    src="/saamir-shamsie.jpg"
                     className="rounded-full"
+                    alt="Shaamir Shamsie"
+                    fill
                   />
                 </AvatarFallback>
               </Avatar>
               <h3 className="text-xl sm:text-2xl font-medium text-muted-foreground font-serif">
-                “Before Shadcn Space, we stitched UIs together from random
-                snippets. Now we ship polished interfaces in hours for
-                frontend.”
+                “
+                <u className="text-accent dark:text-primary">
+                  Communication was clear and fast
+                </u>{" "}
+                — overall ,a solid professional who knows his stuff. Would{" "}
+                definitely recommend him to anyone building or scaling their
+                backend.”
               </h3>
             </CardContent>
             <CardFooter className="w-full px-6 sm:px-8 flex flex-col items-start gap-0.5">
-              <p className="text-sm font-serif font-medium text-accent dark:text-primary">
-                JOHNATHAN DOE
+              <p className="text-base font-serif font-medium text-accent dark:text-primary">
+                Syed Saamir Shamsie
               </p>
               <span className="text-xs font-normal text-muted-foreground uppercase font-sans">
-                HEAD OF FINANCE @SHADCN SPACE
+                Founder @Copped AI
               </span>
             </CardFooter>
           </Card>

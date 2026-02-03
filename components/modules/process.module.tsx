@@ -71,7 +71,7 @@ const ProcessCards: React.FC = () => {
 
   return (
     <Section
-      ref={sectionRef}
+      sectionRef={sectionRef}
       className="relative space-y-6 px-4 sm:px-6 lg:px-8"
       sectionData={{
         title: "How We Bring Ideas to Life",

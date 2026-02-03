@@ -9,11 +9,11 @@ interface ISection {
   children: ReactNode;
   sectionData?: ISectionHeader;
   fullWidth?: boolean;
-  ref?: React.Ref<any>;
+  sectionRef?: React.Ref<HTMLDivElement>;
 }
 
 function Section({
-  ref,
+  sectionRef,
   children,
   className,
   sectionData,
@@ -26,7 +26,7 @@ function Section({
         !fullWidth ? "px-4 md:px-6 lg:px-8 xl:px-0" : "",
         className,
       )}
-      ref={ref}
+      ref={sectionRef}
     >
       {sectionData && (
         <SectionHeader

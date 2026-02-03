@@ -27,7 +27,7 @@ function NaviationMenuLink({
           className={cn(
             navigationMenuTriggerStyle(),
             "bg-accent sm:bg-transparent",
-            isActive ? "!bg-accent" : "",
+            isActive ? "!bg-primary dark:!bg-accent dark:!text-foreground" : "",
           )}
           active={isActive}
         >

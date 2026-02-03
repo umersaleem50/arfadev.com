@@ -2,6 +2,7 @@
 
 import { Marquee } from "@/components/shadcn-space/animations/marquee";
 import { motion, useInView } from "motion/react";
+import Image from "next/image";
 import { useRef } from "react";
 
 export interface BrandList {
@@ -24,24 +25,27 @@ function BrandSlider({ brandList }: { brandList: BrandList[] }) {
             transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
             className="flex flex-col gap-6 pt-12 border-t border-border"
           >
-            <p className="text-base font-normal sm:px-2 px-10 text-muted-foreground text-center font-sans">
-              Someday someone will replace us, and we truly appreciate their
-              efforts!
+            <p className="text-base font-normal sm:px-2 px-10 text-accent dark:text-primary text-center font-sans">
+              It was honor for us to be the part of your jounery.
             </p>
             {brandList && brandList.length > 0 && (
               <div className="py-4">
                 <Marquee pauseOnHover className="[--duration:20s] p-0">
                   {brandList.map((brand, index) => (
                     <div key={index}>
-                      <img
+                      <Image
                         src={brand.image}
                         alt={brand.name}
-                        className="w-36 h-8 mr-6 lg:mr-20 dark:hidden"
+                        className="mr-6 lg:mr-20 dark:hidden"
+                        height={144}
+                        width={144}
                       />
-                      <img
+                      <Image
                         src={brand.lightimg}
                         alt={brand.name}
-                        className="hidden dark:block w-36 h-8 mr-12 lg:mr-20"
+                        className="hidden dark:block mr-12 lg:mr-20"
+                        height={144}
+                        width={144}
                       />
                     </div>
                   ))}
