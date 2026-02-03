@@ -3,6 +3,10 @@
 import BtnCTA from "../BtnCTA";
 import CircularGallery, { CircularGalleryProps } from "../CircularGallery";
 
+export interface LandingHeroProps {
+  cta: string;
+}
+
 const defaultItems = [
   {
     image:

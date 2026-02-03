@@ -8,32 +8,28 @@ import Section from "../section";
 
 const brandList: BrandList[] = [
   {
-    image:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-1.svg",
-    lightimg:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-1.svg",
-    name: "Brand 1",
+    image: "/brands/dori-shoes-dark.png",
+    lightimg: "/brands/dori-shoes-light.png",
+    name: "Dori Shoes",
   },
   {
-    image:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-2.svg",
-    lightimg:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-2.svg",
-    name: "Brand 2",
+    image: "/brands/copped-ai-dark.png",
+    lightimg: "/brands/copped-ai-light.png",
+    name: "Copped AI",
   },
   {
     image:
       "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-3.svg",
     lightimg:
       "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-3.svg",
-    name: "Brand 3",
+    name: "Orthos AI",
   },
   {
     image:
       "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-4.svg",
     lightimg:
       "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-4.svg",
-    name: "Brand 4",
+    name: "Cayus AI",
   },
   {
     image:

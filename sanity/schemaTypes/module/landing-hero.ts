@@ -6,11 +6,13 @@ export default defineField({
   name: "landing-hero",
   type: "object",
   icon: Browser,
-  fields: [{ title: "Content", name: "content", type: "simplePortableText" }],
+  fields: [
+    { title: "isEnable", name: "enable", type: "boolean", hidden: true },
+  ],
 
   preview: {
     prepare() {
-      return { title: "Homepage hero" };
+      return { title: "Homepage Hero Section" };
     },
   },
 });

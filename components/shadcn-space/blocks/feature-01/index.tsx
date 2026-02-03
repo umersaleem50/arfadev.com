@@ -1,28 +1,31 @@
 "use client";
 import Section from "@/components/section";
 import Feature from "@/components/shadcn-space/blocks/feature-01/feature";
-import { ArrowDownUp, BellRing, RotateCw, Tag } from "lucide-react";
+import {
+  ChartCandlestick,
+  HandCoins,
+  Headset,
+  HeartHandshake,
+} from "lucide-react";
 
 const featureData = [
   {
-    icon: ArrowDownUp,
-    content:
-      "Instantly sync and update your documentation across teams without manual rework.",
+    icon: Headset,
+    content: "Get our full attention 24/7 even for your post production apps.",
   },
   {
-    icon: BellRing,
+    icon: ChartCandlestick,
     content:
-      "Get real-time alerts when docs are updated, reviewed, or need your attention.",
+      "Get real-time alerts when projects are updated, reviewed, or need your attention.",
   },
   {
-    icon: RotateCw,
+    icon: HandCoins,
     content:
-      "Automatically keep your documentation up to date with seamless content refreshes.",
+      "Get your refund in full if we failed to achieve your desire goals.",
   },
   {
-    icon: Tag,
-    content:
-      "Organize your docs with smart tags for faster search and better discoverability.",
+    icon: HeartHandshake,
+    content: "Get discounts and bonuses on almost all the services we offer.",
   },
 ];
 

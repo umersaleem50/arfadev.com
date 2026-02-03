@@ -17,8 +17,6 @@ function Team({ module }: any) {
   const metaData = module?.metaData || {};
   const team = module?.team;
 
-  const motionArr = [md, md];
-
   return (
     <Section sectionData={metaData}>
       <div className="flex flex-col md:gap-y-6" ref={ref}>
