@@ -69,7 +69,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className={cn(
-            "relative overflow-hidden rounded-xl md:rounded-3xl bg-accent p-8 h-[400px] flex flex-col md:flex-row",
+            "relative overflow-hidden bg-accent p-8 h-[400px] flex flex-col md:flex-row",
             className,
           )}
         >
