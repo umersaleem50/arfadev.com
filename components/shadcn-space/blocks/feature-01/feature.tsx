@@ -1,11 +1,10 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
 type Features = {
-  icon: LucideIcon;
+  icon: React.ReactNode;
   content: string;
 }[];
 
