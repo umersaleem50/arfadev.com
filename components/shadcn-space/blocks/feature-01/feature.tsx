@@ -70,10 +70,7 @@ const Feature = ({ featureData }: { featureData: Features }) => {
               >
                 <Card className="py-8 bg-muted ring-0 border-0 h-full">
                   <CardContent className="w-full h-full px-8 flex flex-col items-start gap-12 justify-between">
-                    <value.icon
-                      className="w-6 h-6 text-muted-foreground"
-                      strokeWidth={1.5}
-                    />
+                    {value.icon}
                     <p className="text-base text-muted-foreground font-sans font-normal">
                       {value?.content}
                     </p>

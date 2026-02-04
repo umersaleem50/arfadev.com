@@ -44,7 +44,7 @@ const defaultItems = [
   ,
 ];
 
-export function LandingHero() {
+function LandingHero() {
   return (
     <>
       <main className="z-10">
@@ -97,3 +97,5 @@ export function LandingHero() {
     </>
   );
 }
+
+export default LandingHero;

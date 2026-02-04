@@ -26,7 +26,7 @@ function BrandSlider({ brandList }: { brandList: BrandList[] }) {
             className="flex flex-col gap-6 pt-12 border-t border-border"
           >
             <p className="text-base font-normal sm:px-2 px-10 text-accent dark:text-primary text-center font-sans">
-              It was honor for us to be the part of your jounery.
+              We were honored to be part of your journey.
             </p>
             {brandList && brandList.length > 0 && (
               <div className="py-4">

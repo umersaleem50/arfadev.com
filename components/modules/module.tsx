@@ -1,22 +1,20 @@
 import dynamic from "next/dynamic";
 
-import Feature01 from "../shadcn-space/blocks/feature-01";
-import { BentoGridOne } from "../ui/bento-grid-1";
-import Gallery from "./gallery-module";
-import { LandingHero } from "./landing-hero";
-import ProcessCards from "./process.module";
-import Team from "./team";
-import Testimonial01 from "./testimonial.module";
+const Feature01 = dynamic(() => import("../shadcn-space/blocks/feature-01"));
+const CTABento = dynamic(() => import("../ui/bento-grid-1"));
+const Gallery = dynamic(() => import("./gallery-module"));
+const LandingHero = dynamic(() => import("./landing-hero"));
+const ProcessCards = dynamic(() => import("./process.module"));
+const Team = dynamic(() => import("./team"));
+const Testimonial01 = dynamic(() => import("./testimonial.module"));
 
 const PortfolioModule = dynamic(() => import("./portfolio-module"));
 const WhyChooseUs = dynamic(() => import("./why-choose-us"));
-const Services = dynamic(() => import("./services.module"));
 const FooterModule = dynamic(() => import("./footer.module"));
 
 const Hero = dynamic(() => import("./hero"));
 const BlogsModule = dynamic(() => import("./blogs-module"));
 const ContentBody = dynamic(() => import("./content-body"));
-const GridModule = dynamic(() => import("./grid-module"));
 
 const MegaMenu = dynamic(() => import("./mega-menu").then((el) => el.MegaMenu));
 
@@ -58,7 +56,7 @@ function Module({ module }: any) {
       return <ContentBody module={module} />;
 
     case "cta":
-      return <BentoGridOne module={module} />;
+      return <CTABento />;
 
     default:
       return null;
