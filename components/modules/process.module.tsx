@@ -27,7 +27,8 @@ const ProcessCards: React.FC = () => {
         { item: "Comprehensive competitor breakdown" },
         { item: "A winning strategy tailored to your product" },
       ],
-      bg_image: "/assets/gradient.gif",
+      bg_image:
+        "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyaDh3a2RpOWdvYzVkeWFsbGJ1aHZzMGxubWloaGtqb3M3anBkMXhoMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KcnbWfsuFr7JpgowGT/giphy.gif",
     },
     {
       title: "Planning & Wireframes",
@@ -39,8 +40,7 @@ const ProcessCards: React.FC = () => {
         { item: "High-fidelity wireframes" },
         { item: "Technical implementation plan" },
       ],
-      bg_image:
-        "https://cdn.dribbble.com/userupload/36770829/file/original-e32987fd728b15281dd5d3960d20446e.png?vertical=center",
+      bg_image: "/assets/wireframe-2.gif",
     },
     {
       title: "Design & Development",
@@ -52,7 +52,7 @@ const ProcessCards: React.FC = () => {
         { item: "Production-ready build" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/16647462/file/original-ae138e62b54d580a31d74930804a1dde.png?vertical=center",
+        "https://cdn.dribbble.com/userupload/42585612/file/original-01d8783a8d9205f5bd871cad93d1c0e4.png?vertical=center",
     },
     {
       title: "Launch & Growth",
@@ -74,7 +74,8 @@ const ProcessCards: React.FC = () => {
       className="relative space-y-6 px-4 sm:px-6 lg:px-8"
       sectionData={{
         title: "How We Bring Ideas to Life",
-        subtitle: "Explore our latest projects featuring AI-powered platforms.",
+        subtitle:
+          "From Discovery all the way to launching your project. Our process is simple yet effective.",
         miniTitle: "Our Proven Process",
       }}
     >

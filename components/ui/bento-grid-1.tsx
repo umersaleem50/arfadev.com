@@ -1,7 +1,7 @@
 import { BentoGrid, BentoItem } from "@/components/ui/bento-grid-template-one";
 import Section from "../section";
 
-export function BentoGridOne({ module }: any) {
+function CTABento() {
   const items: BentoItem[] = [
     // {
     //   id: "1",
@@ -19,9 +19,8 @@ export function BentoGridOne({ module }: any) {
     {
       id: "2",
       type: "feature",
-      title: "World-Class Information Design",
-      description:
-        "Transform complex data into crisp visuals that quickly tell your story.",
+      title: "Launch Your App with Impact",
+      description: "If you're interested, contact now to get started!",
       image: "/assets/dashboard.jpg",
     },
   ];
@@ -32,3 +31,4 @@ export function BentoGridOne({ module }: any) {
     </Section>
   );
 }
+export default CTABento;

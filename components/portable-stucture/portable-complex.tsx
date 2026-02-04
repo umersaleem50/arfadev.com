@@ -1,9 +1,9 @@
+import { urlFor } from "@/sanity/lib/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
 
-import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/utils";
+import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
 
 import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
@@ -11,9 +11,9 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { buttonVariants } from "../ui/button";
 
 const CustomImage = dynamic(() => import("../custom-image"));
-const TestimonialsPortable = dynamic(() =>
-  import("../modules/testimonial").then((el) => el.TestimonialsPortable)
-);
+// const TestimonialsPortable = dynamic(() =>
+//   import("../modules/testimonial").then((el) => el.TestimonialsPortable)
+// );
 const DataTable = dynamic(() => import("../data-table"));
 const PortableCTA = dynamic(() => import("../portable-cta"));
 
@@ -72,7 +72,7 @@ export const portableComplex: any = {
               variant: value?.styles?.style || "default",
               size: value?.styles?.isLarge ? "lg" : "default",
               className: cn(
-                value?.styles?.isBlock && "w-full"
+                value?.styles?.isBlock && "w-full",
                 // "py-4 my-3 md:mr-4 sm:mr-3 mr-2"
               ),
             })}
@@ -98,7 +98,7 @@ export const portableComplex: any = {
   types: {
     image: ({ value }: any) => {
       if (!value) return null;
-      let imageOptions: any = {
+      const imageOptions: any = {
         alt: value.alt || "Please enter the alt.",
       };
       if (!value.height || !value.width) {
@@ -143,9 +143,9 @@ export const portableComplex: any = {
 
       return <DataTable firstRow={firstRow} dataRow={dataRows} />;
     },
-    testimonial: ({ value }: any) => {
-      return <TestimonialsPortable module={value} />;
-    },
+    // testimonial: ({ value }: any) => {
+    //   return <TestimonialsPortable module={value} />;
+    // },
     cta: ({ value }: any) => {
       return value?.cta && <PortableCTA module={value.cta} />;
     },

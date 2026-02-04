@@ -1,37 +1,33 @@
 "use client";
 import Section from "@/components/section";
 import Feature from "@/components/shadcn-space/blocks/feature-01/feature";
-import {
-  ChartCandlestick,
-  HandCoins,
-  Headset,
-  HeartHandshake,
-} from "lucide-react";
+import Compass from "@/components/svgs/compass";
+import Eye from "@/components/svgs/eye";
+import Monitor from "@/components/svgs/monitor";
+import PencilIcon from "@/components/svgs/pencil-icon";
 
 const featureData = [
   {
-    icon: Headset,
-    content: "Get our full attention 24/7 even for your post production apps.",
+    icon: <PencilIcon className="w-16 h-16" />,
+    content: "High conversion landing pages integrated with headless CMS.",
   },
   {
-    icon: ChartCandlestick,
-    content:
-      "Get real-time alerts when projects are updated, reviewed, or need your attention.",
+    icon: <Monitor className="w-16 h-16" />,
+    content: "Secure dashboards and admin panels with real-time updates.",
   },
   {
-    icon: HandCoins,
-    content:
-      "Get your refund in full if we failed to achieve your desire goals.",
+    icon: <Compass className="w-16 h-16" />,
+    content: "Scalable backend development and API integration.",
   },
   {
-    icon: HeartHandshake,
-    content: "Get discounts and bonuses on almost all the services we offer.",
+    icon: <Eye className="w-16 h-16" />,
+    content: "On-page SEO for better visibility on search engines i.e. Google.",
   },
 ];
 
 const Feature01 = ({ module }: any) => {
   const metaData = module?.metaData || {};
-  const content = module?.content || [];
+
   return (
     <>
       <Section
