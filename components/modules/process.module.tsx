@@ -27,8 +27,7 @@ const ProcessCards: React.FC = () => {
         { item: "Comprehensive competitor breakdown" },
         { item: "A winning strategy tailored to your product" },
       ],
-      bg_image:
-        "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyaDh3a2RpOWdvYzVkeWFsbGJ1aHZzMGxubWloaGtqb3M3anBkMXhoMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KcnbWfsuFr7JpgowGT/giphy.gif",
+      bg_image: "/assets/gradient.gif",
     },
     {
       title: "Planning & Wireframes",
@@ -41,7 +40,7 @@ const ProcessCards: React.FC = () => {
         { item: "Technical implementation plan" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/15998211/file/original-b94dc14825242b117649e09e0ab66543.png?resize=1024x768&vertical=center",
+        "https://cdn.dribbble.com/userupload/36770829/file/original-e32987fd728b15281dd5d3960d20446e.png?vertical=center",
     },
     {
       title: "Design & Development",
@@ -53,7 +52,7 @@ const ProcessCards: React.FC = () => {
         { item: "Production-ready build" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/18415615/file/original-d881fd064d90adfc18f6cb20fd3ee16e.webp?resize=1024x768&vertical=center",
+        "https://cdn.dribbble.com/userupload/16647462/file/original-ae138e62b54d580a31d74930804a1dde.png?vertical=center",
     },
     {
       title: "Launch & Growth",
@@ -65,7 +64,7 @@ const ProcessCards: React.FC = () => {
         { item: "Growth guidance" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/42995628/file/original-fa677916f14a0002a11564fbd6b9f5d2.png?resize=1024x768&vertical=center",
+        "https://cdn.dribbble.com/userupload/42995628/file/original-fa677916f14a0002a11564fbd6b9f5d2.png?vertical=center",
     },
   ];
 
@@ -139,11 +138,11 @@ const ProcessCard = ({
         style={{ backgroundImage: `url(${slide.bg_image})` }}
       >
         <div className="space-y-4 rounded-md p-6 backdrop-blur-lg md:max-w-[40%] bg-background/80">
-          <h3 className="text-2xl md:text-3xl font-serif text-foreground">
-            {slide.title}
+          <h3 className="text-2xl md:text-3xl font-serif text-accent dark:text-primary">
+            {index + 1}. {slide.title}
           </h3>
-          <p className="text-sm md:text-base text-muted-foreground font-sans">
-            💡 {slide.tagline}
+          <p className="text-sm md:text-base text-foreground font-sans">
+            {slide.tagline}
           </p>
 
           <p className="text-sm md:text-base text-foreground font-sans">
@@ -154,7 +153,7 @@ const ProcessCard = ({
             {slide.deliverables.map((d, i) => (
               <Badge
                 key={i}
-                className="rounded-full px-4 py-1 text-xs backdrop-blur"
+                className="rounded-full px-4 py-1 text-xs backdrop-blur "
               >
                 {d.item}
               </Badge>
