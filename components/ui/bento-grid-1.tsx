@@ -1,25 +1,21 @@
-import {
-  BentoGrid,
-  BentoItem,
-  ChatMessaging,
-} from "@/components/ui/bento-grid-template-one";
+import { BentoGrid, BentoItem } from "@/components/ui/bento-grid-template-one";
 import Section from "../section";
 
 export function BentoGridOne({ module }: any) {
   const items: BentoItem[] = [
-    {
-      id: "1",
-      type: "chat",
-      content: <ChatMessaging />,
-    },
-    {
-      id: "3",
-      type: "partners",
-      title: "Connected Everywhere",
-      description:
-        "Embed your work seamlessly across your favorite platforms for instant sharing.",
-      content: <p>Testing</p>,
-    },
+    // {
+    //   id: "1",
+    //   type: "chat",
+    //   content: <ChatMessaging />,
+    // },
+    // {
+    //   id: "3",
+    //   type: "partners",
+    //   title: "Connected Everywhere",
+    //   description:
+    //     "Embed your work seamlessly across your favorite platforms for instant sharing.",
+    //   content: <p>Testing</p>,
+    // },
     {
       id: "2",
       type: "feature",
@@ -31,7 +27,7 @@ export function BentoGridOne({ module }: any) {
   ];
 
   return (
-    <Section>
+    <Section fullWidth>
       <BentoGrid items={items} />
     </Section>
   );
