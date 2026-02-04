@@ -76,7 +76,7 @@ export function LandingHero() {
                     <span className="text-accent dark:text-primary">
                       mobile app
                     </span>{" "}
-                    development.
+                    development that drive sales and revenue.
                   </p>
                   <BtnCTA>Send Us Email</BtnCTA>
                 </div>

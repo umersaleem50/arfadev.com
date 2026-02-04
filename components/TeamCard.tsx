@@ -32,7 +32,7 @@ function TeamCard({
 
       <figcaption
         className={cn(
-          "self-center text-background dark:text-foreground flex flex-col md:gap-y-3 sm:gap-y-2 gap-y-1 md:w-2/3 w-full max-w-[30rem] sm:p-6 py-6",
+          "self-center text-background dark:text-foreground flex flex-col md:gap-y-3 sm:gap-y-2 gap-y-1 md:w-2/3 w-full max-w-[30rem] sm:p-6 py-6 px-4 sm:px-0",
           isInverted ? "sm:order-2" : "sm:order-1",
         )}
       >
@@ -49,7 +49,7 @@ function TeamCard({
       </figcaption>
       <div
         style={divStyle}
-        className="bg-gradient-to-r from-primary to-accent w-full absolute top-1/2 -translate-y-1/2 left-0 md:h-[20vw] h-[35vw] -z-10 rounded-sm"
+        className="bg-gradient-to-r from-primary to-accent w-full absolute sm:top-1/2 bottom-0 sm:-translate-y-1/2 left-0 md:h-[20vw] h-[50vw]  sm:h-[35vw] -z-10 rounded-sm"
       ></div>
     </figure>
   );

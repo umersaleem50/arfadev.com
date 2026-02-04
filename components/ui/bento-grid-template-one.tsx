@@ -69,7 +69,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className={cn(
-            "relative overflow-hidden rounded-xl bg-accent p-8 h-[400px] flex flex-col md:flex-row",
+            "relative overflow-hidden rounded-xl md:rounded-3xl bg-accent p-8 h-[400px] flex flex-col md:flex-row",
             className,
           )}
         >
@@ -119,7 +119,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className={cn(
-            "group relative overflow-hidden rounded-xl bg-muted p-8 h-[400px] flex flex-col ",
+            "group relative overflow-hidden rounded-xl md:rounded-3xl p-8 h-[400px] flex flex-col ",
             className,
           )}
         >
@@ -140,7 +140,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className={cn(
-            "group relative overflow-hidden rounded-xl bg-muted p-8 h-[400px] flex flex-col ",
+            "group relative overflow-hidden rounded-xl md:rounded-3xl bg-muted p-8 h-[400px] flex flex-col ",
             className,
           )}
         >

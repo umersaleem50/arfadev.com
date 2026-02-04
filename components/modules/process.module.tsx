@@ -28,7 +28,7 @@ const ProcessCards: React.FC = () => {
         { item: "A winning strategy tailored to your product" },
       ],
       bg_image:
-        "https://images.shadcnspace.com/assets/feature/feature-01-img.webp",
+        "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyaDh3a2RpOWdvYzVkeWFsbGJ1aHZzMGxubWloaGtqb3M3anBkMXhoMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KcnbWfsuFr7JpgowGT/giphy.gif",
     },
     {
       title: "Planning & Wireframes",
@@ -41,7 +41,7 @@ const ProcessCards: React.FC = () => {
         { item: "Technical implementation plan" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/17657470/file/original-ba9d0ff91e447299e30a4dcfd5344443.png?resize=752x&vertical=center",
+        "https://cdn.dribbble.com/userupload/15998211/file/original-b94dc14825242b117649e09e0ab66543.png?resize=1024x768&vertical=center",
     },
     {
       title: "Design & Development",
@@ -53,7 +53,7 @@ const ProcessCards: React.FC = () => {
         { item: "Production-ready build" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/44017212/file/original-4d7869f308a638d3f8469fa6a0a884af.png?resize=1024x768&vertical=center",
+        "https://cdn.dribbble.com/userupload/18415615/file/original-d881fd064d90adfc18f6cb20fd3ee16e.webp?resize=1024x768&vertical=center",
     },
     {
       title: "Launch & Growth",
@@ -65,7 +65,7 @@ const ProcessCards: React.FC = () => {
         { item: "Growth guidance" },
       ],
       bg_image:
-        "https://cdn.dribbble.com/userupload/5017084/file/original-c5ddda804fceaa61412c6aa89adaf005.jpg?resize=1024x768&vertical=center",
+        "https://cdn.dribbble.com/userupload/42995628/file/original-fa677916f14a0002a11564fbd6b9f5d2.png?resize=1024x768&vertical=center",
     },
   ];
 
