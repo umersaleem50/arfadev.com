@@ -18,25 +18,9 @@ const brandList: BrandList[] = [
     name: "Copped AI",
   },
   {
-    image:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-3.svg",
-    lightimg:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-3.svg",
+    image: "/brands/orthos-ai-dark.png",
+    lightimg: "/brands/orthos-ai-light.png",
     name: "Orthos AI",
-  },
-  {
-    image:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-4.svg",
-    lightimg:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-4.svg",
-    name: "Cayus AI",
-  },
-  {
-    image:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-5.svg",
-    lightimg:
-      "https://images.shadcnspace.com/assets/brand-logo/logoipsum-muted-white-5.svg",
-    name: "Brand 5",
   },
 ];
 

@@ -9,14 +9,6 @@ export function BentoGridOne({ module }: any) {
   const items: BentoItem[] = [
     {
       id: "1",
-      type: "feature",
-      title: "World-Class Information Design",
-      description:
-        "Transform complex data into crisp visuals that quickly tell your story.",
-      image: "/assets/dashboard.jpg",
-    },
-    {
-      id: "2",
       type: "chat",
       content: <ChatMessaging />,
     },
@@ -27,6 +19,14 @@ export function BentoGridOne({ module }: any) {
       description:
         "Embed your work seamlessly across your favorite platforms for instant sharing.",
       content: <p>Testing</p>,
+    },
+    {
+      id: "2",
+      type: "feature",
+      title: "World-Class Information Design",
+      description:
+        "Transform complex data into crisp visuals that quickly tell your story.",
+      image: "/assets/dashboard.jpg",
     },
   ];
 
