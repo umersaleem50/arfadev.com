@@ -30,7 +30,7 @@ function SectionFooter({
   }
 
   return (
-    <div className="flex justify-between items-center container mx-auto lg:py-12 md:py-8 py-6 border-t max-w-[85rem] border-muted-foreground/30 lg:mt-24 md:mt-16">
+    <div className="flex sm:flex-row flex-col gap-y-4 justify-between items-center container mx-auto lg:py-12 md:py-8 py-6 border-t max-w-[85rem] border-muted-foreground/30 lg:mt-24 md:mt-16">
       <p className="text-sm leading-normal font-sans max-w-md text-current">
         {description}
       </p>

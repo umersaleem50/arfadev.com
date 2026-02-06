@@ -51,32 +51,31 @@ function LandingHero() {
         <section>
           <div className="relative overflow-hidden pt-2 md:pt-4">
             {/* Constrained content for the hero text */}
-            <div className="flex items-center md:flex-col flex-row gap-4">
-              <div className="mx-auto max-w-7xl md:px-6 text-left mt-8 flex md:flex-row flex-col gap-x-8 items-center gap-y-4 md:gap-y-0">
+            <div className="flex items-center md:flex-col flex-row gap-4 w-full mx-auto">
+              <div className="mx-auto w-full max-w-4xl md:max-w-7xl px-4 md:px-6 text-left mt-8 flex md:flex-row flex-col gap-x-8 items-center gap-y-4 md:gap-y-0 justify-center">
                 <h1
                   className={
-                    "text-4xl sm:text-5xl md:text-6xl font-serif text-center leading-tight capitalize"
+                    "text-3xl sm:text-5xl md:text-6xl font-serif text-center leading-tight capitalize"
                   }
                 >
-                  We develop <u className="text-primary">lastinggg </u>
+                  Better Frontends
                   <br />
-                  <span>User Experiences!</span>
+                  <u className="text-accent dark:text-primary">
+                    Less Bounce Rate!
+                  </u>
                 </h1>
                 <div className="flex flex-col md:items-start gap-y-4 items-center">
-                  <p className="w-[30rem] text-sm sm:text-base font-sans whitespace-normal leading-normal text-center md:text-left text-muted-foreground">
-                    We help <u>startups</u> and <u>SaaS companies</u> with{" "}
-                    <span className="text-accent dark:text-primary">
-                      web app
-                    </span>
-                    ,{" "}
+                  <p className="w-full sm:w-[30rem] text-xs sm:text-base font-sans whitespace-normal leading-normal text-center md:text-left text-muted-foreground">
+                    We help startups and SaaS companies,{" "}
+                    <u>drive more sales </u> and <u>reduce bounce rate</u> with
+                    engaging{" "}
                     <span className="text-accent dark:text-primary">
                       landing pages
-                    </span>
-                    , and{" "}
-                    <span className="text-accent dark:text-primary">
-                      mobile app
                     </span>{" "}
-                    development that drive sales and revenue.
+                    and{" "}
+                    <span className="text-accent dark:text-primary">
+                      web applications.
+                    </span>
                   </p>
                   <BtnCTA>Send Us Email</BtnCTA>
                 </div>

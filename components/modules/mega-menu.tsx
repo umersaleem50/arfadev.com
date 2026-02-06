@@ -11,14 +11,12 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { urlFor } from "@/sanity/lib/image";
 import { IMenu } from "@/sanity/schemaTypes/documents/menu";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
-import LanguageSwitcher from "../language-switcher";
 import { ModeToggle } from "../ui/mode-toggle";
 import { ScrollArea } from "../ui/scroll-area";
 import ListItem from "./mega-menu/list-item-menu";
@@ -160,18 +158,16 @@ function MobileNav({
       </SheetTrigger>
 
       <SheetContent side="right" className="w-full md:w-auto">
-        {logo && (
-          <Image
-            src={urlFor(logo).url()}
-            width={150}
-            height={70}
-            alt="Arfa Developers Logo"
-            className="mb-8"
-          />
-        )}
+        <Image
+          src={"/assets/logo.png"}
+          width={150}
+          height={70}
+          alt="Arfa Developers Logo"
+          className="mb-8"
+        />
 
         <div className="flex gap-2 self-start my-4">
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> */}
           <ModeToggle />
           <BtnCTA>Send Us Email</BtnCTA>
         </div>

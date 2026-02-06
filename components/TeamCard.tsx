@@ -41,7 +41,7 @@ function TeamCard({
         <div className="prose-sm prose-p:text-sm prose-p:font-sans">
           <PortableText value={bio} />
         </div>
-        <div className="flex gap-x-2">
+        <div className="flex gap-2 flex-wrap mt-2">
           {professions.map((profession: string) => (
             <Badge key={profession}>{profession}</Badge>
           ))}
@@ -49,7 +49,7 @@ function TeamCard({
       </figcaption>
       <div
         style={divStyle}
-        className="bg-gradient-to-r from-primary to-accent w-full absolute sm:top-1/2 bottom-0 sm:-translate-y-1/2 left-0 md:h-[20vw] h-[50vw]  sm:h-[25vw] -z-10 rounded-sm"
+        className="bg-gradient-to-r from-primary to-accent w-full absolute sm:top-1/2 bottom-0 sm:-translate-y-1/2 left-0 md:h-[20vw] h-[50vh]  sm:h-[25vw] -z-10 rounded-sm"
       ></div>
     </figure>
   );

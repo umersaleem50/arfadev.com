@@ -59,6 +59,18 @@ export default defineType({
       group: "settings",
     },
     {
+      name: "cover_vertical",
+      type: "customImage",
+      description: "Cover Picture for article with vertical direction.",
+      title: "Cover Image",
+      options: {
+        collapsible: true,
+      },
+
+      validation: (Rule: Rule) => Rule.required(),
+      group: "settings",
+    },
+    {
       title: "Tags",
       name: "tags",
       type: "tags",

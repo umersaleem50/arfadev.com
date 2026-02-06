@@ -1,4 +1,3 @@
-import React from "react";
 import CustomImage from "../custom-image";
 
 function ArticleCover({ cover, title }: { cover: any; title: string }) {
