@@ -22,7 +22,7 @@ function AnimatedText({ children, Wrapper, className }: any) {
         whileInView={{ x: ["-100%", "0%", "100%"] }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
         viewport={{ once: true }}
-        className="absolute inset-0 bg-orange-500 z-20"
+        className="absolute inset-0 bg-accent dark:bg-primary z-20"
       />
     </div>
   );

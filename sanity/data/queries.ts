@@ -99,7 +99,7 @@ export const modules = `
       _type == "team" => {...,team[]->{...},${metaData}},
       _type ==  "services" => {...,content[]{...,defined(page) => {page ->{slug}}},${metaData}},
       _type == "testimonial" => @->,
-      _type == "blogs" => {...,${metaData},posts[]->{...,cover,title,description,author->{name,photo}}},
+      _type == "blogs" => {...,${metaData},posts[]->{...,cover,cover_vertical,title,description,author->{name,photo}}},
       _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}},
       _type == "one-member" => {...,member->},
       _type == "awards" => {...,${metaData},content[]->},

@@ -12,6 +12,7 @@ function BlogCard({
   slug,
   description,
   tags,
+  cover_vertical,
 }: {
   title: string;
   cover?: any;
@@ -21,6 +22,7 @@ function BlogCard({
   content?: any;
   description?: string;
   tags?: string[];
+  cover_vertical: any;
 }) {
   return (
     <Link
@@ -32,13 +34,13 @@ function BlogCard({
           "shrink-0 relative overflow-hidden h-[300px] sm:w-[300px] sm:h-[450px] w-full group rounded-md",
         )}
       >
-        {cover && (
+        {cover_vertical && (
           <CustomImage
             className="size-full absolute top-0 start-0 group-hover:scale-110 transition-all duration-500 ease-in-out object-cover "
-            alt={cover?.alt}
+            alt={cover_vertical?.alt}
             fill
             objectFit={"cover"}
-            imageOBJ={cover}
+            imageOBJ={cover_vertical}
           />
         )}
       </div>
