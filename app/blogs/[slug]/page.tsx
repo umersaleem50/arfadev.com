@@ -1,34 +1,34 @@
-import dynamic from "next/dynamic";
-import { cache } from "react";
+import { getPost } from "@/sanity/data";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-import { getPost } from "@/sanity/data";
+import { cache } from "react";
 
-import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "@portabletext/react";
 
 import { portableComplex } from "@/components/portable-stucture/portable-complex";
 
 const FooterModule = dynamic(
-  () => import("@/components/modules/footer.module")
+  () => import("@/components/modules/footer.module"),
 );
 
 const MegaMenu = dynamic(() =>
-  import("@/components/modules/mega-menu").then((el) => el.MegaMenu)
+  import("@/components/modules/mega-menu").then((el) => el.MegaMenu),
 );
 const ArticleBreadCrumbs = dynamic(
-  () => import("@/components/article-breadcrumb")
+  () => import("@/components/article-breadcrumb"),
 );
 const ShareButtons = dynamic(() => import("@/components/social-media-share"));
 const Author = dynamic(() => import("@/components/author"));
 const BlogCard = dynamic(() => import("@/components/blog-card"));
 const ArticleCover = dynamic(
-  () => import("@/components/modules/article-cover")
+  () => import("@/components/modules/article-cover"),
 );
 const CaseStudyCard = dynamic(() => import("@/components/case-study-card"));
 const Badge = dynamic(() =>
-  import("@/components/ui/badge").then((el) => el.Badge)
+  import("@/components/ui/badge").then((el) => el.Badge),
 );
 
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
@@ -38,7 +38,7 @@ const getPostData = cache(
   async (slug: string, lang: string, isDraftMode = false) => {
     const pageData = await getPost(slug, lang, isDraftMode);
     return pageData;
-  }
+  },
 );
 
 export async function generateMetadata({
@@ -79,33 +79,6 @@ export async function generateMetadata({
       title: seo?.shareTitle,
       description: seo?.shareDesc,
     },
-
-    // robots: {
-    //   index: seo?.noindex,
-    //   follow: seo?.nofollow,
-    //   nocache: seo?.cache,
-    //   googleBot: {
-    //     index: seo?.index,
-    //     follow: seo?.follow,
-    //     noimageindex: seo?.imageindex,
-    //     "max-video-preview": -1,
-    //     "max-image-preview": "large",
-    //     "max-snippet": -1,
-    //   },
-    // },
-    // robots: {
-    //   index: true, // allow indexing
-    //   follow: true, // allow link following
-    //   nocache: false, // allow caching
-    //   googleBot: {
-    //     index: true,
-    //     follow: true,
-    //     noimageindex: false, // allow images to be indexed
-    //     "max-video-preview": -1, // no limit
-    //     "max-image-preview": "large", // allow large preview
-    //     "max-snippet": -1, // no limit on text snippet
-    //   },
-    // },
   };
 }
 
@@ -157,7 +130,7 @@ export default async function Component({
             <ShareButtons />
           </div>
 
-          <article className="dark:text-foreground prose-headings:text-foreground prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 lg:col-span-8 md:col-span-6 col-span-4">
+          <article className="dark:text-foreground prose-headings:text-foreground prose-headings:font-medium prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans prose-stone col-start-1 lg:col-span-8 md:col-span-6 col-span-4">
             <p className="py-10">{description}</p>
             <PortableText value={body} components={portableComplex} />
           </article>
@@ -198,7 +171,7 @@ export default async function Component({
         </section>
       )}
       {content &&
-        content?.map((module: any, key: number) => {
+        content?.map((module: unknown, key: number) => {
           return <Module module={module} key={key} />;
         })}
       {footer && <FooterModule module={footer} />}

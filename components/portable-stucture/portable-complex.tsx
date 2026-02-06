@@ -5,10 +5,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
 
-import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
-
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { buttonVariants } from "../ui/button";
+import CodeHighlighter from "./CodeHighlighter";
 
 const CustomImage = dynamic(() => import("../custom-image"));
 // const TestimonialsPortable = dynamic(() =>
@@ -131,11 +129,7 @@ export const portableComplex: any = {
       );
     },
     code: ({ value }: any) => {
-      return (
-        <SyntaxHighlighter language={value.language} style={atomOneLight}>
-          {value.code}
-        </SyntaxHighlighter>
-      );
+      return <CodeHighlighter language={value.language} code={value.code} />;
     },
     table: ({ value }: any) => {
       const { rows = [] } = value;
