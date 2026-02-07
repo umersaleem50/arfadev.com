@@ -144,21 +144,23 @@ export default async function Component({
           <ShareButtons className="col-start-1 col-span-8 pb-12" />
           <hr />
         </div>
-        <aside className="max-w-[30rem] pt-12 pb-6 sticky top-8 left-0">
-          <h3 className="text-2xl font-serif font-semibold">
-            Read Case Studies
-          </h3>
-          <p className="text-sm font-sans text-muted-foreground">
-            Learn how we help our clients.
-          </p>
-          <div className="flex flex-col gap-3 pt-8">
-            {featuredCaseStudies && (
-              <CaseStudyCard docs={featuredCaseStudies} />
-            )}
-          </div>
-        </aside>
+        {featuredCaseStudies ? (
+          <aside className="max-w-[30rem] pt-12 pb-6 sticky top-8 left-0">
+            <h3 className="text-2xl font-serif font-semibold">
+              Read Case Studies
+            </h3>
+            <p className="text-sm font-sans text-muted-foreground">
+              Learn how we help our clients.
+            </p>
+            <div className="flex flex-col gap-3 pt-8">
+              {featuredCaseStudies && (
+                <CaseStudyCard docs={featuredCaseStudies} />
+              )}
+            </div>
+          </aside>
+        ) : null}
       </section>
-      {relatedPosts?.length && (
+      {relatedPosts?.length ? (
         <section className="max-w-[85rem] lg:mx-auto md:mx-6 mx-4 py-6 space-y-4">
           <h3 className="text-3xl font-semibold font-serif md:py-6 py-3">
             Related Posts
@@ -169,7 +171,7 @@ export default async function Component({
             })}
           </div>
         </section>
-      )}
+      ) : null}
       {content &&
         content?.map((module: unknown, key: number) => {
           return <Module module={module} key={key} />;
