@@ -9,6 +9,14 @@ import {
   site,
 } from "./queries";
 
+export async function getAllBlogSlug() {
+  const query = `*[_type == "post"]{ slug }`;
+
+  const data = await client.fetch(query, {}, { perspective: "previewDrafts" });
+
+  return data;
+}
+
 export async function getAllPageSlug() {
   const query = `*[_type == "page"]{ slug }`;
 

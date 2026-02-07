@@ -28,6 +28,11 @@ export const portableComplex: any = {
     blockquote: ({ children }: { children: any }) => (
       <blockquote>{children}</blockquote>
     ),
+    figcaption: ({ children }: any) => (
+      <figcaption className="text-sm text-muted-foreground text-center mt-2">
+        {children}
+      </figcaption>
+    ),
   },
   list: {
     bullet: ({ children }: any) => <ul>{children}</ul>,
