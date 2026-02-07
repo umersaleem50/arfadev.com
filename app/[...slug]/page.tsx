@@ -97,6 +97,6 @@ async function Page({ params: { slug } }: { params: { slug: string } }) {
 export default Page;
 
 export const revalidate =
-  (process.env.REVALIDATION_DURATION ?? process.env.NODE_ENV === "development")
+  (process.env.REVALIDATION ?? process.env.NODE_ENV === "development")
     ? 60
     : 60 * 60;

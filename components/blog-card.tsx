@@ -114,12 +114,12 @@ export function LargeBlogCard({
 }: ILargeBlogCard) {
   // const { title, description, updatedAt, createdAt, slug } = data;
   return (
-    <div className="w-full group flex flex-col transition duration-300 group">
-      <div className="aspect-w-16 aspect-h-11 relative h-[12rem] sm:h-[20rem] md:h-[32rem]">
+    <div className="w-full group flex flex-col transition duration-300 group ">
+      <div className="aspect-w-16 aspect-h-11 relative h-[12rem] sm:h-[20rem] md:h-[32rem] rounded-md overflow-hidden">
         <CustomImage
           imageOBJ={cover}
           fill
-          className="w-full object-cover"
+          className="w-full object-cover hover:scale-105 transition-transform duration-300"
           alt="Blog Image"
         />
       </div>
@@ -129,10 +129,10 @@ export function LargeBlogCard({
           <time className="text-sm sm:text-base font-sans text-white/70">
             {new Date(_updatedAt).toDateString()}
           </time>
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold underline text-foreground hover:underline group-hover:text-primary transition-colors">
+          <h3 className="text-xl md:text-2xl lg:text-3xl underline text-foreground hover:underline group-hover:text-accent dark:group-hover:text-primary transition-colors font-light">
             {title}
           </h3>
-          <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-muted-foreground line-clamp-3">
+          <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-muted-foreground line-clamp-3 font-sans">
             {description}
           </p>
         </div>

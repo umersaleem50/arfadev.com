@@ -1,12 +1,12 @@
 import PaginationSearchParams from "@/components/pagination-search-params";
-import { ILargeBlogCard, LargeBlogCard } from "./blog-card";
-import { SearchInput } from "./search-input";
-import { client } from "@/sanity/lib/client";
 import { ALL_POSTS_QUERY, BLOG_SEARCH_QUERY } from "@/sanity/data/queries";
-import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
-import { Badge } from "./ui/badge";
-import CustomImage from "./custom-image";
+import { client } from "@/sanity/lib/client";
 import Link from "next/link";
+import { ILargeBlogCard, LargeBlogCard } from "./blog-card";
+import CustomImage from "./custom-image";
+import { SearchInput } from "./search-input";
+import { Badge } from "./ui/badge";
+import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 
 // All unique tags
 
@@ -27,7 +27,7 @@ const fetchPosts = async ({
     return await client.fetch(
       BLOG_SEARCH_QUERY,
       { queryStr: queryStr, limit, skips },
-      {}
+      {},
     );
   } else return await client.fetch(ALL_POSTS_QUERY, { lang, limit, skips }, {});
 };
@@ -62,8 +62,8 @@ async function BlogsPage(props: { searchParams: any; lang: string }) {
   return (
     <div className="w-full">
       <div className=" px-4 py-8 max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        <SearchInput className="grid md:hidden" />
         <div className="col-start-1 lg:col-span-2">
+          <SearchInput className="grid md:hidden mb-4" />
           {posts?.map((post: ILargeBlogCard, key: number) => {
             return (
               <LargeBlogCard
