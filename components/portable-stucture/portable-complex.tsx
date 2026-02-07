@@ -36,16 +36,21 @@ export const portableComplex: any = {
 
   marks: {
     // Ex. 1: custom renderer for the em / italics decorator
+
     em: ({ children }: any) => <em>{children}</em>,
     code: ({ children }: any) => {
       return (
-        <code className="bg-white px-2 py-4 border-border">{children}</code>
+        <code className="bg-background px-2 py-4 border-border">
+          {children}
+        </code>
       );
     },
     underline: ({ children }: any) => <u>{children}</u>,
     mark: ({ children }: any) => <mark>{children}</mark>,
     highlight: ({ children }: any) => (
-      <mark className="bg-primary text-primary-foreground">{children}</mark>
+      <mark className="bg-accent dark:bg-primary text-accent-foreground dark:text-primary-foreground">
+        {children}
+      </mark>
     ),
 
     // Ex. 2: rendering a custom `link` annotation
@@ -83,7 +88,7 @@ export const portableComplex: any = {
           <Link
             href={href}
             target="_blank"
-            className="text-primary"
+            className="!text-accent dark:!text-primary underline underline-offset-2"
             // className={cn("text-primary", buttonVariants({ variant: "link" }))}
           >
             {children}
