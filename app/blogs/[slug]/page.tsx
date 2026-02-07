@@ -1,4 +1,4 @@
-import { getPost } from "@/sanity/data";
+import { getAllBlogSlug, getPost } from "@/sanity/data";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
@@ -80,6 +80,14 @@ export async function generateMetadata({
       description: seo?.shareDesc,
     },
   };
+}
+
+export async function generateStaticParams() {
+  const pages = await getAllBlogSlug();
+
+  return pages.map((slug: { current: string }) => ({
+    slug: slug.current,
+  }));
 }
 
 export default async function Component({
