@@ -3,6 +3,7 @@
 import { Check, Link2, LoaderCircle } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { type ReactNode, useCallback, useState } from "react";
+import { buttonVariants } from "./ui/button";
 
 export interface ButtonCopyProps {
   onCopy?: () => Promise<void> | void;
@@ -66,7 +67,8 @@ export default function ButtonCopy({
       <button
         aria-label={ariaLabels[buttonState]}
         aria-live="polite"
-        className={`relative min-h-[44px] w-auto min-w-[44px] cursor-pointer overflow-hidden rounded-full border bg-background p-3 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-50 ${className}`}
+        // className={`relative min-h-[44px] w-auto min-w-[44px] cursor-pointer overflow-hidden rounded-full border bg-background p-3 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-50 ${className}`}
+        className={buttonVariants({ variant: "outline", className })}
         disabled={buttonState !== "idle" || disabled}
         onClick={handleClick}
         type="button"
