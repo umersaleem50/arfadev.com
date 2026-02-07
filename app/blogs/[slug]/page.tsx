@@ -8,6 +8,7 @@ import { cache } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 
+import BlogTags from "@/components/BlogTags";
 import { portableComplex } from "@/components/portable-stucture/portable-complex";
 
 const FooterModule = dynamic(
@@ -85,7 +86,7 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   const pages = await getAllBlogSlug();
 
-  return pages.map((slug: { current: string }) => ({
+  return pages?.map((slug: { current: string }) => ({
     slug: slug.current,
   }));
 }
@@ -117,13 +118,13 @@ export default async function Component({
     author,
     body,
     relatedPosts = [],
-    schemaMarkup,
+    schemaMarkup = [],
     _createdAt,
   } = page;
 
   return (
     <main className="flex flex-col">
-      <SchemaMarkup schema={schemaMarkup} />
+      {schemaMarkup?.length ? <SchemaMarkup schema={schemaMarkup} /> : null}
       {menu && <MegaMenu module={menu} />}
       <ArticleCover cover={cover} title={title} />
       <section className="flex max-w-[85rem] lg:mx-auto md:mx-6 mx-4 gap-x-8 items-start flex-col lg:flex-row">
@@ -143,16 +144,11 @@ export default async function Component({
             <PortableText value={body} components={portableComplex} />
           </article>
 
-          <div className="col-start-1 col-span-8 flex gap-4 py-8">
-            {tags &&
-              tags?.map((tag: string, key: number) => {
-                return <Badge key={key}>{tag}</Badge>;
-              })}
-          </div>
+          <BlogTags tags={tags} />
           <ShareButtons className="col-start-1 col-span-8 pb-12" />
           <hr />
         </div>
-        {featuredCaseStudies ? (
+        {featuredCaseStudies?.length ? (
           <aside className="max-w-[30rem] pt-12 pb-6 sticky top-8 left-0">
             <h3 className="text-2xl font-serif font-semibold">
               Read Case Studies
@@ -189,4 +185,7 @@ export default async function Component({
   );
 }
 
-export const revalidate = process.env.NODE_ENV === "development" ? 60 : 60 * 60;
+export const revalidate =
+  (process.env.REVALIDATION_DURATION ?? process.env.NODE_ENV === "development")
+    ? 60
+    : 60 * 60;
