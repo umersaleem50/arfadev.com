@@ -29,5 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...postEntries,
   ];
 }
-
-export const revalidate = 60;
+export const revalidate =
+  (process.env.REVALIDATION_DURATION ?? process.env.NODE_ENV === "development")
+    ? 60
+    : 60 * 60;
