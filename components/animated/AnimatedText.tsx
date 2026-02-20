@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 function AnimatedText({ children, Wrapper, className }: any) {
   return (
-    <div className="relative inline-block overflow-hidden">
+    <div className="relative inline-block overflow-hidden h-auto">
       {/* Text Layer */}
       <Wrapper
         initial={{ opacity: 0 }}
