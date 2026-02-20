@@ -24,39 +24,39 @@ function Module({ module }: any) {
   switch (type) {
     case "menu":
       return <MegaMenu module={module} />;
-    case "hero":
-      return <Hero module={module} />;
+    // case "hero":
+    //   return <Hero module={module} />;
     case "landing-hero":
       return <LandingHero />;
     case "whyChooseUs":
       return <WhyChooseUs module={module} />;
-    case "portfolio":
-      return <PortfolioModule module={module} />;
-    case "services":
-      return <Feature01 module={module} />;
-
-    case "guarantee":
-      return <ProcessCards />;
-
-    case "team":
-      return <Team module={module} />;
-
-    case "grid":
-      return <Gallery module={module} />;
+    // case "portfolio":
+    //   return <PortfolioModule module={module} />;
+    // case "services":
+    //   return <Feature01 module={module} />;
 
     // case "guarantee":
-    // return <GridModule module={module} />;
-    case "footer":
-      return <FooterModule module={module} />;
-    case "testimonial":
-      return <Testimonial01 module={module} />;
-    case "blogs":
-      return <BlogsModule module={module} />;
-    case "body":
-      return <ContentBody module={module} />;
+    //   return <ProcessCards />;
 
-    case "cta":
-      return <CTABento />;
+    // case "team":
+    //   return <Team module={module} />;
+
+    // case "grid":
+    //   return <Gallery module={module} />;
+
+    // // case "guarantee":
+    // // return <GridModule module={module} />;
+    // case "footer":
+    //   return <FooterModule module={module} />;
+    // case "testimonial":
+    //   return <Testimonial01 module={module} />;
+    // case "blogs":
+    //   return <BlogsModule module={module} />;
+    // case "body":
+    //   return <ContentBody module={module} />;
+
+    // case "cta":
+    //   return <CTABento />;
 
     default:
       return null;

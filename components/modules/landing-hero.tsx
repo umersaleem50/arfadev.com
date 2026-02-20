@@ -1,7 +1,8 @@
 "use client";
 
+import { motion } from "motion/react";
+import AnimatedText from "../animated/AnimatedText";
 import BtnCTA from "../BtnCTA";
-import CircularGallery, { CircularGalleryProps } from "../CircularGallery";
 
 export interface LandingHeroProps {
   cta: string;
@@ -46,54 +47,31 @@ const defaultItems = [
 
 function LandingHero() {
   return (
-    <>
-      <main className="z-10">
-        <section>
-          <div className="relative overflow-hidden pt-2 md:pt-4">
-            {/* Constrained content for the hero text */}
-            <div className="flex items-center md:flex-col flex-row gap-4 w-full mx-auto">
-              <div className="mx-auto w-full max-w-4xl md:max-w-7xl px-4 md:px-6 text-left mt-8 flex md:flex-row flex-col gap-x-8 items-center gap-y-4 md:gap-y-0 justify-center">
-                <h1
-                  className={
-                    "text-3xl sm:text-5xl md:text-6xl font-serif text-center leading-tight capitalize"
-                  }
-                >
-                  Better Frontends
-                  <br />
-                  <u className="text-accent dark:text-primary">
-                    Less Bounce Rate!
-                  </u>
-                </h1>
-                <div className="flex flex-col md:items-start gap-y-4 items-center">
-                  <p className="w-full sm:w-[30rem] text-xs sm:text-base font-sans whitespace-normal leading-normal text-center md:text-left text-muted-foreground">
-                    We help startups and SaaS companies,{" "}
-                    <u>drive more sales </u> and <u>reduce bounce rate</u> with
-                    engaging{" "}
-                    <span className="text-accent dark:text-primary">
-                      landing pages
-                    </span>{" "}
-                    and{" "}
-                    <span className="text-accent dark:text-primary">
-                      web applications.
-                    </span>
-                  </p>
-                  <BtnCTA>Send Us Email</BtnCTA>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12 w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]">
-              <CircularGallery
-                items={defaultItems as CircularGalleryProps["items"]}
-                bend={5}
-                textColor="#ffffff"
-                borderRadius={0.03}
-              />
-            </div>
+    <section className="z-10 h-screen flex items-center justify-center">
+      <div className="flex items-center md:flex-col flex-row gap-4 w-full mx-auto">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 text-left mt-8 flex flex-col items-center gap-y-12 justify-center self-center">
+          <AnimatedText
+            Wrapper={motion.h1}
+            className={
+              "text-3xl sm:text-5xl md:text-7xl font-serif text-center leading-tight capitalize font-light text-muted-foreground"
+            }
+          >
+            Turn every visitor into <br />
+            <u className="text-accent dark:text-primary">Paying customer!</u>
+          </AnimatedText>
+          <div className="flex flex-col gap-y-8 items-center">
+            <AnimatedText
+              Wrapper={motion.p}
+              className="w-full max-w-md text-xs sm:text-base font-sans whitespace-normal leading-relaxed! text-center text-muted-foreground"
+            >
+              We help tech startups with better landing page or saas onboarding
+              that improve conversion, rentention, and activiation rate.
+            </AnimatedText>
+            <BtnCTA>Contact For Help</BtnCTA>
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </div>
+    </section>
   );
 }
 
