@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
-import AnimatedText from "../animated/AnimatedText";
 import BtnCTA from "../BtnCTA";
 
 export interface LandingHeroProps {
@@ -50,24 +48,25 @@ function LandingHero() {
     <section className="z-10 h-screen flex items-center justify-center">
       <div className="flex items-center md:flex-col flex-row gap-4 w-full mx-auto">
         <div className="mx-auto max-w-4xl px-4 md:px-6 text-left mt-8 flex flex-col items-center gap-y-12 justify-center self-center">
-          <AnimatedText
-            Wrapper={motion.h1}
+          <h1
             className={
-              "text-3xl sm:text-5xl md:text-7xl font-serif text-center leading-tight capitalize font-light text-muted-foreground"
+              "text-3xl sm:text-5xl md:text-7xl font-serif text-center leading-normal capitalize font-light text-muted-foreground"
             }
           >
-            Turn every visitor into <br />
-            <u className="text-accent dark:text-primary">Paying customer!</u>
-          </AnimatedText>
+            Turn your visitors into <br />
+            <u className="text-accent dark:text-primary">Paying customers!</u>
+          </h1>
           <div className="flex flex-col gap-y-8 items-center">
-            <AnimatedText
-              Wrapper={motion.p}
-              className="w-full max-w-md text-xs sm:text-base font-sans whitespace-normal leading-relaxed! text-center text-muted-foreground"
-            >
-              We help tech startups with better landing page or saas onboarding
-              that improve conversion, rentention, and activiation rate.
-            </AnimatedText>
-            <BtnCTA>Contact For Help</BtnCTA>
+            <p className="w-full max-w-md text-xs sm:text-base font-sans whitespace-normal leading-relaxed! text-center text-muted-foreground">
+              We help tech startups with{" "}
+              <u className="text-accent dark:text-primary">
+                Optimized Landing page
+              </u>{" "}
+              or{" "}
+              <u className="text-accent dark:text-primary">SaaS onboarding</u>{" "}
+              that improve conversion, retention, and activiation rate.
+            </p>
+            <BtnCTA>Improve Your ROI</BtnCTA>
           </div>
         </div>
       </div>
