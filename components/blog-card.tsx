@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Author from "./author";
-import CustomImage from "./custom-image";
+import CustomImage from "./SanityImage";
 import { Badge } from "./ui/badge";
 
 function BlogCard({

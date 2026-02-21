@@ -1,15 +1,19 @@
 import { purifyString } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image, { ImageProps } from "next/image";
-import React from "react";
 
-interface ICustomeImageProps extends Omit<ImageProps, "src" | "alt"> {
-  imageOBJ: any;
+export interface SanityImageObject {
+  asset: SanityImageSource;
+}
+
+export interface SanityImageProps extends Omit<ImageProps, "src" | "alt"> {
+  image: SanityImageSource;
   alt?: string;
 }
 
-function CustomImage({
-  imageOBJ,
+function SanityImage({
+  image,
   placeholder = "blur", // defaulting to "blur"
   height,
   width,
@@ -19,24 +23,22 @@ function CustomImage({
   loading = "lazy",
   alt = "Please enter alt", // default alt text
   ...rest // using rest to catch remaining ImageProps
-}: ICustomeImageProps) {
-  const blurDataURL = urlFor(imageOBJ?.asset || imageOBJ)
-    .width(20)
-    .height(20)
-    .blur(20)
-    .url();
+}: SanityImageProps) {
+  if (!image) return <NoImage />;
 
-  const imageUrl = urlFor(imageOBJ?.asset || imageOBJ).url();
+  const blurDataURL = urlFor(image).width(20).height(20).blur(20).url();
 
-  const imageOptions: any = {
+  const imageUrl = urlFor(image).url();
+
+  const imageOptions: ImageProps = {
     src: imageUrl,
-    alt: alt,
+    alt: alt ?? "",
     className: className,
     blurDataURL: blurDataURL,
     placeholder: placeholder,
     loading: priority ? "eager" : loading, // eager loading if priority is true
     priority: priority,
-    style: { objectFit: purifyString(objectFit) },
+    style: { objectFit: purifyString(objectFit) as any },
     quality: 90,
     sizes: "(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 40vw",
     ...rest,
@@ -49,7 +51,16 @@ function CustomImage({
     imageOptions["fill"] = true; // default to fill if width/height not provided
   }
 
+  // eslint-disable-next-line jsx-a11y/alt-text
   return <Image {...imageOptions} />;
 }
 
-export default CustomImage;
+function NoImage() {
+  return (
+    <div className="h-full w-full bg-gray-300 border-border flex items-center justify-center">
+      <p className="font-sans text-base">Image Not Found!</p>
+    </div>
+  );
+}
+
+export default SanityImage;

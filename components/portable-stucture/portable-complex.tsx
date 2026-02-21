@@ -8,7 +8,7 @@ import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
 import { buttonVariants } from "../ui/button";
 import CodeHighlighter from "./CodeHighlighter";
 
-const CustomImage = dynamic(() => import("../custom-image"));
+const CustomImage = dynamic(() => import("../SanityImage"));
 // const TestimonialsPortable = dynamic(() =>
 //   import("../modules/testimonial").then((el) => el.TestimonialsPortable)
 // );

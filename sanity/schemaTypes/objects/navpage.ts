@@ -1,12 +1,12 @@
 import { getDynamicRoute, getStaticRoute } from "@/sanity/lib/helper";
-import { IReference } from "@/sanity/types/globals";
+import { SanityPage } from "@/sanity/types/globals";
 import { LinkSimpleHorizontal } from "@phosphor-icons/react";
 
 export interface INavPage {
   _type: "navPage";
   _key?: string;
   title?: string;
-  page?: IReference;
+  page?: SanityPage;
 }
 
 const NavPage = {

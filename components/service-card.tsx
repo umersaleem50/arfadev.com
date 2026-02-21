@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import { Button } from "./ui/button";
-import CustomImage from "./custom-image";
 import { ArrowUpRight } from "lucide-react";
+import CustomImage from "./SanityImage";
+import { Button } from "./ui/button";
 
 import { cn } from "@/lib/utils";
 
@@ -30,7 +30,7 @@ function ServiceCard({
       className={cn(
         evenIndex ? "bg-muted" : "bg-background",
         "h-auto flex flex-col p-6 items-start space-y-4 border border-border",
-        className
+        className,
       )}
     >
       {/* {SVGComponent && (

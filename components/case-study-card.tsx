@@ -1,6 +1,5 @@
-import React from "react";
 import Link from "next/link";
-import CustomImage from "./custom-image";
+import CustomImage from "./SanityImage";
 
 export interface ICaseStudyCard {
   title?: string;

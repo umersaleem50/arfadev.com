@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
 import { motion } from "motion/react";
-import CustomImage from "./custom-image";
+import CustomImage from "./SanityImage";
 import { Badge } from "./ui/badge";
 
 function TeamCard({

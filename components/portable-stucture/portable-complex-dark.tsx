@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
-import CustomImage from "../custom-image";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
+import CustomImage from "../SanityImage";
+import { buttonVariants } from "../ui/button";
 
 export const portableComplexDarkText: any = {
   block: {

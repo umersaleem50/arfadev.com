@@ -6,7 +6,7 @@ import Carousel from "react-multi-carousel";
 // ---------
 import { responsive } from "@/lib/utils";
 // ---------
-import CustomImage from "./custom-image";
+import CustomImage from "./SanityImage";
 
 function GallerySlider({ content }: any) {
   return (
