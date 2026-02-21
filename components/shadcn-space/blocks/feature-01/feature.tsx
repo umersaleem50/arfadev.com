@@ -5,7 +5,7 @@ import Image from "next/image";
 
 type Features = {
   icon: React.ReactNode;
-  content: string;
+  content: string | React.ReactNode;
 }[];
 
 const Feature = ({ featureData }: { featureData: Features }) => {
@@ -70,9 +70,9 @@ const Feature = ({ featureData }: { featureData: Features }) => {
                 <Card className="py-8 bg-muted ring-0 border-0 h-full">
                   <CardContent className="w-full h-full px-8 flex flex-col items-start gap-12 justify-between">
                     {value.icon}
-                    <p className="text-base text-muted-foreground font-sans font-normal">
+                    <div className="text-base text-muted-foreground font-sans font-normal">
                       {value?.content}
-                    </p>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>

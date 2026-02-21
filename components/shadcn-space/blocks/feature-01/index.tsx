@@ -9,19 +9,33 @@ import PencilIcon from "@/components/svgs/pencil-icon";
 const featureData = [
   {
     icon: <PencilIcon className="w-16 h-16" />,
-    content: "High conversion landing pages integrated with headless CMS.",
+    content: (
+      <p>
+        We build landing pages that convert visitors into customers and drive
+        sales.
+      </p>
+    ),
   },
   {
     icon: <Monitor className="w-16 h-16" />,
-    content: "Secure dashboards and admin panels with real-time updates.",
+    content: (
+      <p>
+        We build dashboards and optimize SaaS onboarding to increase activation
+        and retention.
+      </p>
+    ),
   },
   {
     icon: <Compass className="w-16 h-16" />,
-    content: "Scalable backend development and API integration.",
+    content: (
+      <p>We optimize SaaS onboarding to increase activation and retention.</p>
+    ),
   },
   {
     icon: <Eye className="w-16 h-16" />,
-    content: "On-page SEO for better visibility on search engines i.e. Google.",
+    content: (
+      <p>On-page SEO for better visibility on search engines i.e. Google.</p>
+    ),
   },
 ];
 

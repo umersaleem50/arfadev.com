@@ -16,7 +16,7 @@ const FooterModule = dynamic(
 );
 
 const MegaMenu = dynamic(() =>
-  import("@/components/modules/mega-menu").then((el) => el.MegaMenu),
+  import("@/components/modules/navbar").then((el) => el.MegaMenu),
 );
 const ArticleBreadCrumbs = dynamic(
   () => import("@/components/article-breadcrumb"),

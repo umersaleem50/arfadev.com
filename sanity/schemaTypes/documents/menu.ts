@@ -1,3 +1,4 @@
+import { NavbarProps } from "@/components/modules/navbar/types/navbar.type";
 import { List } from "@phosphor-icons/react/dist/ssr";
 import { defineField, defineType } from "sanity";
 import { INavDropdown } from "../objects/nav-dropdown";
@@ -56,7 +57,10 @@ export default defineType({
     prepare({
       title = "Untitled",
       items = [],
-    }: Pick<IMenu, "title" | "items">) {
+    }: {
+      title: string;
+      items: NavbarProps["items"];
+    }) {
       return {
         title,
         subtitle: `${items.length} link(s)`,
