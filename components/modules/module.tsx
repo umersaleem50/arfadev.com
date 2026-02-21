@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 const Feature01 = dynamic(() => import("../shadcn-space/blocks/feature-01"));
 const CTABento = dynamic(() => import("../ui/bento-grid-1"));
 const Gallery = dynamic(() => import("./gallery-module"));
-const LandingHero = dynamic(() => import("./landing-hero"));
+
 const ProcessCards = dynamic(() => import("./process.module"));
 const Team = dynamic(() => import("./team"));
 const Testimonial01 = dynamic(() => import("./testimonial.module"));
@@ -27,7 +27,7 @@ function Module({ module }: any) {
     // case "hero":
     //   return <Hero module={module} />;
     case "landing-hero":
-      return <LandingHero />;
+      return <Hero />;
     case "whyChooseUs":
       return <WhyChooseUs module={module} />;
     case "portfolio":
