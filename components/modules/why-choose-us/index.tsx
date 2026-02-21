@@ -1,16 +1,10 @@
-interface ColumnProps {
-  title: string;
-  tagline: string;
-}
-
-export interface WhyChooseUsProps {
-  title: string;
-  content: ColumnProps[];
-}
+import dynamic from "next/dynamic";
+import { WhyChooseUsProps } from "./types/why-choose-us.type";
+const Column = dynamic(() => import("./Column"));
 
 function WhyChooseUs({ module }: { module: WhyChooseUsProps }) {
-  const { title = "", content = [] } = module;
-  // md:-translate-y-1/2
+  const { title = "", content } = module;
+
   return (
     <section className="bg-none md:-translate-y-2 md:-mt-16 ">
       <div className="max-w-[85rem] lg:py-24 md:py-16 sm:py-12 py-10 md:px-6 lg:px-0 lg:flex-row flex-col mx-auto bg-accent flex items-center shadow-gray-400 dark:shadow-gray-900 shadow-xl rounded-2xl">
@@ -18,7 +12,7 @@ function WhyChooseUs({ module }: { module: WhyChooseUsProps }) {
           {title}
         </h2>
         <div className="flex lg:gap-x-10 md:gap-x-6 md:flex-row flex-col gap-y-6 sm:gap-y-8 md:gap-y-0">
-          {content.map(({ tagline, title }: ColumnProps) => {
+          {content?.map(({ tagline, title }) => {
             return <Column tagline={tagline} title={title} key={title} />;
           })}
         </div>
@@ -26,17 +20,5 @@ function WhyChooseUs({ module }: { module: WhyChooseUsProps }) {
     </section>
   );
 }
-
-const Column = ({ title, tagline }: { title: string; tagline: string }) => {
-  return (
-    <div className="lg:max-w-[20rem] space-y-3 text-center">
-      <h3 className="text-accent-foreground text-xl font-serif font-medium">
-        {title}
-      </h3>
-      <hr className="border-accent-foreground/40" />
-      <p className="text-accent-foreground text-sm font-sans">{tagline}</p>
-    </div>
-  );
-};
 
 export default WhyChooseUs;

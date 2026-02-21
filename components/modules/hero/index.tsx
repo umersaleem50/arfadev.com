@@ -1,49 +1,8 @@
 "use client";
 
-import BtnCTA from "../BtnCTA";
+import BtnCTA from "../../BtnCTA";
 
-export interface LandingHeroProps {
-  cta: string;
-}
-
-const defaultItems = [
-  {
-    image:
-      "https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1024x768&vertical=center",
-    text: "Doneze",
-  },
-  {
-    image:
-      "https://cdn.dribbble.com/userupload/8817245/file/original-fe6d08b5e2b3f7fb2fad97cfbe501ac3.png?resize=1024x768&vertical=center",
-    text: "Bolt",
-  },
-  {
-    image: "/assets/coach-pulse.jpg",
-    text: "Coach Pulse",
-  },
-  {
-    image: "/assets/cayus-ai.jpg",
-    text: "Cayus AI",
-  },
-  {
-    image:
-      "https://cdn.dribbble.com/userupload/46084065/file/cd785c8cc61b8647d7c4a2ef5fb5150d.jpg?resize=1024x768&vertical=center",
-    text: "JD",
-  },
-  {
-    image: "/assets/coach-pulse-dark.jpg",
-    text: "Coach Pulse",
-  },
-  {
-    image:
-      "https://cdn.dribbble.com/userupload/38640245/file/original-15aac0b678e3534477fa01565d81f455.png?resize=1024x768&vertical=center",
-    text: "Toks.",
-  },
-
-  ,
-];
-
-function LandingHero() {
+export default function LandingHero() {
   return (
     <section className="z-10 h-screen flex items-center justify-center">
       <div className="flex items-center md:flex-col flex-row gap-4 w-full mx-auto">
@@ -73,5 +32,3 @@ function LandingHero() {
     </section>
   );
 }
-
-export default LandingHero;
