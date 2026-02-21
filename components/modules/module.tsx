@@ -8,7 +8,7 @@ const ProcessCards = dynamic(() => import("./process.module"));
 const Team = dynamic(() => import("./team"));
 const Testimonial01 = dynamic(() => import("./testimonial.module"));
 
-const PortfolioModule = dynamic(() => import("./portfolio-module"));
+const Portfolio = dynamic(() => import("./portfolio/portfolio"));
 const WhyChooseUs = dynamic(() => import("./why-choose-us"));
 const FooterModule = dynamic(() => import("./footer.module"));
 
@@ -31,7 +31,7 @@ function Module({ module }: any) {
     case "whyChooseUs":
       return <WhyChooseUs module={module} />;
     case "portfolio":
-      return <PortfolioModule module={module} />;
+      return <Portfolio module={module} />;
     // case "services":
     //   return <Feature01 module={module} />;
 

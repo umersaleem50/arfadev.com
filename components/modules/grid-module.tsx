@@ -1,7 +1,7 @@
-import { cx } from "class-variance-authority";
-import ContentBody from "./content-body";
-import CustomImage from "../custom-image";
 import { cn, purifyString } from "@/lib/utils";
+import { cx } from "class-variance-authority";
+import CustomImage from "../SanityImage";
+import ContentBody from "./content-body";
 
 const GridBlock = ({ block }: any) => {
   const type = block._type;
@@ -41,7 +41,7 @@ const getGridSize = (
   justify = "auto",
   align = "auto",
   start = "auto",
-  hidden = false
+  hidden = false,
 ) => {
   const hasBreakpoint = breakpoint && purifyString(breakpoint.trim());
   const isHidden = hidden ? "hidden" : "inline-block";
@@ -75,7 +75,7 @@ function GridModule({ module }: any) {
       className={cn(
         padding ? "w-full lg:py-24 md:py-20 sm:py-16 py-14" : "w-full",
 
-        deviceScreen ? "h-[90vh]" : "h-auto"
+        deviceScreen ? "h-[90vh]" : "h-auto",
       )}
     >
       {/* <div className="w-full"> */}
@@ -93,9 +93,9 @@ function GridModule({ module }: any) {
                 size.justify,
                 size.align,
                 size.start,
-                size.hidden
+                size.hidden,
               );
-            })
+            }),
           ).toLocaleLowerCase();
 
           return (

@@ -1,7 +1,5 @@
 import Link from "next/link";
-import React from "react";
-import { urlFor } from "@/sanity/lib/image";
-import CustomImage from "./custom-image";
+import CustomImage from "./SanityImage";
 import Author from "./author";
 // import TimeAgo from "javascript-time-ago";
 // import es from "javascript-time-ago/locale/es";

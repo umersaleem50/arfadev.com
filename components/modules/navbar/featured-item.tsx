@@ -1,8 +1,7 @@
-import CustomImage from "@/components/custom-image";
+import CustomImage from "@/components/SanityImage";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { INavDropdown } from "@/sanity/schemaTypes/objects/nav-dropdown";
 import Link from "next/link";
-import React from "react";
 
 function FeaturedItem({ featured }: Pick<INavDropdown, "featured">) {
   if (!featured) return null;

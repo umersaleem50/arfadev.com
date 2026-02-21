@@ -1,9 +1,8 @@
 import { cx } from "class-variance-authority";
-import { urlFor } from "@/sanity/lib/image";
 
-import { cn, purifyString } from "@/lib/utils";
+import { purifyString } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
-import CustomImage from "./custom-image";
+import CustomImage from "./SanityImage";
 import { portableComplex } from "./portable-stucture/portable-complex";
 
 const GridBlock = ({ block }: any) => {
@@ -39,7 +38,7 @@ const getGridSize = (
   size: any,
   justify = "auto",
   align = "auto",
-  start = "auto"
+  start = "auto",
 ) => {
   const hasBreakpoint = breakpoint && breakpoint.trim();
   const colSpan = hasBreakpoint
@@ -79,9 +78,9 @@ function PortableCTA({ module }: any) {
               size.width,
               size.justify,
               size.align,
-              size.start
+              size.start,
             );
-          })
+          }),
         ).toLocaleLowerCase();
 
         return (

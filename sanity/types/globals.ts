@@ -4,7 +4,7 @@ export interface IReference {
   slug?: any;
 }
 
-export interface IPage {
+export interface SanityPage {
   slug: any;
   title?: string;
 }
