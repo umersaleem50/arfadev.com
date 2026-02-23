@@ -31,7 +31,7 @@ const Bentogrid = () => {
             </h3>
             <p className="text-base font-sans font-normal text-muted-foreground">
               Build powerful dashboards in no time with per-built Tailwind
-              components and layouts. Whether you're creating admin panels,
+              components and layouts. Whether you&apos;re creating admin panels,
               analytics dashboards, or SaaS back-ends.
             </p>
           </div>
