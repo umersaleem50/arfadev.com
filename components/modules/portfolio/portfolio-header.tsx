@@ -2,7 +2,7 @@
 import AnimatedText from "@/components/animated/AnimatedText";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { PortfolioHeaderProps } from "./types/portfolio.type";
+import { PortfolioHeaderProps } from "./types";
 
 export function PortfolioHeaders({
   title,

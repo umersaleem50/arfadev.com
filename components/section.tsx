@@ -2,12 +2,12 @@ import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
 import SectionFooter from "./section-footer";
-import SectionHeader, { ISectionHeader } from "./section-options";
+import SectionMetaData, { SectionMetaDataProps } from "./section-header";
 
-interface ISection {
+interface SectionProps {
   className?: string;
   children: ReactNode;
-  sectionData?: ISectionHeader;
+  sectionData?: SectionMetaDataProps;
   fullWidth?: boolean;
   sectionRef?: React.Ref<HTMLDivElement>;
 }
@@ -18,7 +18,8 @@ function Section({
   className,
   sectionData,
   fullWidth = false,
-}: ISection) {
+}: SectionProps) {
+  const sectionFooter = sectionData?.sectionFooter;
   return (
     <section
       className={cn(
@@ -29,7 +30,7 @@ function Section({
       ref={sectionRef}
     >
       {sectionData && (
-        <SectionHeader
+        <SectionMetaData
           className={fullWidth ? "px-4 md:px-0" : ""}
           {...sectionData}
         />
@@ -37,9 +38,7 @@ function Section({
       <div className={cn(fullWidth ? "w-full" : "max-w-[85rem]", "mx-auto ")}>
         {children}
       </div>
-      {sectionData?.sectionFooter && (
-        <SectionFooter {...sectionData.sectionFooter} />
-      )}
+      {sectionFooter && <SectionFooter {...sectionFooter} />}
     </section>
   );
 }

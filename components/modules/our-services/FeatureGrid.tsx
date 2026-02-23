@@ -1,18 +1,18 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { motion } from "motion/react";
 import Image from "next/image";
+import { ReactNode } from "react";
+import {
+  default as AnimatedCard,
+  default as AnimatedContainer,
+} from "../../AnimatedContainer";
+import { Content } from "./types";
 
-type Features = {
-  icon: React.ReactNode;
-  content: string | React.ReactNode;
-}[];
-
-const Feature = ({ featureData }: { featureData: Features }) => {
+const FeatureGrid = ({ gridItems }: { gridItems: Content }) => {
   return (
     <div className="flex flex-col gap-8 md:gap-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6">
-        <motion.div
+        <AnimatedCard
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -53,11 +53,11 @@ const Feature = ({ featureData }: { featureData: Features }) => {
               </span>
             </CardFooter>
           </Card>
-        </motion.div>
+        </AnimatedCard>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
-          {featureData?.map((value, index) => {
+          {gridItems?.map((value, index) => {
             return (
-              <motion.div
+              <AnimatedContainer
                 key={index}
                 initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -69,13 +69,13 @@ const Feature = ({ featureData }: { featureData: Features }) => {
               >
                 <Card className="py-8 bg-muted ring-0 border-0 h-full">
                   <CardContent className="w-full h-full px-8 flex flex-col items-start gap-12 justify-between">
-                    {value.icon}
+                    {value.icon as ReactNode}
                     <div className="text-base text-muted-foreground font-sans font-normal">
-                      {value?.content}
+                      {value?.subtitle}
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </AnimatedContainer>
             );
           })}
         </div>
@@ -84,4 +84,4 @@ const Feature = ({ featureData }: { featureData: Features }) => {
   );
 };
 
-export default Feature;
+export default FeatureGrid;

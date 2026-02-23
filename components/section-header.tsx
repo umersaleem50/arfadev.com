@@ -1,25 +1,21 @@
-"use client";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 import AnimatedText from "./animated/AnimatedText";
+import { SectionFooterProps } from "./section-footer";
 
-export interface IOptions {
+export interface SectionMetaDataProps {
   title?: string;
   subtitle?: string;
   className?: string;
-}
-
-export interface ISectionHeader extends IOptions {
   miniTitle?: string;
-  sectionFooter?: any;
+  sectionFooter?: SectionFooterProps;
 }
 
-function SectionHeader({
+function SectionMetaData({
   title,
   subtitle,
   className,
   miniTitle,
-}: ISectionHeader) {
+}: SectionMetaDataProps) {
   return (
     <div
       className={cn(
@@ -32,7 +28,6 @@ function SectionHeader({
           className={
             "text-sm font-sans border-b inline-block self-start border-current pb-2 max-w-lg text-accent dark:text-primary"
           }
-          Wrapper={motion.p}
         >
           {miniTitle}
         </AnimatedText>
@@ -41,7 +36,7 @@ function SectionHeader({
         className={
           "lg:text-4xl md:text-3xl text-2xl leading-normal font-serif max-w-lg text-current"
         }
-        Wrapper={motion.h2}
+        as={"h3"}
       >
         {title}
       </AnimatedText>
@@ -50,7 +45,6 @@ function SectionHeader({
         className={
           "text-md text-sm sm:text-base font-sans max-w-lg text-current opacity-70"
         }
-        Wrapper={motion.p}
       >
         {subtitle}
       </AnimatedText>
@@ -58,28 +52,4 @@ function SectionHeader({
   );
 }
 
-export function PortfolioOptions({ title, subtitle, className }: IOptions) {
-  return (
-    <div
-      className={cn(
-        "flex flex-col lg:space-y-4 md:space-y-2 max-w-md lg:mb-8  md:mb-6 mb-4",
-        className,
-      )}
-    >
-      <AnimatedText
-        Wrapper={motion.h3}
-        className="lg:text-3xl md:text-2xl text-xl leading-loose font-serif text-muted-foreground"
-      >
-        {title}
-      </AnimatedText>
-      <AnimatedText
-        Wrapper={motion.p}
-        className="text-md sm:text-base text-sm font-sans text-muted-foreground"
-      >
-        {subtitle}
-      </AnimatedText>
-    </div>
-  );
-}
-
-export default SectionHeader;
+export default SectionMetaData;

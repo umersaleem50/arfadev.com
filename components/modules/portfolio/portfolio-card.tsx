@@ -4,7 +4,7 @@ import SanityImage from "@/components/SanityImage";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { PortfolioHeaders } from "./portfolio-header";
-import { PortfolioCardProps } from "./types/portfolio.type";
+import { PortfolioCardProps } from "./types";
 
 export function PortfolioCard({
   index,

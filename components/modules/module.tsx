@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Feature01 = dynamic(() => import("../shadcn-space/blocks/feature-01"));
+const OurServices = dynamic(() => import("./our-services"));
 const CTABento = dynamic(() => import("../ui/bento-grid-1"));
 const Gallery = dynamic(() => import("./gallery-module"));
 
@@ -32,8 +32,8 @@ function Module({ module }: any) {
       return <WhyChooseUs module={module} />;
     case "portfolio":
       return <Portfolio module={module} />;
-    // case "services":
-    //   return <Feature01 module={module} />;
+    case "services":
+      return <OurServices module={module} />;
 
     // case "guarantee":
     //   return <ProcessCards />;
