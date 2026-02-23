@@ -1,6 +1,6 @@
 import Section from "../../section";
 import { PortfolioCard } from "./portfolio-card";
-import { PortfolioProps } from "./types/portfolio.type";
+import { PortfolioProps } from "./types";
 
 function Portfolio({ module }: PortfolioProps) {
   const {

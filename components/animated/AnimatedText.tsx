@@ -1,20 +1,34 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+import { ComponentPropsWithoutRef, ElementType } from "react";
 
-function AnimatedText({ children, Wrapper, className }: any) {
+type AnimatedTextProps<T extends ElementType> = {
+  as?: T;
+  className?: string;
+  children: React.ReactNode;
+} & ComponentPropsWithoutRef<T>;
+
+export default function AnimatedText<T extends ElementType = "p">({
+  as,
+  className,
+  children,
+  ...props
+}: AnimatedTextProps<T>) {
+  const Component = motion.create(as ?? "p");
+
   return (
     <div className="relative inline-block overflow-hidden h-auto">
       {/* Text Layer */}
-      <Wrapper
+      <Component
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.8 }} // waits until strip moves out
+        transition={{ delay: 0.8 }}
         viewport={{ once: true }}
         className={className}
+        {...props}
       >
         {children}
-      </Wrapper>
+      </Component>
 
       {/* Orange Strip */}
       <motion.div
@@ -27,5 +41,3 @@ function AnimatedText({ children, Wrapper, className }: any) {
     </div>
   );
 }
-
-export default AnimatedText;

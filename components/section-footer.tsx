@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 
+export interface SectionFooterProps {
+  description: string;
+  btnText?: string;
+  urlType?: string;
+  navPage?: { page: { language: string; slug: { current: string } } };
+  navLink?: string;
+  slugPage?: string;
+}
+
 function SectionFooter({
   description,
   btnText,
@@ -8,14 +17,7 @@ function SectionFooter({
   navPage,
   navLink,
   slugPage,
-}: {
-  description: string;
-  btnText?: string;
-  urlType?: string;
-  navPage?: { page: { language: string; slug: { current: string } } };
-  navLink?: string;
-  slugPage?: string;
-}) {
+}: SectionFooterProps) {
   let href;
   switch (urlType) {
     case "internal":
@@ -36,7 +38,7 @@ function SectionFooter({
       </p>
 
       <Button asChild variant={"outline"} size={"lg"}>
-        <Link href={href || "/invalid-url"}>{btnText}</Link>
+        <Link href={href || "/not-found"}>{btnText}</Link>
       </Button>
     </div>
   );
