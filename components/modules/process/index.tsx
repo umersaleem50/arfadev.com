@@ -2,16 +2,15 @@
 
 import { useRef } from "react";
 
+import AnimatedTabs from "@/components/AnimatedTabs";
 import Section from "@/components/section";
-import { ProcessCards } from "./ProcessCards";
-import { processTempData } from "./data";
+import Bentogrid from "./BentoGrid";
 
 function OurProcess() {
   const sectionRef = useRef<HTMLDivElement>(null);
   return (
     <Section
       sectionRef={sectionRef}
-      className="relative space-y-6 px-4 sm:px-6 lg:px-8"
       sectionData={{
         title: "How We Bring Ideas to Life",
         subtitle:
@@ -19,7 +18,18 @@ function OurProcess() {
         miniTitle: "Our Proven Process",
       }}
     >
-      <ProcessCards data={processTempData} />
+      {/* <ProcessCards data={processTempData} /> */}
+
+      <AnimatedTabs
+        tabs={[
+          { id: "1", label: "OnBoarding Flows" },
+          { id: "2", label: "Landing Pages" },
+        ]}
+        variant="pill"
+        className="mb-4"
+      />
+
+      <Bentogrid />
     </Section>
   );
 }
