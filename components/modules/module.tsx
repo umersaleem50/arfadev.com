@@ -5,7 +5,7 @@ const CTABento = dynamic(() => import("../ui/bento-grid-1"));
 const Gallery = dynamic(() => import("./gallery-module"));
 
 const OurProcess = dynamic(() => import("./process"));
-const Team = dynamic(() => import("./team"));
+const TeamSection = dynamic(() => import("./team"));
 const Testimonial01 = dynamic(() => import("./testimonial.module"));
 
 const Portfolio = dynamic(() => import("./portfolio/portfolio"));
@@ -38,8 +38,8 @@ function Module({ module }: any) {
     case "guarantee":
       return <OurProcess />;
 
-    // case "team":
-    //   return <Team module={module} />;
+    case "team":
+      return <TeamSection module={module} />;
 
     // case "grid":
     //   return <Gallery module={module} />;
