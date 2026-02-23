@@ -4,7 +4,7 @@ const OurServices = dynamic(() => import("./our-services"));
 const CTABento = dynamic(() => import("../ui/bento-grid-1"));
 const Gallery = dynamic(() => import("./gallery-module"));
 
-const ProcessCards = dynamic(() => import("./process.module"));
+const OurProcess = dynamic(() => import("./process"));
 const Team = dynamic(() => import("./team"));
 const Testimonial01 = dynamic(() => import("./testimonial.module"));
 
@@ -35,8 +35,8 @@ function Module({ module }: any) {
     case "services":
       return <OurServices module={module} />;
 
-    // case "guarantee":
-    //   return <ProcessCards />;
+    case "guarantee":
+      return <OurProcess />;
 
     // case "team":
     //   return <Team module={module} />;
