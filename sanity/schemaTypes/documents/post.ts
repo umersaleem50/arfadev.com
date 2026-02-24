@@ -48,7 +48,7 @@ export default defineType({
     },
     {
       name: "cover",
-      type: "customImage",
+      type: "sanityImage",
       description: "Cover Picture for article.",
       title: "Cover Image",
       options: {
@@ -60,7 +60,7 @@ export default defineType({
     },
     {
       name: "cover_vertical",
-      type: "customImage",
+      type: "sanityImage",
       description: "Cover Picture for article with vertical direction.",
       title: "Cover Image",
       options: {

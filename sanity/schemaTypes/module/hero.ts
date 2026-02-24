@@ -33,11 +33,11 @@ const heroSchema = {
       // name: "photos",
       // type: "object",
       // fields: [
-      //   { name: "mobileImage", type: "customImage" },
-      //   { name: "desktopImage", type: "customImage" },
+      //   { name: "mobileImage", type: "sanityImage" },
+      //   { name: "desktopImage", type: "sanityImage" },
       // ],
       name: "coverImage",
-      type: "customImage",
+      type: "sanityImage",
       title: "Cover Image",
       hidden: ({ parent }: any) => {
         return parent.bgType !== "photo";

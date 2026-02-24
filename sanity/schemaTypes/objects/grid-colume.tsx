@@ -1,6 +1,7 @@
 import { getTypeTitles } from "@/sanity/lib/helper";
 import { TextAlignLeft } from "@phosphor-icons/react/dist/ssr";
 import { Avatar } from "@sanity/ui";
+import { Rule } from "sanity";
 const column = {
   title: "Column",
   name: "gridColumn",
@@ -14,7 +15,7 @@ const column = {
       of: [{ type: "gridSize" }],
       description:
         "Define the display size of this column for different screen widths",
-      validation: (Rule: any) => Rule.required().min(1),
+      validation: (Rule: Rule) => Rule.required().min(1),
     },
     {
       title: "Content Blocks",
@@ -23,7 +24,7 @@ const column = {
       description: "The content that exists inside this column",
       of: [
         { type: "bodyContent" },
-        { type: "customImage" },
+        { type: "sanityImage" },
         { type: "form" },
         // { type: "productCard" },
       ],

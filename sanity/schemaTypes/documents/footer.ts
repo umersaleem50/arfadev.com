@@ -28,7 +28,7 @@ export default defineField({
           title: "Subtitle",
           name: "subtitle",
         },
-        { type: "customImage", name: "logo", title: "Logo" },
+        { type: "sanityImage", name: "logo", title: "Logo" },
         {
           type: "array",
           name: "contactDetails",

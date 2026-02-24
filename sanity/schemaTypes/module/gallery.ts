@@ -17,7 +17,7 @@ export default defineField({
       type: "array",
       name: "content",
       title: "Content",
-      of: [{ type: "customImage" }],
+      of: [{ type: "sanityImage" }],
       validation(rule) {
         return rule.required().max(30);
       },

@@ -17,7 +17,7 @@ const missionSchema = {
           type: "object",
           fields: [
             {
-              type: "customImage",
+              type: "sanityImage",
               name: "image",
             },
             { type: "complexPortableText", name: "body" },

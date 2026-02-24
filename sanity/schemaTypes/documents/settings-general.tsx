@@ -82,7 +82,7 @@ const generalSettings = {
             {
               title: "Thumbnail",
               name: "image",
-              type: "customImage",
+              type: "sanityImage",
             },
             {
               title: "Description",

@@ -23,7 +23,7 @@ export default defineField({
               title: "Cover Images",
               of: [
                 {
-                  type: "customImage",
+                  type: "sanityImage",
                   name: "cover",
                   title: "Cover Picture",
                   validation(rule) {
