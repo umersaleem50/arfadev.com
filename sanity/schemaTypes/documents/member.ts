@@ -10,7 +10,7 @@ export default defineField({
     {
       name: "photo",
       title: "Profile Picture",
-      type: "customImage",
+      type: "sanityImage",
       validation(rule) {
         return rule.required();
       },

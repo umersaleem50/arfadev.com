@@ -35,7 +35,7 @@ export default defineField({
               },
             },
             {
-              type: "customImage",
+              type: "sanityImage",
               name: "icon",
               title: "Icon",
               description:
@@ -49,7 +49,7 @@ export default defineField({
         Rule.max(4).error("You can add only 4 services here."),
     },
     // {
-    //   type: "customImage",
+    //   type: "sanityImage",
     //   name: "lineArt",
     //   title: "Line Art",
     //   description: "Try to use a lineart with svg for better results. ",

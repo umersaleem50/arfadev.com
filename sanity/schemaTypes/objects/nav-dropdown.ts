@@ -1,10 +1,10 @@
-import type { Rule } from "sanity";
 import { ArrowBendRightDown } from "@phosphor-icons/react";
+import type { Rule } from "sanity";
 
-import { INavLink } from "./navlink";
+import { SanityImageProps } from "@/components/SanityImage";
 import { IMenuLink } from "./menuLink";
-import { ICustomImage } from "./custom-image";
-import { IPage } from "@/sanity/types/globals";
+import { INavLink } from "./navlink";
+import { INavPage } from "./navpage";
 
 export interface INavDropdown {
   _type?: "navDropdown";
@@ -12,8 +12,8 @@ export interface INavDropdown {
   dropdownItems: (IMenuLink | INavLink)[];
   featured?: {
     title: string;
-    cover?: ICustomImage;
-    page: IPage;
+    cover?: SanityImageProps;
+    page: INavPage;
   };
 }
 
@@ -56,7 +56,7 @@ const NavDropdown = {
         },
         {
           name: "cover",
-          type: "customImage",
+          type: "sanityImage",
           title: "Cover Image",
           description: "Cover picture will only be used for menu.",
         },

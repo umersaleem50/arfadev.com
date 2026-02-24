@@ -33,7 +33,7 @@ export default defineField({
               },
             },
             {
-              type: "customImage",
+              type: "sanityImage",
               name: "image",
               title: "Client's Profile Picture",
             },

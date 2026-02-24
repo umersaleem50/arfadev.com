@@ -1,20 +1,20 @@
-export interface ICustomImage {
-  _type: "customImage";
-  _key?: string;
-  asset: {
-    _type: "reference";
-    _ref: string;
-  };
-  alt?: string;
-  objectFit?: "cover" | "contain" | "fill";
-  width?: number;
-  height?: number;
-  loading?: "lazy" | "eager";
-  priority?: boolean;
-}
+// export interface ICustomImage {
+//   _type: "customImage";
+//   _key?: string;
+//   asset: {
+//     _type: "reference";
+//     _ref: string;
+//   };
+//   alt?: string;
+//   objectFit?: "cover" | "contain" | "fill";
+//   width?: number;
+//   height?: number;
+//   loading?: "lazy" | "eager";
+//   priority?: boolean;
+// }
 
-const CustomImage = {
-  name: "customImage",
+const SanityImage = {
+  name: "sanityImage",
   title: "Image",
   type: "image",
 
@@ -67,4 +67,4 @@ const CustomImage = {
   ],
 };
 
-export default CustomImage;
+export default SanityImage;
