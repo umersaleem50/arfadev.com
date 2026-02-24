@@ -5,12 +5,6 @@ import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
 
-export interface BrandList {
-  image: string;
-  name: string;
-  lightimg: string;
-}
-
 function BrandSlider({ brandList }: { brandList: BrandList[] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
