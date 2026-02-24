@@ -23,7 +23,7 @@ const ArticleBreadCrumbs = dynamic(
 );
 const ShareButtons = dynamic(() => import("@/components/social-media-share"));
 const Author = dynamic(() => import("@/components/author"));
-const BlogCard = dynamic(() => import("@/components/blog-card"));
+const BlogCard = dynamic(() => import("@/components/modules/blogs/blog-card"));
 const ArticleCover = dynamic(
   () => import("@/components/modules/article-cover"),
 );

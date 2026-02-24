@@ -1,5 +1,5 @@
 import { MicrosoftWordLogo } from "@phosphor-icons/react/dist/ssr";
-import { defineField } from "sanity";
+import { defineField, Rule } from "sanity";
 
 export default defineField({
   title: "Featured Blogs",
@@ -18,7 +18,7 @@ export default defineField({
           to: [{ type: "post" }],
         },
       ],
-      validation: (Rule: any) =>
+      validation: (Rule: Rule) =>
         Rule.max(2).error("You can only have one piece of content"),
     },
   ],

@@ -163,20 +163,12 @@ export default defineType({
       slug: "slug",
       cover: "cover",
     },
-    prepare({
-      title = "Untitled",
-      slug = {},
-      cover,
-    }: {
-      title: string;
-      slug: { current?: string };
-      cover: any;
-    }) {
+    prepare({ title = "Untitled", slug = {}, cover }) {
       const path = `/${slug?.current}`;
       return {
         title,
         subtitle: slug.current ? path : "(missing slug)",
-        media: cover.asset,
+        media: cover.image,
       };
     },
   },

@@ -1,29 +1,20 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import Author from "./author";
-import CustomImage from "./SanityImage";
-import { Badge } from "./ui/badge";
+import Author from "../../author";
+
+import SanityImage from "../../SanityImage";
+import { Badge } from "../../ui/badge";
+import { type BlogCard } from "./types";
 
 function BlogCard({
   title,
-  cover,
   _createdAt,
   author,
   slug,
   description,
   tags,
   cover_vertical,
-}: {
-  title: string;
-  cover?: any;
-  _createdAt?: any;
-  author?: any;
-  slug?: { current: string };
-  content?: any;
-  description?: string;
-  tags?: string[];
-  cover_vertical: any;
-}) {
+}: BlogCard) {
   return (
     <Link
       className="group sm:flex focus:outline-none bg-muted rounded-md"
@@ -34,15 +25,14 @@ function BlogCard({
           "shrink-0 relative overflow-hidden h-[300px] sm:w-[300px] sm:h-[450px] w-full group rounded-md",
         )}
       >
-        {cover_vertical && (
-          <CustomImage
+        {cover_vertical ? (
+          <SanityImage
             className="size-full absolute top-0 start-0 group-hover:scale-110 transition-all duration-500 ease-in-out object-cover "
             alt={cover_vertical?.alt}
             fill
-            objectFit={"cover"}
-            imageOBJ={cover_vertical}
+            image={cover_vertical}
           />
-        )}
+        ) : null}
       </div>
 
       <div className="sm:w-[400px]">
@@ -69,20 +59,6 @@ function BlogCard({
           <div className="mt-5 sm:mt-auto">
             {/* <!-- Avatar --> */}
             <div className="flex items-center">
-              {/* <div className="shrink-0 relative w-10 h-10">
-                <Image
-                  className="size-[46px] rounded-full object-cover"
-                  src={"/chishti.jpg"}
-                  alt="Avatar"
-                  fill
-                />
-              </div>
-              <div className="ms-2.5 sm:ms-4">
-                <h4 className="font-semibold font-serif">{author?.name}</h4>
-                <p className="text-xs font-sans">
-                  {new Date(_createdAt).toDateString()}
-                </p>
-              </div> */}
               <Author author={author} postedAt={_createdAt} />
             </div>
             {/* <!-- End Avatar --> */}
@@ -93,16 +69,6 @@ function BlogCard({
   );
 }
 
-export type ILargeBlogCard = {
-  cover: any;
-  title: string;
-  description: string;
-  slug: { current: string };
-  author: any;
-  _updatedAt: string;
-  tags?: string[];
-};
-
 export function LargeBlogCard({
   cover,
   title,
@@ -111,24 +77,27 @@ export function LargeBlogCard({
   slug,
   description,
   tags,
-}: ILargeBlogCard) {
+}: BlogCard) {
   // const { title, description, updatedAt, createdAt, slug } = data;
   return (
     <div className="w-full group flex flex-col transition duration-300 group ">
       <div className="aspect-w-16 aspect-h-11 relative h-[12rem] sm:h-[20rem] md:h-[32rem] rounded-md overflow-hidden">
-        <CustomImage
-          imageOBJ={cover}
-          fill
-          className="w-full object-cover hover:scale-105 transition-transform duration-300"
-          alt="Blog Image"
-        />
+        {cover && (
+          <SanityImage
+            image={cover}
+            fill
+            className="w-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        )}
       </div>
 
-      <Link href={`/blogs/${slug.current}`}>
+      <Link href={`/blogs/${slug?.current ?? ""}`}>
         <div className="my-3 sm:my-4 md:my-5 lg:md-6">
-          <time className="text-sm sm:text-base font-sans text-white/70">
-            {new Date(_updatedAt).toDateString()}
-          </time>
+          {_updatedAt && (
+            <time className="text-sm sm:text-base font-sans text-white/70">
+              {new Date(_updatedAt).toDateString()}
+            </time>
+          )}
           <h3 className="text-xl md:text-2xl lg:text-3xl underline text-foreground hover:underline group-hover:text-accent dark:group-hover:text-primary transition-colors font-light">
             {title}
           </h3>
@@ -137,17 +106,16 @@ export function LargeBlogCard({
           </p>
         </div>
 
-        {tags && (
-          <div className="flex flex-wrap gap-2 pb-3 sm:pb-4 md:pb-5 lg:pb-6">
-            {tags.map((tag: string, key: number) => {
-              return (
-                <Badge key={tag} variant="secondary">
-                  {tag}
-                </Badge>
-              );
-            })}
-          </div>
-        )}
+        <div className="flex flex-wrap gap-2 pb-3 sm:pb-4 md:pb-5 lg:pb-6">
+          {tags?.map((tag: string) => {
+            return (
+              <Badge key={tag} variant="secondary">
+                {tag}
+              </Badge>
+            );
+          })}
+        </div>
+
         <Author author={author} postedAt={_updatedAt} />
       </Link>
     </div>
