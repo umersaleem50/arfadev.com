@@ -39,10 +39,10 @@ export default defineField({
             },
             {
               type: "text",
-              name: "qoute",
-              title: "Qoute",
+              name: "quote",
+              title: "Quote",
               rows: 3,
-              description: "Enter the qoute by the client.",
+              description: "Enter the quote by the client.",
               validation(rule) {
                 return rule.required().max(600).error("Keep it short.");
               },
