@@ -27,7 +27,7 @@ const FeatureGrid = ({ gridItems }: { gridItems: Content }) => {
               <Avatar className="size-12">
                 <AvatarFallback>
                   <Image
-                    src="/saamir-shamsie.jpg"
+                    src="/clients/saamir-shamsie.jpg"
                     className="rounded-full"
                     alt="Shaamir Shamsie"
                     fill
