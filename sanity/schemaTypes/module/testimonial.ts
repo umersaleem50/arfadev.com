@@ -7,40 +7,47 @@ export default defineField({
   title: "Testimonial",
   fields: [
     { name: "metaData", type: "metaData" },
+
     {
-      name: "feedback",
-      type: "text",
-      title: "Testimonial",
-      rows: 3,
-      description: "Enter the testimonial of your client.",
-      validation(rule) {
-        return rule.required().max(600).error("Keep it short.");
-      },
-    },
-    {
-      type: "object",
-      name: "client",
-      fields: [
+      type: "array",
+      name: "clients",
+      of: [
         {
-          type: "string",
-          name: "name",
-          title: "Client's Name",
-          validation(rule) {
-            return rule.required().max(40);
-          },
-        },
-        {
-          type: "string",
-          name: "profession",
-          title: "Client's Profession",
-          validation(rule) {
-            return rule.required().max(150);
-          },
-        },
-        {
-          type: "customImage",
-          name: "photo",
-          title: "Client's Profile Picture",
+          type: "object",
+          name: "client",
+          fields: [
+            {
+              type: "string",
+              name: "author",
+              title: "Client's Name",
+              validation(rule) {
+                return rule.required().max(40);
+              },
+            },
+            {
+              type: "string",
+              name: "role",
+              title: "Client's Role",
+              validation(rule) {
+                return rule.required().max(150);
+              },
+            },
+            {
+              type: "customImage",
+              name: "image",
+              title: "Client's Profile Picture",
+            },
+            {
+              type: "text",
+              name: "qoute",
+              title: "Qoute",
+              rows: 3,
+              description: "Enter the qoute by the client.",
+              validation(rule) {
+                return rule.required().max(600).error("Keep it short.");
+              },
+            },
+          ],
         },
       ],
     },
