@@ -15,4 +15,5 @@ export interface TestimonialProps {
 
 export interface TestimonialSection {
   metaData: SectionMetaDataProps;
+  clients: Array<TestimonialProps>;
 }

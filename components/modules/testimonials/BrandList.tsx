@@ -1,9 +1,7 @@
-"use client";
-
+import AnimatedContainer from "@/components/AnimatedContainer";
 import { Marquee } from "@/components/shadcn-space/animations/marquee";
-import { motion, useInView } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import { Ref } from "react";
 
 export interface BrandList {
   image: string;
@@ -11,14 +9,19 @@ export interface BrandList {
   lightimg: string;
 }
 
-function BrandSlider({ brandList }: { brandList: BrandList[] }) {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
-
+function BrandSlider({
+  brandList,
+  sectionRef,
+  isInView,
+}: {
+  brandList: BrandList[];
+  sectionRef: Ref<HTMLDivElement>;
+  isInView: boolean;
+}) {
   return (
     <div className="py-6 md:py-10" ref={sectionRef}>
       <div className="max-w-7xl mx-auto sm:px-16 px-4">
-        <motion.div
+        <AnimatedContainer
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
@@ -51,7 +54,7 @@ function BrandSlider({ brandList }: { brandList: BrandList[] }) {
               </Marquee>
             </div>
           )}
-        </motion.div>
+        </AnimatedContainer>
       </div>
     </div>
   );
