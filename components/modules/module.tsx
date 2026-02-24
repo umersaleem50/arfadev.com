@@ -6,7 +6,7 @@ const Gallery = dynamic(() => import("./gallery-module"));
 
 const OurProcess = dynamic(() => import("./process"));
 const TeamSection = dynamic(() => import("./team"));
-const Testimonial01 = dynamic(() => import("./testimonial.module"));
+const Testimonials = dynamic(() => import("./testimonials"));
 
 const Portfolio = dynamic(() => import("./portfolio/portfolio"));
 const WhyChooseUs = dynamic(() => import("./why-choose-us"));
@@ -48,8 +48,8 @@ function Module({ module }: any) {
     // // return <GridModule module={module} />;
     // case "footer":
     //   return <FooterModule module={module} />;
-    // case "testimonial":
-    //   return <Testimonial01 module={module} />;
+    case "testimonial":
+      return <Testimonials module={module} />;
     // case "blogs":
     //   return <BlogsModule module={module} />;
     // case "body":
