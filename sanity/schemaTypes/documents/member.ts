@@ -9,7 +9,7 @@ export default defineField({
   fields: [
     {
       name: "photo",
-      title: "Profile Picture",
+      title: "Picture",
       type: "sanityImage",
       validation(rule) {
         return rule.required();
@@ -78,7 +78,7 @@ export default defineField({
       photo: "photo.asset",
       professions: "professions",
     },
-    prepare({ name, photo, professions }: any) {
+    prepare({ name, photo, professions }) {
       return {
         title: name,
         subtitle: professions.join(", "),

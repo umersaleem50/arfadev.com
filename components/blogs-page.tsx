@@ -2,7 +2,7 @@ import PaginationSearchParams from "@/components/pagination-search-params";
 import { ALL_POSTS_QUERY, BLOG_SEARCH_QUERY } from "@/sanity/data/queries";
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
-import { ILargeBlogCard, LargeBlogCard } from "./blog-card";
+import { ILargeBlogCard, LargeBlogCard } from "./modules/blogs/blog-card";
 import CustomImage from "./SanityImage";
 import { SearchInput } from "./search-input";
 import { Badge } from "./ui/badge";

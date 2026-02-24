@@ -13,7 +13,7 @@ const WhyChooseUs = dynamic(() => import("./why-choose-us"));
 const FooterModule = dynamic(() => import("./footer.module"));
 
 const Hero = dynamic(() => import("./hero"));
-const BlogsModule = dynamic(() => import("./blogs-module"));
+const FeaturedBlogs = dynamic(() => import("./blogs"));
 const ContentBody = dynamic(() => import("./content-body"));
 
 const Navbar = dynamic(() => import("./navbar"));
@@ -50,8 +50,8 @@ function Module({ module }: any) {
     //   return <FooterModule module={module} />;
     case "testimonial":
       return <Testimonials module={module} />;
-    // case "blogs":
-    //   return <BlogsModule module={module} />;
+    case "blogs":
+      return <FeaturedBlogs module={module} />;
     // case "body":
     //   return <ContentBody module={module} />;
 
