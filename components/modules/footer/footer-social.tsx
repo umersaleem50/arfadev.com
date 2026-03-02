@@ -1,6 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { type FooterSocials } from "./types";
 
 const LinkedInLogo = dynamic(() =>
   import("@phosphor-icons/react/dist/ssr").then((icons) => icons.LinkedinLogo),
@@ -44,10 +45,14 @@ const getSocialIcons = (value: string) => {
   }
 };
 
-function FooterSocials({ socialLinks = [] }: any) {
+function FooterSocials({
+  socialLinks = [],
+}: {
+  socialLinks: Array<FooterSocials>;
+}) {
   return (
     <div className="flex space-x-6">
-      {socialLinks?.map(({ icon, url }: any) => {
+      {socialLinks?.map(({ icon, url }: FooterSocials) => {
         return (
           <Link key={url} href={url || "/"}>
             {getSocialIcons(icon)}
