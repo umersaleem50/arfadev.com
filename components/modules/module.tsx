@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 const OurServices = dynamic(() => import("./our-services"));
-const CTABento = dynamic(() => import("../ui/bento-grid-1"));
+const CTABento = dynamic(() => import("./cta"));
 const Gallery = dynamic(() => import("./gallery-module"));
 
 const OurProcess = dynamic(() => import("./process"));
@@ -55,8 +55,8 @@ function Module({ module }: any) {
     // case "body":
     //   return <ContentBody module={module} />;
 
-    // case "cta":
-    //   return <CTABento />;
+    case "cta":
+      return <CTABento />;
 
     default:
       return null;

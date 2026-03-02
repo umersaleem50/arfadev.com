@@ -1,10 +1,8 @@
-"use client";
-
+import AnimatedContainer from "@/components/AnimatedContainer";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { InteractiveHoverButton } from "../InteractiveUIButton";
+import { InteractiveHoverButton } from "../../InteractiveUIButton";
 
 // Types for our bento grid items
 export type BentoItem = {
@@ -64,12 +62,12 @@ function BentoGridItem({ item, className }: BentoItemProps) {
   switch (type) {
     case "feature":
       return (
-        <motion.div
+        <AnimatedContainer
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className={cn(
-            "relative overflow-hidden bg-accent p-8 h-[400px] flex flex-col md:flex-row",
+            "relative overflow-hidden bg-accent p-8 h-[600px] flex flex-col md:flex-row",
             className,
           )}
         >
@@ -91,7 +89,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           {image && (
             <div className=" md:w-1/2 h-full right-0 top-0 flex items-center justify-center">
               <div className="relative w-full h-full">
-                <motion.div
+                <AnimatedContainer
                   initial={{ rotate: 0 }}
                   animate={{ scale: 1.1 }}
                   transition={{ duration: 0.7 }}
@@ -105,16 +103,16 @@ function BentoGridItem({ item, className }: BentoItemProps) {
                       className="object-cover rounded-md"
                     />
                   </div>
-                </motion.div>
+                </AnimatedContainer>
               </div>
             </div>
           )}
-        </motion.div>
+        </AnimatedContainer>
       );
 
     case "chat":
       return (
-        <motion.div
+        <AnimatedContainer
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -130,12 +128,12 @@ function BentoGridItem({ item, className }: BentoItemProps) {
           </div>
 
           <div className="flex-1 relative">{content}</div>
-        </motion.div>
+        </AnimatedContainer>
       );
 
     case "partners":
       return (
-        <motion.div
+        <AnimatedContainer
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -159,7 +157,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
               {description}
             </p>
           </div>
-        </motion.div>
+        </AnimatedContainer>
       );
 
     default:
@@ -194,7 +192,7 @@ export function CompanyLogos() {
 
   return (
     <div className="w-full overflow-hidden">
-      <motion.div
+      <AnimatedContainer
         className="flex gap-8 items-center justify-center"
         animate={{ x: [0, -1000] }}
         transition={{
@@ -237,7 +235,7 @@ export function CompanyLogos() {
             />
           </div>
         ))}
-      </motion.div>
+      </AnimatedContainer>
     </div>
   );
 }
@@ -258,25 +256,25 @@ export function ChatMessaging() {
           </div>
 
           <div className="space-y-3">
-            <motion.div
+            <AnimatedContainer
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="bg-neutral-800 p-2 rounded-lg rounded-tl-none max-w-[80%] text-[10px] text-white"
             >
               How can I help you today?
-            </motion.div>
+            </AnimatedContainer>
 
-            <motion.div
+            <AnimatedContainer
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="bg-[#1DCD9F] p-2 rounded-lg rounded-tr-none max-w-[80%] ml-auto text-[10px] text-white"
             >
               I need help with my project
-            </motion.div>
+            </AnimatedContainer>
 
-            <motion.div
+            <AnimatedContainer
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -284,16 +282,16 @@ export function ChatMessaging() {
             >
               I&apos;d be happy to help! What kind of project are you working
               on?
-            </motion.div>
+            </AnimatedContainer>
 
-            <motion.div
+            <AnimatedContainer
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
               className="bg-[#1DCD9F] p-2 rounded-lg rounded-tr-none max-w-[80%] ml-auto text-[10px] text-white"
             >
               I&apos;m building a component library with Next.js and Tailwind
-            </motion.div>
+            </AnimatedContainer>
           </div>
         </div>
       </div>
