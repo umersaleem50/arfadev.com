@@ -1,7 +1,6 @@
-import { BentoGrid, BentoItem } from "@/components/ui/bento-grid-template-one";
-import Section from "../section";
+import { BentoGrid, BentoItem } from "@/components/modules/cta/bento-grid";
 
-function CTABento() {
+function CTASection() {
   const items: BentoItem[] = [
     // {
     //   id: "1",
@@ -26,9 +25,9 @@ function CTABento() {
   ];
 
   return (
-    <Section fullWidth>
-      <BentoGrid items={items} />
-    </Section>
+    // <Section fullWidth className="my-0!">
+    <BentoGrid items={items} />
+    // </Section>
   );
 }
-export default CTABento;
+export default CTASection;
