@@ -16,10 +16,10 @@ function Author({ author, postedAt }: AuthorProps) {
   return (
     <div className="flex items-center space-x-4 mb-6 col-start-1 col-span-9">
       <Avatar>
-        {author?.photo && (
+        {author?.photo.image && (
           <AvatarImage
             alt={author?.photo?.alt}
-            src={urlFor(author?.photo?.asset).width(70).height(70).url()}
+            src={urlFor(author?.photo?.image).width(70).height(70).url()}
             height={70}
             width={70}
           />
