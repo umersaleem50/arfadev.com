@@ -36,8 +36,8 @@ function Module({ module }: any) {
     case "services":
       return <OurServices module={module} />;
 
-    case "guarantee":
-      return <OurProcess />;
+    case "process":
+      return <OurProcess module={module} />;
 
     case "team":
       return <TeamSection module={module} />;
