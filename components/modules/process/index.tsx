@@ -1,16 +1,11 @@
 import Section from "@/components/section";
 import Bentogrid from "./BentoGrid";
+import { OurProcessProps } from "./types";
 
-function OurProcess() {
+function OurProcess({ module }: { module: OurProcessProps }) {
+  const metaData = module?.metaData;
   return (
-    <Section
-      sectionData={{
-        title: "How We Bring Ideas to Life",
-        subtitle:
-          "From Discovery all the way to launching your project. Our process is simple yet effective.",
-        miniTitle: "Our Proven Process",
-      }}
-    >
+    <Section sectionData={metaData}>
       {/* <ProcessCards data={processTempData} /> */}
 
       <Bentogrid />

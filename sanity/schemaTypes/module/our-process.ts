@@ -8,21 +8,9 @@ export default defineField({
   icon: ChartBar,
   fields: [
     {
-      type: "simplePortableText",
+      type: "metaData",
       name: "metaData",
-    },
-    {
-      type: "array",
-      name: "steps",
-      of: [
-        {
-          type: "string",
-          name: "step",
-          validation(rule) {
-            return rule.max(60).error("Keep text short.");
-          },
-        },
-      ],
+      title: "Meta Data",
     },
   ],
 });

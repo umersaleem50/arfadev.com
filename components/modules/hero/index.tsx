@@ -25,7 +25,7 @@ export default function LandingHero() {
               <u className="text-accent dark:text-primary">SaaS onboarding</u>{" "}
               that improve conversion, retention, and activiation rate.
             </p>
-            <BtnCTA>Improve Your ROI</BtnCTA>
+            <BtnCTA>Get Started</BtnCTA>
           </div>
         </div>
       </div>
