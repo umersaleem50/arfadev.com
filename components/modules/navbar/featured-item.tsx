@@ -1,4 +1,4 @@
-import CustomImage from "@/components/SanityImage";
+import SanityImage from "@/components/SanityImage";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { INavDropdown } from "@/sanity/schemaTypes/objects/nav-dropdown";
 import Link from "next/link";
@@ -20,9 +20,9 @@ function FeaturedItem({ featured }: Pick<INavDropdown, "featured">) {
           <p className="text-sm leading-tight font-sans z-10 text-accent-foreground">
             {featured?.title}
           </p>
-          {featured?.cover?.asset && (
-            <CustomImage
-              imageOBJ={featured?.cover}
+          {featured?.cover && (
+            <SanityImage
+              image={featured?.cover}
               alt={featured?.cover?.alt}
               fill
               className="-z-1 !opacity-30 saturate-0"

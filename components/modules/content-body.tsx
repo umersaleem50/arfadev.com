@@ -1,4 +1,3 @@
-import React from "react";
 import { PortableText } from "@portabletext/react";
 // import Section from "../section";
 
@@ -21,7 +20,7 @@ const WrapperElement = ({
           <article
             className={cn(
               "dark:text-foreground prose-headings:text-foreground prose-h1:leading-normal prose-strong:text-foreground prose-blockquote:text-foreground prose-sm prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8 mx-auto",
-              wide ? "!max-w-[50rem]" : "max-w-prose"
+              wide ? "!max-w-[50rem]" : "max-w-prose",
             )}
           >
             <PortableText value={body} components={portableComplex} />
@@ -34,7 +33,7 @@ const WrapperElement = ({
         <div
           className={cn(
             "dark:text-foreground prose-headings:text-foreground prose-h1:leading-normal prose-strong:text-foreground prose-blockquote:text-foreground prose-sm prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans lg:prose-lg prose-stone !max-w-none !w-full col-start-1 col-span-8 mx-auto",
-            wide ? "!max-w-[50rem]" : "max-w-prose"
+            wide ? "!max-w-[50rem]" : "max-w-prose",
           )}
         >
           <PortableText value={body} components={portableComplex} />
