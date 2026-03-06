@@ -1,5 +1,5 @@
 import { getDynamicRoute, getStaticRoute } from "@/sanity/lib/helper";
-import { IPage } from "@/sanity/types/globals";
+
 import { LinkSimpleHorizontal } from "@phosphor-icons/react";
 
 export interface IMenuLink {
@@ -7,7 +7,7 @@ export interface IMenuLink {
   _key?: string;
   title: string;
   subtitle?: string;
-  page?: IPage;
+  page?: any;
 }
 
 const MenuLink = {

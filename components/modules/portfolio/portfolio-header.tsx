@@ -1,7 +1,5 @@
-"use client";
 import AnimatedText from "@/components/animated/AnimatedText";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 import { PortfolioHeaderProps } from "./types";
 
 export function PortfolioHeaders({
@@ -17,15 +15,12 @@ export function PortfolioHeaders({
       )}
     >
       <AnimatedText
-        Wrapper={motion.h3}
+        as="h3"
         className="lg:text-3xl md:text-2xl text-xl leading-loose font-serif text-muted-foreground"
       >
         {title}
       </AnimatedText>
-      <AnimatedText
-        Wrapper={motion.p}
-        className="text-md sm:text-base text-sm font-sans text-muted-foreground"
-      >
+      <AnimatedText className="text-md sm:text-base text-sm font-sans text-muted-foreground">
         {subtitle}
       </AnimatedText>
     </div>

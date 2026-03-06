@@ -4,7 +4,6 @@ import type { Rule } from "sanity";
 import { SanityImageProps } from "@/components/SanityImage";
 import { IMenuLink } from "./menuLink";
 import { INavLink } from "./navlink";
-import { INavPage } from "./navpage";
 
 export interface INavDropdown {
   _type?: "navDropdown";
@@ -13,7 +12,7 @@ export interface INavDropdown {
   featured?: {
     title: string;
     cover?: SanityImageProps;
-    page: INavPage;
+    page: { slug?: { current: string }; title: string };
   };
 }
 

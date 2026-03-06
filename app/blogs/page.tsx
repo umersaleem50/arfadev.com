@@ -1,6 +1,7 @@
 import BlogsPage from "@/components/blogs-page";
-import FooterModule from "@/components/modules/footer.module";
-import { MegaMenu } from "@/components/modules/navbar";
+import FooterModule from "@/components/modules/footer";
+
+import Navbar from "@/components/modules/navbar";
 import { getPostsPage } from "@/sanity/data";
 
 export default async function BlogListing({
@@ -20,7 +21,7 @@ export default async function BlogListing({
 
   return (
     <>
-      {menu && <MegaMenu module={menu} />}
+      {menu && <Navbar module={menu} />}
       <BlogsPage lang={params.lang} searchParams={searchParams} />
       {footer && <FooterModule module={footer} />}
     </>

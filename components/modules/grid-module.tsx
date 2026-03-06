@@ -1,6 +1,6 @@
 import { cn, purifyString } from "@/lib/utils";
 import { cx } from "class-variance-authority";
-import CustomImage from "../SanityImage";
+import SanityImage from "../SanityImage";
 import ContentBody from "./content-body";
 
 const GridBlock = ({ block }: any) => {
@@ -15,9 +15,9 @@ const GridBlock = ({ block }: any) => {
 
       return (
         <div className={`w-full relative`}>
-          <CustomImage
+          <SanityImage
             alt={block?.alt}
-            imageOBJ={block}
+            image={block}
             height={block?.height}
             width={block?.width}
             objectFit={block?.objectFit}
