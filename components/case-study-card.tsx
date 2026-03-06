@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CustomImage from "./SanityImage";
+import SanityImage from "./SanityImage";
 
 export interface ICaseStudyCard {
   title?: string;
@@ -14,7 +14,7 @@ function CaseStudyCard({ docs }: { docs: ICaseStudyCard[] }) {
       <Link href={`/${ref?.slug?.current}`} key={key}>
         <figure className="flex flex-col gap-y-2 md:flex-row gap-x-4 group ">
           <div className="md:h-28 h-40 w-full md:w-28 min-w-28 relative">
-            {image && <CustomImage imageOBJ={image} />}
+            {image && <SanityImage image={image} />}
           </div>
           <figcaption className=" flex flex-col items-start gap-y-2">
             <h3 className="text-xl font-semibold font-serif group-hover:text-primary transition-colors duration-150">

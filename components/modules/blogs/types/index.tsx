@@ -10,7 +10,7 @@ export interface BlogCard {
   slug?: { current: string };
   description?: string;
   tags?: string[];
-  cover_vertical: SanityImageProps;
+  cover_vertical?: SanityImageProps;
   cover?: SanityImageProps;
 }
 

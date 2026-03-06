@@ -11,13 +11,9 @@ import { PortableText } from "@portabletext/react";
 import BlogTags from "@/components/BlogTags";
 import { portableComplex } from "@/components/portable-stucture/portable-complex";
 
-const FooterModule = dynamic(
-  () => import("@/components/modules/footer.module"),
-);
+const FooterModule = dynamic(() => import("@/components/modules/footer"));
 
-const MegaMenu = dynamic(() =>
-  import("@/components/modules/navbar").then((el) => el.MegaMenu),
-);
+const Navbar = dynamic(() => import("@/components/modules/navbar"));
 const ArticleBreadCrumbs = dynamic(
   () => import("@/components/article-breadcrumb"),
 );
@@ -28,9 +24,6 @@ const ArticleCover = dynamic(
   () => import("@/components/modules/article-cover"),
 );
 const CaseStudyCard = dynamic(() => import("@/components/case-study-card"));
-const Badge = dynamic(() =>
-  import("@/components/ui/badge").then((el) => el.Badge),
-);
 
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 const Module = dynamic(() => import("@/components/modules/module"));
@@ -111,7 +104,6 @@ export default async function Component({
 
   const {
     title,
-    cover,
     tags,
     content,
     description,
@@ -125,8 +117,8 @@ export default async function Component({
   return (
     <main className="flex flex-col">
       {schemaMarkup?.length ? <SchemaMarkup schema={schemaMarkup} /> : null}
-      {menu && <MegaMenu module={menu} />}
-      <ArticleCover cover={cover} title={title} />
+      {menu && <Navbar module={menu} />}
+      <ArticleCover title={title} />
       <section className="flex max-w-[85rem] lg:mx-auto md:mx-6 mx-4 gap-x-8 items-start flex-col lg:flex-row">
         <div className="flex-initial max-w-[calc(85rem-30rem)] lg:mx-auto  auto-rows-auto">
           <ArticleBreadCrumbs

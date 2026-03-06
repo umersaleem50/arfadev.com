@@ -2,8 +2,10 @@ import PaginationSearchParams from "@/components/pagination-search-params";
 import { ALL_POSTS_QUERY, BLOG_SEARCH_QUERY } from "@/sanity/data/queries";
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
-import { ILargeBlogCard, LargeBlogCard } from "./modules/blogs/blog-card";
-import CustomImage from "./SanityImage";
+// import { ILargeBlogCard, LargeBlogCard } from "./modules/blogs/blog-card";
+// import CustomImage from "./SanityImage";
+import SanityImage from "./SanityImage";
+import { LargeBlogCard } from "./modules/blogs/LargeBlogCard";
 import { SearchInput } from "./search-input";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
@@ -64,7 +66,7 @@ async function BlogsPage(props: { searchParams: any; lang: string }) {
       <div className=" px-4 py-8 max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         <div className="col-start-1 lg:col-span-2">
           <SearchInput className="grid md:hidden mb-4" />
-          {posts?.map((post: ILargeBlogCard, key: number) => {
+          {posts?.map((post: any, key: number) => {
             return (
               <LargeBlogCard
                 key={key}
@@ -85,14 +87,14 @@ async function BlogsPage(props: { searchParams: any; lang: string }) {
         <div className="space-y-6 sticky top-4 self-start">
           <SearchInput className="hidden md:grid" />
           <h2 className="text-2xl mb-4 font-serif">Featured Blogs</h2>
-          {featured?.map((post: ILargeBlogCard, key: number) => (
+          {featured?.map((post: any, key: number) => (
             <Card key={key} className="group transition-colors">
               <Link
                 href={`/blogs/${post.slug.current}`}
                 className="flex flex-row h-auto group-hover:border-primary border-muted border"
               >
-                <CustomImage
-                  imageOBJ={post.cover}
+                <SanityImage
+                  image={post.cover}
                   width={120}
                   height={120}
                   className="rounded-l-lg object-cover"

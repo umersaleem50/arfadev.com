@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { BlogCard } from "./types";
 
-function LargeBlogCard({
+export function LargeBlogCard({
   cover,
   title,
   _updatedAt,

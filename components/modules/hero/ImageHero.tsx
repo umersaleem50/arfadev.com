@@ -13,7 +13,7 @@ interface ImageHeroProps {
 }
 
 function ImageHero({ module }: { module: ImageHeroProps }) {
-  const { coverImage, isFullImage = true, content, darkText = false } = module;
+  const { coverImage, content } = module;
 
   return (
     <div className="w-full h-screen relative">
@@ -23,9 +23,9 @@ function ImageHero({ module }: { module: ImageHeroProps }) {
           //   isFullImage ? "h-screen" : "h-[60vh] ",
         )}
       >
-        {coverImage?.asset && (
+        {coverImage && (
           <SanityImage
-            image={coverImage.asset}
+            image={coverImage.image}
             fill
             objectFit={coverImage.objectFit}
             className="w-full bg-fixed fixed top-0 blur-[2px] scale-105"

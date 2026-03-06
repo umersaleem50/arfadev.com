@@ -1,6 +1,6 @@
 import Link from "next/link";
-import CustomImage from "./SanityImage";
 import Author from "./author";
+import SanityImage from "./SanityImage";
 // import TimeAgo from "javascript-time-ago";
 // import es from "javascript-time-ago/locale/es";
 
@@ -12,11 +12,11 @@ function RelatedBlogCard({ slug, cover, author, publishedAt, title }: any) {
     <Link href={slug?.current || "/not-found"}>
       <figure className="relative w-full h-[400px] max-w-[500px] flex">
         {cover && (
-          <CustomImage
+          <SanityImage
             height={400}
             width={500}
             alt={cover?.alt}
-            imageOBJ={cover}
+            image={cover}
             objectFit={cover?.objectFit}
           />
         )}
