@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 import { LinkSimple } from "@phosphor-icons/react/dist/ssr";
 
 import { buttonVariants } from "../ui/button";
-import CodeHighlighter from "./CodeHighlighter";
 
-const CustomImage = dynamic(() => import("../SanityImage"));
+const CodeHighlighter = dynamic(() => import("./CodeHighlighter"));
+
+const SanityImage = dynamic(() => import("../SanityImage"));
 // const TestimonialsPortable = dynamic(() =>
 //   import("../modules/testimonial").then((el) => el.TestimonialsPortable)
 // );
@@ -17,49 +18,57 @@ const PortableCTA = dynamic(() => import("../portable-cta"));
 
 export const portableComplex: any = {
   block: {
-    strong: ({ children }: any) => <strong>{children}</strong>,
-    normal: ({ children }: any) => <p>{children}</p>,
-    h1: ({ children }: any) => <h1>{children}</h1>,
-    h2: ({ children }: any) => <h2>{children}</h2>,
-    h3: ({ children }: any) => <h3>{children}</h3>,
-    h4: ({ children }: any) => <h4>{children}</h4>,
-    h5: ({ children }: any) => <h5>{children}</h5>,
-    h6: ({ children }: any) => <h6>{children}</h6>,
-    blockquote: ({ children }: { children: any }) => (
+    strong: ({ children }: { children: React.ReactNode }) => (
+      <strong>{children}</strong>
+    ),
+    normal: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
+    h1: ({ children }: { children: React.ReactNode }) => <h1>{children}</h1>,
+    h2: ({ children }: { children: React.ReactNode }) => <h2>{children}</h2>,
+    h3: ({ children }: { children: React.ReactNode }) => <h3>{children}</h3>,
+    h4: ({ children }: { children: React.ReactNode }) => <h4>{children}</h4>,
+    h5: ({ children }: { children: React.ReactNode }) => <h5>{children}</h5>,
+    h6: ({ children }: { children: React.ReactNode }) => <h6>{children}</h6>,
+    blockquote: ({ children }: { children: React.ReactNode }) => (
       <blockquote>{children}</blockquote>
     ),
-    figcaption: ({ children }: any) => (
+    figcaption: ({ children }: { children: React.ReactNode }) => (
       <figcaption className="text-sm text-muted-foreground text-center mt-2">
         {children}
       </figcaption>
     ),
   },
   list: {
-    bullet: ({ children }: any) => <ul>{children}</ul>,
-    number: ({ children }: any) => <ol>{children}</ol>,
+    bullet: ({ children }: { children: React.ReactNode }) => (
+      <ul className="list-disc">{children}</ul>
+    ),
+    number: ({ children }: { children: React.ReactNode }) => (
+      <ol className="list-decimal">{children}</ol>
+    ),
   },
 
   marks: {
     // Ex. 1: custom renderer for the em / italics decorator
 
-    em: ({ children }: any) => <em>{children}</em>,
-    code: ({ children }: any) => {
+    em: ({ children }: { children: React.ReactNode }) => <em>{children}</em>,
+    code: ({ children }: { children: React.ReactNode }) => {
       return (
         <code className="bg-background px-2 py-4 border-border">
           {children}
         </code>
       );
     },
-    underline: ({ children }: any) => <u>{children}</u>,
-    mark: ({ children }: any) => <mark>{children}</mark>,
-    highlight: ({ children }: any) => (
-      <mark className="bg-accent dark:bg-primary text-accent-foreground dark:text-primary-foreground">
-        {children}
-      </mark>
+    underline: ({ children }: { children: React.ReactNode }) => (
+      <u>{children}</u>
+    ),
+    mark: ({ children }: { children: React.ReactNode }) => (
+      <mark>{children}</mark>
+    ),
+    highlight: ({ children }: { children: React.ReactNode }) => (
+      <mark className="bg-accent/85 text-accent-foreground">{children}</mark>
     ),
 
     // Ex. 2: rendering a custom `link` annotation
-    link: ({ value, children }: any) => {
+    link: ({ value, children }: { value: any; children: React.ReactNode }) => {
       let href = "/invalid-url";
       if (value.linkType === "external") {
         href = value?.url;
@@ -67,15 +76,15 @@ export const portableComplex: any = {
       if (value.linkType === "internal") {
         href = value?.page ? `/${value?.page?.slug}` : "/invalid-url";
       }
-      const target = (value?.href || "").startsWith("http")
-        ? "_blank"
-        : undefined;
+      // const target = (value?.href || "").startsWith("http")
+      //   ? "_blank"
+      //   : undefined;
 
       if (value?.isButton) {
         return (
           <Link
             href={href}
-            target={target}
+            target={"_blank"}
             className={buttonVariants({
               variant: value?.styles?.style || "default",
               size: value?.styles?.isLarge ? "lg" : "default",
@@ -118,9 +127,9 @@ export const portableComplex: any = {
 
       return (
         <figure>
-          <CustomImage
+          <SanityImage
             src={urlFor(value).url()}
-            imageOBJ={value}
+            image={value}
             {...imageOptions}
           />
           <figcaption className="flex justify-between p-2 bg-accent dark:bg-accent text-accent-foreground sm:text-base text-sm">

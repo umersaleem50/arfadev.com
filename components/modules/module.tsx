@@ -1,8 +1,9 @@
 import dynamic from "next/dynamic";
 
+const ImageHero = dynamic(() => import("./hero/ImageHero"));
+
 const OurServices = dynamic(() => import("./our-services"));
 const CTABento = dynamic(() => import("./cta"));
-const Gallery = dynamic(() => import("./gallery-module"));
 
 const OurProcess = dynamic(() => import("./process"));
 const TeamSection = dynamic(() => import("./team"));
@@ -24,8 +25,8 @@ function Module({ module }: any) {
   switch (type) {
     case "menu":
       return <Navbar module={module} />;
-    // case "hero":
-    //   return <Hero module={module} />;
+    case "hero":
+      return <ImageHero module={module} />;
     case "landing-hero":
       return <Hero />;
     case "whyChooseUs":
@@ -52,8 +53,8 @@ function Module({ module }: any) {
       return <Testimonials module={module} />;
     case "blogs":
       return <FeaturedBlogs module={module} />;
-    // case "body":
-    //   return <ContentBody module={module} />;
+    case "body":
+      return <ContentBody module={module} />;
 
     case "cta":
       return <CTABento />;

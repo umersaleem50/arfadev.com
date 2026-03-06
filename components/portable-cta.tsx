@@ -2,8 +2,8 @@ import { cx } from "class-variance-authority";
 
 import { purifyString } from "@/lib/utils";
 import { PortableText } from "@portabletext/react";
-import CustomImage from "./SanityImage";
 import { portableComplex } from "./portable-stucture/portable-complex";
+import SanityImage from "./SanityImage";
 
 const GridBlock = ({ block }: any) => {
   const type = block._type;
@@ -13,9 +13,9 @@ const GridBlock = ({ block }: any) => {
       if (!block?.asset) return;
       return (
         <div className={`w-full h-auto relative`}>
-          <CustomImage
+          <SanityImage
             alt={block?.assets?.alt || "Please enter alt"}
-            imageOBJ={block}
+            image={block}
             height={block?.height}
             width={block?.width}
             objectFit={block?.objectFit}
