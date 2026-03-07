@@ -1,13 +1,14 @@
 "use client";
 import {
+  AlertTriangle,
   BarChart3,
   Check,
-  CirclePlay,
-  Diamond,
   FormInput,
-  LayoutGrid,
   LucideIcon,
   Route,
+  ScanSearch,
+  TextSearch,
+  Waypoints,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
@@ -16,38 +17,41 @@ type Item = {
   id: string;
   title: string;
   icon: LucideIcon;
+  endIcon?: LucideIcon;
 };
 
 const DATA: Item[] = [
   {
     id: "1",
-    title: "Breadcrumb component",
+    title: "Click-through rates",
     icon: Route,
   },
   {
     id: "2",
-    title: "Animated component",
-    icon: CirclePlay,
+    title: "Converting Copy",
+    icon: TextSearch,
   },
   {
     id: "3",
-    title: "UI components",
-    icon: Diamond,
+    title: "UX Research",
+    icon: ScanSearch,
   },
   {
     id: "4",
     title: "Form components",
     icon: FormInput,
+    endIcon: AlertTriangle,
   },
   {
     id: "5",
-    title: "Chart components",
+    title: "Matrics and Analytics",
     icon: BarChart3,
   },
   {
     id: "6",
-    title: "Layout components",
-    icon: LayoutGrid,
+    title: "Analyzing Bounce Rate",
+    icon: Waypoints,
+    endIcon: AlertTriangle,
   },
   {
     id: "7",
@@ -91,9 +95,15 @@ export default function ReminderCarousel() {
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
                 <item.icon size={20} />
-                <span className="text-sm font-medium">{item.title}</span>
+                <span className="text-sm font-medium font-sans">
+                  {item.title}
+                </span>
               </div>
-              <Check size={20} />
+              {item.endIcon ? (
+                <item.endIcon size={20} className="stroke-red-300" />
+              ) : (
+                <Check size={20} className="stroke-green-500" />
+              )}
             </div>
           </motion.div>
         ))}
