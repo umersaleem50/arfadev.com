@@ -7,6 +7,7 @@ import {
   LucideIcon,
   Route,
   ScanSearch,
+  ShieldAlert,
   TextSearch,
   Waypoints,
 } from "lucide-react";
@@ -38,9 +39,8 @@ const DATA: Item[] = [
   },
   {
     id: "4",
-    title: "Form components",
+    title: "A/B Testing",
     icon: FormInput,
-    endIcon: AlertTriangle,
   },
   {
     id: "5",
@@ -55,8 +55,9 @@ const DATA: Item[] = [
   },
   {
     id: "7",
-    title: "Area Chart",
+    title: "Perfomance bottlenecks",
     icon: BarChart3,
+    endIcon: ShieldAlert,
   },
 ];
 
