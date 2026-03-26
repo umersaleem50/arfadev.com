@@ -1,4 +1,5 @@
-import Module from "@/components/modules/module";
+import FooterModule from "@/components/modules/footer";
+import Navbar from "@/components/modules/navbar";
 
 const NotFoundDefault = dynamic(() => import("@/components/not-found-default"));
 
@@ -44,14 +45,14 @@ export async function generateMetadata(): Promise<Metadata> {
 async function NotFound() {
   const data = await client.fetch(NOT_FOUND);
 
-  if (!data || !data?.content?.length) return <NotFoundDefault />;
-
   const { content } = data;
+  const navModule = content.find((module: any) => module._type === "menu");
+  const footerModule = content.find((module: any) => module._type === "footer");
   return (
     <main className="w-full h-full">
-      {content.map((module: any, i: number) => {
-        return <Module module={module} key={i} />;
-      })}
+      {navModule ? <Navbar module={navModule} /> : null}
+      <NotFoundDefault />
+      {footerModule ? <FooterModule module={footerModule} /> : null}
     </main>
   );
 }
