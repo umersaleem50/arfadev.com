@@ -227,10 +227,12 @@ export const NOT_FOUND = `
       hasTransparentHeader,
       content[]{
         defined(_ref) => { ...@->content[0] {
-          ${modules}
+           _type == "menu" => @->{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}},
+           _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}}
         }},
         !defined(_ref) => {
-          ${modules},
+         _type == "menu" => @->{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}},
+           _type == "footer" => @->{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}}
         }
       },
       title,
