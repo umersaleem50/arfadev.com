@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { cache } from "react";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
-import { urlFor } from "@/sanity/lib/image";
 import { getStaticPage } from "@/sanity/data";
+import { urlFor } from "@/sanity/lib/image";
 
 import Module from "@/components/modules/module";
 
@@ -55,33 +55,6 @@ export async function generateMetadata({
       title: seo?.shareTitle,
       description: seo?.shareDesc,
     },
-
-    // robots: {
-    //   index: seo?.noindex,
-    //   follow: seo?.nofollow,
-    //   nocache: seo?.cache,
-    //   googleBot: {
-    //     index: seo?.index,
-    //     follow: seo?.follow,
-    //     // noimageindex: seo?.imageindex,
-    //     "max-video-preview": -1,
-    //     "max-image-preview": "large",
-    //     "max-snippet": -1,
-    //   },
-    // },
-    // robots: {
-    //   index: true, // allow indexing
-    //   follow: true, // allow link following
-    //   nocache: false, // allow caching
-    //   googleBot: {
-    //     index: true,
-    //     follow: true,
-    //     noimageindex: false, // allow images to be indexed
-    //     "max-video-preview": -1, // no limit
-    //     "max-image-preview": "large", // allow large preview
-    //     "max-snippet": -1, // no limit on text snippet
-    //   },
-    // },
   };
 }
 
@@ -99,7 +72,7 @@ export default async function Home({ params: { lang } }: Props) {
   return (
     <main className="w-full h-full">
       {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
-      {content.map((module: any, i: number) => {
+      {content.map((module: unknown, i: number) => {
         return <Module module={module} key={i} />;
       })}
     </main>
