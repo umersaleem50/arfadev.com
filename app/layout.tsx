@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
@@ -5,7 +6,6 @@ import { ebGaramond, poppinFonts } from "./fonts/custom-fonts";
 import SmoothScrollProvider from "./providers/smooth-scroll";
 import { ThemeProvider } from "./providers/theme-provider";
 
-import Script from "next/script";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -29,10 +29,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script
-        defer
-        src='https://cloud.umami.is/script.js" data-website-id="904087dd-466a-4c7c-948c-1645837484e5'
-      />
       <body
         className={`${poppinFonts.variable} ${ebGaramond.variable} antialiased  bg-background text-foreground`}
       >
@@ -53,6 +49,7 @@ export default function RootLayout({
             )}
             {children}
             {draftMode().isEnabled && <VisualEditing />}
+            <Analytics />
           </ThemeProvider>
           <Toaster />
         </SmoothScrollProvider>
