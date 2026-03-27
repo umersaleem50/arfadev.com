@@ -57,9 +57,7 @@ function SanityImage({
 
 function NoImage() {
   return (
-    <div className="h-full w-full bg-gray-300 border-border flex items-center justify-center">
-      <p className="font-sans text-base">Image Not Found!</p>
-    </div>
+    <div className="h-full w-full bg-gray-300 border-border flex items-center justify-center"></div>
   );
 }
 
