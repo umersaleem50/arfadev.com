@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
@@ -50,6 +51,7 @@ export default function RootLayout({
             {children}
             {draftMode().isEnabled && <VisualEditing />}
             <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
           <Toaster />
         </SmoothScrollProvider>
