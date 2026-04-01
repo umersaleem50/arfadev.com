@@ -1,0 +1,79 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "multi-step-form",
+      "title": "Multi-step Form",
+      "type": "registry:block",
+      "description": "A component that splits a long form into smaller forms with builtin validation on each step. It helps with better responsiveness across devices, improve retention, and activation rate.",
+      "author": "Umar Saleem <linkedin@umartech>",
+      "dependencies": [
+        "sonner",
+        "react-hook-form",
+        "zod",
+        "lucide-react",
+        "@mantine/hooks",
+        "@radix-ui/react-slot"
+      ],
+      "registryDependencies": ["spinner", "button", "dialog", "field", "form"],
+      "files": [
+        {
+          "path": "registry/new-york/multi-step-form/MultiStepForm.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/MultiStepForm.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/MultiFormProgressIndicator.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/MultiStepFormFooter.tsx",
+
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/MultiStepFormTitle.tsx",
+
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/stepper.tsx",
+
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/StepperNextButton.tsx",
+
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/StepperPreviousButton.tsx",
+
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/types/index.ts",
+          "target": "types/multi-step-form/index.ts",
+          "type": "registry:file"
+        },
+
+        {
+          "path": "registry/new-york/multi-step-form/hooks/use-stepped-form.ts",
+          "target": "hooks/use-stepped-form.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "registry/new-york/multi-step-form/context/MultiStepFormContext.tsx",
+          "target": "context/MultiStepFormContext.tsx",
+          "type": "registry:file"
+        }
+      ],
+      "docs": "To read about multi-step form documentation, please visit https://arfadevelopers.vercel.app/resources/multi-step-form. For any query, email me at umersaleem50@gmail.com or message me at https://www.linkedin.com/in/umartech/"
+    }
+  ]
+}
