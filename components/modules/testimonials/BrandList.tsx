@@ -1,5 +1,6 @@
 import AnimatedContainer from "@/components/AnimatedContainer";
-import { Marquee } from "@/components/shadcn-space/animations/marquee";
+import { Marquee } from "@/components/marquee";
+
 import Image from "next/image";
 import { Ref } from "react";
 

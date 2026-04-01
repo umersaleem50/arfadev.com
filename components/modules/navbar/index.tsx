@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 
