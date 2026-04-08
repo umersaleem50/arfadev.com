@@ -1,5 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { MessageCircleMore } from "lucide-react";
+import Link from "next/link";
 import BtnCTA from "../../BtnCTA";
 
 export default function LandingHero() {
@@ -12,20 +15,27 @@ export default function LandingHero() {
               "text-3xl sm:text-5xl md:text-7xl font-serif text-center leading-normal capitalize font-light text-muted-foreground"
             }
           >
-            Turn your visitors into <br />
-            <u className="text-accent dark:text-primary">Paying customers!</u>
+            Need help with
+            <br />
+            <u className="text-accent dark:text-primary">Frontends?</u>
           </h1>
           <div className="flex flex-col gap-y-8 items-center">
             <p className="w-full max-w-md text-xs sm:text-base font-sans whitespace-normal leading-relaxed! text-center text-muted-foreground">
-              We help tech startups with{" "}
+              We are a team of independent{" "}
               <u className="text-accent dark:text-primary">
-                Optimized Landing page
+                frontend developers
               </u>{" "}
-              or{" "}
-              <u className="text-accent dark:text-primary">SaaS onboarding</u>{" "}
-              that improve conversion, retention, and activiation rate.
+              that works with developer teams around the world to build scalable
+              and modren UIs.
             </p>
-            <BtnCTA>Get Started</BtnCTA>
+            <div className="flex gap-x-4">
+              <BtnCTA>Hire us now!</BtnCTA>
+              <Button asChild variant={"outline"}>
+                <Link href={"https://wa.link/z5w0p4"}>
+                  <MessageCircleMore /> Chat Now!
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

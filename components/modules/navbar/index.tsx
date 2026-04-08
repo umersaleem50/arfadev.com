@@ -61,7 +61,7 @@ export default function Navbar({ module }: { module: NavbarProps }) {
         </div>
         <div className="md:flex md:items-center hidden items-center md:justify-start">
           <ModeToggle />
-          <BtnCTA className="ml-4">Send Us Email</BtnCTA>
+          <BtnCTA className="ml-4">Hire us now!</BtnCTA>
           {/* <ModeToggle/> */}
         </div>
       </div>
