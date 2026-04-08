@@ -45,9 +45,12 @@ export async function generateMetadata({
 
   if (!pageData || !pageData?.page)
     return {
-      title: "Our latest blogs on seo, web designing & web development.",
+      title: {
+        template: "% - Arfa Developers",
+        default: "Read our blogs - Arfa Developers",
+      },
       description:
-        "Learn about the tips & tricks to design & rank your law firm website.",
+        "We regularly post blogs related to tech industy to help other developers with valuable content. You will gain valuable insights about clean code, architecture, and frontend development.",
     };
 
   const { page } = pageData;
