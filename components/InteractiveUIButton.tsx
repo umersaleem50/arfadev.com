@@ -7,13 +7,13 @@ import { ButtonProps } from "./ui/button";
 export function InteractiveHoverButton({
   children,
   className,
-  asChild,
+
   ...props
 }: ButtonProps) {
   return (
     <button
       className={cn(
-        "group bg-background relative w-auto cursor-pointer overflow-hidden rounded-full border border-muted-foreground p-2 px-6 text-center font-sans text-sm text-muted-foreground hover:text-primary-foreground hover:border-primary",
+        "group bg-background relative w-auto cursor-pointer overflow-hidden rounded-full border border-muted-foreground h-9 px-6 py-2 has-[>svg]:px-3 text-center font-sans text-sm text-muted-foreground hover:text-primary-foreground hover:border-primary",
         className,
       )}
       {...props}
