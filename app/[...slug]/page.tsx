@@ -37,9 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!pageData || !pageData?.page)
     return {
-      title: "Branding solutions for law firms.",
+      title: {
+        template: "% - Arfa Developers",
+        default: "Hire an independent frontend developer - Arfa Developer.",
+      },
       description:
-        "You will have an elegant & beautifully designed websites, including logo & graphic assets. Contact now to get started.",
+        "We help development teams with frontend development based in Europe and America. Our tech stack is React.Js and Next.Js. Contact us to get started.",
     };
 
   const { page } = pageData;
