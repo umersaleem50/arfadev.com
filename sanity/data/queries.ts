@@ -33,7 +33,7 @@ export const languageSupport = `*[_type=="generalSettings"][0].langSupport`;
 export const FEATURED_BLOGS = `*[_type=="generalSettings"][0].featuredBlogs[]->{cover,title,tags,slug{current},description}`;
 export const featuredCaseStudies = `*[_type=="generalSettings"][0].featuredCaseStudies[]{title,ref->{slug{current}},description,image}`;
 export const footerQuery = `*[_type=="footer"][0]{...,footerRoutes[]{...,routes[]{...,${navPage}}},policies[]{...,${navPage}},"langSupport":${languageSupport},"logo":${logoMark}}`;
-export const menuQuery = `*[_type=="menu"][0]{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${navPage}}},featured{...,page->}},"logo":${fullLogo}}`;
+export const menuQuery = `*[_type=="menu"][0]{...,items[]{...,${navPage},_type == "navDropdown" =>{dropdownItems[]{...,${menuLink}}},featured{...,page->}},"logo":${fullLogo}}`;
 
 const page = `
   "type": _type,
@@ -57,18 +57,6 @@ export const ptContent = `
   
   
 `;
-
-// markDefs[]{
-//   ...,
-//   _type == "link" => {
-//     "url": @.url,
-//     "isButton": @.isButton,
-//     "styles": @.styles{style, isLarge, isBlock},
-//     "page":@.page->{
-//      slug
-//     }
-//   }
-// }
 
 const gridModule = `{...,columns[]{sizes,blocks[]{...,body[]{
 ...,
@@ -128,7 +116,7 @@ export const HOMEPAGE_QUERY = `*[_type == "page" && _id == ${homeID}] | order(_u
 
 // BLOGS QUERY
 
-export const ALL_POSTS_QUERY = groq`{"posts":*[_type == "post" && language==$lang][$skips...$limit]{...,author->{name,photo}},"featured":${FEATURED_BLOGS}}`;
+export const ALL_POSTS_QUERY = groq`{"posts":*[_type == "post"][$skips...$limit]{...,author->{name,photo}},"featured":${FEATURED_BLOGS}}`;
 
 export const BLOG_SEARCH_QUERY = `{"posts":*[_type == "post" && (title match $queryStr || slug.current match $queryStr || tags match $queryStr || description match $queryStr)][$skips...$limit] {
     _id,
@@ -143,25 +131,6 @@ export const BLOG_SEARCH_QUERY = `{"posts":*[_type == "post" && (title match $qu
   },
   "featured":${FEATURED_BLOGS}
     }`;
-
-// export const POST_QUERY = `
-//         {
-//           "page": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc)[0]{
-//             "id": _id,
-//             hasTransparentHeader,
-//             content[]{
-//             defined(_ref)=>{...@->content[0]{${modules}}},
-//             !defined(_ref)=>{${modules}}
-//             },
-//             !defined(_ref)=>{
-//             ${modules}
-//             },
-//             title,
-//             seo
-//           },
-//            ${site}
-//         }
-//         `;
 
 export const SERVICE_QUERY = `
         {
@@ -196,30 +165,6 @@ export const PAGE_QUERY = `
            ${site}
         }
         `;
-
-//189
-
-// export const POST_QUERY = `
-//         {
-//           "page": *[_type == "post" && slug.current in $slugs] | order(_updatedAt desc)[0]{
-//             "id": _id,
-//             "footer":${footerQuery},
-//             "menu":${menuQuery},
-//             hasTransparentHeader,
-//             author{name,photo},
-//             content[]{
-//             defined(_ref)=>{...@->content[0]{${modules}}},
-//             !defined(_ref)=>{${modules}}
-//             },
-//             !defined(_ref)=>{
-//             ${modules}
-//             },
-//             title,
-//             seo
-//           },
-//            ${site}
-//         }
-//         `;
 
 export const NOT_FOUND = `
     *[_type == "page" && _id == ${errorID}] | order(_updatedAt desc)[0]{
