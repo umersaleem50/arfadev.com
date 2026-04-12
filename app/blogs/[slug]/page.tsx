@@ -62,7 +62,20 @@ export async function generateMetadata({
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
     alternates: {
       // canonical: page?.slug ? `/blogs/${slug}` : `/`,
-      canonical: `/blogs/${slug}`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs/${slug}`,
+    },
+
+    robots: {
+      index: seo.noindex ?? true,
+      follow: seo.nofollow ?? true,
+      googleBot: {
+        index: seo.noindex ?? true,
+        follow: seo.nofollow ?? true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
 
     authors: seo?.authors,

@@ -39,13 +39,7 @@ const seo = {
       default: false,
       group: "bots",
     },
-    {
-      title: "Images index?",
-      name: "imageindex",
-      type: "boolean",
-      default: false,
-      group: "bots",
-    },
+
     {
       title: "Change Frequency",
       name: "changeFrequency",

@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: {
         template: "% - Arfa Developers",
-        default: "Hire an independent frontend developer - Arfa Developer.",
+        default: "Hire an independent frontend developer - Arfa Developers",
       },
       description:
         "We help development teams with frontend development based in Europe and America. Our tech stack is React.Js and Next.Js. Contact us to get started.",
@@ -49,11 +49,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page || !page?.content) notFound();
   const { seo } = page;
 
+  const isHomePage = planSlug === "home";
+
   return {
     title: seo?.metaTitle,
     description: seo?.metaDesc,
 
     keywords: seo?.keywords,
+    robots: {
+      index: isHomePage ? false : (seo.noindex ?? true),
+      follow: seo.nofollow ?? true,
+      googleBot: {
+        index: isHomePage ? false : (seo.noindex ?? true),
+        follow: seo.nofollow ?? true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+
+    alternates: {
+      canonical: isHomePage
+        ? `${process.env.NEXT_PUBLIC_BASE_URL}/`
+        : `${process.env.NEXT_PUBLIC_BASE_URL}/${planSlug}`,
+    },
 
     openGraph: {
       images: [urlFor(seo?.shareGraphic).url()],
@@ -83,16 +103,17 @@ async function Page({ params: { slug } }: { params: { slug: string } }) {
 
   const { page } = pageData;
   if (!page || !page?.content) notFound();
-  const { content, schemaMarkup } = page;
+  const { content, seo } = page;
+  const schemaMarkup = seo.schemaMarkup;
 
   return (
     <>
+      {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
       <main className="w-full h-full">
         {content.map((module: any, i: number) => {
           return <Module module={module} key={i} />;
         })}
       </main>
-      {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
     </>
   );
 }

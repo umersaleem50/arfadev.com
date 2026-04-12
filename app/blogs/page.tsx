@@ -13,6 +13,23 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     description:
       "We regularly post blogs related to tech industy to help other developers with valuable content. You will gain valuable insights about clean code, architecture, and frontend development.",
+
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blogs`,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
   };
 }
 

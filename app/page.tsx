@@ -45,7 +45,20 @@ export async function generateMetadata({
     description: seo?.metaDesc,
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
     alternates: {
-      canonical: page?.slug ? `/${lang}/${page.slug.current}` : `/${lang}`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
+    },
+
+    robots: {
+      index: seo.noindex ?? true,
+      follow: seo.nofollow ?? true,
+      googleBot: {
+        index: seo.noindex ?? true,
+        follow: seo.nofollow ?? true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
 
     authors: seo?.authors,
@@ -70,15 +83,18 @@ export default async function Home({ params: { lang } }: Props) {
 
   const { page } = pageData;
 
-  const { content, schemaMarkup } = page;
+  const { content, seo } = page;
+  const schemaMarkup = seo.schemaMarkup;
 
   return (
-    <main className="w-full h-full">
+    <>
       {schemaMarkup && <SchemaMarkup schema={schemaMarkup} />}
-      {content.map((module: unknown, i: number) => {
-        return <Module module={module} key={i} />;
-      })}
-    </main>
+      <main className="w-full h-full">
+        {content.map((module: unknown, i: number) => {
+          return <Module module={module} key={i} />;
+        })}
+      </main>
+    </>
   );
 }
 
