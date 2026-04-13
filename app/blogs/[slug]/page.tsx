@@ -1,4 +1,3 @@
-import { getAllBlogSlug, getPost } from "@/sanity/data";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
@@ -10,6 +9,7 @@ import { PortableText } from "@portabletext/react";
 
 import BlogTags from "@/components/BlogTags";
 import { portableComplex } from "@/components/portable-stucture/portable-complex";
+import { getAllBlogSlug, getPost } from "@/sanity/queries";
 
 const FooterModule = dynamic(() => import("@/components/modules/footer"));
 

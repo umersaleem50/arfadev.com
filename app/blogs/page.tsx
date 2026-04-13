@@ -2,7 +2,7 @@ import BlogsPage from "@/components/blogs-page";
 import FooterModule from "@/components/modules/footer";
 
 import Navbar from "@/components/modules/navbar";
-import { getPostsPage } from "@/sanity/data";
+import { getNavAndFooter } from "@/sanity/queries";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -34,17 +34,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function BlogListing({
-  params,
   searchParams,
 }: {
-  params: { lang: string };
   searchParams?: Promise<{
     query?: string;
     page?: string;
     limit?: string;
   }>;
 }) {
-  const pageData = await getPostsPage(false);
+  const pageData = await getNavAndFooter(false);
   const menu = pageData?.menu;
   const footer = pageData?.footer;
 

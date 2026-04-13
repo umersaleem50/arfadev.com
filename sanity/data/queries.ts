@@ -3,8 +3,6 @@ import { groq } from "next-sanity";
 export const ALL_SERVICES_QUERY = groq`*[_type == "service"  && defined(slug)]`;
 export const ALL_TEAM_QUERY = groq`*[_type == "page" && category == "team"]{slug,content[_type == "one-member"]{member->}[0]}`;
 
-export const metaData = `metaData{...,sectionFooter{...,defined(navPage)=>{navPage{page->{slug,language}}}}}`;
-
 export const navPage = `_type == "navPage" =>{...,title,page->{slug}}`;
 
 export const menuLink = `_type == "menuLink" =>{...,title,page->{slug}}`;

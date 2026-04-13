@@ -1,19 +1,9 @@
 import { MetadataRoute } from "next";
-import { SanityDocument } from "next-sanity";
 
-import { sanityFetch } from "@/sanity/lib/client";
-import { BLOGS_SITEMAP_QUERY } from "../../sanity/data/queries";
-
-const fetchPosts = async () => {
-  const data = await sanityFetch<SanityDocument[]>({
-    query: BLOGS_SITEMAP_QUERY,
-  });
-
-  return data;
-};
+import { fetchBlogSitemap } from "@/sanity/queries/sitemap";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const docs: any = await fetchPosts();
+  const docs: any = await fetchBlogSitemap();
 
   const postEntries = docs.map(({ slug, _updatedAt, priority }: any) => {
     return {
