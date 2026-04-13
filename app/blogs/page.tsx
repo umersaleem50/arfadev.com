@@ -51,7 +51,8 @@ export default async function BlogListing({
   return (
     <>
       {menu && <Navbar module={menu} />}
-      <BlogsPage lang={params.lang} searchParams={searchParams} />
+
+      <BlogsPage searchParams={searchParams} />
       {footer && <FooterModule module={footer} />}
     </>
   );
