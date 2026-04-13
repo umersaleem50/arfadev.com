@@ -1,9 +1,9 @@
 import { urlFor } from "@/sanity/lib/image";
-import { SanityImageProps } from "./SanityImage";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export interface Author {
-  photo: SanityImageProps;
+  photo: SanityImageSource;
   name: string;
 }
 
@@ -13,18 +13,13 @@ export interface AuthorProps {
 }
 
 function Author({ author, postedAt }: AuthorProps) {
+  const avatarImage = urlFor(author.photo).width(70).height(70).url();
   return (
     <div className="flex items-center space-x-4 mb-6 col-start-1 col-span-9">
       <Avatar>
-        {author?.photo.image && (
-          <AvatarImage
-            alt={author?.photo?.alt}
-            src={urlFor(author?.photo?.image).width(70).height(70).url()}
-            height={70}
-            width={70}
-          />
-        )}
-        <AvatarFallback>AN</AvatarFallback>
+        <AvatarImage src={avatarImage}></AvatarImage>
+
+        <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
       </Avatar>
       <div>
         {author.name && (

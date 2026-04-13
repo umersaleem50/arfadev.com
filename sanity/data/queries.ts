@@ -46,15 +46,15 @@ export const ptContent = `
   markDefs[]{
     ...,
     _type == "link" => {
-      "url": @.url,
-      "isButton": @.isButton,
-      "styles": @.styles{style, isLarge, isBlock},
-      "page":@.page->{
-        ${page}
-      }
+  "url": url,
+  "isButton": isButton,
+  "styles": styles{style, isLarge, isBlock},
+  "page": @.page->{
+    title,
+    "slug": slug.current
+    }
     }
   }
-  
   
 `;
 
@@ -188,3 +188,29 @@ export const NOT_FOUND = `
 export const SITEMAP_QUERY = `*[_type == "page" && category != "error"]{_updatedAt,slug,"priority":seo.priority}`;
 
 export const BLOGS_SITEMAP_QUERY = `*[_type == "post"]{_updatedAt,slug,"priority":seo.priority}`;
+
+export const BLOGS_POST = `{
+          "page": *[_type == "post" && slug.current in $slugs] | order(_updatedAt desc)[0]{
+            "id": _id,
+            hasTransparentHeader,
+            content[]{
+            defined(_ref)=>{...@->content[0]{${modules}}},
+            !defined(_ref)=>{${modules}}
+            },
+            body[]{...,${ptContent},_type == "cta" => @->},
+            description,
+            title,
+            cover,
+            seo,
+            tags,
+            author->{name,photo},
+            relatedPosts[]->{cover,author->{name,photo},title,publishedAt,slug,description},
+            schemaMarkup,
+            _createdAt
+          },
+          "footer":${footerQuery},
+          "menu":${menuQuery},
+          "featuredCaseStudies":${featuredCaseStudies},
+           ${site}
+
+        }`;

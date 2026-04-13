@@ -28,20 +28,18 @@ const CaseStudyCard = dynamic(() => import("@/components/case-study-card"));
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 const Module = dynamic(() => import("@/components/modules/module"));
 
-const getPostData = cache(
-  async (slug: string, lang: string, isDraftMode = false) => {
-    const pageData = await getPost(slug, lang, isDraftMode);
-    return pageData;
-  },
-);
+const getPostData = cache(async (slug: string, isDraftMode = false) => {
+  const pageData = await getPost(slug, isDraftMode);
+  return pageData;
+});
 
 export async function generateMetadata({
-  params: { slug, lang },
+  params: { slug },
 }: {
   params: { slug: string; lang: string };
 }): Promise<Metadata> {
   const { isEnabled: isDraftMode } = draftMode();
-  const pageData = await getPostData(slug, lang, isDraftMode);
+  const pageData = await getPostData(slug, isDraftMode);
 
   if (!pageData || !pageData?.page)
     return {
@@ -101,13 +99,13 @@ export async function generateStaticParams() {
 }
 
 export default async function Component({
-  params: { slug, lang },
+  params: { slug },
 }: {
-  params: { slug: string; lang: string };
+  params: { slug: string };
 }) {
   const { isEnabled: isDraftMode } = draftMode();
   // const pageData = await getPost(slug, isDraftMode);
-  const pageData = await getPostData(slug, lang, isDraftMode);
+  const pageData = await getPostData(slug, isDraftMode);
 
   const page = pageData?.page;
 

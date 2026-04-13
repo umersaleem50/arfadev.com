@@ -1,13 +1,7 @@
 import { QueryOptions } from "next-sanity";
 import { client } from "../lib/client";
 import { token } from "../lib/token";
-import {
-  featuredCaseStudies,
-  footerQuery,
-  menuQuery,
-  modules,
-  site,
-} from "./queries";
+import { BLOGS_POST, footerQuery, menuQuery, modules, site } from "./queries";
 
 export async function getAllBlogSlug() {
   const query = `*[_type == "post"]{ slug }`;
@@ -86,12 +80,8 @@ export async function getPostsPage(isDraftMode?: boolean) {
   return data;
 }
 
-export async function getPost(
-  slug: string,
-  lang: string,
-  isDraftMode?: boolean,
-) {
-  const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
+export async function getPost(slug: string, isDraftMode?: boolean) {
+  const slugs = [slug, `/${slug}`, `/${slug}/`];
 
   const queryOptions: QueryOptions = isDraftMode
     ? { perspective: "previewDrafts", token, stega: true, useCdn: false }
@@ -102,34 +92,7 @@ export async function getPost(
         stega: false,
       };
 
-  const query = `{
-          "page": *[_type == "post" && slug.current in ${slugs}] | order(_updatedAt desc)[0]{
-            "id": _id,
-            hasTransparentHeader,
-            content[]{
-            defined(_ref)=>{...@->content[0]{${modules}}},
-            !defined(_ref)=>{${modules}}
-            },
-            body[]{...,_type == "cta" => @->},
-            description,
-            title,
-            cover,
-            seo,
-            tags,
-            author->{name,photo},
-            relatedPosts[]->{cover,author->{name,photo},title,publishedAt,slug,description},
-            schemaMarkup,
-            _createdAt
-          },
-          "footer":${footerQuery},
-          "menu":${menuQuery},
-          "featuredCaseStudies":${featuredCaseStudies},
-          
-           ${site}
-
-        }`;
-
-  const data = await client.fetch(query, { slugs, lang }, queryOptions);
+  const data = await client.fetch(BLOGS_POST, { slugs }, queryOptions);
 
   return data;
 }
