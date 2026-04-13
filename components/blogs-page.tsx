@@ -1,5 +1,5 @@
 import PaginationSearchParams from "@/components/pagination-search-params";
-import { ALL_POSTS_QUERY, BLOG_SEARCH_QUERY } from "@/sanity/data/queries";
+import { ALL_POSTS_QUERY, BLOG_SEARCH_QUERY } from "@/sanity/data";
 import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 // import { ILargeBlogCard, LargeBlogCard } from "./modules/blogs/blog-card";

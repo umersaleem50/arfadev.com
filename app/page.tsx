@@ -8,7 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 
 import Module from "@/components/modules/module";
 
-import { HOMEPAGE_QUERY } from "@/sanity/data/queries";
+import { HOMEPAGE_QUERY } from "@/sanity/data";
 import { getStaticPage } from "@/sanity/queries";
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 

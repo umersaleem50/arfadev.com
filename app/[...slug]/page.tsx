@@ -4,7 +4,7 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-import { getAllPageSlug, getPage } from "@/sanity/data";
+import { getAllPageSlug, getPage } from "@/sanity/queries";
 
 import { joinSlugs } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
