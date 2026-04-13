@@ -25,7 +25,7 @@ function ImageHero({ module }: { module: ImageHeroProps }) {
       >
         {coverImage && (
           <SanityImage
-            image={coverImage.image}
+            image={coverImage}
             fill
             objectFit={coverImage.objectFit}
             className="w-full bg-fixed fixed top-0 blur-[2px] scale-105"
@@ -38,7 +38,7 @@ function ImageHero({ module }: { module: ImageHeroProps }) {
       </div>
       <div
         className={cn(
-          "w-full absolute top-0 bg-black/80 pointer-events-none h-screen",
+          "w-full absolute top-0 bg-gradient-to-r from-primary to-accent opacity-20 pointer-events-none h-screen",
           //   isFullImage ? "h-full" : "h-[60vh]",
         )}
       ></div>
