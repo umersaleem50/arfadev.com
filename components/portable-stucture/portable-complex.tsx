@@ -1,4 +1,3 @@
-import { urlFor } from "@/sanity/lib/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -76,9 +75,6 @@ export const portableComplex: any = {
       if (value.linkType === "internal") {
         href = value?.page ? `/${value?.page?.slug}` : "/invalid-url";
       }
-      // const target = (value?.href || "").startsWith("http")
-      //   ? "_blank"
-      //   : undefined;
 
       if (value?.isButton) {
         return (
@@ -127,11 +123,7 @@ export const portableComplex: any = {
 
       return (
         <figure>
-          <SanityImage
-            src={urlFor(value).url()}
-            image={value}
-            {...imageOptions}
-          />
+          <SanityImage image={value} {...imageOptions} />
           <figcaption className="flex justify-between p-2 bg-accent dark:bg-accent text-accent-foreground sm:text-base text-sm">
             {value?.description}{" "}
             {value?.refLink && (
