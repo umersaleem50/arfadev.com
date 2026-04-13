@@ -7,19 +7,18 @@ import Link from "next/link";
 import SanityImage from "./SanityImage";
 import { LargeBlogCard } from "./modules/blogs/LargeBlogCard";
 import { SearchInput } from "./search-input";
+import SectionMetaData from "./section-header";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 
 // All unique tags
 
 const fetchPosts = async ({
-  lang,
   skips,
   limit,
   queryStr,
   // tags,
 }: {
-  lang: string;
   skips: number;
   limit: number;
   queryStr?: string;
@@ -31,7 +30,7 @@ const fetchPosts = async ({
       { queryStr: queryStr, limit, skips },
       {},
     );
-  } else return await client.fetch(ALL_POSTS_QUERY, { lang, limit, skips }, {});
+  } else return await client.fetch(ALL_POSTS_QUERY, { limit, skips }, {});
 };
 
 const NoBlogFallback = () => {
@@ -45,7 +44,7 @@ const NoBlogFallback = () => {
   );
 };
 
-async function BlogsPage(props: { searchParams: any; lang: string }) {
+async function BlogsPage(props: { searchParams: any }) {
   const searchParams = await props.searchParams;
 
   const query = searchParams?.query || "";
@@ -54,7 +53,6 @@ async function BlogsPage(props: { searchParams: any; lang: string }) {
   // const tags = searchParams?.tags;
 
   const { posts, featured } = await fetchPosts({
-    lang: props.lang || "en",
     skips: (currentPage - 1) * 10,
     limit,
     queryStr: query,
@@ -63,8 +61,13 @@ async function BlogsPage(props: { searchParams: any; lang: string }) {
 
   return (
     <div className="w-full">
-      <div className=" px-4 py-8 max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+      <div className=" px-4 py-8 max-w-[85rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 translate-y-16">
         <div className="col-start-1 lg:col-span-2">
+          <SectionMetaData
+            miniTitle="Blogs"
+            title="Stay up-to-date with changing world"
+            subtitle="We share valuable content via blogs to help other developers around the world."
+          />
           <SearchInput className="grid md:hidden mb-4" />
           {posts?.map((post: any, key: number) => {
             return (
