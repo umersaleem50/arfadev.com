@@ -1,6 +1,3 @@
-Here’s your updated, polished README based on everything you specified:
-
----
 
 # 🚀 Arfadev.com – Modular Sanity.io Website Starter
 
