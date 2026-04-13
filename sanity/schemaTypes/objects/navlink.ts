@@ -26,8 +26,17 @@ const NavLink = {
       type: "string",
       description: "Enter an external URL",
       validation: (Rule: Rule) =>
-        Rule.uri({
-          scheme: ["http", "https", "mailto", "tel"],
+        Rule.custom((value: string) => {
+          if (!value) return true;
+
+          // Allow relative URLs
+          if (value.startsWith("/")) return true;
+
+          // Allow valid absolute URLs
+          const pattern = /^(https?:\/\/|mailto:|tel:)/;
+          if (pattern.test(value)) return true;
+
+          return "Enter a valid URL (http, https, mailto, tel) or a relative path starting with /";
         }),
     },
   ],

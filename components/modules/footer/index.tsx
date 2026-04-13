@@ -38,7 +38,7 @@ function FooterModule({ module }: { module: FooterProps }) {
           <NewsLetterForm className="lg:col-start-5 col-start-1 lg:col-span-2 md:col-span-3 m-span-1" />
         )}
       </div>
-      <div className="mt-6 sm:mt-0 max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 mx-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 border-b border-border gap-x-6 lg:py-12 md:pb-8 sm:pb-6 pb-4 gap-y-4">
+      <div className="mt-6 sm:mt-0 max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 mx-4 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 border-b border-border gap-x-6 lg:py-12 md:pb-8 sm:pb-6 pb-4 gap-y-4">
         {footerRoutes?.map(({ title, routes }: FooterRoutes) => {
           return <FooterLinks title={title} routes={routes} key={title} />;
         })}
