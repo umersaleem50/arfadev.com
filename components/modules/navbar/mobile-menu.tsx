@@ -1,13 +1,14 @@
 "use client";
 import BtnCTA from "@/components/BtnCTA";
+import SanityImage from "@/components/SanityImage";
 import { Button } from "@/components/ui/button";
 import ModeToggle from "@/components/ui/mode-toggle";
 import { NavigationMenu } from "@/components/ui/navigation-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { Menu } from "lucide-react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { NavbarProps } from "./types/navbar.type";
 
 const Link = dynamic(() => import("next/link"));
@@ -15,7 +16,13 @@ const ListItem = dynamic(() => import("./list-item-menu"));
 const FeaturedItem = dynamic(() => import("./featured-item"));
 const NaviationMenuLink = dynamic(() => import("./navigation-menu-link"));
 
-export function MobileNav({ items = [] }: { items?: NavbarProps["items"] }) {
+export function MobileNav({
+  items = [],
+  logo,
+}: {
+  items?: NavbarProps["items"];
+  logo?: SanityImageSource;
+}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -26,13 +33,9 @@ export function MobileNav({ items = [] }: { items?: NavbarProps["items"] }) {
       </SheetTrigger>
 
       <SheetContent side="right" className="w-full md:w-auto">
-        <Image
-          src={"/assets/logo.png"}
-          width={150}
-          height={70}
-          alt="Arfa Developers Logo"
-          className="mb-8"
-        />
+        {logo && (
+          <SanityImage image={logo} width={150} height={70} className="mb-8" />
+        )}
 
         <div className="flex gap-2 self-start my-4">
           {/* <LanguageSwitcher /> */}
