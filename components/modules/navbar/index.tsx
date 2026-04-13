@@ -4,10 +4,10 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import Image from "next/image";
 import { useState } from "react";
 
 import BtnCTA from "@/components/BtnCTA";
+import SanityImage from "@/components/SanityImage";
 import ModeToggle from "@/components/ui/mode-toggle";
 import { DesktopNav } from "./desktop-menu";
 import { MobileNav } from "./mobile-menu";
@@ -43,21 +43,16 @@ export default function Navbar({ module }: { module: NavbarProps }) {
       whileHover={{ y: 0 }}
     >
       <div className="flex  items-center justify-between py-4 max-w-[85rem] xl:mx-auto lg:mx-8 md:mx-6 sm:mx-4 mx-2">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 relative">
           {logo && (
-            <Image
-              src={"/assets/logo.png"}
-              width={140}
-              height={60}
-              alt="Arfa Developers Logo"
-            />
+            <SanityImage image={logo} width={140} height={60} alt="Logo" />
           )}
         </Link>
         <div className="hidden md:block">
           <DesktopNav items={items} />
         </div>
         <div className="md:hidden">
-          <MobileNav items={items} />
+          <MobileNav items={items} logo={logo} />
         </div>
         <div className="md:flex md:items-center hidden items-center md:justify-start">
           <ModeToggle />
