@@ -1,5 +1,5 @@
 import { QueryOptions } from "next-sanity";
-import { modules, site } from "../data/queries";
+import { modules, site } from "../data";
 import { client } from "../lib/client";
 import { token } from "../lib/token";
 

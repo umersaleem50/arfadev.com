@@ -1,5 +1,5 @@
 import { QueryOptions } from "next-sanity";
-import { footerQuery, menuQuery, site } from "../data/queries";
+import { footerQuery, menuQuery, site } from "../data";
 import { client } from "../lib/client";
 import { token } from "../lib/token";
 

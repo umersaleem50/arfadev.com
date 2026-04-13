@@ -1,43 +1,9 @@
-import { QueryOptions } from "next-sanity";
-import { client } from "../lib/client";
-import { token } from "../lib/token";
-import { modules, site } from "./queries";
-
-export async function getAllPageSlug() {
-  const query = `*[_type == "page"]{ slug }`;
-  const data = await client.fetch(query, {}, { perspective: "previewDrafts" });
-  return data;
-}
-
-export async function getPage(slug: string, isDraftMode?: boolean) {
-  // const slugs = JSON.stringify([slug, `/${slug}`, `/${slug}/`]);
-  const slugs = [slug, `/${slug}`, `/${slug}/`];
-  const queryOptions: QueryOptions = isDraftMode
-    ? { perspective: "previewDrafts", token, stega: true, useCdn: false }
-    : {
-        perspective: "published",
-        useCdn: true,
-        cache: "force-cache",
-        stega: false,
-      };
-  const query = `
-        {
-          "page": *[_type == "page" && slug.current in $slugs ] | order(_updatedAt desc)[0]{
-            "id": _id,
-            hasTransparentHeader,
-            author->{name,photo},
-           content[]{
-            defined(_ref)=>{...@->content[0]{${modules}}},
-            !defined(_ref)=>{${modules}}
-            },
-            body{...,cta->},
-            title,
-            seo,
-            schemaMarkup,
-          },
-           ${site}
-        }
-        `;
-  const data = await client.fetch(query, { slugs }, queryOptions);
-  return data;
-}
+export * from "./blogs";
+export * from "./cta";
+export * from "./error";
+export * from "./footer";
+export * from "./global";
+export * from "./module";
+export * from "./navbar";
+export * from "./page";
+export * from "./sitemap";

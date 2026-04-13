@@ -3,20 +3,20 @@ import Navbar from "@/components/modules/navbar";
 
 const NotFoundDefault = dynamic(() => import("@/components/not-found-default"));
 
-import { NOT_FOUND } from "@/sanity/data/queries";
+import { NOT_FOUND } from "@/sanity/data";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { cache } from "react";
 
-const getPageData = cache(async (isDraftMode = false) => {
+const getPageData = cache(async () => {
   const pageData = await await client.fetch(NOT_FOUND);
   return pageData;
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageData(false);
+  const page = await getPageData();
 
   if (!page)
     return {

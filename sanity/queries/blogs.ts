@@ -1,5 +1,5 @@
 import { QueryOptions } from "next-sanity";
-import { BLOGS_POST } from "../data/queries";
+import { BLOGS_POST } from "../data";
 import { client } from "../lib/client";
 import { token } from "../lib/token";
 
