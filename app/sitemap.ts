@@ -1,21 +1,11 @@
 import { MetadataRoute } from "next";
-import { SanityDocument } from "next-sanity";
 
-import { SITEMAP_QUERY } from "@/sanity/data/queries";
-import { sanityFetch } from "@/sanity/lib/client";
-
-const fetchPosts = async () => {
-  const data = await sanityFetch<SanityDocument[]>({
-    query: SITEMAP_QUERY,
-  });
-
-  return data;
-};
+import { fetchPageSitemap } from "@/sanity/queries/sitemap";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts: any = await fetchPosts();
+  const pages: any = await fetchPageSitemap();
 
-  const postEntries = posts.map(({ slug, _updatedAt, priority }: any) => {
+  const postEntries = pages.map(({ slug, _updatedAt, priority }: any) => {
     return {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/${slug.current}`,
       lastModified: _updatedAt,

@@ -4,12 +4,12 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
-import { getStaticPage } from "@/sanity/data";
 import { urlFor } from "@/sanity/lib/image";
 
 import Module from "@/components/modules/module";
 
 import { HOMEPAGE_QUERY } from "@/sanity/data/queries";
+import { getStaticPage } from "@/sanity/queries";
 const SchemaMarkup = dynamic(() => import("@/components/schema-markup"));
 
 type Props = {
