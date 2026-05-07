@@ -1,27 +1,14 @@
 import Section from "@/components/section";
+import Bentogrid from "./BentoGrid";
+import { BentoGridProps } from "./types";
 
-import FeatureGrid from "./FeatureGrid";
-import { featureTempData } from "./data";
-import { OurServicesProps } from "./types";
-
-const OurServices = ({ module }: { module: OurServicesProps }) => {
-  const metaData = module?.metaData || {};
-
-  const content = module?.content;
-
-  const contentWithIcon = content.map((item, index) => {
-    return { ...item, icon: featureTempData[index].icon };
-  });
+function OurServices({ module }: { module: BentoGridProps }) {
+  const metaData = module?.metaData;
   return (
-    <>
-      <Section
-        sectionData={metaData}
-        className="overflow-y-auto overflow-x-hidden"
-      >
-        <FeatureGrid gridItems={contentWithIcon} />
-      </Section>
-    </>
+    <Section sectionData={metaData}>
+      <Bentogrid />
+    </Section>
   );
-};
+}
 
 export default OurServices;
