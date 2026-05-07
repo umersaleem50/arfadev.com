@@ -2,10 +2,10 @@ import dynamic from "next/dynamic";
 
 const ImageHero = dynamic(() => import("./hero/ImageHero"));
 
-const OurServices = dynamic(() => import("./our-services"));
+const OurServices = dynamic(() => import("./our-process"));
 const CTABento = dynamic(() => import("./cta"));
 
-const OurProcess = dynamic(() => import("./process"));
+const OurProcess = dynamic(() => import("./our-services"));
 const TeamSection = dynamic(() => import("./team"));
 const Testimonials = dynamic(() => import("./testimonials"));
 

@@ -24,22 +24,22 @@ type Item = {
 const DATA: Item[] = [
   {
     id: "1",
-    title: "Click-through rates",
+    title: "New Row Inserted",
     icon: Route,
   },
   {
     id: "2",
-    title: "Converting Copy",
+    title: "Stripe Webhook",
     icon: TextSearch,
   },
   {
     id: "3",
-    title: "UX Research",
+    title: "Database Transaction",
     icon: ScanSearch,
   },
   {
     id: "4",
-    title: "A/B Testing",
+    title: "New User inserted",
     icon: FormInput,
   },
   {
@@ -49,13 +49,13 @@ const DATA: Item[] = [
   },
   {
     id: "6",
-    title: "Analyzing Bounce Rate",
+    title: "Delete Subscriptions",
     icon: Waypoints,
     endIcon: AlertTriangle,
   },
   {
     id: "7",
-    title: "Perfomance bottlenecks",
+    title: "Update Subscription",
     icon: BarChart3,
     endIcon: ShieldAlert,
   },
