@@ -19,6 +19,11 @@ export const tempTestimonials: TestimonialProps[] = [
 
 export const brandList: BrandList[] = [
   {
+    image: "/brands/sg-tools-dark.svg",
+    lightimg: "/brands/sg-tools-logo.svg",
+    name: "SG Tools",
+  },
+  {
     image: "/brands/dori-shoes-dark.png",
     lightimg: "/brands/dori-shoes-light.png",
     name: "Dori Shoes",
