@@ -4,9 +4,10 @@ import { BentoGridProps } from "./types";
 
 function OurServices({ module }: { module: BentoGridProps }) {
   const metaData = module?.metaData;
+  const gridData = module?.gridData;
   return (
     <Section sectionData={metaData}>
-      <Bentogrid />
+      <Bentogrid gridData={gridData} />
     </Section>
   );
 }

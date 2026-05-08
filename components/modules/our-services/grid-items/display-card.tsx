@@ -14,8 +14,8 @@ interface DisplayCardProps {
 const defaultCards = [
   {
     icon: <Eye className="size-4 text-accent-foreground" />,
-    title: "Draft Mode",
-    description: "See changes real-time before publishing.",
+    title: "File Sync",
+    description: "Keep your on-premises data safe on file storage.",
     date: "Just now",
     iconClassName: "text-blue-500",
     titleClassName: "text-accent dark:text-primary",
@@ -24,8 +24,8 @@ const defaultCards = [
   },
   {
     icon: <File className="size-4 text-accent-foreground" />,
-    title: "Services Schema",
-    description: "Publish unlimited content from anywhere.",
+    title: "Active Directory",
+    description: "Manage your resources and users.",
     date: "2 days ago",
     iconClassName: "text-blue-500",
     titleClassName: "text-accent dark:text-primary",
@@ -34,8 +34,8 @@ const defaultCards = [
   },
   {
     icon: <ChartBar className="size-4 text-accent-foreground" />,
-    title: "Blogs Schema",
-    description: "Post blogs to improve your domain authority.",
+    title: "Virtual Net",
+    description: "Setup a private network on Azure.",
     date: "Content Infrastructure",
     iconClassName: "text-blue-500",
     titleClassName: "text-accent dark:text-primary",

@@ -5,7 +5,7 @@ import PencilIcon from "@/components/svgs/pencil-icon";
 
 export const featureTempData = [
   {
-    icon: <PencilIcon className="w-16 h-16" />,
+    icon: <Eye className="w-16 h-16" />,
     content: (
       <p>
         We build landing pages that convert visitors into customers and drive
@@ -29,7 +29,7 @@ export const featureTempData = [
     ),
   },
   {
-    icon: <Eye className="w-16 h-16" />,
+    icon: <PencilIcon className="w-16 h-16" />,
     content: (
       <p>On-page SEO for better visibility on search engines i.e. Google.</p>
     ),
