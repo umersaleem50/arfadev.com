@@ -15,27 +15,20 @@ import { type TestimonialProps } from "./types";
 export default function Testimonial({
   testimonials,
   sectionRef,
-  isInView,
 }: {
   testimonials: TestimonialProps[];
   sectionRef: Ref<HTMLDivElement>;
-  isInView: boolean;
 }) {
   return (
     <>
       <div className="max-w-7xl mx-auto sm:px-16 px-4 pt-12" ref={sectionRef}>
         <div className="">
-          <AnimatedContainer
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-            className="pt-12 pb-8"
-          >
+          <AnimatedContainer className="pt-12 pb-8">
             <Carousel>
               <CarouselContent>
                 {testimonials.map(({ author, image, quote, role }, index) => (
                   <CarouselItem key={index}>
-                    <div className="grid grid-cols-12 gap-6 items-center">
+                    <div className="grid grid-cols-12 gap-6 items-center cursor-grab">
                       <div className="lg:col-span-8 col-span-12 flex sm:flex-row flex-col sm:gap-10 gap-6 lg:pe-12">
                         <div className="shrink-0 flex items-start">
                           <Image

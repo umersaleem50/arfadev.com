@@ -1,6 +1,5 @@
 "use client";
 import Section from "@/components/section";
-import { useInView } from "motion/react";
 import { useRef } from "react";
 import BrandSlider from "./BrandList";
 import { brandList } from "./data";
@@ -21,19 +20,11 @@ export default function TestimonialSection({
   const clients = module?.clients;
 
   const testimonialRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(testimonialRef, { once: true, amount: 0.1 });
+
   return (
     <Section sectionData={metaData}>
-      <Testimonial
-        testimonials={clients}
-        isInView={isInView}
-        sectionRef={testimonialRef}
-      />
-      <BrandSlider
-        brandList={brandList}
-        isInView={isInView}
-        sectionRef={testimonialRef}
-      />
+      <Testimonial testimonials={clients} sectionRef={testimonialRef} />
+      <BrandSlider brandList={brandList} sectionRef={testimonialRef} />
     </Section>
   );
 }

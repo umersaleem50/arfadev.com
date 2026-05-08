@@ -13,21 +13,14 @@ export interface BrandList {
 function BrandSlider({
   brandList,
   sectionRef,
-  isInView,
 }: {
   brandList: BrandList[];
   sectionRef: Ref<HTMLDivElement>;
-  isInView: boolean;
 }) {
   return (
     <div className="py-6 md:py-10" ref={sectionRef}>
       <div className="max-w-7xl mx-auto sm:px-16 px-4">
-        <AnimatedContainer
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-          className="flex flex-col gap-6 pt-12 border-t border-border"
-        >
+        <AnimatedContainer className="flex flex-col gap-6 pt-12 border-t border-border">
           <p className="text-base font-normal sm:px-2 px-10 text-accent dark:text-primary text-center font-sans">
             We were honored to be part of your journey.
           </p>
