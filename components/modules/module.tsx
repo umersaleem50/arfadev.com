@@ -42,11 +42,6 @@ function Module({ module }: any) {
     case "team":
       return <TeamSection module={module} />;
 
-    // case "grid":
-    //   return <Gallery module={module} />;
-
-    // // case "guarantee":
-    // // return <GridModule module={module} />;
     case "footer":
       return <FooterModule module={module} />;
     case "testimonial":

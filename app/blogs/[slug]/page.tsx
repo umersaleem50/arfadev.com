@@ -8,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 
 import BlogTags from "@/components/BlogTags";
+import ArticleWrapper from "@/components/portable-stucture/ArticleWrapper";
 import { portableComplex } from "@/components/portable-stucture/portable-complex";
 import { getAllBlogSlug, getPost } from "@/sanity/queries";
 
@@ -145,10 +146,10 @@ export default async function Component({
             <ShareButtons />
           </div>
 
-          <article className="dark:text-foreground prose-headings:text-foreground prose-headings:font-medium prose-strong:text-foreground prose-blockquote:text-foreground prose-a:text-primary prose prose-blockquote:border-l-4 prose-blockquote:border-primary md:prose-base prose-headings:font-serif font-sans prose-stone col-start-1 lg:col-span-8 md:col-span-6 col-span-4">
+          <ArticleWrapper>
             <p className="py-10">{description}</p>
             <PortableText value={body} components={portableComplex} />
-          </article>
+          </ArticleWrapper>
 
           <BlogTags tags={tags} />
           <ShareButtons className="col-start-1 col-span-8 pb-12" />
