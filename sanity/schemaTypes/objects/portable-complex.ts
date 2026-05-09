@@ -1,4 +1,6 @@
+import { TextAlign } from "@/components/portable-stucture/TextAlignComponent";
 import { GridFour, Highlighter } from "@phosphor-icons/react/dist/ssr";
+import { AlignCenter, AlignLeft, AlignRight } from "lucide-react";
 import { defineArrayMember, Rule } from "sanity";
 import {
   Header1,
@@ -79,6 +81,30 @@ const portableComplexSchema = {
           { title: "Strike", value: "strike-through" },
           { title: "Code", value: "code" },
           { title: "Underline", value: "underline" },
+          {
+            title: "Left",
+            value: "left",
+            icon: AlignLeft,
+            blockEditor: {
+              render: (props: any) => TextAlign(props),
+            },
+          },
+          {
+            title: "Center",
+            value: "center",
+            icon: AlignCenter,
+            blockEditor: {
+              render: (props: any) => TextAlign(props),
+            },
+          },
+          {
+            title: "Right",
+            value: "right",
+            icon: AlignRight,
+            blockEditor: {
+              render: (props: any) => TextAlign(props),
+            },
+          },
           {
             title: "Highlight",
             value: "highlight",
