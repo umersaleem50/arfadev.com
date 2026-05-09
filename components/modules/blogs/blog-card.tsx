@@ -21,7 +21,7 @@ function BlogCard({
     >
       <div
         className={cn(
-          "shrink-0 relative overflow-hidden h-[300px] sm:w-[300px] sm:h-[450px] w-full group rounded-md",
+          "shrink-0 relative object-cover overflow-hidden sm:w-[300px] h-[450px] w-full group rounded-md",
         )}
       >
         {cover_vertical ? (
@@ -30,6 +30,8 @@ function BlogCard({
             alt={cover_vertical?.alt}
             fill
             image={cover_vertical}
+            style={{ objectFit: "cover" }}
+            objectFit="cover"
           />
         ) : null}
       </div>
