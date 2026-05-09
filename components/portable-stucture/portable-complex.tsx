@@ -17,22 +17,57 @@ const PortableCTA = dynamic(() => import("../portable-cta"));
 
 export const portableComplex: any = {
   block: {
-    strong: ({ children }: { children: React.ReactNode }) => (
-      <strong>{children}</strong>
-    ),
+    strong: ({
+      children,
+      value,
+    }: {
+      children: React.ReactNode;
+      value: any;
+    }) => <strong id={value._key}>{children}</strong>,
 
-    normal: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
-    h1: ({ children }: { children: React.ReactNode }) => <h1>{children}</h1>,
-    h2: ({ children }: { children: React.ReactNode }) => <h2>{children}</h2>,
-    h3: ({ children }: { children: React.ReactNode }) => <h3>{children}</h3>,
-    h4: ({ children }: { children: React.ReactNode }) => <h4>{children}</h4>,
-    h5: ({ children }: { children: React.ReactNode }) => <h5>{children}</h5>,
-    h6: ({ children }: { children: React.ReactNode }) => <h6>{children}</h6>,
-    blockquote: ({ children }: { children: React.ReactNode }) => (
-      <blockquote>{children}</blockquote>
+    normal: ({
+      children,
+      value,
+    }: {
+      children: React.ReactNode;
+      value: any;
+    }) => <p id={value._key}>{children}</p>,
+    h1: ({ children, value }: { children: React.ReactNode; value: any }) => (
+      <h1 id={value._key}>{children}</h1>
     ),
-    figcaption: ({ children }: { children: React.ReactNode }) => (
-      <figcaption className="text-sm text-muted-foreground text-center mt-2">
+    h2: ({ children, value }: { children: React.ReactNode; value: any }) => (
+      <h2 id={value._key}>{children}</h2>
+    ),
+    h3: ({ children, value }: { children: React.ReactNode; value: any }) => (
+      <h3 id={value._key}>{children}</h3>
+    ),
+    h4: ({ children, value }: { children: React.ReactNode; value: any }) => (
+      <h4 id={value._key}>{children}</h4>
+    ),
+    h5: ({ children, value }: { children: React.ReactNode; value: any }) => (
+      <h5 id={value._key}>{children}</h5>
+    ),
+    h6: ({ children, value }: { children: React.ReactNode; value: any }) => (
+      <h6 id={value._key}>{children}</h6>
+    ),
+    blockquote: ({
+      children,
+      value,
+    }: {
+      children: React.ReactNode;
+      value: any;
+    }) => <blockquote key={value._key}>{children}</blockquote>,
+    figcaption: ({
+      children,
+      value,
+    }: {
+      children: React.ReactNode;
+      value: any;
+    }) => (
+      <figcaption
+        className="text-sm text-muted-foreground text-center mt-2"
+        key={value._key}
+      >
         {children}
       </figcaption>
     ),

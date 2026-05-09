@@ -30,6 +30,7 @@ export const BLOGS_POST = `{
             !defined(_ref)=>{${modules}}
             },
             body[]{...,${ptContent},_type == "cta" => @->},
+            "headings": body[style in ["h1","h2","h3","h4"]]{_key,style, "text": pt::text(@)},
             description,
             title,
             cover,

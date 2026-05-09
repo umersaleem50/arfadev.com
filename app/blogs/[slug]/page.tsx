@@ -8,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 
 import BlogTags from "@/components/BlogTags";
+import { TableOfContents } from "@/components/global/TableOfContext";
 import ArticleWrapper from "@/components/portable-stucture/ArticleWrapper";
 import { portableComplex } from "@/components/portable-stucture/portable-complex";
 import { getAllBlogSlug, getPost } from "@/sanity/queries";
@@ -124,6 +125,7 @@ export default async function Component({
     description,
     author,
     body,
+    headings,
     relatedPosts = [],
     schemaMarkup = [],
     _createdAt,
@@ -155,6 +157,9 @@ export default async function Component({
           <ShareButtons className="col-start-1 col-span-8 pb-12" />
           <hr />
         </div>
+        {headings?.length ? (
+          <TableOfContents headings={headings} className="py-8" />
+        ) : null}
         {featuredCaseStudies?.length ? (
           <aside className="max-w-[30rem] pt-12 pb-6 sticky top-8 left-0">
             <h3 className="text-2xl font-serif font-semibold">
