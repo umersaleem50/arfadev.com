@@ -20,6 +20,7 @@ export const portableComplex: any = {
     strong: ({ children }: { children: React.ReactNode }) => (
       <strong>{children}</strong>
     ),
+
     normal: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
     h1: ({ children }: { children: React.ReactNode }) => <h1>{children}</h1>,
     h2: ({ children }: { children: React.ReactNode }) => <h2>{children}</h2>,
@@ -65,6 +66,11 @@ export const portableComplex: any = {
     highlight: ({ children }: { children: React.ReactNode }) => (
       <mark className="bg-accent/85 text-accent-foreground">{children}</mark>
     ),
+    left: ({ children }: any) => <div className="text-left">{children}</div>,
+    center: ({ children }: any) => (
+      <div className="text-center w-full">{children}</div>
+    ),
+    right: ({ children }: any) => <div className="text-right">{children}</div>,
 
     // Ex. 2: rendering a custom `link` annotation
     link: ({ value, children }: { value: any; children: React.ReactNode }) => {
