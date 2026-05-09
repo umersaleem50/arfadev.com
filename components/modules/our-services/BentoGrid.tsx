@@ -17,25 +17,25 @@ const defaultData: BentoItem[] = [
   {
     url: "#",
     description:
-      "We help startups and enterprise businesses to manage their content for marketing campaigns using NextJS and Sanity.io",
+      "Manage your website content with a custom CMS. We develop CMS that helps your website grow on internet.",
     title: "CMS Development",
   },
   {
     url: "#",
     description:
-      "We will deploy, manage, and configure your application or services on Azure cloud.",
+      "We are learning DevOps to help startups with application deployment and Azure Resource management.",
     title: "Azure DevOps",
   },
   {
     url: "#",
     description:
-      "We develop interactive dashboards, portals, and admin panels for web applications.",
+      "We develop MVPs that scales into SaaS platforms for Startups. You design, we develop. ",
     title: "SaaS Development",
   },
   {
     url: "#",
     description:
-      "We develop secure Restful API for the application that scales with your business.",
+      "We develop secure Restful API for the application that scales with your business needs.",
     title: "Backend Development",
   },
 ];

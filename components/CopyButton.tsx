@@ -14,6 +14,7 @@ export interface ButtonCopyProps {
   duration?: number;
   loadingDuration?: number;
   disabled?: boolean;
+  children?: ReactNode;
 }
 
 const defaultIcons = {
@@ -31,6 +32,7 @@ export default function ButtonCopy({
   duration = 2000,
   loadingDuration = 1000,
   disabled = false,
+  children,
 }: ButtonCopyProps) {
   const [buttonState, setButtonState] = useState<
     "idle" | "loading" | "success"
@@ -51,7 +53,7 @@ export default function ButtonCopy({
   }, [onCopy, loadingDuration, duration]);
 
   const icons = {
-    idle: idleIcon,
+    idle: children || idleIcon,
     loading: loadingIcon,
     success: successIcon,
   };
