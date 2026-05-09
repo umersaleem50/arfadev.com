@@ -18,9 +18,9 @@ function CTASection() {
     {
       id: "2",
       type: "feature",
-      title: "Launch Your App with Impact",
-      description: "If you're interested, contact now to get started!",
-      image: "/assets/dashboard.jpg",
+      title: "Send us Email to get started!",
+      description: "And leave the rest on us!",
+      image: "/assets/dashboard.png",
     },
   ];
 

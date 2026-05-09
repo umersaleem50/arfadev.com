@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { InteractiveHoverButton } from "../../InteractiveUIButton";
+import ButtonCopyEmail from "./button-copy-email";
 
 // Types for our bento grid items
 export type BentoItem = {
@@ -73,7 +74,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
         >
           <div className="flex flex-col justify-center z-10 md:w-1/2 items-start">
             <span className="text-xs uppercase text-accent-foreground font-sans font-medium mb-2">
-              Visualise Info
+              Just an email to start
             </span>
             <h2 className="text-3xl md:text-4xl text-accent-foreground font-serif mb-4 text-balance">
               {title}
@@ -81,9 +82,10 @@ function BentoGridItem({ item, className }: BentoItemProps) {
             <p className="text-sm max-w-md text-accent-foreground font-sans">
               {description}
             </p>
-            <InteractiveHoverButton className="mt-4">
-              Send Us Email
-            </InteractiveHoverButton>
+            <div className="flex items-center justify-between gap-x-4 mt-4">
+              <InteractiveHoverButton>Send Us Email</InteractiveHoverButton>
+              <ButtonCopyEmail />
+            </div>
           </div>
 
           {image && (
@@ -100,7 +102,7 @@ function BentoGridItem({ item, className }: BentoItemProps) {
                       src={image || "/placeholder.svg"}
                       alt="visualise"
                       fill
-                      className="object-cover rounded-md"
+                      className="object-cover rounded-md scale-125"
                     />
                   </div>
                 </AnimatedContainer>
