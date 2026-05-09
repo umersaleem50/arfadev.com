@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import AnimatedCards from "./grid-items/cards";
 import { ConversionFunnelAreaChart } from "./grid-items/conversion-funnel-area-chart";
@@ -57,11 +56,6 @@ const Bentogrid = ({ gridData = defaultData }: { gridData?: BentoItem[] }) => {
             <p className="text-base font-sans font-normal text-muted-foreground">
               {firstCell.description}
             </p>
-            <Button className="mt-4" variant={"outline"} asChild>
-              <Link href={firstCell.url}>
-                Learn More <ArrowUpRight />
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
@@ -77,11 +71,6 @@ const Bentogrid = ({ gridData = defaultData }: { gridData?: BentoItem[] }) => {
             <p className="text-base font-sans font-normal text-muted-foreground">
               {secondCell.description}
             </p>
-            <Button className="mt-4" variant={"outline"} asChild>
-              <Link href={secondCell.url}>
-                Learn More <ArrowUpRight />
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
@@ -117,11 +106,6 @@ const Bentogrid = ({ gridData = defaultData }: { gridData?: BentoItem[] }) => {
             <p className="text-base font-sans font-normal text-muted-foreground">
               {forthCell.description}
             </p>
-            <Button className="mt-4" variant={"outline"} asChild>
-              <Link href={forthCell.url}>
-                Learn More <ArrowUpRight />
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
@@ -138,11 +122,6 @@ const Bentogrid = ({ gridData = defaultData }: { gridData?: BentoItem[] }) => {
             <p className="text-base font-sans font-normal text-muted-foreground">
               {fifthCell.description}
             </p>
-            <Button className="mt-4" variant={"outline"} asChild>
-              <Link href={fifthCell.url}>
-                Learn More <ArrowUpRight />
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
