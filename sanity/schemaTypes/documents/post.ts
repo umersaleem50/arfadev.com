@@ -95,6 +95,7 @@ export default defineType({
       group: "content",
       description: "Here you will add content to your blog.",
     },
+
     {
       title: "Other Modules",
       name: "content",
